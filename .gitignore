@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+# pdf files
+lesson02/resources/*.pdf
+coursematerial/*.pdf
+# html output
+lesson02/*/*.html
