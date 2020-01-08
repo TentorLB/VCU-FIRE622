@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+.log
 # pdf files
 lesson02/resources/*.pdf
 coursematerial/*.pdf
