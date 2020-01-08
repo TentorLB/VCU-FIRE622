@@ -1,0 +1,344 @@
+---
+title:  "Exploring Financial Markets and Institutions Through Their Data"
+author: "Larry Tentor"
+#date:   "`r (Sys.Date())`"
+output: pdf_document
+#classoption: landscape
+header-includes:
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
+link-citations: true
+---
+
+---
+references:
+- id: fenner2012a
+  title: One-click science marketing
+  author:
+  - family: Fenner
+    given: Martin
+  container-title: Nature Materials
+  volume: 11
+  URL: 'http://dx.doi.org/10.1038/nmat3283'
+  DOI: 10.1038/nmat3283
+  issue: 4
+  publisher: Nature Publishing Group
+  page: 261-263
+  type: article-journal
+  issued:
+    year: 2012
+    month: 3
+- id: Saunders
+  title: Financial Markets and Institutions
+  author:
+  - family: Saunders
+    given: Anthony
+  - family: Cornett
+    given: Marcia Millon
+#  URL: 'https://kamayanti.files.wordpress.com/2016/09/the-mcgraw-hill_irwin-series-in-finance-insurance-and-real-estate-anthony-saunders-marcia-millon-cornett-financial-markets-and-institutions-mcgraw-hill-education-2011.pdf'
+  issue: 5
+  publisher: McGraw-Hill/Irwin
+  type: book
+  issued:
+    year: 2011
+- id: GrolemundProgram
+  title: Hands-On Programming with R
+  author:
+  - family: Grolemund
+    given: Garrett
+  URL: 'https://rstudio-education.github.io/hopr/'
+  publisher: O’Reilly 
+  type: book
+  
+- id: GrolemundData
+  title: R for Data Science
+  author:
+  - family: Grolemund
+    given: Garrett
+  - family: Wickham
+    given: Hadley
+  URL: 'https://r4ds.had.co.nz/'
+  type: book
+- id: Foote
+  title: Financial Analytics in R
+  author:
+  - family: Foote
+    given: William
+  URL: 'https://bookdown.org/wfoote01/faur/'
+  type: book
+  issued:
+    year: 2018
+- id: FRB
+  title: Purpose and Function
+  author: 
+    - family: Federal Reserve Bank
+  URL: 'https://www.federalreserve.gov/aboutthefed/files/pf_complete.pdf'
+  type: book
+  issued:
+    year: 2016
+    month: 10
+- id: FRBComic
+  title: The Story of The Federal Reserve System
+  author: 
+    - family: Federal Reserve Bank
+  URL: 'https://www.newyorkfed.org/medialibrary/media/outreach-and-education/comic-books/NewYorkFed-StoryoftheFederalReserveSystem-WebColor.pdf'
+  type: book
+  issued:
+    year: 2018
+- id: Hanck
+  title: Introduction to Econometrics with R
+  author:
+  - family: Hanck
+    given: Christoph
+  - family: Arnold
+    given: Martin
+  - family: Gerber
+    given: Alexander
+  - family: Schmelzer
+    given: Martin
+  URL: 'https://bookdown.org/machar1991/ITER/'
+  type: book
+  issued:
+    year: 2018
+- id: Speegle
+  title: Foundations of Statistics with R
+  author:
+  - family: Speegle
+    given: Darrin
+  URL: 'https://bookdown.org/speegled/foundations-of-statistics/'
+  type: book
+  issued:
+    year: 2018
+- id: Zivot
+  title: Descriptive Statistics for Financial Data
+  author:
+  - family: Zivot
+    given: E
+  URL: 'https://faculty.washington.edu/ezivot/econ424/descriptivestatistics.pdf'
+  type: book
+  issued:
+    year: 2015
+- id: Jackson
+  title: A Detailed Look into Peer to Peer Lending
+  author:
+  - family: Jackson
+    given: Kyle
+  URL: 'https://www.econ.berkeley.edu/sites/default/files/KyleJacksonHonorsThesis.pdf'
+  type: book
+
+- id: SEC
+  title: What We Do
+  author:
+  - family: Security and Exchange Commission
+  URL: 'https://www.sec.gov/Article/whatwedo.html'
+  type: book
+- id: Vanguard
+  title: Mutual FUnds
+  author:
+  - family: Vanguard Group
+  URL: 'https://personal.vanguard.com/pdf/ISGSLR.pdf'
+  type: book
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## FIRE 622: Financial Management of Financial Institutions. 3 Hours.
+
+This course is designed as a introduction to Financial Markets and Institutions through the lens of the data they create, curate, and publish.  Many of these institutions regulated the industry and acquire a significant trove of data in their operation for the public good.  In this class we will develop data skills of management, wrangling, and vizualization as an introduction towards financial analytics.
+
+Class time will be divided into institutional knowledge, data understanding, and data manipulation.  The deliverables for this class will primarily be in class participation thru interactive polling, homework assignments and projects, as well as a a mid-term and final exam.
+
+By the end of the semester students will work on reproducible data analysis projects and answer detailed analysis questions. 
+
+
+## Instructor Information
+
+|  |  |
+| ------------- | ----------- |
+| Name:         | Larry Tentor       |
+| Office:       | 1111 E. Main Street, Second Floor |
+|               | (Bank of America Tower)        |
+| Phone:        | 804-344 -3142  |
+| Email:        | TentorLB@VCU.edu |
+| Office hours: | By appointment |
+
+## Texts and Software
+
+We will be using the McGraw Hill Education platform, Connect and Learn Smart, to access Financial Markets & Institutions (Saunders, 7e).  The Connect Access Card has the ISBN 9781260166088.  This will provide active reading and chapter quizes.  The Connect platform provides two free weeks of access to the class material to assist during the drop/add period.  After this the access card may be obtained through the bookstore or directly online through McGraw-Hill.
+
+We will also use additional open source texts for R.  Including Hands-On Programming with R [@GrolemundData] and others. 
+
+We will also be using the programming language R to do data manipulation and analysis.  We will start the semester off using RStudio in the Cloud.  If projects become to demanding it may be necessary to locally install R and RStudio.  Third party accounts are necessary for McGraw Hill Connect, RStudio in the Cloud, and Slack (for class communication/messaging).  The course website is located on VCU's Blackboard platform (http://blackboard.vcu.edu).
+
+## Skills Targeted for Improvement
+
+* Understanding of Financial Institutions.
+* Loading data and manipulation within an analytics platform.
+* Understand data created and curated by different Institutions.
+* Computer software skills: Ability to manipulate software to derive information from data.
+* Technical communication: Ability to summarize and communicate results.
+
+## Assignments and Grading
+
+Assignments should be turned in using the assignement feature on Blackboard. 
+
+Final grades will be composed of 
+
+|  Weight | Activity  |
+| ------: | ----------- |
+|  8 %    | Connect/LearnSmart Assignments |
+|  5 %    | Interactive Polling & Data Camp |
+| 10 % 	  | Homework assignments & quizzes |
+| 47 %    | Projects |
+| 15 %    | Midterm Exam |
+| 15 %    |	Final Exam | 
+
+[comment]: # (
+| 10 %  	| Project - 1 (Mortgage Amortization) |
+| 10 %    |	Project - 2 (MBS Analysis) |
+| 15 % 	  | Project - 3 (Peer Lending) |
+| 15 %	  | Project - 4 (Pension & Sovereign Wealth) |
+| 10 %    | Project - 5 (TBD) |
+)
+
+Each student is responsible to submit homework and is expected to read the assigned readings.  Homework may be discussed with others, while any exams are to be completed independently and pledged. The projects will be applied analysis work that is to be completed individually; with no code sharing, and pledged.  Project questions will be posted to instructor so all can see answers within Slack.  
+
+
+## Student expectations
+
+Students are expected to
+
+* show up for class ready to learn by actively participating.
+* attend class regularly.
+* read appropriate sections in the text, and be familiar with the locations of explanations
+in the readings.
+* be able to learn from different sources - lecture notes, the internet, other books; be
+resourceful.
+* take careful note of topics covered in class that are not in the textbook.
+* start homework problems early, and visit them often.
+* communicate answers as if communicating with a manager or a friend; bring disparate
+material together in a clear, coherent manner.
+* ask the instructor specific questions about dificulties with homework.
+* keep homework, notes, and all associated files for future reference.
+* be able to calculate their current grade - it is a weighted average.
+* treat the instructor and other students with respect.
+
+## Instructor expectations
+
+The instructor is expected to
+
+* be punctual.
+* be available during office hours and by appointment.
+* return graded assignments within 10 days of their due date.
+* provide prompt and clear feedback on assignments.
+* maintain an accurate record of grades.
+* assign homework that clearly reects the goals of the class.
+* create an environment where students are encouraged to ask questions about class material.
+* treat all students with respect.
+
+## Students with Disabilities
+If you have a disability that requires an academic accommodation, please schedule a meeting with me before the end of the second week of the semester and/or within the first week of declaring needs with the Office of Student Accessibility and Educational Opportunity.
+
+## VCU Honor System
+The policy may vary for different assignments. In general, students are encouraged to work in groups on homework assignments outside of class, but each student must write up/type up their own solutions and must understand what they turn in.  For projects NO CODE sharing is allowed, concepts may be discussed but students are to create their own code without reviewing others.  No collaboration is allowed on tests or the final exam.
+
+## Personal Computers
+Personal ownership of a computer that meets certain specifications is required for students enrolled at VCU. Information about the specifications can be found at http://sci.vcu.edu.
+
+## Additional Syllabus Statements
+Additional syllabus statements that apply to this class
+are accessible at http://go.vcu.edu/syllabus. There are statements regarding campus emergency information, class registration requirement for attendance, the Honor System, important dates, managing stress, mandatory responsibility of faculty members to report incidents of sexual misconduct, military short-term training or deployment, student conduct in the classroom, student email policy, student financial responsibility, students representing the University and excused absences, students with disabilities, withdrawal from classes, and faculty communication about students.
+
+\newpage
+\blandscape
+## Session Outline
+```{r sessionOutline, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+# simple table creation here
+tabl <- "  
+| # | Date | Session     | Readings  | Dataset | $\\boxed{\\checkmark}$ |
+|---|------|-------------|-----------|---|:-:|
+| 1 | 16-Jan-2020 | Introduction to Institutions and Their Data | [@Saunders, Chapter 1] | | $\\square$ |
+| 2 | 23-Jan-2020 | Federal Reserve Bank     | [@Saunders, Chapter 3-4] [@FRB] | $\\textsection$ 1 |  $\\square$ |
+|   |             |                          | [@FRB, Chapters 1-2] | | | $\\square$ |
+|   |             |                          | [@FRBComic] | | | $\\square$ |
+| 3 | 30-Jan-2020 | Interest Rates and Time Value of Money | [@Saunders, Chapter 2]   | $\\textsection$ 1 |  $\\square$ |
+| 4 | 06-Feb-2020 | Money Markets & Treasury               | [@Saunders, Chapter 5-6] | $\\textsection$ 2  | $\\square$ |
+| 5 | 13-Feb-2020 | Mortgage Markets                       | [@Saunders, Chapter 7]   | | $\\square$ |
+| 6 | 20-Feb-2020 | Fannie Mae MBS project                 |                          | $\\textsection$ 3  | $\\square$ |
+| 7 | 27-Feb-2020 | Mid-term Exam                          | -- |  | $\\square$ |
+| 8 | 05-Mar-2020 | Loan Markets, Peer-to-Peer Lending     | [@Saunders, Chapter 14]  | $\\textsection$ 4  | $\\square$ |
+|   |             |                                        | [@Jackson] | | | $\\square$ |
+| - | 12-Mar-2020 | Spring Break | -- | | |
+| 9 | 19-Mar-2020 | Peer-to-Peer Lending project  |   |   | $\\square$ |
+| 10 | 26-Mar-2020  | Stock Market                                  | [@Saunders, Chapter 8]  | $\\textsection$ 5 | $\\square$ |
+| 11 | 02-Apr-2020 | Securities and Exchange Commission (SEC)     | [@Saunders, Chapter 16] |  | $\\square$ |
+|    |             |                                              | [@SEC]                  | | | $\\square$ |
+| 12 | 09-Apr-2020 | Mutual Funds & ETFs                          | [@Saunders, Chapter 17] |  | $\\square$ |
+| 13 | 16-Apr-2020 | Pension Funds & Sovereign Wealth Funds       | [@Saunders, Chapter 18] | $\\textsection$ 5  | $\\square$ |
+| 14 | 23-Apr-2020 | Foreign Exchange Markets                     | [@Saunders, Chapter 9] | | $\\square$ |
+| 15 | 30-Apr-2020 | Final Exam Block |  |  | $\\square$ |
+
+\\pagebreak
+"
+# | 3 | Tools of Data Analysis      |    [@GrolemundProgram, Chapter 1-3, Appendix A-C]  | Monte Carlo Example |  $\\square$ |
+# | 3A | Financial Statistics     |    [@Zivot,p1-19] | | $\\square$ |
+# | A1* | --         | World Bank     |    | $\\textsection$ 6 | $\\boxdot$ |
+# | A2* | --         | International Monetary Fund     |   |  $\\textsection$ 7   | $\\boxdot$ |
+# | A3* | Accounting Standards (FASB) & Financial Audits     |  |    | $\\boxdot$ |
+# | A3* | --         | Commercial Banks                            | [@Saunders, Chapter 11] | | $\\square$ |
+
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+```
+
+## Dataset Outline
+
+```{r datasetOutline, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+# simple table creation here
+tabl <- "  
+| Dataset # | Dataset | Web Address |
+|-----|---------|-------------|
+|  $\\textsection$ 1 | US Federal Reserve Bank FRED | https://fred.stlouisfed.org/ |
+|  $\\textsection$ 2 | US Treasury Direct           | https://www.treasurydirect.gov/ |
+|  $\\textsection$ 3 | Fannie Mae Loan Performance Data | https://www.fanniemae.com/portal/funding-the-market/data/loan-performance-data.html |
+|  $\\textsection$ 4 | Lending Club | https://www.lendingclub.com/info/download-data.action |
+|  $\\textsection$ 5 | US Security and Exchange Commission | https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent |
+|  $\\textsection$ 6 | World Bank | https://data.worldbank.org/ |
+|  $\\textsection$ 7 | International Monetary Fund | https://www.imf.org/en/Data |
+"
+
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+```
+
+
+## DataCamp Outline
+
+```{r dataCampOutline, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+# simple table creation here
+tabl <- "  
+| Date | Data Camp Course | Expected Effort |
+|------|------------------|-----------------|
+|  23-Jan-2020 | Introdction to R for Finance | 4 hours |
+|  30-Jan-2020 | Intermediate R for Finance   | 5 hours |
+|              | Manipulating Time Series Data in R | 4 hours |
+|              | Importing and Managing Financial Data in R | 5 hours |
+|              | Introduction to Portfolio Analysis in R | 5 hours |
+|              | Intermediate Portfolio Analysis in R | 5 hours |
+|              | Bond Valuation and Analysis in R  | 5 hours |
+|              | Quantitative Risk Management in R  | 5 hours |
+|              | Financial Analytics in R  | 5 hours |
+|              | Equity Valuation in R  | 4 hours |
+"
+
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+```
+
+
+\elandscape
+
+# References
+
+
+
