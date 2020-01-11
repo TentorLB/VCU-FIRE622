@@ -7,4 +7,5 @@
 lesson02/resources/*.pdf
 coursematerial/*.pdf
 # html output
+lesson01/*/*.html
 lesson02/*/*.html
