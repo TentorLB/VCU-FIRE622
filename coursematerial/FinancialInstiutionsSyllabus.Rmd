@@ -147,9 +147,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## FIRE 622: Financial Management of Financial Institutions. 3 Hours.
 
-This course is designed as a introduction to Financial Markets and Institutions through the lens of the data they create, curate, and publish.  Many of these institutions regulated the industry and acquire a significant trove of data in their operation for the public good.  In this class we will develop data skills of management, wrangling, and vizualization as an introduction towards financial analytics.
+This course is designed as a introduction to Financial Markets and Institutions through the lens of the data they create, curate, and publish.  Many of these institutions regulated the industry and acquire a significant trove of data in their operation for the public good.  In this class we will develop data skills of management, wrangling, and visualization as an introduction towards financial analytics.
 
-Class time will be divided into institutional knowledge, data understanding, and data manipulation.  The deliverables for this class will primarily be in class participation thru interactive polling, homework assignments and projects, as well as a a mid-term and final exam.
+Class time will be divided into institutional knowledge, data understanding, and data manipulation.  The deliverables for this class will primarily be in class participation through interactive polling, homework assignments and projects, as well as a a mid-term and final exam.
 
 By the end of the semester students will work on reproducible data analysis projects and answer detailed analysis questions. 
 
@@ -167,7 +167,7 @@ By the end of the semester students will work on reproducible data analysis proj
 
 ## Texts and Software
 
-We will be using the McGraw Hill Education platform, Connect and Learn Smart, to access Financial Markets & Institutions (Saunders, 7e).  The Connect Access Card has the ISBN 9781260166088.  This will provide active reading and chapter quizes.  The Connect platform provides two free weeks of access to the class material to assist during the drop/add period.  After this the access card may be obtained through the bookstore or directly online through McGraw-Hill.
+We will be using the McGraw Hill Education platform, Connect and Learn Smart, to access Financial Markets & Institutions (Saunders, 7e).  The Connect Access Card has the ISBN 9781260166088.  This will provide active reading and chapter quizzes.  The Connect platform provides two free weeks of access to the class material to assist during the drop/add period.  After this the access card may be obtained through the bookstore or directly online through McGraw-Hill.
 
 We will also use additional open source texts for R.  Including Hands-On Programming with R [@GrolemundData] and others. 
 
@@ -183,7 +183,7 @@ We will also be using the programming language R to do data manipulation and ana
 
 ## Assignments and Grading
 
-Assignments should be turned in using the assignement feature on Blackboard. 
+Assignments should be turned in using the assignment feature on Blackboard. 
 
 Final grades will be composed of 
 
@@ -206,6 +206,7 @@ Final grades will be composed of
 
 Each student is responsible to submit homework and is expected to read the assigned readings.  Homework may be discussed with others, while any exams are to be completed independently and pledged. The projects will be applied analysis work that is to be completed individually; with no code sharing, and pledged.  Project questions will be posted to instructor so all can see answers within Slack.  
 
+Quizzes will be given weekly to aid in recall and understanding of the course material.
 
 ## Student expectations
 
@@ -221,7 +222,7 @@ resourceful.
 * start homework problems early, and visit them often.
 * communicate answers as if communicating with a manager or a friend; bring disparate
 material together in a clear, coherent manner.
-* ask the instructor specific questions about dificulties with homework.
+* ask the instructor specific questions about difficulties with homework.
 * keep homework, notes, and all associated files for future reference.
 * be able to calculate their current grade - it is a weighted average.
 * treat the instructor and other students with respect.
@@ -235,7 +236,7 @@ The instructor is expected to
 * return graded assignments within 10 days of their due date.
 * provide prompt and clear feedback on assignments.
 * maintain an accurate record of grades.
-* assign homework that clearly reects the goals of the class.
+* assign homework that clearly respects the goals of the class.
 * create an environment where students are encouraged to ask questions about class material.
 * treat all students with respect.
 
@@ -258,7 +259,7 @@ are accessible at http://go.vcu.edu/syllabus. There are statements regarding cam
 ```{r sessionOutline, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 # simple table creation here
 tabl <- "  
-| # | Date | Session     | Readings  | Dataset | $\\boxed{\\checkmark}$ |
+| # | Date | Session     | Readings  | Data set | $\\boxed{\\checkmark}$ |
 |---|------|-------------|-----------|---|:-:|
 | 1 | 16-Jan-2020 | Introduction to Institutions and Their Data | [@Saunders, Chapter 1] | | $\\square$ |
 | 2 | 23-Jan-2020 | Federal Reserve Bank     | [@Saunders, Chapter 3-4] [@FRB] | $\\textsection$ 1 |  $\\square$ |
@@ -293,12 +294,12 @@ tabl <- "
 cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
-## Dataset Outline
+## Data set Outline
 
 ```{r datasetOutline, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 # simple table creation here
 tabl <- "  
-| Dataset # | Dataset | Web Address |
+| Data set # | Data set | Web Address |
 |-----|---------|-------------|
 |  $\\textsection$ 1 | US Federal Reserve Bank FRED | https://fred.stlouisfed.org/ |
 |  $\\textsection$ 2 | US Treasury Direct           | https://www.treasurydirect.gov/ |
@@ -320,7 +321,7 @@ cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
 tabl <- "  
 | Date | Data Camp Course | Expected Effort |
 |------|------------------|-----------------|
-|  23-Jan-2020 | Introdction to R for Finance | 4 hours |
+|  23-Jan-2020 | Introduction to R for Finance | 4 hours |
 |  30-Jan-2020 | Intermediate R for Finance   | 5 hours |
 |              | Manipulating Time Series Data in R | 4 hours |
 |              | Importing and Managing Financial Data in R | 5 hours |
