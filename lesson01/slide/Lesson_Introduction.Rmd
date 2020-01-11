@@ -54,6 +54,14 @@ knitr::opts_chunk$set(echo = FALSE)
       - The data that these institutions create and curate
       - Tools to process this data in a reproducible manner
 
+<div class="notes">
+This is my *note*.
+
+- It can contain markdown
+- like this list
+
+</div>
+
 ## Systems
 
 | Activity | Application | Cost |
@@ -232,6 +240,7 @@ Volcker Rule: Insured institutions may not engage in proprietary trading
 
   - Sign up for R-Studio in the Cloud
   - Activate class shared space, link on blackboard.
+
 
 ## Tasks
   
