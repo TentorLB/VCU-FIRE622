@@ -2,22 +2,24 @@
 title: "Introduction to R and RStudio"
 author: "Larry Tentor"
 #date:   "`r (Sys.Date())`"
-#output: rmdformats::readthedown
+always_allow_html: true
 output:
+  ioslides_presentation:
 #  html_document:
 #    toc: true
 #    toc_float: true
 #    theme: united
 #    code_folding: hide
-  html_document:
-    code_folding: hide
-    df_print: kable
-    theme: simplex
-    toc: true
-    urlcolor: blue
-    toc_float:
-      collapsed: false
-      smooth_scroll: false
+#  html_document:
+#    code_folding: hide
+#    df_print: kable
+#    theme: simplex
+#    toc: true
+#    urlcolor: blue
+#    toc_float:
+#      collapsed: false
+#      smooth_scroll: false
+#output: rmdformats::readthedown
       
 ---
 
@@ -79,22 +81,43 @@ Positions within IDE
 333 / 3
 ```
 
-### Time for Exercise 01-A.
+## Exercise 01-A.
   Paired Programming.
   
 
 ## Variables
 
-We can store our intermediant calculations in a storage location.
+We can store our intermediant calculations in a storage location.  Atomic storage for numeric, integer, and character.
 
-### my_variable
+### my_variable numeric
 
-```{r Division}
-# Division
-333 / 3
+```{r}
+my_variable <- 3 * 7
+
+my_variable
+class(my_variable)
 ```
 
+### my_variable integer
 
+```{r}
+my_variable <- 3L
+
+my_variable
+class(my_variable)
+```
+
+### my_variable character string
+
+```{r}
+my_variable <- "This is a text string"
+
+my_variable
+class(my_variable)
+```
+
+## Exercise 01-B.
+  Switch pairing assignement.
 
 ## Session Info
 
