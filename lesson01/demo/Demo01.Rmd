@@ -1,0 +1,111 @@
+---
+title: "Introduction to R and RStudio"
+author: "Larry Tentor"
+#date:   "`r (Sys.Date())`"
+#output: rmdformats::readthedown
+output:
+#  html_document:
+#    toc: true
+#    toc_float: true
+#    theme: united
+#    code_folding: hide
+  html_document:
+    code_folding: hide
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+      
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## What is R
+
+Our view for this class
+
+- An interactive environment for doing data science
+- A place for repeatable analysis/reproducible research 
+    -  https://r4ds.had.co.nz/introduction.html
+- [R Project](https://www.r-project.org/about.html)
+
+
+## RStudio Cloud IDE
+
+Let's start by reviewing the RStudio Cloud Integrated Development Environment (IDE).  An [introduction](https://bookdown.org/ageraci/STAT160Companion/intro.html) is found here.
+
+Positions within IDE 
+
+|        | left      | right      |
+|--------|-----------|------------|
+| top    |Text Editor|IDE Settings|
+| bottom |Console    |R Viewers |
+
+[IDE Cheatsheet](https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+
+
+## Sample Calculations in the console
+
+### Addition
+
+```{r Addition}
+# Addition
+105 + 783
+```
+### Subtraction
+
+```{r Subtration}
+# Subtraction
+4781 - 832
+```
+
+### Multiplication
+
+```{r Multiplication}
+# Multiplication
+333 * 7
+```
+
+### Division $\div$
+
+```{r Division}
+# Division
+333 / 3
+```
+
+### Time for Exercise 01-A.
+  Paired Programming.
+  
+
+## Variables
+
+We can store our intermediant calculations in a storage location.
+
+### my_variable
+
+```{r Division}
+# Division
+333 / 3
+```
+
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+
+
