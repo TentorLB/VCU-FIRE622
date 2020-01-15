@@ -16,46 +16,34 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Sample Calculations in the console
+# Variables
 
-### Addition
+## Variables - Numeric
 
-Updated the variables to calculate one hundred and fifty five plus three hundred and two.
+Let's store the sum of two hundred and three plus three hundred and sixty five into my_sum.  Then print the value of this variable.
 
-```{r Addition}
-# Addition
-105 + 783
+```{r variableNumeric}
+
+
 ```
 
-### Subtraction
+## Variables - Integer
 
-Update the variables to calculate one thousand two hundred and seven minus forty seven.
+Remember how to work with integers (L).. Store the integer sum of 3 and 4 into my_integer.
 
-```{r Subtration}
-# Subtraction
-4781 - 832
+```{r variableInteger}
+
+
 ```
 
-### Multiplication
+## Variables - Character
 
-Let's calculate three times seventy four.
+Let's store the message "FIRE 622 is awesome!" into my_string.
 
-```{r Multiplication}
-# Multiplication
-333 * 7
+```{r variableCharacter}
+
+
 ```
-
-### Division $\div$
-
-Determine one quarter of two hundred and four.
-
-```{r Division}
-# Division
-333 / 3
-```
-
-
-
 
 
 ## Session Info
