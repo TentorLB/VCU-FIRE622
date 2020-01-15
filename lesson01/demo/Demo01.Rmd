@@ -52,7 +52,7 @@ Positions within IDE
 [IDE Cheatsheet](https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
 
 
-## Sample Calculations in the console
+## Sample Calculations in the console - 1
 
 ### Addition
 
@@ -66,6 +66,8 @@ Positions within IDE
 # Subtraction
 4781 - 832
 ```
+
+## Sample Calculations in the console - 2
 
 ### Multiplication
 
@@ -82,12 +84,12 @@ Positions within IDE
 ```
 
 ## Exercise 01-A.
-  Paired Programming.
+  [Paired Programming](https://docs.google.com/presentation/d/1E-afLHWmYcTjO0z_hBpAw3AL4Gp4qVQNLOsxP_hq3fI/edit#slide=id.p)
   
 
-## Variables
+## Variables - 1
 
-We can store our intermediant calculations in a storage location.  Atomic storage for numeric, integer, and character.
+We can store our intermediate calculations in a storage location.  Atomic storage for numeric, integer, and character.
 
 ### my_variable numeric
 
@@ -98,6 +100,8 @@ my_variable
 class(my_variable)
 ```
 
+## Variables - 2
+
 ### my_variable integer
 
 ```{r}
@@ -106,6 +110,8 @@ my_variable <- 3L
 my_variable
 class(my_variable)
 ```
+
+## Variables - 3
 
 ### my_variable character string
 
@@ -116,8 +122,62 @@ my_variable
 class(my_variable)
 ```
 
+## Variables - 4
+
+### my_date date type
+
+```{r}
+my_variable <- as.Date("1971-03-02")
+
+my_variable
+class(my_variable)
+```
+
 ## Exercise 01-B.
-  Switch pairing assignement.
+  Switch pairing assignment.
+
+
+## Loading files
+```{r}
+my_file <- "../data/DebtTothePenny.csv"
+
+# Help file lines
+# ?read.csv
+# read.csv(file, header = TRUE, sep = ",", quote = "\"",
+#         dec = ".", fill = TRUE, comment.char = "", ...)
+
+DebtTothePenny <- read.csv(my_file, header = TRUE, stringsAsFactors = FALSE)
+
+head(DebtTothePenny)
+```
+
+## What is "DebtTothePenny"? 
+
+```{r}
+class(DebtTothePenny)
+```
+Let's look at how to get to specific data elements.
+
+## data.frames - Indicies - Row
+```{r}
+DebtTothePenny[1,] # Select the first row, all columns
+```
+
+## data.frames - Indicies - Row Range and Column
+```{r}
+DebtTothePenny[1:5,2] # Select the first row, all columns
+```
+What kind of data is stored in the second column?
+
+## Data Types
+
+```{r}
+head(DebtTothePenny$Public.Debt)
+```
+
+```{r}
+class(DebtTothePenny$Public.Debt)
+```
 
 ## Session Info
 

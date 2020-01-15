@@ -1,0 +1,77 @@
+---
+title: "Exercise 01-C"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Sample Calculations in the console
+
+### Addition
+
+Updated the variables to calculate one hundred and fifty five plus three hundred and two.
+
+```{r Addition}
+# Addition
+105 + 783
+```
+
+### Subtraction
+
+Update the variables to calculate one thousand two hundred and seven minus forty seven.
+
+```{r Subtration}
+# Subtraction
+4781 - 832
+```
+
+### Multiplication
+
+Let's calculate three times seventy four.
+
+```{r Multiplication}
+# Multiplication
+333 * 7
+```
+
+### Division $\div$
+
+Determine one quarter of two hundred and four.
+
+```{r Division}
+# Division
+333 / 3
+```
+
+
+
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
