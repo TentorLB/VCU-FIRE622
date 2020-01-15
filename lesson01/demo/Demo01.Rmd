@@ -25,6 +25,8 @@ output:
 
 ```{r setupExclude, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(tidyverse)
 ```
 
 
@@ -175,6 +177,22 @@ What kind of data is stored in the second column?
 head(DebtTothePenny$Public.Debt)
 ```
 
+## Data Types
+
+```{r}
+ DebtTothePenny$Date       <- as.Date(DebtTothePenny$Effective.Date, "%m/%d/%y")
+ DebtTothePenny$PublicDebt <- parse_number(DebtTothePenny$Public.Debt)
+ DebtTothePenny$TotalDebt  <- parse_number(DebtTothePenny$Total.Debt)
+```
+
+## Data Types
+
+```{r}
+ head(DebtTothePenny)
+```
+
+ 
+ 
 ```{r}
 class(DebtTothePenny$Public.Debt)
 ```
