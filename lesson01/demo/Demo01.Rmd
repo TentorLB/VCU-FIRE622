@@ -177,24 +177,29 @@ What kind of data is stored in the second column?
 head(DebtTothePenny$Public.Debt)
 ```
 
-## Data Types
+## Clean up Data Types
+
+Let's create a new dataframe 'Debt' to store the data in desired format.
 
 ```{r}
- DebtTothePenny$Date       <- as.Date(DebtTothePenny$Effective.Date, "%m/%d/%y")
- DebtTothePenny$PublicDebt <- parse_number(DebtTothePenny$Public.Debt)
- DebtTothePenny$TotalDebt  <- parse_number(DebtTothePenny$Total.Debt)
+  Debt <- data.frame( date       = as.Date(DebtTothePenny$Effective.Date, "%m/%d/%y")
+                    , debtPublic = parse_number(DebtTothePenny$Public.Debt)
+                    , debtTotal  = parse_number(DebtTothePenny$Total.Debt))
+
 ```
 
 ## Data Types
 
 ```{r}
- head(DebtTothePenny)
+ head(Debt)
 ```
 
  
  
 ```{r}
-class(DebtTothePenny$Public.Debt)
+ggplot(Debt, aes(x=date, y=debtTotal)) +
+  geom_line() + 
+  xlab("Date")
 ```
 
 ## Session Info
