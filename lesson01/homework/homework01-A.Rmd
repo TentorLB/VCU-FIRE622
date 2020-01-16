@@ -1,5 +1,5 @@
 ---
-title: "Exercise 01-C"
+title: "Homework 01-A"
 author: "(fill in your name)"
 output:
   html_document:
@@ -19,18 +19,19 @@ library(ggplot2)
 
 ## Specify file
 
-Within RStudio IDE, from the exercise folder go up and look into the data folder.  Replace filename.csv with UNRATE.csv. 
+In this exercise you will have to download a file from the Federal Reserve Bank and load it.  The rates for fifteen year mortgages are available at https://fred.stlouisfed.org/series/MORTGAGE15US.  Using the "Download" button store this on you computer and then load to RStudio Cloud into the lesson01/data directory
+
 
 ```{r fileLocation}
 #my_file <- "../data/filename.csv"
-
 ```
 
 ## Load
 
 
-```{r unemployment rate}
-unrate <- read.csv(my_file, header = TRUE, stringsAsFactors = FALSE)
+```{r mortgage}
+#mortgage <- read.csv(...)
+
 
 ```
 
@@ -50,31 +51,34 @@ Use either the head function to review the first few rows of the dataset or the 
 ```{r}
 #function_name(variable_name)
 
+
 ```
 ## Data Manipulation
 
 The DATE field is stored as what data type?
 
-How do we convert it to a date format?
+How do we convert it to a date format? And store 
 
 Try ?as.Date
 
 
 ```{r}
-#function_name(variable_name)
-#unrate$Date <- as.Date(???,???)
+#mortgage$Date <- as.Date(...)
 
 ```
 
-## Plot the unemployment rate
+## Plot the mortgage rate
 
 Does this look as you expect?
 
-We will spend additional time on plotting in a follow up session.
+Include a comment on the comparison of the 15 year rates to the 30 year rates ploted in Exercise D.
+
+<<Insert Answer here>>
+
+Submit the single html file "homework01-A.html", Blackboard may require that you zip it prior to submission.
 
 ```{r}
-
-ggplot(unrate, aes(x=Date, y=UNRATE)) +
+ggplot(mortgage, aes(x=Date, y=MORTGAGE15US)) +
   geom_line() + 
   xlab("Date")
 

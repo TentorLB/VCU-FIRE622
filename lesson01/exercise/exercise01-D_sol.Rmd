@@ -1,5 +1,5 @@
 ---
-title: "Exercise 01-C"
+title: "Exercise 01-D"
 author: "(fill in your name)"
 output:
   html_document:
@@ -19,18 +19,20 @@ library(ggplot2)
 
 ## Specify file
 
-Within RStudio IDE, from the exercise folder go up and look into the data folder.  Replace filename.csv with UNRATE.csv. 
+Within RStudio IDE, from the exercise folder go up and look into the data folder.  Find the data file for US 30 year mortgage interest rates and replace "filename.csv" with this.  Capitalization does come into play.
 
 ```{r fileLocation}
 #my_file <- "../data/filename.csv"
-
+my_file <- "../data/MORTGAGE30US.csv"
 ```
 
 ## Load
 
 
-```{r unemployment rate}
-unrate <- read.csv(my_file, header = TRUE, stringsAsFactors = FALSE)
+```{r mortgage}
+#mortgage <- read.csv(...)
+
+mortgage <- read.csv(my_file, header = TRUE, stringsAsFactors = FALSE)
 
 ```
 
@@ -40,7 +42,7 @@ Replace "function_name" with the correct name of the function to examine the obj
 
 ```{r}
 #function_name(variable_name)
-
+class(mortgage)
 ```
 
 ## Examine the content of the data.frame
@@ -49,24 +51,25 @@ Use either the head function to review the first few rows of the dataset or the 
 
 ```{r}
 #function_name(variable_name)
+head(mortgage)
 
 ```
 ## Data Manipulation
 
 The DATE field is stored as what data type?
 
-How do we convert it to a date format?
+How do we convert it to a date format? And store 
 
 Try ?as.Date
 
 
 ```{r}
 #function_name(variable_name)
-#unrate$Date <- as.Date(???,???)
+mortgage$Date <- as.Date(mortgage$DATE,'%m/%d/%Y')
 
 ```
 
-## Plot the unemployment rate
+## Plot the mortgage rate
 
 Does this look as you expect?
 
@@ -74,7 +77,7 @@ We will spend additional time on plotting in a follow up session.
 
 ```{r}
 
-ggplot(unrate, aes(x=Date, y=UNRATE)) +
+ggplot(mortgage, aes(x=Date, y=MORTGAGE30US)) +
   geom_line() + 
   xlab("Date")
 

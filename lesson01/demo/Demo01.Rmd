@@ -167,7 +167,7 @@ DebtTothePenny[1,] # Select the first row, all columns
 
 ## data.frames - Indicies - Row Range and Column
 ```{r}
-DebtTothePenny[1:5,2] # Select the first row, all columns
+DebtTothePenny[1:5,2] # Select the first to fifth row, second column
 ```
 What kind of data is stored in the second column?
 
