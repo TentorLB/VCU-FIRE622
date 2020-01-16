@@ -22,7 +22,9 @@ library(ggplot2)
 Within RStudio IDE, from the exercise folder go up and look into the data folder.  Replace filename.csv with UNRATE.csv. 
 
 ```{r fileLocation}
+
 #my_file <- "../data/filename.csv"
+my_file <- "../data/UNRATE.csv"
 
 ```
 
@@ -40,6 +42,7 @@ Replace "function_name" with the correct name of the function to examine the obj
 
 ```{r}
 #function_name(variable_name)
+class(unrate)
 
 ```
 
@@ -47,8 +50,9 @@ Replace "function_name" with the correct name of the function to examine the obj
 
 Use either the head function to review the first few rows of the dataset or the tail function to review the last few lines of the dataset.
 
-```{r}
+```{r contents}
 #function_name(variable_name)
+head(unrate)
 
 ```
 ## Data Manipulation
@@ -60,19 +64,24 @@ How do we convert it to a date format?
 Try ?as.Date
 
 
-```{r}
+```{r dateManipulation}
 #function_name(variable_name)
+class(unrate$DATE)
+
 #unrate$Date <- as.Date(???,???)
+unrate$Date <- as.Date(unrate$DATE,"%m/%d/%Y")
+
+class(unrate$Date)
 
 ```
 
 ## Plot the unemployment rate
 
-Does this look as you expect?
+Does this look as you expect?  If not what do you do?
 
 We will spend additional time on plotting in a follow up session.
 
-```{r}
+```{r plot}
 
 ggplot(unrate, aes(x=Date, y=UNRATE)) +
   geom_line() + 
