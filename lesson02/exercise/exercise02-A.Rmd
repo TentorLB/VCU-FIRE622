@@ -1,0 +1,92 @@
+---
+title: "Exercise 01-A"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Exercise Directions
+
+This file contains an exercise.  Please read the text and adjust the necessary code chunks (between ``` symbols), to accomplish the stated goal.
+
+## Time Value of Money
+
+### Exercise Problem
+
+You firm has expected cash flows from a contract of \$1,000, \$2,000 and \$3,000. 
+
+
+```{r}
+
+cf       <- c(___,___,___)  # This is a vector c()ombine!
+r        <- 2.5/100
+g        <- 1+r
+year     <- 1:length(cf)
+discount <- 1/g^year
+pvN      <- cf * discount 
+pv       <- sum(pvN)
+
+#print(discount)
+#print(pvN)
+print(pv)
+```
+
+### Subtraction
+
+Update the variables to calculate one thousand two hundred and seven minus forty seven.
+
+```{r Subtration}
+# Subtraction
+4781 - 832
+```
+
+### Multiplication
+
+Let's calculate three times seventy four.
+
+```{r Multiplication}
+# Multiplication
+333 * 7
+```
+
+### Division $\div$
+
+Determine one quarter of two hundred and four.
+
+```{r Division}
+# Division
+333 / 3
+```
+
+
+
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+

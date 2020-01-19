@@ -1,0 +1,98 @@
+---
+title: "Present Value and Federal Reserve in R"
+author: "Larry Tentor"
+always_allow_html: true
+output:
+  ioslides_presentation
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(tidyverse)
+```
+
+
+## Interest Rates
+
+$PV = \frac{CF_1}{(1+r)^1} + \frac{CF_2}{(1+r)^2} + ... + \frac{CF_n}{(1+r)^n}$
+
+$CF_t$ = cash flow in period t (t = 1, …, n)
+
+n = number of periods in the investment horizon
+
+Problem: We are owed \$2,000 at the end of the first year and \$4,000 at the end of the second year.  The nominal interest rate is 2.5% per annum. What is the present value?
+
+
+## Present Value - Problem Specific
+
+```{r PV_ProblemSpecific}
+pv <- 2000/(1+2.5/100) + 4000/(1+2.5/100)^2
+pv
+```
+
+## Present Value - With Variables
+
+```{r PV_withVariables}
+cf1 <- 2000
+cf2 <- 4000
+r   <- 2.5/100
+pv  <- cf1/(1+r)+cf2/(1+r)^2
+pv
+```
+
+## Present Value - With vectors
+
+```{r PV_withVectors}
+cf       <- c(2000,4000)  # This is a vector c()ombine!
+r        <- 2.5/100
+g        <- 1+r
+year     <- 1:length(cf)  # What does this create?
+discount <- 1/g^year
+pvN      <- cf * discount 
+pv       <- sum(pvN)
+
+#print(discount)
+#print(pvN)
+print(pv)
+```
+
+## Extended Problem
+
+We now found out the the cash flow stream included a payment at the end of year three of \$3,000 and end of year four of \$2,000.
+
+Which of the three above solutions requires the fewest changes and scales most easily.
+
+## Extended Problem with Vectors
+
+```{r PV_ExtendedwithVectors}
+cf       <- c(2000,4000,3000,2000)  # This is a vector c()ombine!
+r        <- 2.5/100
+g        <- 1+r
+year     <- 1:length(cf)
+discount <- 1/g^year
+pvN      <- cf * discount 
+pv       <- sum(pvN)
+
+#discount
+#pvN
+pv
+```
+What did we have to do to get this to work?
+
+## Exercise 02-A.
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+
+
