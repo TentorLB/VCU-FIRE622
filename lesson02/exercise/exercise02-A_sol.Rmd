@@ -24,16 +24,16 @@ This file contains an exercise.  Please read the text and adjust the necessary c
 
 ### TVM Problem 1
 
-You firm has expected cash flows from a contract of \$1,000, \$2,000 and \$3,000. The prevaling interest rate is 5% per annum.  Calculate the present value.  Update the ___ sections to provide the correct answer.
+You firm has expected cash flows from a contract of \$1,000, \$2,000 and \$3,000. The prevaling interest rate is 5% per annum.  Calculate the present value.
 
 
 ```{r TVM01}
-cf       <- ___
-r        <- ___
+cf       <- c(1000,2000,3000)  # This is a vector c()ombine!
+r        <- 5/100
 g        <- 1+r
 year     <- 1:length(cf)    
 discount <- 1/g^year
-pvN      <- cf * discount # What is stored in this variable?
+pvN      <- cf * discount 
 pv       <- sum(pvN)
 
 print(pv)
@@ -41,13 +41,13 @@ print(pv)
 
 ### TVM Problem 2
 
-You just got an update and additional detail on the term structure of interest rates.  The rate for period 1($_0r_1$) is 5%, the rate for period 2 ($_0r_2$) is 6%, and the rate for period 3 ($_0r_3$) is 7%.  What changes do you propose below?  Update the ___ sections to provide the correct answer.
+You just got an update and additional detail on the term structure of interest rates.  The rate for period 1($_0r_1$) is 5%, the rate for period 2 ($_0r_2$) is 6%, and the rate for period 3 ($_0r_3$) is 7%.  What changes do you propose below?  This version is without the tvm library, we will use it in problem 4.
 
 
 ```{r}
 
-cf       <- ___ 
-r        <- ___
+cf       <- c(1000,2000,3000)  # This is a vector c()ombine!
+r        <- c(5/100, 6/100, 7/100)
 g        <- 1+r
 year     <- 1:length(cf)    
 discount <- 1/g^year

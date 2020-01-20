@@ -1,5 +1,5 @@
 ---
-title: "Present Value and Federal Reserve in R"
+title: "TVM and Federal Reserve in R"
 author: "Larry Tentor"
 always_allow_html: true
 output:
@@ -10,6 +10,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(readr)
 library(tidyverse)
+library(tvm)
+library(FinancialMath)
 ```
 
 
@@ -81,6 +83,60 @@ pv
 What did we have to do to get this to work?
 
 ## Exercise 02-A.
+
+## Library Functions
+
+R has the ability to extend it capabilities by others efforts.  This is most common done in sharing a package.  This is a collection of functions that you may leverage for your own calculations.
+
+One such package is 'tvm' (Time Value of Money) which we can use for our calculations.
+
+For the Excel user, the following functions will be known
+
+* npv
+* xnpv
+* irr
+* xirr
+* pmt
+* rate
+
+## Net Present Value (NPV) 01
+
+Find the Net Present Value of 
+
+```{r TVM01, echo = FALSE}
+library(tvm)
+cf <- c(2000,4000)
+t  <- c(1,2)
+r  <- 0.025
+cf.analysis(cf=cf,times=t,i=r,time.d =TRUE)
+```
+
+## Net Present Value (NPV) 02 
+
+```{r TVM02}
+library(tvm)
+cf <- c(2000,4000)
+t  <- c(1,2)
+r  <- 0.025
+
+npv(i = r, cf = cf, ts = t)
+```
+## Discount Value: Term Structure and Rate Curves
+
+```{r TVM03}
+library(tvm)
+
+cf        <- c(2000,4000)     # This is a vector c()ombine!
+r         <- c(0.025,0.025)
+rateCurve <- rate_curve(rates = r, rate_type = "zero_eff")
+pv        <- disc_value(rateCurve, cf = cf)
+
+print(pv)
+
+```
+
+
+## Exercise 02-B.
 
 
 ## Session Info
