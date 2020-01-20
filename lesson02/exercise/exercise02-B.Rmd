@@ -1,0 +1,87 @@
+---
+title: "Exercise 02-B Solution"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages(tvm)
+library(tvm)
+```
+
+## Exercise Directions
+
+This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.
+
+## Time Value of Money -- Library functions
+
+### TVM Problem 3
+
+You firm has expected cash flows from a contract of \$1,000, \$2,000 and \$3,000. The prevaling interest rate is 5% per annum.  Calculate the present value.
+
+Let's try some library functions that are built to calculate the present value.  We will use the 'tvm' (Time Value of Money) library.
+
+
+```{r TVM03}
+library(tvm)
+
+cf        <- ___
+r         <- ___ 
+rateCurve <- rate_curve(rates = c(r, r, r), rate_type = "zero_eff")
+
+pv        <- disc_value(___, cf = ___)
+
+print(pv)
+
+```
+
+
+### TVM Problem 4
+
+You just got an update and additional detail on the term structure of interest rates.  The rate for period 1($_0r_1$) is 5%, the rate for period 2 ($_0r_2$) is 6%, and the rate for period 3 ($_0r_3$) is 7%.  What changes do you propose below?  This version is without the tvm library, we will use it in problem 4.
+
+Let's try some library functions that are built to calculate the present value.  We will use the 'tvm' library.  With the full term structure of interest rates specified we much use the rate_curve function and the disc_value.
+
+```{r TVM04}
+library(tvm)
+
+cf        <- ___
+r         <- ___
+rateCurve <- rate_curve(rates = ___, rate_type = ___)
+
+pv        <- disc_value(___, cf = ___)
+
+print(pv)
+```
+
+### TVM Question
+
+Did the methods from Exercise 02-A and 02-B create equivalent answers?
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
