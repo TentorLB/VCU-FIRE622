@@ -1,5 +1,5 @@
 ---
-title: "Homework 01-A"
+title: "Homework 02-A"
 author: "(fill in your name)"
 output:
   html_document:
@@ -16,14 +16,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 ```
+
 ## Assignment Directions
 
 This file contains an assignment.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.  This assignment is to be completed by each student, no digital sharing is allowed.  Concepts may be discussed, yet submission much be completed by submitting student.
 
 ## Specify file
 
-In this assignment you will have to download a file from the Federal Reserve Bank and load it.  The rates for fifteen year mortgages are available at https://fred.stlouisfed.org/series/MORTGAGE15US.  Using the "Download" button store this on you computer and then load to RStudio Cloud into the lesson01/data directory
-
+In this assignment you will first load the Federal Funds rates.
 
 ```{r fileLocation}
 #my_file <- "../data/filename.csv"
