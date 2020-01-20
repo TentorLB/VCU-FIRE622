@@ -139,6 +139,28 @@ print(pv)
 ## Exercise 02-B.
 
 
+##
+
+## Loading files
+```{r}
+my_file <- "../data/FEDFUNDS.csv"
+
+# Review help file lines
+# ?read.csv
+
+fedfund <- read.csv(my_file, header = TRUE, colClasses = c("Date","numeric"))
+
+tail(fedfund)
+```
+## Figure: Federal Funds Rate across time
+
+```{r}
+ggplot(fedfund, aes(x=DATE, y=FEDFUNDS)) +
+  geom_line() + 
+  xlab("Date")
+```
+Board of Governors of the Federal Reserve System (US), Effective Federal Funds Rate [FEDFUNDS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/FEDFUNDS
+
 ## Session Info
 
 ```{r}

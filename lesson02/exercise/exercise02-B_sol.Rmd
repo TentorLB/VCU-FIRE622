@@ -39,7 +39,6 @@ r         <- .05
 rateCurve <- rate_curve(rates = c(r, r, r), rate_type = "zero_eff")
 
 pv        <- disc_value(rateCurve, cf = cf)
-
 print(pv)
 
 pv        <- npv(i=r,cf=cf,ts=c(1,2,3))
