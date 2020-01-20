@@ -4,11 +4,12 @@
 .Ruserdata
 .log
 # pdf files
-lesson02/resources/*.pdf
 coursematerial/*.pdf
 # html output
 lesson01/*/*.html
 lesson02/*/*.html
 # datasets
 lesson01/data/MORTGAGE15US.csv
+# Assignment Solutions
 lesson01/homework/homework01-A_sol.Rmd
+lesson02/homework/homework02-A_sol.Rmd
