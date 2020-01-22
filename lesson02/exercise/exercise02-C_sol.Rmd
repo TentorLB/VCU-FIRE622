@@ -32,7 +32,7 @@ You need to monitor the Federal Funds rate and calculate the earnings from exces
 
 Determine the file name for the Federal Funds within the data directory.
 
-```{r TVM01}
+```{r FederalFunds}
 my_file <- "../data/FEDFUNDS.csv"
 
 # Review help file lines
@@ -44,86 +44,21 @@ tail(fedfund)
 ```
 
 
-### TVM Problem 2
+### November 2019 Reserves
 
-Let's try some library functions that are built to calculate the present value.  We will use the 'tvm' (Time Value of Money) library.
+If our bank had 10,000,000 USD in excess reserves for one day how much interest would it earn at the federal funds rate.
 
+```{r Interest}
 
-```{r TVM02}
-library(tvm)
+cash      <- 10000000
+obs       <- subset(fedfund,DATE==as.Date("2019-10-01"))
+r         <- obs$FEDFUNDS
 
-cf        <- c(1000,2000,3000)  # This is a vector c()ombine!
-r         <- .05 
-rateCurve <- rate_curve(rates = c(r, r, r), rate_type = "zero_eff")
+interest  <- r/100/365*cash
 
-pv        <- disc_value(rateCurve, cf = cf)
-
-print(pv)
+print(interest)
 
 ```
-
-
-### TVM Problem 3
-
-You just got an update and additional detail on the term structure of interest rates.  The rate for period 1($_0r_1$) is 5%, the rate for period 2 ($_0r_2$) is 6%, and the rate for period 3 ($_0r_3$) is 7%.  What changes do you propose below?  This version is without the tvm library, we will use it in problem 4.
-
-
-```{r}
-
-cf       <- c(1000,2000,3000)  # This is a vector c()ombine!
-r        <- c(5/100, 6/100, 7/100)
-g        <- 1+r
-year     <- 1:length(cf)    
-discount <- 1/g^year
-pvN      <- cf * discount 
-pv       <- sum(pvN)
-
-#print(discount)
-#print(pvN)
-print(pv)
-```
-
-### TVM Problem 4
-
-Let's use the tvm library and see how to do this with various periodic rates.
-
-
-```{r}
-library(tvm)
-
-
-cf        <- c(1000,2000,3000)  # This is a vector c()ombine!
-r         <- c(5/100, 6/100, 7/100)
-rateCurve <- rate_curve(rates = r, rate_type = "zero_eff")
-pv        <- disc_value(rateCurve, cf = cf)
-
-print(pv)
-```
-
-
-```{r}
-library(fBasics)
-library(YieldCurve)
-#library(empfin)
-
-data(LiborRates)
-data(FedYieldCurve, package = "YieldCurve")
-data(ECBYieldCurve, package = "YieldCurve")
-
-
-y <- c(5.5, 6, 7.5, 8.5)/100
-c <- c(9, 7, 5, 4)/100
-P <- sapply(seq(4), function(i) SimpleBondPrice(c[i], i, y[i]))
-z <- rep(0, 4)
-r <- rep(0, 4)
-
-
-#r        <- rate_curve(rates=c(0.05,0.05), rate_type="zero_nom")
-#pv       <- disc_value(r, cf = cf)
-```
-
-
-
 
 
 ## Session Info
