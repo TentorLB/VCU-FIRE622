@@ -139,7 +139,18 @@ print(pv)
 ## Exercise 02-B.
 
 
-##
+# FRED at the Saint Louis Federal Reserve
+
+## FRED
+
+* Federal Reserve Economic Data (FRED) is the catalog of data that is maintained by the Federal Reserve System and is public access.
+* Web Access is open
+* API access is also available and we will try this in later classes
+    - As an assignment you will need to establish an account and then request a API key.
+    - https://research.stlouisfed.org/
+    - Select "MY Account" and sign up
+    - After account is established go back to "My Account" and select "API" key
+* [Unemployment Rate Activity](https://files.stlouisfed.org/files/htdocs/conferences/beyond-the-numbers/docs/e98c9bbd4e19482f985639e6daa01b82.pdf)
 
 ## Loading files
 ```{r}
@@ -160,6 +171,8 @@ ggplot(fedfund, aes(x=DATE, y=FEDFUNDS)) +
   xlab("Date")
 ```
 Board of Governors of the Federal Reserve System (US), Effective Federal Funds Rate [FEDFUNDS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/FEDFUNDS
+
+## Exercise 02-C
 
 ## Session Info
 

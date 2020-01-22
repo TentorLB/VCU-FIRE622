@@ -1,5 +1,5 @@
 ---
-title: "Homework 02-A"
+title: "Assignment 02-A Solution"
 author: "(fill in your name)"
 output:
   html_document:
@@ -23,72 +23,84 @@ This file contains an assignment.  Please read the text and adjust the necessary
 
 ## Specify file
 
-In this assignment you will first load the Federal Funds rates.
+In this assignment you will first load the Federal Funds rates.  Locate the Federal Funds data file within lesson 02.
 
 ```{r fileLocation}
-#my_file <- "../data/filename.csv"
+my_file <- "../data/FEDFUNDS.csv"
 ```
 
-## Load
+## Load Federal Funds
 
-
-```{r mortgage}
-#mortgage <- read.csv(...)
-
-
-```
-
-## Examine class
-
-Replace "function_name" with the correct name of the function to examine the object type.
+This will require reading a csv file.  We have done this using the function 'read.csv'.  Do make certain that the date column is stored in a date format not a character string or factor.  We have done two examples of how to properly use Date column.  
 
 ```{r}
-#function_name(variable_name)
-
+fedfund <- read.csv(my_file, header = TRUE, colClasses = c("Date","numeric"))
 ```
 
 ## Examine the content of the data.frame
 
-Use either the head function to review the first few rows of the dataset or the tail function to review the last few lines of the dataset.
+Replace "function_name" with the correct name of the function to examine the last entiries in the data frame.
 
 ```{r}
 #function_name(variable_name)
-
-
+tail(fedfund)
 ```
+
 ## Data Manipulation
 
-The DATE field is stored as what data type?
-
-How do we convert it to a date format? And store 
-
-Try ?as.Date
-
+Make certain the date column in the data frame is a date type.  if you are uncertain type '?as.Date'
 
 ```{r}
-#mortgage$Date <- as.Date(...)
+if (class(fedfund$DATE) == "Date") {
+  print('Already date datatype')
+} else {
+  fedfund$DATE <- as.Date(fedfund$DATE)
+  print('Adjusted datatype to date')  
+}
 
 ```
 
-## Plot the mortgage rate
+## Load Indian Discount Rate
 
-Does this look as you expect?
+This will require reading a a second csv file.  Do make certain that the date column is stored in a date format not a character string or factor.  We have done two examples of how to properly use Date column.
 
-Include a comment on the comparison of the 15 year rates to the 30 year rates ploted in Exercise D.
-
-<<Insert Answer here>>
-
-Submit the single html file "homework01-A.html", Blackboard may require that you zip it prior to submission.
+International Monetary Fund, Interest Rates, Discount Rate for India [INTDSRINM193N], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/INTDSRINM193N, January 20, 2020.
 
 ```{r}
-ggplot(mortgage, aes(x=Date, y=MORTGAGE15US)) +
-  geom_line() + 
-  xlab("Date")
-
+my_file        <- "../data/INTDSRINM193N.csv"
+indianDiscount <- read.csv(my_file, header = TRUE, colClasses = c("character","numeric"))
+indianDiscount$DATE <- as.Date(indianDiscount$DATE,format="%m/%d/%Y")
+tail(indianDiscount)
 ```
 
 
 
+## Plot the two counties Discount Rates
+
+```{r}
+
+ggplot() + 
+  geom_line(data = fedfund, aes(x = DATE, y = FEDFUNDS), color = "blue") +
+  geom_line(data = indianDiscount, aes(x = DATE, y = INTDSRINM193N), color = "red") +
+  xlab('Dates') +
+  ylab('Discount Rate') +
+  scale_shape_discrete(name  ="DiscountRate",
+                          labels=c("fedfund", "indianDiscount"))
+
+
+```
+
+## Contrast the two counties Discount Rates
+
+What do you see in this graph, does it look as you expect, what questions does it raise?
+
+Include a comment on the the discount rate over time for both countries.
+
+INSERT ANSWER PARAGRAPH HERE
+
+## Submission
+
+Submit the single html file "homework02-A.html", Blackboard may require that you zip it prior to submission.  Leave the session info that follows for debugging purposes for the instructor.
 
 
 ## Session Info
