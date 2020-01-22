@@ -12,6 +12,7 @@ output:
       smooth_scroll: false
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
