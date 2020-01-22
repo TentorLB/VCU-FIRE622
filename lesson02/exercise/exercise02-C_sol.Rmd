@@ -1,0 +1,145 @@
+---
+title: "Exercise 02-C Solution"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages(tvm)
+library(tvm)
+```
+
+## Exercise Directions
+
+This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.
+
+## Time Value of Money
+
+### Load Federal Funds Rate
+
+As a bank employee you are responsible for your reserves with the Federal Reserve System.
+
+You need to monitor the Federal Funds rate and calculate the earnings from excess Reserves or the costs of borrowing others reserves.
+
+Determine the file name for the Federal Funds within the data directory.
+
+```{r TVM01}
+my_file <- "../data/FEDFUNDS.csv"
+
+# Review help file lines
+# ?read.csv
+
+fedfund <- read.csv(my_file, header = TRUE, colClasses = c("Date","numeric"))
+
+tail(fedfund)
+```
+
+
+### TVM Problem 2
+
+Let's try some library functions that are built to calculate the present value.  We will use the 'tvm' (Time Value of Money) library.
+
+
+```{r TVM02}
+library(tvm)
+
+cf        <- c(1000,2000,3000)  # This is a vector c()ombine!
+r         <- .05 
+rateCurve <- rate_curve(rates = c(r, r, r), rate_type = "zero_eff")
+
+pv        <- disc_value(rateCurve, cf = cf)
+
+print(pv)
+
+```
+
+
+### TVM Problem 3
+
+You just got an update and additional detail on the term structure of interest rates.  The rate for period 1($_0r_1$) is 5%, the rate for period 2 ($_0r_2$) is 6%, and the rate for period 3 ($_0r_3$) is 7%.  What changes do you propose below?  This version is without the tvm library, we will use it in problem 4.
+
+
+```{r}
+
+cf       <- c(1000,2000,3000)  # This is a vector c()ombine!
+r        <- c(5/100, 6/100, 7/100)
+g        <- 1+r
+year     <- 1:length(cf)    
+discount <- 1/g^year
+pvN      <- cf * discount 
+pv       <- sum(pvN)
+
+#print(discount)
+#print(pvN)
+print(pv)
+```
+
+### TVM Problem 4
+
+Let's use the tvm library and see how to do this with various periodic rates.
+
+
+```{r}
+library(tvm)
+
+
+cf        <- c(1000,2000,3000)  # This is a vector c()ombine!
+r         <- c(5/100, 6/100, 7/100)
+rateCurve <- rate_curve(rates = r, rate_type = "zero_eff")
+pv        <- disc_value(rateCurve, cf = cf)
+
+print(pv)
+```
+
+
+```{r}
+library(fBasics)
+library(YieldCurve)
+#library(empfin)
+
+data(LiborRates)
+data(FedYieldCurve, package = "YieldCurve")
+data(ECBYieldCurve, package = "YieldCurve")
+
+
+y <- c(5.5, 6, 7.5, 8.5)/100
+c <- c(9, 7, 5, 4)/100
+P <- sapply(seq(4), function(i) SimpleBondPrice(c[i], i, y[i]))
+z <- rep(0, 4)
+r <- rep(0, 4)
+
+
+#r        <- rate_curve(rates=c(0.05,0.05), rate_type="zero_nom")
+#pv       <- disc_value(r, cf = cf)
+```
+
+
+
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
