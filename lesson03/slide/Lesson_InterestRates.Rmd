@@ -1,0 +1,143 @@
+---
+title:  "Interest Rates, and Bond Portfolios"
+author: "Larry Tentor"
+always_allow_html: true
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+library(DiagrammeR)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Attribution
+
+##  {.flexbox .vcenter}
+
+Mcgraw Hill has provided power point slides that were substantially used to construct this R Markdown deck.
+
+# Quiz Items
+
+## {.smaller}
+
+
+##
+
+
+# Interest Rate Terminology
+
+## Nominal Interest Rates
+
+- Nominal interest rates: the interest rates actually observed in financial markets
+    - Used to determine fair present value and prices of securities
+    - Two components:
+        - Opportunity cost
+        - Adjustments for individual security characteristics
+
+
+## Real Riskless Interest Rates
+
+- Additional purchasing power required to forego current consumption
+    - What causes differences in nominal and real interest rates?
+    - If you wish to earn a 3% real return and prices are expected to increase by 2%, what rate must you charge?
+    - Irving Fisher first postulated that interest rates contain a premium for expected inflation.
+
+
+## Loanable Funds Theory {.flexbox .vcenter}
+
+- Loanable funds theory explains interest rates and interest rate movements
+- Views level of interest rates as resulting from factors that affect the supply of and demand for loanable funds
+- Categorizes financial market participants – e.g., consumers, businesses, governments, and foreign participants – as net suppliers or demanders of funds
+
+## Determinants of Household Savings {.flexbox .vcenter}
+
+1. Interest rates and tax policy
+2. Income and wealth: the greater the wealth or income, the greater the amount saved 
+3. Attitudes about saving versus borrowing 
+4. Credit availability: the greater the amount of easily obtainable consumer credit the lower the need to save 
+5. Job security and belief in soundness of entitlements
+
+## Determinants of Foreign Funds Invested in the U.S.  {.flexbox .vcenter}
+
+1. Relative interest rates and returns on global investments
+2. Expected exchange rate changes
+3. Safe haven status of U.S. investments
+4. Foreign central bank investments in the U.S.
+
+## Federal Government Demand for Funds Concluded
+
+- Governments borrow heavily in the markets for loanable funds
+    - $23.19 trillion in 2016
+- United States
+    - National debt was $19.21 trillion in 2016
+        - National debt (and interest payments on the national debt) have to be financed in large part by additional borrowing
+
+## Business Demand for Funds
+
+- Level of interest rates: 
+    - When the cost of loanable funds is high (i.e., interest rates are high), businesses finance internally
+- Expected future profitability vs. risk: 
+    - The greater the number of profitable projects available to businesses, the greater the demand for loanable funds
+- Expected economic growth
+
+## Effect on Interest Rates from a Shift in the Supply Curve for Loanable Funds
+
+![](../image/LoanableFunds01.png){width=550px}
+
+© 2019 McGraw-Hill Education.
+
+## Effect on Interest Rates from a Shift in the Demand Curve for Loanable Funds
+
+![](../image/LoanableFunds02.png){width=550px}
+
+© 2019 McGraw-Hill Education.
+
+## Loanable Funds Supply of and Demand Factors {.smaller}
+
+![](../image/LoanableFundsFactors.png)
+
+© 2019 McGraw-Hill Education.
+
+
+## Term Structure of Interest Rates:the Yield Curve
+
+(a)  Upward sloping
+(b)  Inverted or downward sloping
+(c)  Flat
+
+## Unbiased Expectations Theory
+
+Current long-term interest rates (1RN) are geometric averages of current and expected future, E(Nr1), short-term interest rates
+
+$_1R_N = [(1+_1R_1)(1+E(_2r_1))...(1+E(_Nr_n))]^{1/N}-1$
+
+$_1R_N$  = actual N-period rate today
+$N$      = term to maturity, N = 1, 2, …, 4, …
+$_1R_1$  = actual current one-year rate today
+E(_ir_1) = expected one-year rates for years, i = 1 to N
+
+## Liquidity Premium Theory
+
+
+$_1R_N = [(1+_1R_1)(1+E(_2r_1) + L_2)...(1+E(_Nr_n)+L_N)]^{1/N}-1$
+
+$L_i$  = liquidity premium for period t
+$L_2 < L_3 < … < L_N$
+
+## Market Segmentation Theory
+
+- Individual investors and FIs have specific maturity preferences
+- Interest rates are determined by distinct supply and demand conditions within many maturity segments
+- Investors and borrowers deviate from their preferred maturity segment only when adequately compensated to do so
+
+
+# Implied Forward Rates
+
+- A forward rate (f) is an expected rate on a short-term security that is to be originated at some point in the future
+- The one-year forward rate for any year, N years into the future is:
+
+$_Nf_1 = [(1+_1R_N)^{N}/(1+_1R_{N-1})^{N-1}]-1$
+
+
+
+
