@@ -1,0 +1,110 @@
+---
+title: "Homework 01-A"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+## Assignment Directions
+
+This file contains an assignment.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.  This assignment is to be completed by each student, no digital sharing is allowed.  Concepts may be discussed, yet submission much be completed by submitting student.
+
+## Specify file
+
+In this assignment you will have to download a file from the Federal Reserve Bank and load it.  The rates for fifteen year mortgages are available at https://fred.stlouisfed.org/series/MORTGAGE15US.  Using the "Download" button store this on you computer and then load to RStudio Cloud into the lesson01/data directory
+
+
+```{r fileLocation}
+#my_file <- "../data/filename.csv"
+```
+
+## Load
+
+
+```{r mortgage}
+#mortgage <- read.csv(...)
+
+
+```
+
+## Examine class
+
+Replace "function_name" with the correct name of the function to examine the object type.
+
+```{r}
+#function_name(variable_name)
+
+```
+
+## Examine the content of the data.frame
+
+Use either the head function to review the first few rows of the dataset or the tail function to review the last few lines of the dataset.
+
+```{r}
+#function_name(variable_name)
+
+
+```
+## Data Manipulation
+
+The DATE field is stored as what data type?
+
+How do we convert it to a date format? And store 
+
+Try ?as.Date
+
+
+```{r}
+#mortgage$Date <- as.Date(...)
+
+```
+
+## Plot the mortgage rate
+
+Does this look as you expect?
+
+Include a comment on the comparison of the 15 year rates to the 30 year rates ploted in Exercise D.
+
+<<Insert Answer here>>
+
+Submit the single html file "homework01-A.html", Blackboard may require that you zip it prior to submission.
+
+```{r}
+ggplot(mortgage, aes(x=Date, y=MORTGAGE15US)) +
+  geom_line() + 
+  xlab("Date")
+
+```
+
+
+
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+

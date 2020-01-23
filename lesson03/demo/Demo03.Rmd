@@ -1,0 +1,128 @@
+---
+title: "Bond Portfolios"
+author: "Larry Tentor"
+always_allow_html: true
+output:
+  ioslides_presentation
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(tidyverse)
+library(tvm)
+library(FinancialMath)
+library(readxl)
+```
+
+
+## Bond Portfolios
+
+You have read about calculations for bond price, duration, weighted average maturity, and weighted average coupon.  You have seen these values calculated at an individual bond level in the text.  The next level is to aggregate a portfolio of holdings to the portfolio duration, portfolio weighted average maturity, and portfolio weighted average coupon.
+
+We have portfolio level information available from [iShares](https://www.ishares.com/us).  iShares is the Blackrock branding of their Exchange Traded Funds (ETF).
+
+I have downloaded data from their website for our use.
+
+## ETF data -- Read #1
+
+```{r}
+library("readxl")
+my_file <- "../data/iShares-US-Treasury-Bond-ETF_fund.xlsx"
+
+bondPortfolio <- read_excel(my_file, sheet = "Holdings", range = "$A$9:$O$161")
+tail(bondPortfolio)
+```
+What about how the file was read concerns you? Is the solution scalable for a different fund?
+
+## ETF data - Read #2
+
+```{r}
+bondPortfolio <- read_excel(my_file, sheet = "Holdings", skip = 8)
+tail(bondPortfolio)
+```
+
+Are we content with the data formats?
+
+## ETF data - Read #3
+
+```{r}
+
+```
+
+## Present Value - With vectors
+
+```{r}
+
+```
+
+## Extended Problem
+
+
+## Extended Problem with Vectors
+
+```{r PV_ExtendedwithVectors}
+
+```
+
+
+## Exercise 02-A.
+
+## Library Functions
+
+
+## Net Present Value (NPV) 01
+
+Find the Net Present Value of 
+
+```{r }
+
+```
+
+## Net Present Value (NPV) 02 
+
+```{r }
+
+```
+## Discount Value: Term Structure and Rate Curves
+
+```{r}
+
+
+```
+
+
+## Exercise 02-B.
+
+
+# FRED at the Saint Louis Federal Reserve
+
+## FRED
+
+
+
+## Loading files
+```{r}
+```
+## Figure: Federal Funds Rate across time
+
+```{r}
+
+
+```
+
+## Exercise 02-C
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+
+

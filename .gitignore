@@ -8,8 +8,11 @@ coursematerial/*.pdf
 # html output
 lesson01/*/*.html
 lesson02/*/*.html
+lesson03/*/*.html
 # datasets
 lesson01/data/MORTGAGE15US.csv
 # Assignment Solutions
-lesson01/homework/homework01-A_sol.Rmd
+lesson01/assignment/assignment01_sol.Rmd
 lesson02/assignment/assignment02_sol.Rmd
+lesson03/assignment/assignment03_sol.Rmd
+FRED.key
