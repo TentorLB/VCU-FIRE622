@@ -1,0 +1,227 @@
+%\documentclass[]{beamer}
+\documentclass[12pt,handout]{beamer}
+%\documentclass[12pt,handout,notes=show]{beamer}
+
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabls}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{subfigure} 
+\usepackage{pbox}
+\usepackage{tabularx}
+
+% Typically, the itemize enviroment does not provide adequate space between bullet points
+% and hence can look a bit cluttered at times. The new "wideitemize" problem solves this issue.
+% To use it just put your regular "\item" between "\begin{wideitemize}" and "\end{wideitemize}" 
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+
+% This can be left blank if information is not available
+\hypersetup{
+ pdfauthor   = {Larry Tentor},
+ pdftitle    = {Interest Rates Term Structure},
+ pdfsubject  = {},
+ pdfkeywords = {},
+ pdfcreator  = {LaTeX with hyperref package},
+ pdfproducer = {dvips + ps2pdf}}
+
+% This is a representative list of themes available is Beamer.
+% Shreyes prefers the Warsaw theme,  I prefer Pittsburg; it's much neater. 
+% Also, CambridgeUS is quite popular among academics.
+\mode<presentation> 
+ { 
+     \usetheme{Warsaw}
+     %{Rochester}{Madrid}{Pittsburgh}{Antibes}{Montpellier}{Berkeley}{PaloAlto}{Goettingen}
+     %{Marburg}{Hannover}{Berlin}{Ilmenau}{Dresden}{Darmstadt}{Frankfurt}{Singapore}{Szeged}
+     %{Copenhagen}{Malmoe}{CambridgeUS}{Warsaw}
+     % \setbeamercovered{transparent = 28}
+ }
+
+\usefonttheme{professionalfonts}
+\usecolortheme{beaver}
+%\usecolortheme[rgb={0.01,0.18,0.42}]{structure} 
+\useinnertheme{rounded}
+
+\title{Interest Rates Term Structure}
+\author{Larry Tentor} 
+\institute{Virginia Commonwealth University}
+
+% This shows the slide number at the bottom of the page. May or may not be required depending on the theme you use.
+\setbeamertemplate{footline}[frame number] 
+
+% This disables the navigation button in the lower right corner of the generated pdf file.
+\beamertemplatenavigationsymbolsempty 
+
+<<setup, echo=FALSE,warning=FALSE,results='hide'>>=
+suppressPackageStartupMessages(library(xtable))
+suppressPackageStartupMessages(library(rattle))
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(quantmod))
+suppressPackageStartupMessages(library(financial))
+suppressPackageStartupMessages(library(FinCal))
+options("getSymbols.warning4.0"=FALSE)
+@
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+% Just so we are clear, a frame here means a slide.
+\begin{frame} 
+ \titlepage
+\end{frame}
+
+% % This will display the list of contents before the beginning of each section
+% \AtBeginSection[] 
+% {
+%  \begin{frame}
+%       \frametitle{Outline}
+%       \tableofcontents[currentsection]
+%  \end{frame}
+% }
+
+% You can use this if you just want the list of contents to be displayed once at the beginning.
+\begin{frame} 
+  \tableofcontents
+\end{frame} 
+
+\section{Introduction}
+
+\subsection{Objectives}
+\begin{frame}
+  \begin{itemize}
+    \item Review
+    \item Yield Curves
+    \begin{itemize}
+      \item Spot Rates
+      \item Forward Rates and Arbitrage
+      \item Zeros Curve
+      \begin{itemize}
+        \item Zeros Curve from Coupon Bonds
+        \item Bootstraping Zeros Curve
+      \end{itemize}  
+    \end{itemize}  
+    \item Fisher-Weil Term Structure Duration 
+    \item Immunization Strategies II
+  \end{itemize}  
+\end{frame}
+
+\subsection{Review}
+
+\begin{frame}
+  \begin{itemize}
+      \item Bond Risk
+      \item Bond Pricing and Sensitivity
+      \item Macaulay Duration and Sensitivity
+      \item Macaulay Duration to Modified Duration 
+      \item Convexity
+  \end{itemize}  
+\end{frame}
+
+\begin{frame}
+
+Coupon Bearing Bond Price
+$$P_0 = \sum_{t=1}^{n}\frac{C_t}{(1+i)^t} + \frac{F}{(1+i)^n}$$ \\
+
+Zero-Coupon Bond Price
+$$P_0 = \frac{F}{(1+i)^n}$$ \\
+
+Perpetuities Price
+$$P_0 = C/i $$
+
+\end{frame}
+
+\begin{frame}
+Macaulay Duration, Time Weighted Present Values \\[0.2in]
+i = yield/year compounded m times/year\\
+n = number of periods, D measured in years \\
+$$ D = \sum_{t}{tPV_t} = \sum_{t}{t \frac{c_t}{[1+(i/m)]^t}}  $$ \\
+
+\end{frame}
+
+\begin{frame}
+
+Modified Duration
+$$ PV_t = \frac{c_t}{[1+(i/m)]^t} $$
+$$ \frac{\delta PV_t}{\delta i} = \frac{-(t/m)c_t}{[1+(i/m)]^{t+1}}=-\frac{t/m}{1+(i/m)}PV_t $$
+$$ P = \sum_{t}{PV_t} $$
+$$ D_{mod} = -\frac{1}{P}\frac{\delta P}{\delta i} = -\frac{D}{1+(i/m)} $$ \\
+
+\end{frame}
+
+\begin{frame}
+
+Convexity
+$$ C = \frac{1}{P}\frac{\delta ^2P}{\delta i^2} = \frac{1}{P}\sum_{k=1}^{n} \frac{\delta ^2PV_k}{\delta i^2} $$
+$$ C = \frac{1}{P[1+(i/m)]^2}\sum_{k=1}^{n} \frac{k(k+1)}{m^2} \frac{c_k}{[1+(i/m)]^k} $$
+
+Bond Price Change, based on Duration and Convexity
+$$ \Delta P = -D_{mod}P \Delta i+\frac{P C}{2}(\Delta i)^2 $$
+\end{frame}
+
+
+\begin{frame}
+
+Immunization \\
+Review Excel example.
+
+\end{frame}
+
+\section{Interest Rate Term Structure}
+\subsection{Yield Curve}
+\begin{frame}
+  Yield Curve
+  \begin{itemize}
+    \pause \item Par Rates \\
+     Example of \href{http://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/Historic-Yield-Data-Visualization.aspx}{Treasury Yield Curve}
+    \pause \item Zero/Spot Rates $s_t$
+    \pause \item Discount Factors $d_t$ 
+    \pause \item Forward Rates $f_{t1,t2}$ \\
+                 Arbitrage Theory
+  \end{itemize}
+\end{frame}
+
+\subsection{Term Structure Theories}
+\begin{frame}
+  Term Structure Theories
+  \begin{itemize}
+    \pause \item Expectations Theory
+    \pause \item Liquidity Preference
+    \pause \item Market Segmentation 
+  \end{itemize}
+ 
+\end{frame}
+
+\subsection{Yield Curve Creation}
+\begin{frame}
+  Yield Curve II
+  \begin{itemize}
+    \pause \item Short Rates $f_{t,t+1}$
+    \pause \item Zero from two coupon bonds (Excel)
+    \pause \item Bootstrap Zero from Par
+    \pause \item Running Present Value
+  \end{itemize}
+ 
+\end{frame}
+
+\section{Additional Items}
+\begin{frame}
+  Additional Topics
+  \begin{itemize}
+    \pause \item Running Present Value
+    \pause \item Floating Rate Bonds
+  \end{itemize}
+ 
+\end{frame}
+
+
+\begin{frame}[fragile]{R Session Info}
+<<SessionInfo,tidy=FALSE,results='asis'>>=
+toLatex(sessionInfo())
+@
+\end{frame}
+
+\end{document}
