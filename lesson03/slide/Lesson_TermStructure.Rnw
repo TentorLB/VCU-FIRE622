@@ -56,12 +56,16 @@
 % This disables the navigation button in the lower right corner of the generated pdf file.
 \beamertemplatenavigationsymbolsempty 
 
-<<setup, echo=FALSE,warning=FALSE,results="hide">>=
+%<<setup1, results=hide>>=
+%suppressPackageStartupMessages(library(xtable))
+%@
+
+<<setup, echo=FALSE,warning=FALSE,results=hide>>=
 suppressPackageStartupMessages(library(xtable))
 suppressPackageStartupMessages(library(rattle))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(quantmod))
-suppressPackageStartupMessages(library(financial))
+#suppressPackageStartupMessages(library(financial))
 suppressPackageStartupMessages(library(FinCal))
 options("getSymbols.warning4.0"=FALSE)
 @
@@ -104,8 +108,8 @@ options("getSymbols.warning4.0"=FALSE)
         \item Bootstraping Zeros Curve
       \end{itemize}  
     \end{itemize}  
-    \item Fisher-Weil Term Structure Duration 
-    \item Immunization Strategies II
+%    \item Fisher-Weil Term Structure Duration 
+%    \item Immunization Strategies II
   \end{itemize}  
 \end{frame}
 
@@ -163,12 +167,12 @@ $$ \Delta P = -D_{mod}P \Delta i+\frac{P C}{2}(\Delta i)^2 $$
 \end{frame}
 
 
-\begin{frame}
-
-Immunization \\
-Review Excel example.
-
-\end{frame}
+%\begin{frame}
+%
+%Immunization \\
+%Review Excel example.
+%
+%\end{frame}
 
 \section{Interest Rate Term Structure}
 \subsection{Yield Curve}
@@ -207,21 +211,12 @@ Review Excel example.
  
 \end{frame}
 
-\section{Additional Items}
-\begin{frame}
-  Additional Topics
-  \begin{itemize}
-    \pause \item Running Present Value
-    \pause \item Floating Rate Bonds
-  \end{itemize}
- 
+
+
+\begin{frame}[fragile]{R Session Info}
+<<SessionInfo,tidy=FALSE,results=tex>>=
+toLatex(sessionInfo())
+@
 \end{frame}
-
-
-%\begin{frame}[fragile]{R Session Info}
-%<<SessionInfo,tidy=FALSE,results='tex'>>=
-%toLatex(sessionInfo())
-%@
-%\end{frame}
 
 \end{document}

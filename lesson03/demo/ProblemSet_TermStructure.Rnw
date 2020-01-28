@@ -1,0 +1,220 @@
+\documentclass[answers]{exam}
+
+\usepackage{tabularx}
+\usepackage{csquotes}
+
+\pagestyle{headandfoot}
+\headrule
+\firstpageheader{Econ 617}{Problem Set 03}{\today}
+\runningheader{Econ 617}{Problem Set 03, Page \thepage\ of \numpages}{\today}
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+%echo=FALSE,warning=FALSE,
+<<setuphook, results=hide>>=
+suppressPackageStartupMessages(library(knitr))
+knit_hooks$set(document=function(x){sub('\\usepackage{framed}', '', x, fixed=TRUE)}) 
+@
+
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+Answer the questions in the spaces provided on the
+question sheets. If you run out of room for an answer,
+continue on the back of the page.}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{Name and section:\enspace\hrulefill}
+\vspace{0.2in}
+\makebox[\textwidth]{Instructor's name:\enspace\hrulefill}
+
+\begin{solution}
+These are packages that must be loaded for the calculation of the answers.
+%echo=TRUE,tidy=FALSE,warning=FALSE,
+<<setup, results=tex>>=
+# R Package Dependancies
+suppressPackageStartupMessages(library(quantmod))
+suppressPackageStartupMessages(library(Quandl))
+suppressPackageStartupMessages(library(FinCal))
+suppressPackageStartupMessages(library(xtable))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(utils))
+options("getSymbols.warning4.0"=FALSE)
+# Quandl.auth("yourauthenticationtoken") # Make certain to set your personal Quandl token.
+@
+
+<<QuandlAuth,echo=FALSE,tidy=FALSE,warning=FALSE,results=hide>>=
+Quandl.api_key('FEye5iVRnwwuMxkEUY3h') # LTentor Auth Token
+@
+\end{solution}
+
+\begin{questions}
+
+
+\question[2]
+If the 4 year spot rate equals 6.4\%, and the 13 year spot rate is 6.25\%, the 9 year forward rate after 4 years is:
+\begin{solution}[1in]
+<<NineYearForward,echo=TRUE,tidy=TRUE,results=tex>>=
+rate0_4  <- 0.064;
+rate0_13 <- 0.0625;
+(rate4_13 <- ((1+rate0_13)^13 / (1+rate0_4)^4) ^ (1/9) - 1)
+
+@
+\end{solution}
+
+\question[2]
+An analyst is given the following information. 
+\begin{itemize}
+\item	3 year spot rate = 4\% 
+\item 5 year spot rate = 5\% 
+\item 4 year forward rate three years from today = 6\%
+\item 3 year forward rate 7 years from today = 7\% 
+\end{itemize}
+
+What is the two year forward rate 5 years from today? 
+
+\begin{solution}[1in]
+<<ForwardRate02,echo=TRUE,tidy=FALSE,fig.width=5,fig.height=3,results=tex>>=
+rate0_3  <- 0.04
+rate0_5  <- 0.05
+rate3_7  <- 0.06
+rate7_10 <- 0.07
+
+(rate0_7  <- ((1+rate0_3)^3*(1+rate3_7)^4)^(1/7) - 1)
+(rate5_7  <- ((1+rate0_7)^7/(1+rate0_5)^5)^(1/2) - 1)
+@
+\end{solution}
+
+\question[2] 
+(AUS Zeros Curve) Using the Reserve Bank of Australia Zero Coupon Interest Rate (Quandl: RBA/F17\_0) for 2010-01-04, determine the one year ahead forward rate for one year, and two years.  
+\begin{solution}[1.5in]
+<<AusZerosCurve,echo=TRUE,tidy=TRUE,fig.width=3,fig.height=3,results=tex>>=
+yieldHistory  <- Quandl('RBA/F17_0', start_date='2010-01-04', end_date='2010-01-04')
+
+term          <- seq(0,10,0.25)
+zeros         <- as.numeric(yieldHistory[1,2:42])
+plot(term,zeros)
+
+rate01        <- yieldHistory$'Zero-coupon yield 1 yr. Units: Per cent per annum; Series ID: FZCY100D'/100
+rate02        <- yieldHistory$`Zero-coupon yield 2 yrs. Units: Per cent per annum; Series ID: FZCY200D`/100
+rate03        <- yieldHistory$`Zero-coupon yield 3 yrs. Units: Per cent per annum; Series ID: FZCY300D`/100
+
+rate12        <- ((rate02 + 1)^2/(rate01 +1))-1
+rate23        <- ((rate03 + 1)^3/(rate02 +1)^2)-1
+rate13        <- ((rate03 + 1)^3/(rate01 +1))^(1/2)-1
+print(matrix(c(rate01,rate02,rate03,rate12,rate13,NA,rate23,NA,NA)*100,ncol=3,byrow=TRUE)) # 
+@
+\end{solution}
+
+\question[2] 
+(Luenberger) (Discount Conversion) At time zero the one period discount rates $d_{0,1},d_{1,2},d_{2,3},...,d_{5,6}$ are known to be 0.950, 0.940, 0.932,0.925,0.919,0.913.  Find the time zero discount factors $d_{0,1},d_{0,2},d_{0,3},d_{0,4},d_{0,5},d_{0,6}$.
+\begin{solution}[1.5in]
+<<DiscountConversion,echo=TRUE,tidy=TRUE,fig.width=3,fig.height=3,results=tex>>=
+discount0_1 <- 0.950; rate0_1 <- 1/discount0_1 - 1;
+discount1_2 <- 0.940; rate1_2 <- 1/discount1_2 - 1;
+discount2_3 <- 0.932; rate2_3 <- 1/discount2_3 - 1; 
+discount3_4 <- 0.925; rate3_4 <- 1/discount3_4 - 1;
+discount4_5 <- 0.919; rate4_5 <- 1/discount4_5 - 1;
+discount5_6 <- 0.913; rate5_6 <- 1/discount5_6 - 1;
+
+rate0_2 <- ((1+rate0_1)*(1+rate1_2))^(1/2)-1
+rate0_3 <- ((1+rate0_1)*(1+rate1_2)*(1+rate2_3))^(1/3)-1
+rate0_4 <- ((1+rate0_1)*(1+rate1_2)*(1+rate2_3)*(1+rate3_4))^(1/4)-1
+rate0_5 <- ((1+rate0_1)*(1+rate1_2)*(1+rate2_3)*(1+rate3_4)*(1+rate4_5))^(1/5)-1
+rate0_6 <- ((1+rate0_1)*(1+rate1_2)*(1+rate2_3)*(1+rate3_4)*(1+rate4_5)*(1+rate5_6))^(1/6)-1
+(rates  <- c(rate0_1,rate0_2,rate0_3,rate0_4,rate0_5,rate0_6))
+(discountFactors0 <- c(1/(rate0_1+1),1/(rate0_2+1)^2,1/(rate0_3+1)^3,1/(rate0_4+1)^4,1/(rate0_5+1)^5,1/(rate0_6+1)^6))
+@
+\end{solution}
+
+\begin{question}[4]
+(Luenberger) (Construction of a Zero) Consider two 5-year bonds: one has a 9\% coupon and sells for 101.00; the other has a 7\% coupon and sells for 93.20.  Find the price and spot interest rate of a 5-year zero coupon bond.
+\begin{solution}[2in]
+<<ZeroContruction,echo=TRUE,tidy=FALSE,results=tex>>=
+couponA <- 0.09; priceA <- 101.00;
+couponB <- 0.07; priceB <- 93.20;
+  
+# Determine ratio to purchase Bond B in order to eliminate coupon payment
+ratio <- couponA/couponB;
+
+# Price = PriceA - ratio * PriceB
+(zeroPrice <- - priceA + ratio * priceB)
+
+(zeroRate <- (1+zeroPrice/100)^(1/5)-1)
+@
+\end{solution}
+\end{question}
+
+\begin{question}[4]
+(Bootstrap) A zeros curve provides a basis of discounting any specified cash flow in the fixed income realm.  Yet the market does not always price zeros so we must calculate the zeros based on the par yield curve for traded government bills and bonds.  Select the yield curve (Quandl code: USTREASURY/YIELD) for 08/05/1993.  This par curve uses T-bills (equivalent to zeros) for 1 year and below, the bonds for 2 year and longer have coupon payments semi-annually.  The data is expressed in percents so 0.12 is 0.12\% or decimal equivalent 0.0012.  Determine the zeros curve for 6 months, 1 year, 1 1/2 year, 2 year, 2 1/2 year and 3 years.   (Excel solver or other iterative methods are necessary)  \\
+Also determine how to check that these rates are correct.
+\begin{solution}[3in]
+<<ZeroBootstrap,echo=TRUE,tidy=FALSE,results=tex>>=
+yieldParCurve <- Quandl('USTREASURY/YIELD', start_date='1993-08-05', end_date='1993-08-05')
+ 
+zero06m       <- yieldParCurve$'6 MO'/100
+zero01        <- yieldParCurve$'1 YR'/100
+par02         <- yieldParCurve$'2 YR'/100
+pricePar02    <- 100;
+par03         <- yieldParCurve$'3 YR'/100
+pricePar03    <- 100;
+f             <- function (x) pricePar02 - (
+                                ((par02/2  )*100/(1+zero06m      )^(1/2))+
+                                ((par02/2  )*100/(1+zero01       )      )+
+                                ((par02/2  )*100/(1+(x+zero01)/2 )^(3/2))+
+                                ((par02/2+1)*100/(1+x            )^(2)  )
+                                )
+root02        <- uniroot(f,c(0,2*par02),tol=.Machine$double.eps^0.5)
+zero02        <- root02$root
+g             <- function (x)  (pricePar03 - (
+                                ((par03/2  )*100/(1+zero06m           )^(1/2))+
+                                ((par03/2  )*100/(1+zero01            )      )+
+                                ((par03/2  )*100/(1+(zero02+zero01 )/2)^(3/2))+
+                                ((par03/2  )*100/(1+zero02            )^(2)  )+
+                                ((par03/2  )*100/(1+(zero02+x)/2      )^(5/2))+
+                                ((par03/2+1)*100/(1+x                 )^(3)  )
+                                ));
+root03        <- uniroot(g,c(0,2*par03),tol=.Machine$double.eps^0.5)
+zero03        <- root03$root
+
+c(zero06m,zero01,NA,par02,NA,par03)
+c(zero06m,zero01,(zero01+zero02)/2,zero02,(zero02+zero03)/2,zero03)
+
+# Check is to reconstruct par curve from zeros.
+(pricePar02Check <- par02/2*100/(1+zero06m)^(1/2)+
+                    par02/2*100/(1+zero01)+
+                    par02/2*100/(1+(zero01+zero02)/2)^(3/2)+
+                   (par02/2+1)*100/(1+zero02)^2);
+(pricePar03Check <- par03/2*100/(1+zero06m)^(1/2)+
+                    par03/2*100/(1+zero01)+
+                    par03/2*100/(1+(zero01+zero02)/2)^(3/2)+
+                    par03/2*100/(1+zero02)^(2)+
+                    par03/2*100/(1+(zero02+zero03)/2)^(5/2)+
+                   (par03/2+1)*100/(1+zero03)^3);
+
+@
+\end{solution}
+\end{question}
+ 
+\question[4]
+Read paper from additional resources: What Determines the Credit Spread? \\
+Describe how to calculate the credit spread?
+\begin{solution}[1in]
+The credit spread is calculated as the yield difference over a comparable treasury security.
+\end{solution}
+Does the paper suggest this spread is completely due to default risk?
+\begin{solution}[1in]
+No, liquidity also plays a part.
+\end{solution}
+Which sectors have the largest spreads as reported in the paper?
+\begin{solution}[1in]
+Energy, Telecom, Utilities. 
+\end{solution}
+
+
+
+\end{questions}
+
+\end{document}
