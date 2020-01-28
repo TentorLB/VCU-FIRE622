@@ -18,13 +18,62 @@ Mcgraw Hill has provided power point slides that were substantially used to cons
 
 # Quiz Items
 
-## {.smaller}
+##
 
+Duration is
+
+1. the elasticity of a security's value to small coupon changes.
+2. the weighted average time to maturity of the bond's cash flows.
+3. the time until the investor recovers the price of the bond in today's dollars.
+4. greater than maturity for deep discount bonds and less than maturity for premium bonds.
+5. the second derivative of the bond price formula with respect to the YTM.
 
 ##
 
+Financial intermediation provides direct transfer of funds to the users.
 
-# Interest Rate Terminology
+- True
+- False
+
+##
+
+The diagram below is a diagram of the
+ 
+![](../image/PrimaryMarkets.jpg){width=550px}
+
+1. secondary markets.
+2. primary markets.
+3. money markets.
+4. derivatives markets.
+5. commodities markets.
+
+## {.smaller}
+
+A 10-year annual payment corporate bond has a market price of $1,050. It pays annual interest of $100 and its required rate of return is 9 percent. By how much is the bond mispriced?
+
+1. $0.00
+2. Overpriced by $14.18
+3. Underpriced by $14.18
+4. Overpriced by $9.32
+5. Underpriced by $9.32
+
+```{r PVBond, echo=TRUE}
+PV <- 100/(1.09)^1 + 100/(1.09)^2 + 100/(1.09)^3 + 100/(1.09)^4 + 100/(1.09)^5 +
+      100/(1.09)^6 + 100/(1.09)^7 + 100/(1.09)^8 + 100/(1.09)^9 + 100/(1.09)^10 +
+      1000/(1.09)^10
+
+PV-1050
+
+```
+
+# Terminology
+
+## 
+
+Write out -- Explain the nominal interest rate
+
+Write out -- Explain the real interest rate
+
 
 ## Nominal Interest Rates
 
@@ -41,6 +90,12 @@ Mcgraw Hill has provided power point slides that were substantially used to cons
     - What causes differences in nominal and real interest rates?
     - If you wish to earn a 3% real return and prices are expected to increase by 2%, what rate must you charge?
     - Irving Fisher first postulated that interest rates contain a premium for expected inflation.
+
+
+# Appendix
+
+
+# Interest Rate Terminology
 
 
 ## Loanable Funds Theory {.flexbox .vcenter}
@@ -131,7 +186,7 @@ $L_2 < L_3 < … < L_N$
 - Investors and borrowers deviate from their preferred maturity segment only when adequately compensated to do so
 
 
-# Implied Forward Rates
+## Implied Forward Rates
 
 - A forward rate (f) is an expected rate on a short-term security that is to be originated at some point in the future
 - The one-year forward rate for any year, N years into the future is:
