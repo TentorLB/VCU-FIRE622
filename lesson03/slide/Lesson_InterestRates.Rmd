@@ -66,6 +66,23 @@ PV-1050
 
 ```
 
+##
+
+If the Fed wishes to stimulate the economy, it could
+
+>    I. buy U.S. government securities.
+>
+>   II. raise the discount rate.
+>
+>  III. lower reserve requirements.
+  
+1. I and III only
+2. II and III only
+3. I and II only
+4. II only
+5. I, II, and III
+
+
 # Terminology
 
 ## 
