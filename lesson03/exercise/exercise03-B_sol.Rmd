@@ -1,0 +1,80 @@
+---
+title: "Exercise 02-C Solution"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages(tvm)
+library(tvm)
+```
+
+## Exercise Directions
+
+This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.
+
+## Time Value of Money
+
+### Load Federal Funds Rate
+
+As a bank employee you are responsible for your reserves with the Federal Reserve System.
+
+You need to monitor the Federal Funds rate and calculate the earnings from excess Reserves or the costs of borrowing others reserves.
+
+Determine the file name for the Federal Funds within the data directory.
+
+```{r FederalFunds}
+my_file <- "../data/FEDFUNDS.csv"
+
+# Review help file lines
+# ?read.csv
+
+fedfund <- read.csv(my_file, header = TRUE, colClasses = c("Date","numeric"))
+
+tail(fedfund)
+```
+
+
+### November 2019 Reserves
+
+If our bank had 10,000,000 USD in excess reserves for one day how much interest would it earn at the federal funds rate.
+
+```{r Interest}
+
+cash      <- 10000000
+obs       <- subset(fedfund,DATE==as.Date("2019-10-01"))
+r         <- obs$FEDFUNDS
+
+interest  <- r/100/365*cash
+
+print(interest)
+
+```
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
