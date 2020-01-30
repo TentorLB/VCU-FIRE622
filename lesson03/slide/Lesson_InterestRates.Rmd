@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ##  {.flexbox .vcenter}
 
-Mcgraw Hill has provided power point slides that were substantially used to construct this R Markdown deck.
+McGraw Hill has provided power point slides that were substantially used to construct this R Markdown deck.
 
 # Quiz Items
 
@@ -257,7 +257,7 @@ Par Rate Data in R
 ```{r ParRate, echo=TRUE}
 library(YieldCurve)
 data(FedYieldCurve)
-class(FedYieldCurve)
+#class(FedYieldCurve)
 head(FedYieldCurve)
 summary(FedYieldCurve)
 colnames(FedYieldCurve)
@@ -272,11 +272,25 @@ FedYieldCurve[1,]
 ```
 ## Discount Rates
 
-So now that you see the term structure expressed in a par curve. If we have a single cash flow at two years what is the correct discount rate to use?
+So now that you see the term structure expressed in a par curve. If we have a single cash flow at two years what is the correct discount rate to use to discount back?
 
-## 
+## Converting Par to Zero/Spot Rate - 1
 
+| Term    | Yield  | Number of Payments | YTM    | Spot Rate |
+|---------|--------|--------------------|--------|-----------|
+| 3 mo    | 12.92% |        ?           |   ?    |    ?      | 
+| 6 month | 13.90% |        ?           |   ?    |    ?      |
+| 1 year  | 14.32% |        ?           |   ?    |    ?      |  
+| 2 year  | 14.57% |        ?           |   ?    |    ?      |
 
+## Converting Par to Zero/Spot Rate - 2
+
+| Term    | Yield  | Number of Payments | YTM    | Spot Rate |
+|---------|--------|--------------------|--------|-----------|
+| 3 mo    | 12.92% |       1            | 12.92% | 12.92%    | 
+| 6 month | 13.90% |       1            | 13.90% | 13.90%    |
+| 1 year  | 14.32% |       1            | 14.32% | 14.32%    |  
+| 2 year  | 14.57% |       4            | 14.57% |    ?      |
 
 ## Implied Forward Rates
 

@@ -100,13 +100,13 @@ options("getSymbols.warning4.0"=FALSE)
     \item Review
     \item Yield Curves
     \begin{itemize}
-      \item Spot Rates
-      \item Forward Rates and Arbitrage
+      \item Par/YTM Rates
       \item Zeros Curve
       \begin{itemize}
         \item Zeros Curve from Coupon Bonds
         \item Bootstraping Zeros Curve
       \end{itemize}  
+      \item Forward Rates and Arbitrage
     \end{itemize}  
 %    \item Fisher-Weil Term Structure Duration 
 %    \item Immunization Strategies II
