@@ -292,6 +292,40 @@ So now that you see the term structure expressed in a par curve. If we have a si
 | 1 year  | 14.32% |       1            | 14.32% | 14.32%    |  
 | 2 year  | 14.57% |       4            | 14.57% |    ?      |
 
+How do we calculate spot rate for two years out?
+
+## Converting Par to Zero/Spot Rate - 2
+
+*2 year bond, Cash Flow*
+
+| Term       | Cash Flow | Spot Rate | 
+|------------|-----------|-----------|
+| 6 month    |  $14.57   | 13.90%    | 
+| 1 year     |  $14.57   | 14.32%    |
+| 1 1/2 year |  $14.57   | ?         | 
+| 2 year     | $114.57   | ?         |
+
+```{r, echo=TRUE}
+maturityBond <- c(0.5,1,1.5,2) 
+payments     <- c(14.57/2,14.57/2,14.57/2,100+14.57/2)
+
+zero06m       <- 13.90/100
+zero01        <- 14.32/100
+par02         <- 14.57/100
+pricePar02    <- 100;
+f             <- function (x) pricePar02 - (
+                                ((par02/2  )*100/(1+zero06m      )^(1/2))+
+                                ((par02/2  )*100/(1+zero01       )      )+
+                                ((par02/2  )*100/(1+(x+zero01)/2 )^(3/2))+ # Assumed average yield for 1 1/2
+                                ((par02/2+1)*100/(1+x            )^(2)  )
+                                )
+root02        <- uniroot(f,c(0,2*par02),tol=.Machine$double.eps^0.5)
+zero02        <- root02$root
+zero015       <- (zero02+zero01)/2
+
+zeroCurve <- c(zero06m,zero01,zero015,zero02)*100
+zeroCurve
+```
 ## Implied Forward Rates
 
 - A forward rate (f) is an expected rate on a short-term security that is to be originated at some point in the future

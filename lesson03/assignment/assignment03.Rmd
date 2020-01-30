@@ -1,0 +1,74 @@
+---
+title: "Assignment 03 Solution"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignment Directions
+
+This file contains an assignment.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.  This assignment is to be completed by each student, no digital sharing is allowed.  Concepts may be discussed, yet submission much be completed by submitting student.
+
+## Bond Portfolio
+
+### Loan Bond Portfolio
+
+For this assignment we wish to load AGG_holdings_Clean.csv from the data directory.
+
+```{r FederalFunds}
+
+my_file       <- ___
+bondPortfolio <- ___
+
+head(bondPortfolio)
+# View(bondPortfolio)
+
+```
+
+
+### Sum Market Value
+
+What is the market value of the portfolio in millions
+
+```{r MarketValue}
+
+mvMil <- ___
+
+print(mvMil)
+```
+
+
+## Submission
+
+Submit the single html file "assignment03.html", Blackboard may require that you zip it prior to submission.  Leave the session info that follows for debugging purposes for the instructor.
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
