@@ -25,93 +25,36 @@ We have portfolio level information available from [iShares](https://www.ishares
 I have downloaded data from their website for our use.
 
 ## ETF data -- Read #1
+```{r, ECHO = FALSE}
+#library("readxl")
+#my_file <- "../data/iShares-US-Treasury-Bond-ETF_fund.xlsx"
+#bondPortfolio <- read_excel(my_file, sheet = "Holdings", range = "$A$9:$O$161")
+#View(bondPortfolio)
+```
 
 ```{r}
-library("readxl")
-my_file <- "../data/iShares-US-Treasury-Bond-ETF_fund.xlsx"
+my_file       <- "../data/iShares-US-Treasury-Bond-ETF_fund.csv"
+bondPortfolio <- read.csv(my_file, stringsAsFactors = FALSE)
 
-bondPortfolio <- read_excel(my_file, sheet = "Holdings", range = "$A$9:$O$161")
-tail(bondPortfolio)
+head(bondPortfolio)
+#View(bondPortfolio)
 ```
 What about how the file was read concerns you? Is the solution scalable for a different fund?
 
 ## ETF data - Read #2
 
 ```{r}
-bondPortfolio <- read_excel(my_file, sheet = "Holdings", skip = 8)
 tail(bondPortfolio)
 ```
 
 Are we content with the data formats?
 
-## ETF data - Read #3
 
-```{r}
-
-```
-
-## Present Value - With vectors
-
-```{r}
-
-```
-
-## Extended Problem
+## Exercise 03-A.
 
 
-## Extended Problem with Vectors
+## Exercise 03-B.
 
-```{r PV_ExtendedwithVectors}
-
-```
-
-
-## Exercise 02-A.
-
-## Library Functions
-
-
-## Net Present Value (NPV) 01
-
-Find the Net Present Value of 
-
-```{r }
-
-```
-
-## Net Present Value (NPV) 02 
-
-```{r }
-
-```
-## Discount Value: Term Structure and Rate Curves
-
-```{r}
-
-
-```
-
-
-## Exercise 02-B.
-
-
-# FRED at the Saint Louis Federal Reserve
-
-## FRED
-
-
-
-## Loading files
-```{r}
-```
-## Figure: Federal Funds Rate across time
-
-```{r}
-
-
-```
-
-## Exercise 02-C
 
 ## Session Info
 

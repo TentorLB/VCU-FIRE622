@@ -1,5 +1,5 @@
 ---
-title: "Exercise 03-B Solution"
+title: "Exercise 03-B"
 author: "(fill in your name)"
 output:
   html_document:
@@ -30,8 +30,8 @@ Find the csv file for the Bond Portfolio in the data directory and load
 
 ```{r FederalFunds}
 
-my_file       <- "../data/iShares-US-Treasury-Bond-ETF_fund.csv"
-bondPortfolio <- read.csv(my_file, stringsAsFactors = FALSE)
+my_file       <- ___
+bondPortfolio <- ___
 
 head(bondPortfolio)
 
@@ -44,9 +44,10 @@ What is the market value of the portfolio in millions
 
 ```{r MarketValue}
 
-mvMil <- sum(bondPortfolio$Market.Value)/1000000
+mvMil <- sum(___)/___
 
-print(mvMil)
+pring(mvMil)
+
 ```
 
 

@@ -9,6 +9,13 @@ coursematerial/*.pdf
 lesson01/*/*.html
 lesson02/*/*.html
 lesson03/*/*.html
+lesson03/*/*.tex
+lesson03/*/*.nav
+lesson03/*/*.snm
+lesson03/*/*.gz
+lesson03/*/*.toc
+lesson03/*/*.vrb
+lesson03/*/*.nav
 # datasets
 lesson01/data/MORTGAGE15US.csv
 # Assignment Solutions
