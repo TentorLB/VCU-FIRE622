@@ -1,0 +1,28 @@
+﻿iShares S&P GSCI Commodity-Indexed Trust
+Fund Holdings as of,"Jan 28, 2020"
+Inception Date,"Jul 10, 2006"
+Shares Outstanding,"48,950,000.00"
+Stock,"-"
+Bond,"-"
+Cash,"-"
+Other,"-"
+ 
+Ticker,Name,Asset Class,Asset Class,Exchange,Weight (%),Price,Shares,Market Value,Notional Value,Sector,SEDOL,ISIN,Location,Currency
+"TBILL","TREASURY BILL","Cash","CA","-","15.62","99.97","114,000,000.00","113,971,591.88","113,971,591.88","-","BL0PJ60","US912796WR64","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","13.71","100.00","100,000,000.00","99,995,842.10","99,995,842.10","-","BGC26B8","US912796RY70","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","13.02","99.97","95,000,000.00","94,968,773.12","94,968,773.12","-","BJH9615","US912796TE98","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","10.26","99.82","75,000,000.00","74,863,609.35","74,863,609.35","-","BJDSXY8","US912796TK58","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","8.90","99.94","65,000,000.00","64,959,909.88","64,959,909.88","-","BK20C01","US912796TF63","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","7.51","99.64","55,000,000.00","54,801,961.83","54,801,961.83","-","BK1LRD3","US912796SM24","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","5.48","99.92","40,000,000.00","39,966,903.72","39,966,903.72","-","BKLYQQ8","US912796WT21","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","4.78","99.67","35,000,000.00","34,883,595.84","34,883,595.84","-","BKDTS43","US912796TR02","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","4.11","99.91","30,000,000.00","29,972,435.82","29,972,435.82","-","BK8WGX2","US912796TG47","United States","USD"
+"B","TREASURY BILL","Cash","CA","-","3.42","99.76","25,000,000.00","24,939,981.78","24,939,981.78","-","BJ5S5R3","US912796SH39","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","3.16","99.43","23,150,000.00","23,018,361.81","23,018,361.81","-","BKX9Y01","US912796TZ28","United States","USD"
+"USD","USD CASH","Cash","CA","-","2.33","100.00","16,967,638.00","16,967,637.96","16,967,637.96","-","-","-","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","2.24","99.55","16,400,000.00","16,326,588.81","16,326,588.81","-","BKDLTC4","US912796TV14","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","2.05","99.88","15,000,000.00","14,981,862.92","14,981,862.92","-","BJKRNT3","US912796SD25","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","2.05","99.58","15,000,000.00","14,937,186.57","14,937,186.57","-","BL0GG39","US912796TT67","United States","USD"
+"TBILL","TREASURY BILL","Cash","CA","-","1.37","99.95","10,000,000.00","9,994,664.58","9,994,664.58","-","BJ9RYX5","US912796WS48","United States","USD"
+"BBH0","GSCI EXCESS RETRN MAR 20","Futures","FUT","XCME","0.00","218.13","33,326.00","0.00","726,930,040.20","-","-","-","United States","USD"
+ 

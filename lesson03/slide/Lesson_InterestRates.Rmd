@@ -6,7 +6,7 @@ output: ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
-library(DiagrammeR)
+#library(DiagrammeR)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -28,12 +28,16 @@ Duration is
 4. greater than maturity for deep discount bonds and less than maturity for premium bonds.
 5. the second derivative of the bond price formula with respect to the YTM.
 
+> - Answer: 2
+
 ##
 
 Financial intermediation provides direct transfer of funds to the users.
 
 - True
 - False
+
+> - Answer: False.  Intermediation requires an intermediary.
 
 ##
 
@@ -46,6 +50,8 @@ The diagram below is a diagram of the
 3. money markets.
 4. derivatives markets.
 5. commodities markets.
+
+> - Answer: 2. primary markets.
 
 ## {.smaller}
 
@@ -66,31 +72,33 @@ PV-1050
 
 ```
 
+> - Answer: 3
+
 ##
 
 If the Fed wishes to stimulate the economy, it could
 
->    I. buy U.S. government securities.
->
->   II. raise the discount rate.
->
->  III. lower reserve requirements.
-  
+~~~
+    I. buy U.S. government securities.
+   II. raise the discount rate.
+  III. lower reserve requirements.
+~~~
+
 1. I and III only
 2. II and III only
 3. I and II only
 4. II only
 5. I, II, and III
 
+> - Answer: 1
 
-# Terminology
+## Nominal & Real Rates
 
-## 
+## Definitions
 
 Write out -- Explain the nominal interest rate
 
 Write out -- Explain the real interest rate
-
 
 ## Nominal Interest Rates
 
@@ -108,12 +116,109 @@ Write out -- Explain the real interest rate
     - If you wish to earn a 3% real return and prices are expected to increase by 2%, what rate must you charge?
     - Irving Fisher first postulated that interest rates contain a premium for expected inflation.
 
+# Class Problems
+
+## Class Problem A
+
+If you deposit $500 in a bank account that earns 6 percent per year, how much total interest will you have earned after the third year? 
+
+## Class Problem A: One Solution
+
+If you deposit $500 in a bank account that earns 6 percent per year, how much total interest will you have earned after the third year? 
+
+```{r A, echo=TRUE}
+AccumulatedInterest <- 500 * 
+                       ((1.06)*(1.06)*(1.06)*(1.06)*(1.06)*(1.06) - 1)
+
+AccumulatedInterest
+```
+
+## Class Problem B
+
+You can save $1,000 per year for the next four years in an account earning 10 percent per year. How much will you have at the end of the fourth year if you make the first deposit today?
+
+## Class Problem B: One Solution
+
+You can save $1,000 per year for the next four years in an account earning 10 percent per year. How much will you have at the end of the fourth year if you make the first deposit today?
+
+
+```{r B, echo=TRUE}
+#          v year one deposit
+#          v              v year two deposit
+#          v              v               v year three deposit
+#          v              v               v              v year four deposit
+FV <- (((((1000 * 1.10) + 1000) * 1.10) + 1000 * 1.10) + 1000 * 1.10)
+#                 ^               ^              ^              ^ growth from fourth year
+#                 ^               ^              ^ growth from third year
+#                 ^               ^ growth from second year
+#                 ^ growth from first year
+FV
+```
+
+## Class Problem C
+
+Calculate the present value of $5,000 received five years from today if your investments pay
+
+- 6 percent compounded annually
+- 8 percent compounded annually
+- 10 percent compounded annually
+
+What do your answers to these questions tell you about the relation between present values and interest rates and between present values and the number of compounding periods per year?
+
+## Class Problem C: Solution [1]
+
+
+```{r C, echo=TRUE}
+r  <- 6
+g  <- 1/(1+ r/100)
+PV <- (((((5000 * g) * g) * g) * g) * g)
+print(paste0(' Interest Rate ', as.character(r), ', PV ', as.character(PV))) 
+
+r  <- 8
+g  <- 1/(1+ r/100)
+PV <- (((((5000 * g) * g) * g) * g) * g)
+print(paste0(' Interest Rate ', as.character(r), ', PV ', as.character(PV))) 
+```
+
+## Class Problem C: Solution [2]
+
+```{r C2, echo=TRUE}
+r  <- 10
+g  <- 1/(1+ r/100)
+PV <- (((((5000 * g) * g) * g) * g) * g)
+print(paste0(' Interest Rate ', as.character(r), ', PV ', as.character(PV))) 
+```
+What do your answers to these questions tell you about the relation between present values and interest rates and between present values and the number of compounding periods per year?
+
+## Class Problem D
+
+The current one-year Treasury-bill rate is 5.2 percent and the forward one-year rate 12 months from now is 5.8 percent. For no arbitrage to hold, what should be the current two year spot rate be.
+
+## Class Problem D: One Solution
+
+The current one-year Treasury-bill rate is 5.2 percent and the forward one-year rate 12 months from now is 5.8 percent. For no arbitrage to hold, what should be the current two year spot rate be.
+
+```{r D, echo=TRUE}
+r  <- 10
+```
+
+
+# Terminology
+
+
+
+
+
+
+## Implied Forward Rates
+
+- A forward rate (f) is an expected rate on a short-term security that is to be originated at some point in the future
+- The one-year forward rate for any year, N years into the future is:
+
+$_Nf_1 = [(1+_1R_N)^{N}/(1+_1R_{N-1})^{N-1}]-1$
+
 
 # Appendix
-
-
-# Interest Rate Terminology
-
 
 ## Loanable Funds Theory {.flexbox .vcenter}
 
@@ -203,12 +308,7 @@ $L_2 < L_3 < … < L_N$
 - Investors and borrowers deviate from their preferred maturity segment only when adequately compensated to do so
 
 
-## Implied Forward Rates
 
-- A forward rate (f) is an expected rate on a short-term security that is to be originated at some point in the future
-- The one-year forward rate for any year, N years into the future is:
-
-$_Nf_1 = [(1+_1R_N)^{N}/(1+_1R_{N-1})^{N-1}]-1$
 
 
 
