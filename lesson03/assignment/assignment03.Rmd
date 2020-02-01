@@ -27,7 +27,7 @@ This file contains an assignment.  Please read the text and adjust the necessary
 
 For this assignment we wish to load AGG_holdings_Clean.csv from the data directory.
 
-```{r FederalFunds}
+```{r BondPortfolio}
 
 my_file       <- ___
 bondPortfolio <- ___
