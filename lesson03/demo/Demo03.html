@@ -3118,41 +3118,87 @@ slide:not(.current) .plotly.html-widget{
         <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
-      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      
       <p data-config-presenter><!-- populated from slide_config.json --></p>
           </hgroup>
   </slide>
 
 <slide class=""><hgroup><h2>Bond Portfolios</h2></hgroup><article  id="bond-portfolios">
 
-<p>You have read about calculations for duration, weighted average maturity, and bond price.</p>
+<p>You have read about calculations for bond price, duration, weighted average maturity, and weighted average coupon. You have seen these values calculated at an individual bond level in the text. The next level is to aggregate a portfolio of holdings to the portfolio duration, portfolio weighted average maturity, and portfolio weighted average coupon.</p>
 
-<p>We have some portfolio level information availabe from <a href='https://www.ishares.com/us' title=''>iShares</a>. iShares is the Blackrock branding of their Exchange Traded Funds (ETF).</p>
+<p>We have portfolio level information available from <a href='https://www.ishares.com/us' title=''>iShares</a>. iShares is the Blackrock branding of their Exchange Traded Funds (ETF).</p>
 
-<p>I have downloaded data from the website for our use.</p>
+<p>I have downloaded data from their website for our use.</p>
 
-</article></slide><slide class=""><hgroup><h2>ETF data</h2></hgroup><article  id="etf-data">
+</article></slide><slide class=""><hgroup><h2>ETF data – Read #1</h2></hgroup><article  id="etf-data-read-1">
 
-<pre class = 'prettyprint lang-r'>library(&quot;readxl&quot;)
+<pre class = 'prettyprint lang-r'>#library(&quot;readxl&quot;)
+#my_file &lt;- &quot;../data/iShares-US-Treasury-Bond-ETF_fund.xlsx&quot;
+#bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, range = &quot;$A$9:$O$161&quot;)
+#View(bondPortfolio)</pre>
 
-my_file &lt;- &quot;../data/iShares-US-Treasury-Bond-ETF_fund.xlsx&quot;
+<pre class = 'prettyprint lang-r'>my_file       &lt;- &quot;../data/iShares-US-Treasury-Bond-ETF_fund.csv&quot;
+bondPortfolio &lt;- read.csv(my_file, stringsAsFactors = FALSE)
 
-bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, range = &quot;$A$1:$B$5&quot;)</pre>
+tail(bondPortfolio)</pre>
 
-<pre >## New names:
-## * `` -&gt; ...2</pre>
+<pre >##              Name  Asset.Class Weight....  Price Market.Value Notional.Value
+## 147 TREASURY NOTE Fixed Income       0.00  99.80     33036.48       33036.48
+## 148 TREASURY BOND Fixed Income       0.00 116.48     14132.73       14132.73
+## 149 TREASURY BOND Fixed Income       0.00 142.20      5733.83        5733.83
+## 150 TREASURY BOND Fixed Income       0.00 135.88      4145.92        4145.92
+## 151 TREASURY BOND Fixed Income       0.00 108.45      2198.97        2198.97
+## 152      USD CASH         Cash      -0.04 100.00  -6074619.55    -6074619.55
+##                      Sector   SEDOL         ISIN Coupon....   Maturity YTM....
+## 147              Treasuries BYRLCJ6 US912828L997       1.38 2020-10-31    1.63
+## 148              Treasuries BJ7G9G2 US912810SF66       3.00 2049-02-15    2.23
+## 149              Treasuries 2545907 US912810FM54       6.25 2030-05-15    1.76
+## 150              Treasuries 2724610 US912810FP85       5.38 2031-02-15    1.79
+## 151              Treasuries 2931175 US912810EJ35       8.13 2021-05-15    1.60
+## 152 Cash and/or Derivatives      --           --       0.00         --    1.66
+##     Yield.to.Worst.... Duration Par.Value
+## 147               1.63     0.77     33000
+## 148               2.23    19.69     12000
+## 149               1.76     8.08      4000
+## 150               1.79     8.67      3000
+## 151               1.60     1.25      2000
+## 152               1.66     0.00  -6074620</pre>
 
-<pre class = 'prettyprint lang-r'>tail(bondPortfolio)</pre>
+<pre class = 'prettyprint lang-r'>#View(bondPortfolio)</pre>
 
-<pre >## # A tibble: 4 x 2
-##   `21-Jan-2020`                  ...2              
-##   &lt;chr&gt;                          &lt;chr&gt;             
-## 1 iShares U.S. Treasury Bond ETF &lt;NA&gt;              
-## 2 Inception Date                 Feb 14, 2012      
-## 3 Fund Holdings as of            Jan 21, 2020      
-## 4 Total Net Assets               $16,060,449,781.96</pre>
+<p>What about how the file was read concerns you? Is the solution scalable for a different fund?</p>
 
-</article></slide><slide class=""><hgroup><h2>Present Value - With Variables</h2></hgroup><article  id="present-value---with-variables">
+</article></slide><slide class=""><hgroup><h2>ETF data - Read #2</h2></hgroup><article  id="etf-data---read-2">
+
+<pre class = 'prettyprint lang-r'>#bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, skip = 8)
+tail(bondPortfolio)</pre>
+
+<pre >##              Name  Asset.Class Weight....  Price Market.Value Notional.Value
+## 147 TREASURY NOTE Fixed Income       0.00  99.80     33036.48       33036.48
+## 148 TREASURY BOND Fixed Income       0.00 116.48     14132.73       14132.73
+## 149 TREASURY BOND Fixed Income       0.00 142.20      5733.83        5733.83
+## 150 TREASURY BOND Fixed Income       0.00 135.88      4145.92        4145.92
+## 151 TREASURY BOND Fixed Income       0.00 108.45      2198.97        2198.97
+## 152      USD CASH         Cash      -0.04 100.00  -6074619.55    -6074619.55
+##                      Sector   SEDOL         ISIN Coupon....   Maturity YTM....
+## 147              Treasuries BYRLCJ6 US912828L997       1.38 2020-10-31    1.63
+## 148              Treasuries BJ7G9G2 US912810SF66       3.00 2049-02-15    2.23
+## 149              Treasuries 2545907 US912810FM54       6.25 2030-05-15    1.76
+## 150              Treasuries 2724610 US912810FP85       5.38 2031-02-15    1.79
+## 151              Treasuries 2931175 US912810EJ35       8.13 2021-05-15    1.60
+## 152 Cash and/or Derivatives      --           --       0.00         --    1.66
+##     Yield.to.Worst.... Duration Par.Value
+## 147               1.63     0.77     33000
+## 148               2.23    19.69     12000
+## 149               1.76     8.08      4000
+## 150               1.79     8.67      3000
+## 151               1.60     1.25      2000
+## 152               1.66     0.00  -6074620</pre>
+
+<p>Are we content with the data formats?</p>
+
+</article></slide><slide class=""><hgroup><h2>ETF data - Read #3</h2></hgroup><article  id="etf-data---read-3">
 
 </article></slide><slide class=""><hgroup><h2>Present Value - With vectors</h2></hgroup><article  id="present-value---with-vectors">
 
@@ -3198,14 +3244,14 @@ bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, range = &q
 ##  collate  English_United States.1252  
 ##  ctype    English_United States.1252  
 ##  tz       America/New_York            
-##  date     2020-01-22                  
+##  date     2020-01-30                  
 ## 
 ## - Packages -------------------------------------------------------------------
 ##  package       * version date       lib source        
 ##  assertthat      0.2.1   2019-03-21 [1] CRAN (R 3.6.1)
 ##  backports       1.1.5   2019-10-02 [1] CRAN (R 3.6.1)
-##  broom           0.5.3   2019-12-14 [1] CRAN (R 3.6.1)
-##  callr           3.4.0   2019-12-09 [1] CRAN (R 3.6.1)
+##  broom           0.5.4   2020-01-27 [1] CRAN (R 3.6.1)
+##  callr           3.4.1   2020-01-24 [1] CRAN (R 3.6.1)
 ##  cellranger      1.1.0   2016-07-27 [1] CRAN (R 3.6.1)
 ##  cli             2.0.1   2020-01-08 [1] CRAN (R 3.6.1)
 ##  colorspace      1.4-1   2019-03-18 [1] CRAN (R 3.6.1)
@@ -3231,7 +3277,7 @@ bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, range = &q
 ##  htmltools       0.4.0   2019-10-04 [1] CRAN (R 3.6.1)
 ##  httr            1.4.1   2019-08-05 [1] CRAN (R 3.6.1)
 ##  jsonlite        1.6     2018-12-07 [1] CRAN (R 3.6.1)
-##  knitr           1.26    2019-11-12 [1] CRAN (R 3.6.1)
+##  knitr           1.27    2020-01-16 [1] CRAN (R 3.6.2)
 ##  lattice         0.20-38 2018-11-04 [2] CRAN (R 3.6.1)
 ##  lazyeval        0.2.2   2019-03-15 [1] CRAN (R 3.6.1)
 ##  lifecycle       0.1.0   2019-08-01 [1] CRAN (R 3.6.1)
@@ -3246,7 +3292,7 @@ bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, range = &q
 ##  pkgconfig       2.0.3   2019-09-22 [1] CRAN (R 3.6.1)
 ##  pkgload         1.0.2   2018-10-29 [1] CRAN (R 3.6.1)
 ##  plyr            1.8.5   2019-12-10 [1] CRAN (R 3.6.1)
-##  prettyunits     1.1.0   2020-01-09 [1] CRAN (R 3.6.2)
+##  prettyunits     1.1.1   2020-01-24 [1] CRAN (R 3.6.1)
 ##  processx        3.4.1   2019-07-18 [1] CRAN (R 3.6.1)
 ##  ps              1.3.0   2018-12-21 [1] CRAN (R 3.6.1)
 ##  purrr         * 0.3.3   2019-10-18 [1] CRAN (R 3.6.1)
@@ -3254,12 +3300,11 @@ bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, range = &q
 ##  Rcpp            1.0.3   2019-11-08 [1] CRAN (R 3.6.1)
 ##  readr         * 1.3.1   2018-12-21 [1] CRAN (R 3.6.1)
 ##  readxl        * 1.3.1   2019-03-13 [1] CRAN (R 3.6.2)
-##  rematch         1.0.1   2016-04-21 [1] CRAN (R 3.6.1)
 ##  remotes         2.1.0   2019-06-24 [1] CRAN (R 3.6.1)
 ##  reprex          0.3.0   2019-05-16 [1] CRAN (R 3.6.1)
 ##  reshape2        1.4.3   2017-12-11 [1] CRAN (R 3.6.1)
-##  rlang           0.4.2   2019-11-23 [1] CRAN (R 3.6.1)
-##  rmarkdown       2.0     2019-12-12 [1] CRAN (R 3.6.1)
+##  rlang           0.4.2   2019-11-23 [1] CRAN (R 3.6.2)
+##  rmarkdown       2.1     2020-01-20 [1] CRAN (R 3.6.2)
 ##  rprojroot       1.3-2   2018-01-03 [1] CRAN (R 3.6.1)
 ##  rstudioapi      0.10    2019-03-19 [1] CRAN (R 3.6.1)
 ##  rvest           0.3.5   2019-11-08 [1] CRAN (R 3.6.1)
@@ -3269,25 +3314,23 @@ bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, range = &q
 ##  stringr       * 1.4.0   2019-02-10 [1] CRAN (R 3.6.1)
 ##  testthat        2.3.1   2019-12-01 [1] CRAN (R 3.6.1)
 ##  tibble        * 2.1.3   2019-06-06 [1] CRAN (R 3.6.1)
-##  tidyr         * 1.0.0   2019-09-11 [1] CRAN (R 3.6.1)
-##  tidyselect      0.2.5   2018-10-11 [1] CRAN (R 3.6.1)
+##  tidyr         * 1.0.2   2020-01-24 [1] CRAN (R 3.6.2)
+##  tidyselect      0.2.5   2018-10-11 [1] CRAN (R 3.6.2)
 ##  tidyverse     * 1.3.0   2019-11-21 [1] CRAN (R 3.6.2)
 ##  tvm           * 0.4.0   2019-03-06 [1] CRAN (R 3.6.2)
 ##  usethis         1.5.1   2019-07-04 [1] CRAN (R 3.6.1)
-##  utf8            1.1.4   2018-05-24 [1] CRAN (R 3.6.1)
-##  vctrs           0.2.1   2019-12-17 [1] CRAN (R 3.6.2)
+##  vctrs           0.2.2   2020-01-24 [1] CRAN (R 3.6.2)
 ##  withr           2.1.2   2018-03-15 [1] CRAN (R 3.6.1)
-##  xfun            0.11    2019-11-12 [1] CRAN (R 3.6.1)
+##  xfun            0.12    2020-01-13 [1] CRAN (R 3.6.2)
 ##  xml2            1.2.2   2019-08-09 [1] CRAN (R 3.6.1)
 ##  yaml            2.2.0   2018-07-25 [1] CRAN (R 3.6.0)
-##  zeallot         0.1.0   2018-01-28 [1] CRAN (R 3.6.1)
 ## 
 ## [1] C:/Users/Larry/OneDrive/Documents/R/win-library/3.6
 ## [2] C:/Program Files/R/R-3.6.1/library</pre>
 
 <pre class = 'prettyprint lang-r'>date()</pre>
 
-<pre >## [1] &quot;Wed Jan 22 18:26:33 2020&quot;</pre>
+<pre >## [1] &quot;Thu Jan 30 17:25:15 2020&quot;</pre>
 
 <pre class = 'prettyprint lang-r'>sessionInfo()</pre>
 
@@ -3310,7 +3353,7 @@ bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, range = &q
 ## other attached packages:
 ##  [1] readxl_1.3.1        FinancialMath_0.1.1 tvm_0.4.0          
 ##  [4] forcats_0.4.0       stringr_1.4.0       dplyr_0.8.3        
-##  [7] purrr_0.3.3         tidyr_1.0.0         tibble_2.1.3       
+##  [7] purrr_0.3.3         tidyr_1.0.2         tibble_2.1.3       
 ## [10] ggplot2_3.2.1       tidyverse_1.3.0     readr_1.3.1        
 ## 
 ## loaded via a namespace (and not attached):
@@ -3319,19 +3362,18 @@ bondPortfolio &lt;- read_excel(my_file, sheet = &quot;Holdings&quot;, range = &q
 ##  [9] sessioninfo_1.1.1 pillar_1.4.3      backports_1.1.5   lattice_0.20-38  
 ## [13] glue_1.3.1        digest_0.6.23     rvest_0.3.5       colorspace_1.4-1 
 ## [17] htmltools_0.4.0   plyr_1.8.5        pkgconfig_2.0.3   devtools_2.2.1   
-## [21] broom_0.5.3       haven_2.2.0       scales_1.1.0      processx_3.4.1   
+## [21] broom_0.5.4       haven_2.2.0       scales_1.1.0      processx_3.4.1   
 ## [25] generics_0.0.2    usethis_1.5.1     ellipsis_0.3.0    withr_2.1.2      
 ## [29] lazyeval_0.2.2    cli_2.0.1         magrittr_1.5      crayon_1.3.4     
 ## [33] memoise_1.1.0     evaluate_0.14     ps_1.3.0          fs_1.3.1         
 ## [37] fansi_0.4.1       nlme_3.1-140      xml2_1.2.2        pkgbuild_1.0.6   
-## [41] tools_3.6.1       prettyunits_1.1.0 hms_0.5.3         lifecycle_0.1.0  
-## [45] munsell_0.5.0     reprex_0.3.0      callr_3.4.0       compiler_3.6.1   
-## [49] rlang_0.4.2       grid_3.6.1        rstudioapi_0.10   rmarkdown_2.0    
-## [53] testthat_2.3.1    gtable_0.3.0      DBI_1.1.0         rematch_1.0.1    
-## [57] reshape2_1.4.3    R6_2.4.1          lubridate_1.7.4   knitr_1.26       
-## [61] utf8_1.1.4        zeallot_0.1.0     rprojroot_1.3-2   desc_1.2.0       
-## [65] stringi_1.4.4     Rcpp_1.0.3        vctrs_0.2.1       dbplyr_1.4.2     
-## [69] tidyselect_0.2.5  xfun_0.11</pre></article></slide>
+## [41] tools_3.6.1       prettyunits_1.1.1 hms_0.5.3         lifecycle_0.1.0  
+## [45] munsell_0.5.0     reprex_0.3.0      callr_3.4.1       compiler_3.6.1   
+## [49] rlang_0.4.2       grid_3.6.1        rstudioapi_0.10   rmarkdown_2.1    
+## [53] testthat_2.3.1    gtable_0.3.0      DBI_1.1.0         reshape2_1.4.3   
+## [57] R6_2.4.1          lubridate_1.7.4   knitr_1.27        rprojroot_1.3-2  
+## [61] desc_1.2.0        stringi_1.4.4     Rcpp_1.0.3        vctrs_0.2.2      
+## [65] dbplyr_1.4.2      tidyselect_0.2.5  xfun_0.12</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
