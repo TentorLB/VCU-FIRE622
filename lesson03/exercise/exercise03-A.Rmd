@@ -1,5 +1,5 @@
 ---
-title: "Exercise 03-A Solution"
+title: "Exercise 03-A"
 author: "(fill in your name)"
 output:
   html_document:

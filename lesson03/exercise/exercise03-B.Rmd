@@ -28,7 +28,7 @@ This file contains an exercise.  Please read the text and adjust the necessary c
 
 Find the csv file for the Bond Portfolio in the data directory and load
 
-```{r FederalFunds}
+```{r BondPortfolio}
 
 my_file       <- ___
 bondPortfolio <- ___
