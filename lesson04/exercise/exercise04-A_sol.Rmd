@@ -1,0 +1,129 @@
+---
+title: "Exercise 04-A Solution"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages(tvm)
+library(tidyverse)
+```
+
+## Exercise Directions
+
+This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.
+
+This steps that should be followed are
+
+  1. Load dataset into R
+  2. Examine dataset format and individual column format
+  3. Convert columns to format useful for analysis
+  
+## Bond Portfolio
+
+### Loan Bond Portfolio
+
+Find the csv file for the Bond Portfolio in the data directory and load
+
+```{r BondPortfolio}
+
+my_file       <- "../data/iShares-Short-Maturity-Bond-ETF_fund.txt"
+bondPortfolio <- read.csv(my_file, sep = "|", stringsAsFactors = FALSE)
+
+head(bondPortfolio)
+
+```
+
+### Review column names and number of records
+
+The function for the Column Names is `colname`, and the function to check the number of rows is `nrow`
+
+```{r ColumnNames}
+colnames(bondPortfolio)
+
+nrow(bondPortfolio)
+```
+
+### Review summary of import
+```{r Summary}
+summary(bondPortfolio)
+```
+
+What concerns do you have?
+
+### Convert numeric values
+
+Observe the columns types of data...
+
+* Market.Value, Notional.Value and Par.Value has commas in the text file used to import.
+* Maturity needs to be converted to a date format. (%B is for month spelled out)
+* TYM_ and Yield.to.Worst need to be converted to numeric
+
+```{r CleanValues}
+
+bondPortfolio$MarketValue   <- as.numeric(gsub(",", "", bondPortfolio$Market.Value))
+bondPortfolio$NotionalValue <- as.numeric(gsub(",", "", bondPortfolio$Notional.Value))
+bondPortfolio$ParValue      <- as.numeric(gsub(",", "", bondPortfolio$Par.Value))
+
+bondPortfolio$AssetClass    <- as.factor(bondPortfolio$Asset.Class)
+bondPortfolio$Sector        <- as.factor(bondPortfolio$Sector_)
+
+bondPortfolio$Maturity     <- as.Date(bondPortfolio$Maturity_,"%B %d, %Y")
+
+bondPortfolio$YTM          <- suppressWarnings(as.numeric(bondPortfolio$YTM_))
+bondPortfolio$YieldtoWorst <- suppressWarnings(as.numeric(bondPortfolio$Yield.to.Worst))
+colnames(bondPortfolio)
+summary(bondPortfolio)
+
+```
+
+
+### Sum Market Value
+
+What is the market value of the portfolio in millions
+
+```{r MarketValue}
+
+mvMil <- sum(bondPortfolio$MarketValue)/1000000
+
+print(mvMil)
+```
+
+
+### Filter for just the `MoneyMarket`
+
+```{r MoneyMarket}
+
+bondPortfolio %>%
+  filter(AssetClass=="Money Market")
+
+```
+
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
