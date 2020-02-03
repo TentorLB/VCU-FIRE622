@@ -1,5 +1,5 @@
 ---
-title: "Exercise 04-A Solution"
+title: "Short-Term Bond Portfolio (Exercise 04-A) Solution"
 author: "(fill in your name)"
 output:
   html_document:
@@ -18,21 +18,31 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-## Exercise Directions
+# Exercise Directions
 
 This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.
 
-This steps that should be followed are
+The big picture vision is 
 
   1. Load dataset into R
-  2. Examine dataset format and individual column format
-  3. Convert columns to format useful for analysis
+  2. Tidy
+      * Examine dataset format and individual column format
+      * Convert columns to format useful for analysis
+  3. Understand/Analysis data
+      * Calculate additional fields
+      * Filter
+      * Aggregate
+      * Visualize
   
-## Bond Portfolio
+![](../image/data-science.png){width=550px}
 
-### Loan Bond Portfolio
+The details are stepped through in individual chucks below.
 
-Find the csv file for the Bond Portfolio in the data directory and load
+# Short-Term Bond Portfolio
+
+## 1, Import Portfolio
+
+Find the text file (`iShares-Short-Maturity-Bond-ETF_fund.txt`) for the bond portfolio in the data directory and load.  Use the `read.csv` function, the file format is a tad different than in the past it is a pipe deliminited file, you will need to specifiy the parameter `sep =` in the parameters. 
 
 ```{r BondPortfolio}
 
@@ -43,17 +53,29 @@ head(bondPortfolio)
 
 ```
 
-### Review column names and number of records
+## 2. Tidy
 
-The function for the Column Names is `colname`, and the function to check the number of rows is `nrow`
+In this section we will make certain that the data is prepared in the correct format for our follow up analysis.  It could involve (1) going back to the import command to make things easier to properly load on import, or (2) it may involve changing and adjusting data types. [e.g. `as.Date`, `as.numeric`]
+
+### Review column names 
+
+The function for the Column Names is `colname`
 
 ```{r ColumnNames}
 colnames(bondPortfolio)
+```
 
+### Review number of records
+
+The function to check the number of rows is `nrow`
+
+```{r NumberRecord}
 nrow(bondPortfolio)
 ```
 
 ### Review summary of import
+This enables review of each column, the datatype and data summary.
+
 ```{r Summary}
 summary(bondPortfolio)
 ```
@@ -64,8 +86,9 @@ What concerns do you have?
 
 Observe the columns types of data...
 
-* Market.Value, Notional.Value and Par.Value has commas in the text file used to import.
-* Maturity needs to be converted to a date format. (%B is for month spelled out)
+* Market.Value, Notional.Value and Par.Value are character strings and have commas in the text file used to import.
+    - gsub is used to replace string found in a longer string.
+* Maturity is also a chacter string, and requires to be converted to a date format. (%B is for month spelled out)
 * TYM_ and Yield.to.Worst need to be converted to numeric
 
 ```{r CleanValues}
@@ -86,10 +109,13 @@ summary(bondPortfolio)
 
 ```
 
+## 3. Understand/Analyze
+
+Once fields have the proper data type we can look at answering a number of business questions.
 
 ### Sum Market Value
 
-What is the market value of the portfolio in millions
+What is the market value of the portfolio in millions?
 
 ```{r MarketValue}
 
@@ -99,16 +125,56 @@ print(mvMil)
 ```
 
 
-### Filter for just the `MoneyMarket`
+### AssetClass Filter for `Money Market`
 
 ```{r MoneyMarket}
-
 bondPortfolio %>%
   filter(AssetClass=="Money Market")
+```
+
+### AssetClass Filter for `Cash`
+
+```{r Cash}
+bondPortfolio %>%
+  filter(AssetClass=="Cash")
+```
+
+
+### Plot Maturity vs Duration
+```{r Plot01}
+ggplot(bondPortfolio, aes(x=Maturity, y=Duration)) +
+  geom_point()
+
+```
+What do long Maturity Bonds have low duration?  What bonds are these?
+
+### Long Maturity
+
+```{r longMaturity}
+longMaturity <- bondPortfolio %>%
+                  filter(Maturity >= as.Date("2040-01-01"))
+longMaturity
+```
+
+
+### Plot with Color
+
+```{r Plot02}
+ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
+  geom_point()
 
 ```
 
 
+### Sector Breakdown
+
+```{r SectorBreakdown}
+ bondPortfolio %>% 
+   group_by(Sector) %>% 
+   summarize(MarketValueSum=sum(MarketValue), WeightSum=sum(Weight)) %>%
+   arrange(desc(WeightSum))
+
+```
 
 ## Session Info
 
