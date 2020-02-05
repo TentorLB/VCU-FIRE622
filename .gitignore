@@ -16,6 +16,7 @@ lesson03/*/*.gz
 lesson03/*/*.toc
 lesson03/*/*.vrb
 lesson03/*/*.nav
+lesson04/*/*.html
 # datasets
 lesson01/data/MORTGAGE15US.csv
 # Assignment Solutions
