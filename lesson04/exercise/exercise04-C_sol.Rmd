@@ -1,0 +1,225 @@
+---
+title: "Corporate Bond Portfolio (Exercise 04-C) Solution"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages(tvm)
+library(tidyverse)
+```
+
+# Exercise Directions
+
+This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.
+
+The big picture vision is 
+
+  1. Load dataset into R
+  2. Tidy
+      * Examine dataset format and individual column format
+      * Convert columns to format useful for analysis
+  3. Understand/Analysis data
+      * Calculate additional fields
+      * Filter
+      * Aggregate
+      * Visualize
+  
+![](../image/data-science.png){width=550px}
+
+The details are stepped through in individual chucks below.
+
+# Short-Term Bond Portfolio
+
+## 1, Import Portfolio
+
+Find the text file (`iShares-Short-Maturity-Bond-ETF_fund.txt`) for the bond portfolio in the data directory and load.  Use the `read.csv` function, the file format is a tad different than in the past it is a pipe deliminited file, you will need to specifiy the parameter `sep =` in the parameters. 
+
+```{r BondPortfolio}
+
+my_file       <- "../data/iShares-Long-Term-Corporate-Bond-ETF_fund.csv"
+bondPortfolio <- read.csv(my_file, sep = ",", stringsAsFactors = FALSE)
+
+head(bondPortfolio)
+
+```
+
+## 2. Tidy
+
+In this section we will make certain that the data is prepared in the correct format for our follow up analysis.  It could involve (1) going back to the import command to make things easier to properly load on import, or (2) it may involve changing and adjusting data types. [e.g. `as.Date`, `as.numeric`]
+
+### Review column names 
+
+The function for the Column Names is `colname`
+
+```{r ColumnNames}
+colnames(bondPortfolio)
+```
+
+### Review number of records
+
+The function to check the number of rows is `nrow`
+
+```{r NumberRecord}
+nrow(bondPortfolio)
+```
+
+### Review summary of import
+This enables review of each column, the datatype and data summary.
+
+```{r Summary}
+summary(bondPortfolio)
+```
+
+What concerns do you have?
+
+### Convert Date values
+
+Observe the columns types of data...
+
+* Maturity is also a chacter string, and requires to be converted to a date format. (%B is for month spelled out)
+
+```{r CleanDate}
+bondPortfolio$Maturity     <- as.Date(bondPortfolio$Maturity_,"%B %d, %Y")
+summary(bondPortfolio)
+```
+
+### Convert Factor values
+
+```{r ConvertFactors}
+
+bondPortfolio$AssetClass    <- as.factor(bondPortfolio$Asset.Class)
+bondPortfolio$Sector        <- as.factor(bondPortfolio$Sector_)
+
+summary(bondPortfolio)
+```
+
+## 3. Understand/Analyze
+
+Once fields have the proper data type we can look at answering a number of business questions.
+
+### Sum Market Value
+
+What is the market value of the portfolio in millions?
+
+```{r MarketValue}
+
+mvMil <- sum(bondPortfolio$MarketValue)/1000000
+
+print(mvMil)
+```
+
+
+### AssetClass Filter for `Money Market`
+
+Filter for the `Money Market` records
+
+```{r MoneyMarket}
+bondPortfolio %>%
+  filter(AssetClass=="Money Market")
+```
+
+### AssetClass Filter for `Cash`
+
+Filter for the `Cash` records
+
+```{r Cash}
+bondPortfolio %>%
+  filter(AssetClass=="Cash")
+```
+
+
+### Plot Maturity vs Duration
+
+Place `Maturity` on the x-axis and `Duration` on the y-axis.
+
+```{r Plot01}
+ggplot(bondPortfolio, aes(x=Maturity, y=Duration)) +
+  geom_point()
+
+```
+What do long Maturity Bonds have low duration?  What bonds are these?
+
+### Long Maturity
+
+Wow, look at some of these bonds, what businesses get to issue bonds over 80 years until final maturity!
+
+```{r longMaturity}
+longMaturity <- bondPortfolio %>%
+                  filter(Maturity >= as.Date("2100-01-01"))
+longMaturity
+```
+
+
+### Plot with Color
+
+Add the astetic `color=` and use the secotr variable to have the graph adjust.
+
+```{r Plot02}
+ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
+  geom_point()
+
+```
+
+
+### Sector Breakdown
+
+
+```{r SectorBreakdown}
+ bondPortfolio %>% 
+   group_by(Sector) %>% 
+   summarize(MarketValueSum=sum(MarketValue), WeightSum=sum(Weight)) %>%
+   arrange(desc(WeightSum))
+
+```
+
+### Explore the portfolio
+
+Come up with another breakdown that might be interesting for a portfolio manager.
+
+```{r newBreakdown}
+ bondPortfolio %>% 
+   group_by(Sector) %>% 
+   summarize(MarketValueSum=sum(MarketValue), WeightSum=sum(Weight)) %>%
+   arrange(desc(WeightSum))
+
+```
+
+### Graph something
+
+Come up with another graph that might be interesting for a portfolio manager.
+
+```{r }
+ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
+  geom_point()
+
+```
+
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
