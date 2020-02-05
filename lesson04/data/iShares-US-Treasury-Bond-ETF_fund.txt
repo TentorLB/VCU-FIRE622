@@ -1,4 +1,4 @@
-Name|Asset Class|Weight|Price|Market Value|Notional Value|Sector|SEDOL|ISIN|Coupon|Maturity_|YTM|Yield to Worst|Duration|Par Value
+Name|Asset Class|Weight|Price|Market Value|Notional Value|Sector_|SEDOL|ISIN|Coupon|Maturity_|YTM|Yield to Worst|Duration|Par Value
 TREASURY NOTE|Fixed Income|5.34|103.76|851,797,517.17|851797517.17|Treasuries|BYPG9T2|US912828V988|2.25|Feb 15, 2027|1.68|1.68|6.47|813280000.00
 TREASURY NOTE|Fixed Income|4.77|103.51|760,963,434.23|760963434.23|Treasuries|BPYD731|US912828D564|2.38|Aug 15, 2024|1.58|1.58|4.28|727913200.00
 TREASURY NOTE|Fixed Income|4.48|104.71|715,038,806.41|715038806.41|Treasuries|BF0T9Y8|US912828X885|2.38|May 15, 2027|1.69|1.69|6.69|679988000.00
