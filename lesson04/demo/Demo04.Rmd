@@ -1,5 +1,5 @@
 ---
-title: "Bond Portfolios"
+title: "Bond Portfolio Analysis"
 author: "Larry Tentor"
 always_allow_html: true
 output:
@@ -18,42 +18,176 @@ library(readxl)
 
 ## Bond Portfolios
 
-You have read about calculations for bond price, duration, weighted average maturity, and weighted average coupon.  You have seen these values calculated at an individual bond level in the text.  The next level is to aggregate a portfolio of holdings to the portfolio duration, portfolio weighted average maturity, and portfolio weighted average coupon.
+We will return to continued ETF analysis from last lesson.  
 
-We have portfolio level information available from [iShares](https://www.ishares.com/us).  iShares is the Blackrock branding of their Exchange Traded Funds (ETF).
+Recall that diagram depicts the workflow we are trying yo implement as we do analysis.
 
-I have downloaded data from their website for our use.
+![](../image/data-science.png){width=550px}
 
-## ETF data -- Read #1
-```{r, ECHO = FALSE}
-#library("readxl")
-#my_file <- "../data/iShares-US-Treasury-Bond-ETF_fund.xlsx"
-#bondPortfolio <- read_excel(my_file, sheet = "Holdings", range = "$A$9:$O$161")
-#View(bondPortfolio)
-```
+# Import
+
+## Date File: Sample Lines - 1
+
+We have a different starting file than last week.
+
+~~~
+Name|Asset Class|Weight|Price|Market Value|Notional Value|Sector|SEDOL|ISIN|Coupon|Maturity_|YTM|Yield to Worst|Duration|Par Value
+TREASURY NOTE|Fixed Income|5.34|103.76|851,797,517.17|851797517.17|Treasuries|BYPG9T2|US912828V988|2.25|Feb 15, 2027|1.68|1.68|6.47|813280000.00
+TREASURY NOTE|Fixed Income|4.77|103.51|760,963,434.23|760963434.23|Treasuries|BPYD731|US912828D564|2.38|Aug 15, 2024|1.58|1.58|4.28|727913200.00
+TREASURY NOTE|Fixed Income|4.48|104.71|715,038,806.41|715038806.41|Treasuries|BF0T9Y8|US912828X885|2.38|May 15, 2027|1.69|1.69|6.69|679988000.00
+~~~
+
+What items might causes issues in loading data that you see?
+
+## Date File: Sample Lines - 2
+
+Here is the second half of the lines
+
+~~~
+Sector|SEDOL|ISIN|Coupon|Maturity_|YTM|Yield to Worst|Duration|Par Value
+Treasuries|BYPG9T2|US912828V988|2.25|Feb 15, 2027|1.68|1.68|6.47|813280000.00
+Treasuries|BPYD731|US912828D564|2.38|Aug 15, 2024|1.58|1.58|4.28|727913200.00
+Treasuries|BF0T9Y8|US912828X885|2.38|May 15, 2027|1.69|1.69|6.69|679988000.00
+~~~
+
+What else might cause problems?
+
+## Potential import issues
+
+- Pipe Delimiated [|]
+    - How to adjust - a new parameter `sep =`
+- Market Value has commas [851,797,517.17]
+    - How to adjust - read in as text and process, see next slides
+- Data format has month spelled out. [Feb 15, 2027]
+    - How to adjust - we need to have the correct `format =` specifier
+
+## Import Portfolio
 
 ```{r}
-my_file       <- "../data/iShares-US-Treasury-Bond-ETF_fund.csv"
-bondPortfolio <- read.csv(my_file, stringsAsFactors = FALSE)
+my_file       <- "../data/iShares-US-Treasury-Bond-ETF_fund.txt"
+bondPortfolio <- read.csv(my_file, sep = '|', stringsAsFactors = FALSE)
 
 head(bondPortfolio)
 #View(bondPortfolio)
 ```
-What about how the file was read concerns you? Is the solution scalable for a different fund?
 
-## ETF data - Read #2
+What about how the data.frame concerns you?
+
+# Tidy 
+
+## Converting Market Value
 
 ```{r}
-tail(bondPortfolio)
+bondPortfolio$MarketValue <- 
+  as.numeric(gsub(',','',bondPortfolio$Market.Value))
+
+bondPortfolio[1:5,c('Name','Market.Value','MarketValue')]
+```
+## Review Data Types
+
+```{r}
+
+class(bondPortfolio$Market.Value)
+class(bondPortfolio$MarketValue)
 ```
 
 Are we content with the data formats?
 
 
-## Exercise 03-A.
+## Converting Maturity
+
+```{r}
+bondPortfolio$Maturity <- 
+  as.Date(bondPortfolio$Maturity_, format = '%B %d, %Y')
+
+# %B is for when the month is spelled out!
+
+bondPortfolio[1:5,c('Name','Maturity_','Maturity')]
+```
+
+## Review Data Types
+
+```{r}
+
+class(bondPortfolio$Maturity_)
+class(bondPortfolio$Maturity)
+```
+
+Are we content with the data formats?
+
+## Introducing Factors
+
+```{r}
+class(bondPortfolio$Asset.Class)
+
+bondPortfolio$AssetClass <-
+  as.factor(bondPortfolio$Asset.Class)
+
+class(bondPortfolio$AssetClass)
+```
+
+What is so good about factors? 
+
+## Factors and their uses
+
+Factors are also known as categorical variables.  They work nicely to summarize data.
+
+```{r}
+summary(bondPortfolio[,c("Asset.Class","AssetClass")])
+```
+
+## Additional Columns to factors {.smaller}
+
+```{r}
+bondPortfolio$Sector <-
+  as.factor(bondPortfolio$Sector_)
+class(bondPortfolio$Sector_)
+class(bondPortfolio$Sector)
+summary(bondPortfolio[,c("Sector_","Sector")])
+```
+
+# Analyze
+
+## Filtering
+
+```{r Cash}
+cashLines <- 
+  bondPortfolio %>%
+    filter(AssetClass=="Cash")
+
+cashLines[,c("AssetClass","Sector","MarketValue")]
+```
+
+## Plot {.smaller}
+
+```{r Plot01, out.width = "70%"}
+
+ggplot(bondPortfolio, aes(x=Maturity, y=Duration)) +
+  geom_point()
+
+```
+
+## Filtering Continued
+
+```{r HighDuration}
+highDuration <- 
+  bondPortfolio %>%
+    filter(Maturity <= as.Date("2040-01-01"), Duration > 15)
+
+highDuration
+```
+What is different about this security?
 
 
-## Exercise 03-B.
+## Exercise 04-A.
+
+
+
+## Exercise 04-B.
+
+
+## Exercise 04-C.
+
 
 
 ## Session Info

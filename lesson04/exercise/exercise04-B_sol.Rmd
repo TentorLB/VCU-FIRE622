@@ -1,5 +1,5 @@
 ---
-title: "Money Market Calculations (Exercise 04-A) Solution"
+title: "Short-Term Bond Portfolio (Exercise 04-B) Solution"
 author: "(fill in your name)"
 output:
   html_document:
@@ -22,64 +22,40 @@ library(tidyverse)
 
 This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.
 
-# Money Markets
+The big picture vision is 
 
-## 1. Problem (Saunders and Cornett, Adjusted from slides)
+  1. Load dataset into R
+  2. Tidy
+      * Examine dataset format and individual column format
+      * Convert columns to format useful for analysis
+  3. Understand/Analysis data
+      * Calculate additional fields
+      * Filter
+      * Aggregate
+      * Visualize
+  
+![](../image/data-science.png){width=550px}
 
-A $5M investment in 180 day commercial paper has a 1.5% discount yield. An equivalent size and risk 180 day CD has a 1.5% single payment yield.  Which security offers the better return?   
+The details are stepped through in individual chucks below.
 
-### Comercical Paper
+# Short-Term Bond Portfolio
 
-Calculate the inital price of the commericial paper and find the bond equivalent yield.
+## 1, Import Portfolio
 
-```{r CommercialPaper}
-# from i_d formula
-id_cp <- 0.015
-Pf_cp <- 5000000
-n     <- 180
-P0_cp <- -(id_cp * n / 360 * Pf_cp) + Pf_cp
+Find the text file (`iShares-Short-Maturity-Bond-ETF_fund.txt`) for the bond portfolio in the data directory and load.  Use the `read.csv` function, the file format is a tad different than in the past it is a pipe deliminited file, you will need to specifiy the parameter `sep =` in the parameters. 
 
-P0_cp
+```{r BondPortfolio}
 
-ibe_cp <- (Pf_cp - P0_cp)/P0_cp * 365 / n
+my_file       <- "../data/iShares-Short-Maturity-Bond-ETF_fund.txt"
+bondPortfolio <- read.csv(my_file, sep = "|", stringsAsFactors = FALSE)
 
-ibe_cp
-
-```
-### CD Calculations
-
-convert the given single payment yield into a bond equivalent.
-
-```{r CD}
-isp_cd <- 0.015 
-ibe_cd <- isp_cd * 365 / 360
-
-ibe_cd
+head(bondPortfolio)
 
 ```
 
-### Comparison
+## 2. Tidy
 
-Compare the bond equivalent yield for the commericial paper and the certificate of deposit.
-
-```{r Compare}
-if (ibe_cp > ibe_cd) {
-  print('Commerical Paper has better yield')
-} else {
-  print('CD has better yield')
-}
-
-```
-
-## 7. Problem (Page 167, Saunders and Cornett)
-
-You can purchase a T-bill that is 95 days from maturity for \$9,965. The T-bill has a face value of $10,000. (LG 5-2)
-
-Calculate the T-bill’s quoted yield.
-
-Calculate the T-bill’s bond equivalent yield.
-
-Calculate the T-bill’s EAR.
+In this section we will make certain that the data is prepared in the correct format for our follow up analysis.  It could involve (1) going back to the import command to make things easier to properly load on import, or (2) it may involve changing and adjusting data types. [e.g. `as.Date`, `as.numeric`]
 
 ### Review column names 
 
@@ -127,13 +103,30 @@ summary(bondPortfolio)
 ```
 
 
-## 10. Problem (Page 167, Saunders and Cornett)
+### Convert Date values
 
-A T-bill that is 225 days from maturity is selling for $98,850. The T-bill has a face value of $100,000. (LG 5-2)
+Observe the columns types of data...
 
-Calculate the discount yield, bond equivalent yield, and EAR on the T-bill.
+* Maturity is also a chacter string, and requires to be converted to a date format. (%B is for month spelled out)
 
-Calculate the discount yield, bond equivalent yield, and EAR on the T-bill if it matures in 300 days.
+```{r CleanDate}
+bondPortfolio$Maturity     <- as.Date(bondPortfolio$Maturity_,"%B %d, %Y")
+summary(bondPortfolio)
+```
+
+### Convert Factor values
+
+```{r ConvertFactors}
+
+bondPortfolio$AssetClass    <- as.factor(bondPortfolio$Asset.Class)
+bondPortfolio$Sector        <- as.factor(bondPortfolio$Sector_)
+
+summary(bondPortfolio)
+```
+
+## 3. Understand/Analyze
+
+Once fields have the proper data type we can look at answering a number of business questions.
 
 ### Sum Market Value
 
