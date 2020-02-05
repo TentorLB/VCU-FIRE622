@@ -20,17 +20,17 @@ library(tidyverse)
 
 # Exercise Directions
 
-This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.
+This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.    The entire exercise will not knit since sections of the code have been filled with `___` where you need to complete the code.  Use the run above and run button on each chunk for intermediate results.
 
 # Money Markets
 
 ## 1. Problem (Saunders and Cornett, Adjusted from slides)
 
-A $5M investment in 180 day commercial paper has a 1.5% discount yield. An equivalent size and risk 180 day CD has a 1.5% single payment yield.  Which security offers the better return?   
+A \$5M investment in 180 day commercial paper has a 1.5% discount yield. An equivalent size and risk 180 day CD has a 1.5% single payment yield.  Which security offers the better return?   
 
-### Comercical Paper
+### Commercial Paper
 
-Calculate the inital price of the commericial paper and find the bond equivalent yield.
+Calculate the initial price of the commercial paper and find the bond equivalent yield.
 
 ```{r CommercialPaper}
 # from i_d formula
@@ -60,11 +60,11 @@ ibe_cd
 
 ### Comparison
 
-Compare the bond equivalent yield for the commericial paper and the certificate of deposit.
+Compare the bond equivalent yield for the commercial paper and the certificate of deposit.
 
 ```{r Compare}
 if (ibe_cp > ibe_cd) {
-  print('Commerical Paper has better yield')
+  print('Commercial Paper has better yield')
 } else {
   print('CD has better yield')
 }
@@ -75,126 +75,89 @@ if (ibe_cp > ibe_cd) {
 
 You can purchase a T-bill that is 95 days from maturity for \$9,965. The T-bill has a face value of $10,000. (LG 5-2)
 
-Calculate the T-bill’s quoted yield.
+a. Calculate the T-bill’s quoted yield.
+b. Calculate the T-bill’s bond equivalent yield.
+c. Calculate the T-bill’s EAR.
 
-Calculate the T-bill’s bond equivalent yield.
 
-Calculate the T-bill’s EAR.
+### a. Calculate Quoted Yield.
 
-### Review column names 
+Fill in the below variables and provide the function for $i_d$.
 
-The function for the Column Names is `colname`
+```{r DiscountYield02}
+Pf <- 10000
+P0 <- 9965
+n  <- 95
+id <- (Pf-P0)/Pf*360/n
 
-```{r ColumnNames}
-colnames(bondPortfolio)
+print(id*100)
 ```
 
-### Review number of records
+### b. Calculate Bond Equivalent Yield.
 
-The function to check the number of rows is `nrow`
+Provide the formula for bond equivalent yield $i_{be}$.
 
-```{r NumberRecord}
-nrow(bondPortfolio)
+```{r bondEquivalentYield02}
+ibe <- (Pf-P0)/P0*365/n
+
+print(ibe*100)
 ```
 
-### Review summary of import
-This enables review of each column, the datatype and data summary.
+### c. Calculate Effective Annual Return
 
-```{r Summary}
-summary(bondPortfolio)
-```
 
-What concerns do you have?
+```{r ear02}
 
-### Convert numeric values
-
-Observe the columns types of data...
-
-* Market.Value, Notional.Value and Par.Value are character strings and have commas in the text file used to import.
-    - gsub is used to replace string found in a longer string.
-* TYM_ and Yield.to.Worst need to be converted to numeric
-
-```{r CleanVNumeric}
-bondPortfolio$MarketValue   <- as.numeric(gsub(",", "", bondPortfolio$Market.Value))
-bondPortfolio$NotionalValue <- as.numeric(gsub(",", "", bondPortfolio$Notional.Value))
-bondPortfolio$ParValue      <- as.numeric(gsub(",", "", bondPortfolio$Par.Value))
-
-bondPortfolio$YTM           <- suppressWarnings(as.numeric(bondPortfolio$YTM_))
-bondPortfolio$YieldtoWorst  <- suppressWarnings(as.numeric(bondPortfolio$Yield.to.Worst))
-colnames(bondPortfolio)
-summary(bondPortfolio)
-
+ear <- ((1+(ibe/(365/n)))^(365/n))-1
+  
+print(ear)
 ```
 
 
 ## 10. Problem (Page 167, Saunders and Cornett)
 
-A T-bill that is 225 days from maturity is selling for $98,850. The T-bill has a face value of $100,000. (LG 5-2)
+A T-bill that is 225 days from maturity is selling for \$98,850. The T-bill has a face value of \$100,000. (LG 5-2)
 
-Calculate the discount yield, bond equivalent yield, and EAR on the T-bill.
+a. Calculate the discount yield
+b. Calculate the bond equivalent yield
+c. Calculate the EAR
 
 Calculate the discount yield, bond equivalent yield, and EAR on the T-bill if it matures in 300 days.
 
-### Sum Market Value
+### a. Calculate the discount yield
 
-What is the market value of the portfolio in millions?
+Provide all necessary for the discount yield calculation and print the resulting answer.
 
-```{r MarketValue}
+```{r discountYield03A}
+Pf <- 100000
+P0 <- 98850
+n  <- 225
+id <- (Pf-P0)/Pf*360/n
 
-mvMil <- sum(bondPortfolio$MarketValue)/1000000
-
-print(mvMil)
-```
-
-
-### AssetClass Filter for `Money Market`
-
-```{r MoneyMarket}
-bondPortfolio %>%
-  filter(AssetClass=="Money Market")
-```
-
-### AssetClass Filter for `Cash`
-
-```{r Cash}
-bondPortfolio %>%
-  filter(AssetClass=="Cash")
-```
-
-
-### Plot Maturity vs Duration
-```{r Plot01}
-ggplot(bondPortfolio, aes(x=Maturity, y=Duration)) +
-  geom_point()
-
-```
-What do long Maturity Bonds have low duration?  What bonds are these?
-
-### Long Maturity
-
-```{r longMaturity}
-longMaturity <- bondPortfolio %>%
-                  filter(Maturity >= as.Date("2040-01-01"))
-longMaturity
-```
-
-
-### Plot with Color
-
-```{r Plot02}
-ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
-  geom_point()
+print(id*100)
 
 ```
 
 
-### Sector Breakdown
+### b. Calculate the bond equivalent yield
 
-```{r SectorBreakdown}
- bondPortfolio %>% 
-   group_by(Sector) %>% 
-   summarize(MarketValueSum=sum(MarketValue), WeightSum=sum(Weight)) %>%
-   arrange(desc(WeightSum))
+Provide all necessary for the bond equivalent yield calculation and print the resulting answer.
+
+```{r bondEquivalentYield03B}
+ibe <- (Pf-P0)/P0*365/n
+
+print(ibe*100)
+```
+
+### c. Calculate the EAR
+
+Provide all necessary for the effective annual return calculation and print the resulting answer.
+
+
+```{r EAR03C}
+ear <- ((1+(ibe/(365/n)))^(365/n))-1
+  
+print(ear)
 
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: "Short-Term Bond Portfolio (Exercise 04-C) Solution"
+title: "Corporate Bond Portfolio (Exercise 04-D) Solution"
 author: "(fill in your name)"
 output:
   html_document:
@@ -46,8 +46,8 @@ Find the text file (`iShares-Short-Maturity-Bond-ETF_fund.txt`) for the bond por
 
 ```{r BondPortfolio}
 
-my_file       <- "../data/iShares-Short-Maturity-Bond-ETF_fund.txt"
-bondPortfolio <- read.csv(my_file, sep = "|", stringsAsFactors = FALSE)
+my_file       <- "../data/iShares-Long-Term-Corporate-Bond-ETF_fund.csv"
+bondPortfolio <- read.csv(my_file, sep = ",", stringsAsFactors = FALSE)
 
 head(bondPortfolio)
 
@@ -81,27 +81,6 @@ summary(bondPortfolio)
 ```
 
 What concerns do you have?
-
-### Convert numeric values
-
-Observe the columns types of data...
-
-* Market.Value, Notional.Value and Par.Value are character strings and have commas in the text file used to import.
-    - gsub is used to replace string found in a longer string.
-* TYM_ and Yield.to.Worst need to be converted to numeric
-
-```{r CleanVNumeric}
-bondPortfolio$MarketValue   <- as.numeric(gsub(",", "", bondPortfolio$Market.Value))
-bondPortfolio$NotionalValue <- as.numeric(gsub(",", "", bondPortfolio$Notional.Value))
-bondPortfolio$ParValue      <- as.numeric(gsub(",", "", bondPortfolio$Par.Value))
-
-bondPortfolio$YTM           <- suppressWarnings(as.numeric(bondPortfolio$YTM_))
-bondPortfolio$YieldtoWorst  <- suppressWarnings(as.numeric(bondPortfolio$Yield.to.Worst))
-colnames(bondPortfolio)
-summary(bondPortfolio)
-
-```
-
 
 ### Convert Date values
 
@@ -142,12 +121,16 @@ print(mvMil)
 
 ### AssetClass Filter for `Money Market`
 
+Filter for the `Money Market` records
+
 ```{r MoneyMarket}
 bondPortfolio %>%
   filter(AssetClass=="Money Market")
 ```
 
 ### AssetClass Filter for `Cash`
+
+Filter for the `Cash` records
 
 ```{r Cash}
 bondPortfolio %>%
@@ -156,6 +139,9 @@ bondPortfolio %>%
 
 
 ### Plot Maturity vs Duration
+
+Place `Maturity` on the x-axis and `Duration` on the y-axis.
+
 ```{r Plot01}
 ggplot(bondPortfolio, aes(x=Maturity, y=Duration)) +
   geom_point()
@@ -165,14 +151,18 @@ What do long Maturity Bonds have low duration?  What bonds are these?
 
 ### Long Maturity
 
+Wow, look at some of these bonds, what businesses get to issue bonds over 80 years until final maturity!
+
 ```{r longMaturity}
 longMaturity <- bondPortfolio %>%
-                  filter(Maturity >= as.Date("2040-01-01"))
+                  filter(Maturity >= as.Date("2100-01-01"))
 longMaturity
 ```
 
 
 ### Plot with Color
+
+Add the astetic `color=` and use the secotr variable to have the graph adjust.
 
 ```{r Plot02}
 ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
@@ -183,6 +173,7 @@ ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
 
 ### Sector Breakdown
 
+
 ```{r SectorBreakdown}
  bondPortfolio %>% 
    group_by(Sector) %>% 
@@ -190,6 +181,30 @@ ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
    arrange(desc(WeightSum))
 
 ```
+
+### Explore the portfolio
+
+Come up with another breakdown that might be interesting for a portfolio manager.
+
+```{r newBreakdown}
+ bondPortfolio %>% 
+   group_by(Sector) %>% 
+   summarize(MarketValueSum=sum(MarketValue), WeightSum=sum(Weight)) %>%
+   arrange(desc(WeightSum))
+
+```
+
+### Graph something
+
+Come up with another graph that might be interesting for a portfolio manager.
+
+```{r }
+ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
+  geom_point()
+
+```
+
+
 
 ## Session Info
 

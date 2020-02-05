@@ -1,5 +1,5 @@
 ---
-title: "Treasury Auction Data (Exercise 04-B) Solution"
+title: "Treasury Auction Data (Exercise 04-B)"
 author: "(fill in your name)"
 output:
   html_document:
@@ -27,7 +27,7 @@ This file contains an exercise.  Please read the text and adjust the necessary c
 
 ## Import Treasury Auction Data
 
-The treasury action results are available in datasets on the release page, 
+The treasury action results are available in data sets on the release page, 
 [Treasury Auction Data](https://www.treasurydirect.gov/instit/annceresult/press/press_auctionresults.htm).
 
 Please open the T-bill 4-week section and select the 01/28/2020 pdf for competitive results.  Review this [pdf](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2020/R_20200130_2.pdf) file.
@@ -64,7 +64,7 @@ length(auctionResults)
 ```
 
 
-## Auction Annoucement
+## Auction Announcement
 
 Does this data compare to the [Auction Annoucement pdf](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2020/A_20200128_2.pdf) file released on this date?
 
@@ -93,11 +93,11 @@ Does this coverage ratio match that computed by the treasury?
 << Your Comment Here >>
 
 ```{r ColumnNames}
-totalTendered <- as.numeric(auctionResults$TotalTendered[[1]])
+totalTendered <- as.numeric(auctionResults$___)
 class(totalTendered)
-totalAccepted <- as.numeric(auctionResults$TotalAccepted[[1]])
+totalAccepted <- as.numeric(auctionResults$___)
 class(totalAccepted)
-coverageRatio <- totalTendered/totalAccepted
+coverageRatio <- ___/___
 
 format(totalTendered, scientific=FALSE)
 format(totalAccepted, scientific=FALSE)
@@ -111,15 +111,13 @@ coverageRatio
 How much money did the treasury borrow in this 4-week auction and how much interest will be paid?  Calculate this below and display.
 
 ```{r Summary}
-faceValue    <- totalAccepted
-borrowed     <- totalAccepted * as.numeric(auctionResults$HighPrice[[1]])/100
+faceValue    <- ___
+borrowed     <- ___ * as.numeric(auctionResults$HighPrice[[1]])/100
 interestRate <- as.numeric(auctionResults$HighDiscountRate[[1]])
-interestPaid <- totalAccepted - borrowed
+interestPaid <- ___ - borrowed
 
   
-print(paste0('The Treasury borrowed $', format(borrowed, big.mark=",", scientific = FALSE), ' at an interest payment of $', format(interestPaid, big.mark=",", scientific = FALSE),' resulitng in face value of $', format(faceValue, big.mark=",", scientific = FALSE)))  
-
-
+print(paste0('The Treasury borrowed $', format(borrowed, big.mark=",", scientific = FALSE), ' at an interest payment of $', format(interestPaid, big.mark=",", scientific = FALSE),' resulting in face value of $', format(faceValue, big.mark=",", scientific = FALSE)))  
 ```
 
 
