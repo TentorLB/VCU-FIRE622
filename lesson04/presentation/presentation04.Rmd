@@ -1,0 +1,100 @@
+---
+title:  "Money Markets and Bonds"
+author: "Larry Tentor"
+always_allow_html: true
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+#library(DiagrammeR)
+#install.packacge('FinancialMath')
+#install.package('')
+library(FinancialMath)
+library(YieldCurve)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Attribution
+
+##  {.flexbox .vcenter}
+
+McGraw Hill has provided power point slides that were substantially used to construct this R Markdown deck.
+
+# Quiz Items
+
+##
+
+Ignoring default risk, if a bond's expected return is greater than its required return, then the bond's market price must be greater than the present value of the bond's cash flows.
+
+* True
+* False
+
+> - Answer: False
+
+##
+A semiannual payment bond with a $1,000 par has a 7 percent quoted coupon rate, a 7 percent promised YTM, and 10 years to maturity. What is the bond's duration?
+
+A. 10.00 years
+B. 8.39 years
+C. 6.45 years
+D. 5.20 years
+E. 7.35 years
+
+> - Answer: E Σ[(t × CFt/(1.035)t)]/($1,000)
+
+
+# Term Structure of Interest Rates
+
+## Term Structure of Interest Rates
+
+The diagram below is a diagram of the relations of interest rates
+
+![](../image/YieldCurve.jpg){width=550px}
+
+# Money Markets
+
+## Money Market Interest Rate Yields {.flexbox .vcenter}
+
+![](../image/MoneyMarketYieldCalculations.jpg){height=500px}
+
+## Money Market Interest Rate Yields {.flexbox .vcenter}
+
+![](../image/MoneyMarketYieldCalculations.svg){height=500px}
+
+## Term Structure of Interest Rates:the Yield Curve
+
+(a)  Upward sloping
+(b)  Inverted or downward sloping
+(c)  Flat
+
+## Unbiased Expectations Theory
+
+Current long-term interest rates (1RN) are geometric averages of current and expected future, E(Nr1), short-term interest rates
+
+$_1R_N = [(1+_1R_1)(1+E(_2r_1))...(1+E(_Nr_n))]^{1/N}-1$
+
+$_1R_N$  = actual N-period rate today
+$N$      = term to maturity, N = 1, 2, …, 4, …
+$_1R_1$  = actual current one-year rate today
+E(_ir_1) = expected one-year rates for years, i = 1 to N
+
+## Liquidity Premium Theory
+
+
+$_1R_N = [(1+_1R_1)(1+E(_2r_1) + L_2)...(1+E(_Nr_n)+L_N)]^{1/N}-1$
+
+$L_i$  = liquidity premium for period t
+$L_2 < L_3 < … < L_N$
+
+## Market Segmentation Theory
+
+- Individual investors and FIs have specific maturity preferences
+- Interest rates are determined by distinct supply and demand conditions within many maturity segments
+- Investors and borrowers deviate from their preferred maturity segment only when adequately compensated to do so
+
+
+
+
+
+
+
