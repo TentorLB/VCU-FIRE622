@@ -179,15 +179,13 @@ highDuration
 What is different about this security?
 
 
-## Exercise 04-A.
-
-
-
 ## Exercise 04-B.
 
 
 ## Exercise 04-C.
 
+
+## Exercise 04-D.
 
 
 ## Session Info

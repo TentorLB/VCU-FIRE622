@@ -1,0 +1,217 @@
+---
+title: "Local Currency Bond Portfolio (Project 04) Solution"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages(tvm)
+library(tidyverse)
+```
+
+# Exercise Directions
+
+This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.  The entire project will not knit since sections of the code have been filled with `___` where you need to complete the code.  Use the run above and run button on each chunk for intermediate results.
+
+The big picture vision is 
+
+  1. Load data set into R
+  2. Tidy
+      * Examine data set format and individual column format
+      * Convert columns to format useful for analysis
+  3. Understand/Analysis data
+      * Calculate additional fields
+      * Filter
+      * Aggregate
+      * Visualize
+  
+![](../image/data-science.png){width=550px}
+
+The details are stepped through in individual chucks below.
+
+# Local Currency Bond Portfolio
+
+## 1. Import Portfolio
+
+* Be very careful with column names within the file and dataset they may not be the same as prior files. When you have errors check this first! *
+
+Find the text file (`iShares-JP-Morgan-EM-Local-Currency-Bond-ETF_fund.csv`) for the bond portfolio in the data directory and load.  Use the `read.csv` function, the file format is a tad different than in the past it is a pipe deliminited file, you will need to specify the parameter `sep =` in the parameters. 
+
+```{r BondPortfolio}
+
+___
+___
+
+head(bondPortfolio)
+
+```
+
+## 2. Tidy
+
+In this section we will make certain that the data is prepared in the correct format for our follow up analysis.  It could involve (1) going back to the import command to make things easier to properly load on import, or (2) it may involve changing and adjusting data types. [e.g. `as.Date`, `as.numeric`]
+
+### Review column names 
+
+The function for the Column Names is `colname`
+
+```{r ColumnNames}
+___
+```
+
+### Review number of records
+
+The function to check the number of rows is `nrow`
+
+```{r NumberRecord}
+___
+```
+
+### Review summary of import
+This enables review of each column, the datatype and data summary.
+
+```{r Summary}
+___
+```
+
+What concerns do you have?
+
+~~~
+<< Your Answer Here >>
+~~~
+
+### Convert numeric values
+
+Observe the columns types of data...
+
+<< What Columns Concern You >>
+
+```{r CleanVNumeric}
+___
+___
+___
+
+summary(bondPortfolio)
+
+```
+
+### Convert Date values
+
+Observe the columns types of data...
+
+* Maturity is also a character string, and requires to be converted to a date format. (%B is for month spelled out)
+
+```{r CleanDate}
+___
+summary(bondPortfolio)
+```
+
+### Convert Factor values
+
+For the rest of the analysis you will need factor for the Asset Class, Sector, Location and Currency.
+
+```{r ConvertFactors}
+
+___
+___
+___
+___
+
+summary(bondPortfolio)
+```
+
+## 3. Understand/Analyze
+
+Once fields have the proper data type we can look at answering a number of business questions.
+
+### Sum Market Value
+
+What is the market value of the portfolio in millions?
+
+```{r MarketValue}
+___
+```
+
+
+### AssetClass Filter for `Money Market`
+
+Filter for the `Money Market` records
+
+```{r MoneyMarket}
+___
+```
+
+### Sector Breakdown
+
+Provide a sector breakdown of the sum of market value and the sum of weight.
+
+```{r SectorBreakdown}
+___
+```
+### Location Breakdown
+
+Provide a location breakdown of the sum of market value and the sum of weight.
+
+```{r LocationBreakdown}
+___
+
+```
+
+Which county has the largest weight in the portfolio?
+
+* YOUR ANSWER HERE *
+
+### Filter for Bonds from `Poland`
+
+Filter for the bonds from Poland and just return fixed income securities.
+
+```{r PolandFixed}
+___
+
+```
+
+
+### Plot Poland Fixed Security
+
+```{r Plot02}
+ggplot(___, aes(x=Maturity, y=Duration, color=___)) +
+  geom_point()
+
+```
+
+
+### Explore the portfolio
+
+Come up with another breakdown that might be interesting for a portfolio manager.
+
+```{r newBreakdown}
+
+
+```
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
