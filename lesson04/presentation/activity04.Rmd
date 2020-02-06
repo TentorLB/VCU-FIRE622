@@ -1,0 +1,86 @@
+---
+title: "Treasury Auction (Activity 04)"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages(tvm)
+library(tidyverse)
+```
+
+# Activity Directions
+
+This file contains the bids of a treasury auction.  It is your job to determine the high rate and allocate the awards.
+
+# Treasury Auction
+
+
+## Annoucement
+
+| | |
+|---------------------------------|----------------:|
+| Term and Type of Security       |     91-Day Bill |
+| Security Description            |    13-Week Bill |
+| Offering Amount                 | $45,000,000,000 |
+| Competitive Bid Rate Increments |          0.005% |
+| Maximum Noncompetitive Award    |      $5,000,000 |
+| Noncompetitive Closing Time     |   11:00 a.m. ET |
+| Competitive Closing Time        |   11:30 a.m. ET |
+
+## Bid Submitted
+
+| Counterparty   | Amount           |  Bid     | Awarded |
+|----------------|------------------|----------|---------|
+| Counterparty A |      $11,000,000 |   1.550% |         |
+| Counterparty B |       $2,000,000 |   1.450% |         |
+| Counterparty C |      $12,000,000 |   1.475% |         |
+| Counterparty D |      $3,000,000  |   1.565% |         |
+| Counterparty E |      $12,000,000 |   1.480% |         |
+| Counterparty F |       $1,000,000 |   1.560% |         |
+| Counterparty G |      $12,000,000 |   1.485% |         |
+| Counterparty H |      $18,000,000 |   1.550% |         |
+| Counterparty I |       $2,000,000 |  noncomp |         |
+| Counterparty J |      $12,000,000 |   1.355% |         |
+| Counterparty K |      $12,000,000 |   1.490% |         |
+| Counterparty L |       $7,000,000 |   1.555% |         |
+| Counterparty M |       $1,000,000 |  noncomp |         |
+| Counterparty N |      $13,000,000 |   1.560% |         |
+| Counterparty O |      $12,000,000 |   1.540% |         |
+| Counterparty P |      $22,000,000 |   1.530% |         |
+| Counterparty Q |      $17,000,000 |   1.555% |         |
+
+
+* What was the high rate
+* How much did each counterparty get allocated?
+* What is the coverage ratio?
+
+### Comparison
+
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
