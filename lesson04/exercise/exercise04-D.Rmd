@@ -42,12 +42,12 @@ The details are stepped through in individual chucks below.
 
 ## 1, Import Portfolio
 
-Find the text file (`iShares-Short-Maturity-Bond-ETF_fund.txt`) for the bond portfolio in the data directory and load.  Use the `read.csv` function, the file format is a tad different than in the past it is a pipe deliminited file, you will need to specifiy the parameter `sep =` in the parameters. 
+Find the text file (`iShares-Long-Term-Corporate-Bond-ETF_fund.csv`) for the bond portfolio in the data directory and load.  Use the `read.csv` function, the file format is a tad different than in the past it is a pipe deliminited file, you will need to specifiy the parameter `sep =` in the parameters. 
 
 ```{r BondPortfolio}
 
-my_file       <- "../data/iShares-Long-Term-Corporate-Bond-ETF_fund.csv"
-bondPortfolio <- read.csv(my_file, sep = ",", stringsAsFactors = FALSE)
+my_file       <- "../data/___"
+bondPortfolio <- read.csv(___, sep = ___, stringsAsFactors = FALSE)
 
 head(bondPortfolio)
 
@@ -62,7 +62,7 @@ In this section we will make certain that the data is prepared in the correct fo
 The function for the Column Names is `colname`
 
 ```{r ColumnNames}
-colnames(bondPortfolio)
+___(bondPortfolio)
 ```
 
 ### Review number of records
@@ -70,14 +70,14 @@ colnames(bondPortfolio)
 The function to check the number of rows is `nrow`
 
 ```{r NumberRecord}
-nrow(bondPortfolio)
+___(bondPortfolio)
 ```
 
 ### Review summary of import
-This enables review of each column, the datatype and data summary.
+This enables review of each column, the datatype and data summary; use the `summary' function.
 
 ```{r Summary}
-summary(bondPortfolio)
+___(bondPortfolio)
 ```
 
 What concerns do you have?
@@ -94,7 +94,7 @@ Observe the columns types of data...
 Complete the as.Date function.
 
 ```{r CleanDate}
-bondPortfolio$Maturity     <- as.Date(bondPortfolio$Maturity_,"%B %d, %Y")
+bondPortfolio$Maturity     <- as.Date(___,___)
 summary(bondPortfolio)
 ```
 
@@ -121,7 +121,7 @@ What is the market value of the portfolio in millions?
 
 ```{r MarketValue}
 
-mvMil <- sum(bondPortfolio$MarketValue)/1000000
+mvMil <- ___
 
 print(mvMil)
 ```
@@ -133,7 +133,7 @@ Filter for the `Money Market` records
 
 ```{r MoneyMarket}
 bondPortfolio %>%
-  filter(AssetClass=="Money Market")
+  ___
 ```
 
 ### AssetClass Filter for `Cash`
@@ -141,8 +141,7 @@ bondPortfolio %>%
 Filter for the `Cash` records
 
 ```{r Cash}
-bondPortfolio %>%
-  filter(AssetClass=="Cash")
+___
 ```
 
 
@@ -151,7 +150,7 @@ bondPortfolio %>%
 If we show a graph of the maturity on the x axis and the DUration on the y axis.  Fill in the variable names.
 
 ```{r Plot01}
-ggplot(bondPortfolio, aes(x=Maturity, y=Duration)) +
+ggplot(bondPortfolio, aes(x=___, y=___)) +
   geom_point()
 
 ```
@@ -159,11 +158,11 @@ What do long Maturity Bonds have low duration?  What bonds are these?
 
 ### Long Maturity
 
-Wow, look at some of these bonds, what businesses get to issue bonds over 80 years until final maturity!
+Wow, look at some of these bonds, what businesses get to issue bonds over 80 years until final maturity!  Filter for bonds that have maturity beyond 2100-01-01.
 
 ```{r longMaturity}
 longMaturity <- bondPortfolio %>%
-                  filter(Maturity >= as.Date("2100-01-01"))
+                  ___
 longMaturity
 ```
 
@@ -190,8 +189,8 @@ What sector has the largest weight in this portfolio?
 
 ```{r SectorBreakdown}
  bondPortfolio %>% 
-   group_by(Sector) %>% 
-   summarize(MarketValueSum=sum(MarketValue), WeightSum=sum(Weight)) %>%
+   group_by(___) %>% 
+   summarize(MarketValueSum=sum(___), WeightSum=sum(___)) %>%
    arrange(desc(WeightSum))
 
 ```
@@ -202,7 +201,7 @@ Let's calculate the average coupon reported.
 
 ```{r CouponAverage}
 
-couponAverage <- sum(bondPortfolio$Coupon)/sum(is.finite(bondPortfolio$Coupon))
+couponAverage <- sum(___)/sum(is.finite(bondPortfolio$Coupon))
 
 print(couponAverage)
 ```
@@ -212,7 +211,7 @@ Fill in the necessary parameters.
 
 ```{r CouponWeightedAverage}
 
-couponWeightedAverage <- sum(bondPortfolio$Coupon*bondPortfolio$Weight)/sum(bondPortfolio$Weight)
+couponWeightedAverage <- sum(bondPortfolio$___*bondPortfolio$___)/sum(bondPortfolio$Weight)
 
 print(couponWeightedAverage)
 ```
@@ -223,7 +222,7 @@ How would we calculated the portfolio duration.  The duration is available for a
 
 ```{r DurationAverage}
 
-durationAverage <- sum(bondPortfolio$Duration)/sum(is.finite(bondPortfolio$Duration))
+durationAverage <- sum(bondPortfolio$___)/sum(is.finite(bondPortfolio$Duration))
 
 print(durationAverage)
 ```
@@ -232,7 +231,7 @@ This varies based on the number of instruments.  We need to normalize by the mar
 
 ```{r DurationWeightedAverage}
 
-durationWeightedAverage <- sum(bondPortfolio$Duration*bondPortfolio$Weight)/sum(bondPortfolio$Weight)
+durationWeightedAverage <- ___
 
 print(durationWeightedAverage)
 ```

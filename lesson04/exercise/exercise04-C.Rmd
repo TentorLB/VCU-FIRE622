@@ -46,8 +46,8 @@ Find the text file (`iShares-Short-Maturity-Bond-ETF_fund.txt`) for the bond por
 
 ```{r BondPortfolio}
 
-my_file       <- "../data/iShares-Short-Maturity-Bond-ETF_fund.txt"
-bondPortfolio <- read.csv(my_file, sep = "|", stringsAsFactors = FALSE)
+my_file       <- "../data/___"
+bondPortfolio <- read.csv(___, sep = ___, stringsAsFactors = FALSE)
 
 head(bondPortfolio)
 
@@ -62,7 +62,7 @@ In this section we will make certain that the data is prepared in the correct fo
 The function for the Column Names is `colname`
 
 ```{r ColumnNames}
-colnames(bondPortfolio)
+___(bondPortfolio)
 ```
 
 ### Review number of records
@@ -70,15 +70,15 @@ colnames(bondPortfolio)
 The function to check the number of rows is `nrow`
 
 ```{r NumberRecord}
-nrow(bondPortfolio)
+___(bondPortfolio)
 ```
 
 ### Review summary of import
 
-This enables review of each column, the datatype and data summary.
+This enables review of each column, display the datatype and use the `summary` function.
 
 ```{r Summary}
-summary(bondPortfolio)
+___(bondPortfolio)
 ```
 
 What concerns do you have?
@@ -95,12 +95,12 @@ Observe the columns types of data...
 * Watch for similar names that have a `.` [`MarketValue` and `Market.Value`]
 
 ```{r CleanVNumeric}
-bondPortfolio$MarketValue   <- as.numeric(gsub(",", "", bondPortfolio$Market.Value))
-bondPortfolio$NotionalValue <- as.numeric(gsub(",", "", bondPortfolio$Notional.Value))
-bondPortfolio$ParValue      <- as.numeric(gsub(",", "", bondPortfolio$Par.Value))
+bondPortfolio$MarketValue   <- as.numeric(gsub(",", "", ___))
+bondPortfolio$NotionalValue <- as.numeric(gsub(",", "", ___))
+bondPortfolio$ParValue      <- as.numeric(gsub(",", "", ___))
 
-bondPortfolio$YTM           <- suppressWarnings(as.numeric(bondPortfolio$YTM_))
-bondPortfolio$YieldtoWorst  <- suppressWarnings(as.numeric(bondPortfolio$Yield.to.Worst))
+bondPortfolio$YTM           <- suppressWarnings(as.numeric(___))
+bondPortfolio$YieldtoWorst  <- suppressWarnings(as.numeric(___))
 colnames(bondPortfolio)
 summary(bondPortfolio)
 
@@ -113,16 +113,16 @@ Observe the columns types of data...
 
 * Maturity is also a character string, and requires to be converted to a date format. (%B is for month spelled out)
 
-Complete the as.Date function.
+Complete the as.Date function
 
 ```{r CleanDate}
-bondPortfolio$Maturity     <- as.Date(bondPortfolio$Maturity_,"%B %d, %Y")
+bondPortfolio$Maturity     <- as.Date(___,___)
 summary(bondPortfolio)
 ```
 
 ### Convert Factor values
 
-For our analysis it will be convienient to convert some character strings to factors.
+For our analysis it will be convienient to convert some character strings to factors
 
 ```{r ConvertFactors}
 
@@ -142,7 +142,7 @@ What is the market value of the portfolio in millions?
 
 ```{r MarketValue}
 
-mvMil <- sum(bondPortfolio$MarketValue)/1000000
+mvMil <- ___
 
 print(mvMil)
 ```
@@ -154,7 +154,7 @@ Filter the rows that are related to the `Money Market` instruments.
 
 ```{r MoneyMarket}
 bondPortfolio %>%
-  filter(AssetClass=="Money Market")
+  filter(AssetClass==___)
 ```
 
 ### AssetClass Filter for `Cash`
@@ -163,7 +163,7 @@ Filter the rows that are related to the `Cash` instruments.
 
 ```{r Cash}
 bondPortfolio %>%
-  filter(AssetClass=="Cash")
+  filter(___)
 ```
 
 
@@ -173,7 +173,7 @@ If we show a graph of the maturity on the x axis and the DUration on the y axis.
 
 ```{r Plot01}
 
-ggplot(bondPortfolio, aes(x=Maturity, y=Duration)) +
+ggplot(bondPortfolio, aes(x=___, y=___)) +
   geom_point()
 
 ```
@@ -185,7 +185,7 @@ How do we filter the data set to show the instruments with a maturity of 2040 an
 
 ```{r longMaturity}
 longMaturity <- bondPortfolio %>%
-                  filter(Maturity >= as.Date("2040-01-01"))
+                  filter(___)
 longMaturity
 ```
 
@@ -195,7 +195,7 @@ longMaturity
 Lets add an aestetic to our graph and color the points based on their sector.  Add this to the color specifier.
 
 ```{r Plot02}
-ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
+ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=___)) +
   geom_point()
 
 ```
@@ -203,13 +203,13 @@ ggplot(bondPortfolio, aes(x=Maturity, y=Duration, color=Sector)) +
 
 ### Sector Breakdown
 
-Let's use the tidyverse tools to summerize the market value and weight by the sector grouping.
+Let's use the tidyverse tools to summerize the market value and weight by the sector grouping.  Order the results by the WeightSum
 
 ```{r SectorBreakdown}
  bondPortfolio %>% 
-   group_by(Sector) %>% 
-   summarize(MarketValueSum=sum(MarketValue), WeightSum=sum(Weight)) %>%
-   arrange(desc(WeightSum))
+   group_by(___) %>% 
+   summarize(MarketValueSum=sum(___), WeightSum=sum(___)) %>%
+   arrange(desc(___))
 
 ```
 

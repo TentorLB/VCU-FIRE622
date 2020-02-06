@@ -1,0 +1,181 @@
+---
+title: "Money Market Calculations (Exercise 04-A)"
+author: "(fill in your name)"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages(tvm)
+library(tidyverse)
+```
+
+# Exercise Directions
+
+This file contains an exercise.  Please read the text and adjust the necessary code chunks (between \`\`\` symbols), to accomplish the stated goal.  The entire exercise will not knit since sections of the code have been filled with `___` where you need to complete the code.  Use the run above and run button on each chunk for intermediate results.
+
+# Money Markets
+
+## 1. Problem (Saunders and Cornett, Adjusted from slides)
+
+A $5M investment in 180 day commercial paper has a 1.5% discount yield. An equivalent size and risk 180 day CD has a 1.5% single payment yield.  Which security offers the better return?   
+
+### Commercial Paper
+
+Calculate the initial price of the commercial paper and find the bond equivalent yield. Update the values below.
+
+```{r CommercialPaper}
+# from i_d formula
+id_cp <- ___
+Pf_cp <- ___
+n     <- ___
+
+P0_cp <- -(___ * n / 360 * ___) + ___
+
+P0_cp
+
+ibe_cp <- (___ - ___)/___ * 365 / ___
+
+ibe_cp
+
+```
+### CD Calculations
+
+convert the given single payment yield into a bond equivalent.
+
+```{r CD}
+isp_cd <- ___ 
+ibe_cd <- ___ * 365 / 360
+
+ibe_cd
+
+```
+
+### Comparison
+
+Compare the bond equivalent yield for the commercial paper and the certificate of deposit.
+
+```{r Compare}
+if (ibe_cp > ibe_cd) {
+  print('Commercial Paper has better yield')
+} else {
+  print('CD has better yield')
+}
+
+```
+
+## 7. Problem (Page 167, Saunders and Cornett)
+
+You can purchase a T-bill that is 95 days from maturity for \$9,965. The T-bill has a face value of \$10,000. (LG 5-2)
+
+a. Calculate the T-bill’s quoted yield.
+b. Calculate the T-bill’s bond equivalent yield.
+c. Calculate the T-bill’s EAR.
+
+
+### a. Calculate Quoted Yield.
+
+Fill in the below variables and provide the function for $i_d$.
+
+```{r DiscountYield02}
+Pf <- ___
+P0 <- ___
+n  <- ___
+id <- (___-___)/Pf*360/___
+
+print(id*100)
+```
+
+### b. Calculate Bond Equivalent Yield.
+
+Provide the formula for bond equivalent yield $i_{be}$.
+
+```{r bondEquivalentYield02}
+ibe <- (___-___)/___*365/n
+
+print(ibe*100)
+```
+
+### c. Calculate Effective Annual Return
+
+
+```{r ear02}
+
+ear <- ((1+(___/(365/___)))^(365/___))-1
+  
+print(ear)
+```
+
+
+## 10. Problem (Page 167, Saunders and Cornett)
+
+A T-bill that is 225 days from maturity is selling for \$98,850. The T-bill has a face value of \$100,000. (LG 5-2)
+
+a. Calculate the discount yield
+b. Calculate the bond equivalent yield
+c. Calculate the EAR
+
+Calculate the discount yield, bond equivalent yield, and EAR on the T-bill if it matures in 300 days.
+
+### a. Calculate the discount yield
+
+Provide all necessary for the discount yield calculation and print the resulting answer.
+
+```{r discountYield03A}
+Pf <- ___
+P0 <- ___
+n  <- ___
+id <- ___
+
+print(id*100)
+
+```
+
+
+### b. Calculate the bond equivalent yield
+
+Provide all necessary for the bond equivalent yield calculation and print the resulting answer.
+
+```{r bondEquivalentYield03B}
+ibe <- ___
+
+print(ibe*100)
+```
+
+### c. Calculate the EAR
+
+Provide all necessary for the effective annual return calculation and print the resulting answer.
+
+
+```{r EAR03C}
+ear <- ___
+  
+print(ear)
+
+```
+
+## Session Info
+
+```{r}
+devtools::session_info()
+```
+
+```{r}
+date()
+sessionInfo()
+```
+
+```{r}
+date()
+Sys.getenv()
+```
+
+
