@@ -1,0 +1,61 @@
+---
+title:  "Mortgage Markets"
+author: "Larry Tentor"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "presentation.css"
+    nature:
+      highlightLines: true
+      highlightStyle: solarized-dark
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+#output: ioslides_presentation
+library(FinancialMath)
+library(YieldCurve)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+class: center, middle
+
+# Attribution
+
+McGraw Hill has provided power point slides that were substantially used to construct this R Markdown deck.
+
+---
+
+# Quiz Items
+
+---
+
+## Price Volatility
+
+A 10-year maturity zero coupon bond will have lower price volatility than a 10-year bond with a 10 percent coupon.
+
+- True
+- False
+
+--
+
+Answer- False
+
+---
+
+## T-bill Auction
+
+In the T-bill auction process, the competitive bidder is guaranteed a \_\_\_\_\_\_\_\_\_\_\_ and a noncompetitive bidder is guaranteed a \_\_\_\_\_\_\_\_\_\_\_.
+
+- minimum price; maximum price.
+- maximum price; minimum price.
+- maximum price; given quantity.
+- minimum price; maximum quantity.
+- None of these choices are correct.
+
+--
+
+Answer- maximum price; given quantity
+
+---
+
