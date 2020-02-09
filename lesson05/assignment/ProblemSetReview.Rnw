@@ -91,35 +91,46 @@ The total payments over the life of the mortgage amount to payments of \$110,091
 
 
 
-\question[4]
-You plan to purchase a \$240,000 house using either a 30-year mortgage obtained from your local bank with a rate of 5.75 percent, or a 15-year mortgage with a rate of 5.00 percent. You will make a down payment of 20 percent of the purchase price. (LG 7-3) [Saunders \& Cornett, p237 Problem 9]
-\begin{parts}
-\part[2]
-Calculate the amount of interest and, separately, principal paid on each mortgage. What is the difference in interest paid?
+
+
+\question[1]
+Explain the difference between a fixed-rate mortgage and an adjustable-rate mortgage. Include a discussion of mortgage borrowers’ versus mortgage lenders’ preferences for each. (LG 7-3) [Saunders \& Cornett, p237 Question 5]
 \begin{solution}[1.5in]
-For the either mortgage, you will make a down payment of 20 percent of the \$240,000 purchase price of a new home, or a down payment of \$48,000 (0.20 x \$240,000) at closing and borrow \$192,000 through the mortgage. 
-
-First calculate the monthly payments for each
-
-For the 30-year mortgage:	 \newline
-   \$192,000 = PMT{[1 - (1/(1 + 0.0575/12)30(12))]/(0.0575/12)} \newline
-   PMT = \$192,000/{[1 - (1/(1 + 0.0575/12)30(12))]/(0.0575/12)} \newline
-   PMT = \$192,000/171.3582 = \$1,120.46 \newline
-
-For the 15-year mortgage:		\newline
-   \$192,000 = PMT{[1 - (1/(1 + 0.0500/12)15(12))]/(0.0500/12)} \newline
-   PMT = \$192,000/{[1 - (1/(1 + 0.0500/12)15(12))]/(0.0500/12)} \newline
-   PMT = \$192,000/114.7964 = \$1,518.32 \newline
-   
-Total payments on the 15-year mortgage are \$273,297.60, of which \$81,279.60 is interest. This compares to interest of \$211,365.60 on the 30-year mortgage (a difference of \$130,068.00, disregarding time value of money). The mortgage borrower’s interest payments are reduced significantly with the 15-year mortgage relative to the 30-year mortgage.   
-\end{solution}
-\part[2]
-Calculate your monthly payments on the two mortgages. What is the difference in the monthly payment on the two mortgages?
-\begin{solution}[1.5in]
-The borrower must pay \$1,518.32 per month with the 15-year mortgage compared to \$1,120.46 with the 30-year mortgage, a difference of \$397.86 per month. This may be difficult if the borrower’s income level is not very high.
+A fixed rate mortgage locks in the borrower’s interest rate and thus required monthly payments over the life of the mortgage, regardless of how market rates change. In contrast, the interest rate on an adjustable-rate mortgage (ARM) is tied to some market interest rate or interest rate index. Thus, the required monthly payments can change over the life of the mortgage. ARMs generally limit the change in the interest rate allowed each year and during the life of the mortgage.
 \end{solution}
 
-\end{parts}
+
+\question[1]
+What is the Federal National Mortgage Association? How does this organization play a role in secondary mortgage markets? (LG 7-7)
+ [Saunders \& Cornett, p237 Question 16]
+\begin{solution}[1.5in]
+Originally created in 1938, the Federal National Mortgage Association (FNMA or Fannie Mae), is the oldest of the three mortgage backed security-sponsoring agencies. While, since 1968, FNMA has operated as a private corporation owned by shareholders, in the minds of many investors, it has had implicit government backing, which makes it equivalent to a government-owned enterprise. Indeed, the fact that FNMA has historically had a secured line of credit available from the U.S. Treasury should it need funds in an emergency supports this view. FNMA is a more active agency than GNMA in creating pass through securities. GNMA merely sponsors such programs and guarantees the timing of payments from financial institution servicers to GNMA investors. FNMA actually helps create pass throughs by buying and holding mortgages on its balance sheet. It also issues bonds directly to finance those purchases. Specifically, FNMA creates mortgage backed securities (MBSs) by purchasing packages of mortgage loans from banks and thrifts. It finances such purchases by selling MBSs to outside investors such as life insurers or pension funds. In addition, FNMA engages in swap transactions  by which it swaps MBSs with a bank or thrift for original mortgages. Since FNMA guarantees securities in regard to the full and timely payment of interest and principal, the financial institution receiving the MBSs can then resell them in the capital market or can hold them in its own portfolio. Unlike GNMA, FNMA securitizes conventional mortgage loans as well as FHA/VA insured loans, as long as the conventional loans have acceptable loan-to-value or collateral ratios not normally exceeding 80 percent. Conventional loans with high loan-to-value ratios usually require that the mortgages be insured with private mortgage insurance before they are accepted into FNMA securitization pools.
+\end{solution}
+
+
+\question[1]
+What are the differences among T-bills, T-notes, and T-bonds? (LG 6-2) [Saunders \& Cornett, p204 Question 2]
+\begin{solution}[1.5in]
+T-bills have an original maturity of less than one year. Treasury notes have original maturities from over 1 to 10 years, while T-bonds have original maturities from over 10 years. Further, in contrast to T-bills which are sold on a discount basis from face value, T-notes and T-bonds pay coupon interest (semiannually). T-notes and bonds are not completely risk free, as their longer maturities result in wider price fluctuations than money market instruments as interest rates change (and thus are subject to interest rate risk).
+\end{solution}
+
+
+
+\question[1]
+All else equal, which bond’s price is more affected by a change in interest rates, a short-term bond or a longer-term bond? Why? (LG 6-2) [Saunders \& Cornett, p204 Question 18]
+\begin{solution}[1.5in]
+All else equal, a long-term bond experiences larger price changes when interest rates change than a short-term bond. A bond’s price is the present value of all its cash flows. Changes in the discount rate (the interest rate) impact present values more for cash flows that are further out in time. 
+\end{solution}
+
+
+\question[1]
+What are sovereign bonds? (LG 6-4) [Saunders \& Cornett, p205 Question 23]
+\begin{solution}[1.5in]
+Sovereign bonds are government-issued debt. Sovereign bonds have historically been issued in foreign currencies, in either U.S. dollars or euros. Lesser developed country (LDC) sovereign debt tends to have lower credit rating than other sovereign debt because of the increased economic and political risks. Where most developed countries are either AAA or AA-rated, most LDC issuance is rated below investment grade, though a few countries that have seen significant  improvements have been upgraded to BBB or A ratings, and a handful of lower income countries have reached ratings levels equivalent to more developed countries. Accordingly, sovereign bonds require higher interest spreads. For example, sovereign bonds are uncollateralized and their price or value reflects the credit risk rating of the country issuing the bonds. The \$2.8 billion June 1997 issue by Brazil of 30-year dollar-denominated bonds (rated BB grade by Standard \& Poor’s) was sold at a yield spread of nearly 4 percent over U.S. Treasuries at the time of issue. 
+\end{solution}
+
+
+
 
 \question[4]
 You plan to purchase a \$100,000 house using a 30-year mortgage obtained from your local credit union. The mortgage rate offered to you is 8.25 percent. You will make a down payment of 20 percent of the purchase price. (LG 7-4) (LG 7-3) [Saunders \& Cornett, p237 Problem 1]
@@ -150,19 +161,56 @@ The total payments over the life of the mortgage amount to payments of \$216,363
 \end{parts}
 
 
-\question[1]
-Explain the difference between a fixed-rate mortgage and an adjustable-rate mortgage. Include a discussion of mortgage borrowers’ versus mortgage lenders’ preferences for each. (LG 7-3) [Saunders \& Cornett, p237 Question 5]
+\question[4]
+You plan to purchase a \$240,000 house using either a 30-year mortgage obtained from your local bank with a rate of 5.75 percent, or a 15-year mortgage with a rate of 5.00 percent. You will make a down payment of 20 percent of the purchase price. (LG 7-3) [Saunders \& Cornett, p237 Problem 9]
+\begin{parts}
+\part[2]
+Calculate the amount of interest and, separately, principal paid on each mortgage. What is the difference in interest paid?
 \begin{solution}[1.5in]
-A fixed rate mortgage locks in the borrower’s interest rate and thus required monthly payments over the life of the mortgage, regardless of how market rates change. In contrast, the interest rate on an adjustable-rate mortgage (ARM) is tied to some market interest rate or interest rate index. Thus, the required monthly payments can change over the life of the mortgage. ARMs generally limit the change in the interest rate allowed each year and during the life of the mortgage.
+For the either mortgage, you will make a down payment of 20 percent of the \$240,000 purchase price of a new home, or a down payment of \$48,000 (0.20 x \$240,000) at closing and borrow \$192,000 through the mortgage. 
+
+First calculate the monthly payments for each
+
+For the 30-year mortgage:	 \newline
+   \$192,000 = PMT{[1 - (1/(1 + 0.0575/12)30(12))]/(0.0575/12)} \newline
+   PMT = \$192,000/{[1 - (1/(1 + 0.0575/12)30(12))]/(0.0575/12)} \newline
+   PMT = \$192,000/171.3582 = \$1,120.46 \newline
+
+For the 15-year mortgage:		\newline
+   \$192,000 = PMT{[1 - (1/(1 + 0.0500/12)15(12))]/(0.0500/12)} \newline
+   PMT = \$192,000/{[1 - (1/(1 + 0.0500/12)15(12))]/(0.0500/12)} \newline
+   PMT = \$192,000/114.7964 = \$1,518.32 \newline
+   
+Total payments on the 15-year mortgage are \$273,297.60, of which \$81,279.60 is interest. This compares to interest of \$211,365.60 on the 30-year mortgage (a difference of \$130,068.00, disregarding time value of money). The mortgage borrower’s interest payments are reduced significantly with the 15-year mortgage relative to the 30-year mortgage.   
 \end{solution}
+\part[2]
+Calculate your monthly payments on the two mortgages. What is the difference in the monthly payment on the two mortgages?
+\begin{solution}[1.5in]
+The borrower must pay \$1,518.32 per month with the 15-year mortgage compared to \$1,120.46 with the 30-year mortgage, a difference of \$397.86 per month. This may be difficult if the borrower’s income level is not very high.
+\end{solution}
+\end{parts}
 
 
 \question[1]
-What is the Federal National Mortgage Association? How does this organization play a role in secondary mortgage markets? (LG 7-7)
- [Saunders \& Cornett, p237 Question 16]
+On October 5, 2019, you purchase a \$10,000 T-note that matures on August 15, 2031 (settlement occurs one day after purchase, so you receive actual ownership of the bond on October 6, 2019). The coupon rate on the T-note is 4.375 percent and the current price quoted on the bond is 105.250 percent. The last coupon payment occurred on May 15, 2019 (144 days before settlement), and the next coupon payment will be paid on November 15, 2019 (40 days from settlement). (LG 6-2) [Saunders \& Cornett, p205 Problem 4]
+\begin{parts}
+\part[2]
+Calculate the accrued interest due to the seller from the buyer at settlement.
 \begin{solution}[1.5in]
-Originally created in 1938, the Federal National Mortgage Association (FNMA or Fannie Mae), is the oldest of the three mortgage backed security-sponsoring agencies. While, since 1968, FNMA has operated as a private corporation owned by shareholders, in the minds of many investors, it has had implicit government backing, which makes it equivalent to a government-owned enterprise. Indeed, the fact that FNMA has historically had a secured line of credit available from the U.S. Treasury should it need funds in an emergency supports this view. FNMA is a more active agency than GNMA in creating pass through securities. GNMA merely sponsors such programs and guarantees the timing of payments from financial institution servicers to GNMA investors. FNMA actually helps create pass throughs by buying and holding mortgages on its balance sheet. It also issues bonds directly to finance those purchases. Specifically, FNMA creates mortgage backed securities (MBSs) by purchasing packages of mortgage loans from banks and thrifts. It finances such purchases by selling MBSs to outside investors such as life insurers or pension funds. In addition, FNMA engages in swap transactions  by which it swaps MBSs with a bank or thrift for original mortgages. Since FNMA guarantees securities in regard to the full and timely payment of interest and principal, the financial institution receiving the MBSs can then resell them in the capital market or can hold them in its own portfolio. Unlike GNMA, FNMA securitizes conventional mortgage loans as well as FHA/VA insured loans, as long as the conventional loans have acceptable loan-to-value or collateral ratios not normally exceeding 80 percent. Conventional loans with high loan-to-value ratios usually require that the mortgages be insured with private mortgage insurance before they are accepted into FNMA securitization pools.
+Accrued interest over the 145 days is calculated as:
+                (4.375\%/2) x 145/184 = 1.723845\%
+of the face value of the bond, or \$172.38 per \$10,000 face value bond.
+
 \end{solution}
+\part[2]
+Calculate the dirty price of this transaction.
+\begin{solution}[1.5in]
+Clean price  + Accrued interest = Dirty price
+                105.25\% +       1.723845\%      = 106.973845\%
+of the face value of the bond, or \$10,697.38 per \$10,000 face value bond.
+\end{solution}
+
+\end{parts}
 
 
 
