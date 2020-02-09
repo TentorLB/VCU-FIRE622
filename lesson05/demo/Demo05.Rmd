@@ -1,0 +1,84 @@
+---
+title: "Federal Reserve Mortgage Market Data"
+author: "Larry Tentor"
+date:   "`r (Sys.Date())`"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: true
+    urlcolor: blue
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=TRUE}
+# List selected libraries
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(fredr))
+```
+
+```{r}
+# Read Federal Reserve Economic Database (FRED) user key
+#
+# This will need to be configured for each user 
+# by signing up for an account at
+# https://research.stlouisfed.org/useraccount/apikeys
+#
+# Then place the api key on the first line of the file FRED.key in the lesson directory.
+#
+# This key is a long hex number that looks like
+#
+# ffff231e4928f1f49bb4a3699834d3ca
+#
+fredFile          <- read.csv('../FRED.key', header = FALSE, sep = ",", dec = ".", stringsAsFactors = FALSE)
+GetYourOwnFredKey <- fredFile$V1[1]
+fredr_set_key(GetYourOwnFredKey)
+```
+
+```{r}
+dateStart <- "2000-01-01"
+#dateStart <- "2019-12-01"
+```
+
+## Unemployment Rate
+
+```{r mortgageDebtResidential}
+mortgageDebtResidential <- fredr(
+  series_id = "MDOTP1T4FR",
+  observation_start = as.Date(dateStart)
+)
+head(mortgageDebtResidential)
+```
+
+```{r unratePlot}
+#ggplot(data = unemployment) +
+#  geom_smooth(mapping = aes(x = date, y = value))
+
+ggplot(mortgageDebtResidential, aes(date, value)) + 
+  geom_line() + 
+  xlab("Date") + 
+  ylab("Unemployment Rate [%]") + 
+  ylim(0, ceiling(max(mortgageDebtResidential$value)+0.1)) + 
+  ggtitle("History of Unemployment Rate")
+
+#+
+# scale_x_date(format = "%b-%Y") + xlab("") + ylab("Daily Views")
+
+```
+
+Suggested Citation:
+Board of Governors of the Federal Reserve System (US), Mortgage Debt Outstanding by Type of Property: One- to Four-Family Residences [MDOTP1T4FR], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MDOTP1T4FR, February 8, 2020.  
+
+
+##  Balance Sheet
+
+
+
+
+
