@@ -12,9 +12,10 @@
 
 \begin{document}
 \SweaveOpts{concordance=TRUE}
-<<include=FALSE>>= 
+<<setup, results=hide>>= 
 knitr::knit_hooks$set(document=function(x){sub('\\usepackage{framed}', '', x, fixed=TRUE)}) 
 @
+
 
 
 \begin{center}
@@ -25,7 +26,7 @@ continue on the back of the page or staple additional sheets.}}}
 \end{center}
 \vspace{0.1in}
 \makebox[\textwidth]{Name and section:\enspace\hrulefill}
-\vspace{0.2in}
+\vspace{0.3in}
 \makebox[\textwidth]{Instructor's name:\enspace\hrulefill}
 
 \begin{solution}
@@ -59,25 +60,6 @@ Why is the term pass-through used with Mortgage Backed Securities?
 \begin{solution}[1.5in]
 It is referencing to the fact that the cash flows pass from the mortgage borrowers through the servicer to the investor in the securities.
 \end{solution}
-
-
-\question[2]
-Assume that the outstanding loan is \$100,000, the scheduled principal and interest payments are \$500 and \$10,000. If the actual payments in the first month are \$12,000
-\begin{parts}
-\part[1]
-What is the Single Month Mortality (SMM).
-\begin{solution}[1.5in]
-SMM = (12,000 - 10,000 - 500)/(100,000 - 500) = 1.51\%
-This means that 1.51\% of the month's scheduled principal balance has been prepaid.
-\end{solution}
-\part[1]
-What is the Conditional Prepayment Rate (CPR)?
-\begin{solution}[1.5in]
-$CPR = 1 - (1 - SMM)^{12}$
-\end{solution}
-\end{parts}
-
-
 
 \question[3]
 You plan to purchase an \$80,000 house using a 15-year mortgage obtained from your local bank. The mortgage rate offered to you is 8.00 percent. You will make a down payment of 20 percent of the purchase price. (LG 7-4) [Saunders \& Cornett, p237 Problem 3]
@@ -115,16 +97,29 @@ You plan to purchase a \$240,000 house using either a 30-year mortgage obtained 
 \part[2]
 Calculate the amount of interest and, separately, principal paid on each mortgage. What is the difference in interest paid?
 \begin{solution}[1.5in]
-INSERT SOLUTION
+For the either mortgage, you will make a down payment of 20 percent of the \$240,000 purchase price of a new home, or a down payment of \$48,000 (0.20 x \$240,000) at closing and borrow \$192,000 through the mortgage. 
+
+First calculate the monthly payments for each
+
+For the 30-year mortgage:	 \newline
+   \$192,000 = PMT{[1 - (1/(1 + 0.0575/12)30(12))]/(0.0575/12)} \newline
+   PMT = \$192,000/{[1 - (1/(1 + 0.0575/12)30(12))]/(0.0575/12)} \newline
+   PMT = \$192,000/171.3582 = \$1,120.46 \newline
+
+For the 15-year mortgage:		\newline
+   \$192,000 = PMT{[1 - (1/(1 + 0.0500/12)15(12))]/(0.0500/12)} \newline
+   PMT = \$192,000/{[1 - (1/(1 + 0.0500/12)15(12))]/(0.0500/12)} \newline
+   PMT = \$192,000/114.7964 = \$1,518.32 \newline
+   
+Total payments on the 15-year mortgage are \$273,297.60, of which \$81,279.60 is interest. This compares to interest of \$211,365.60 on the 30-year mortgage (a difference of \$130,068.00, disregarding time value of money). The mortgage borrower’s interest payments are reduced significantly with the 15-year mortgage relative to the 30-year mortgage.   
 \end{solution}
 \part[2]
 Calculate your monthly payments on the two mortgages. What is the difference in the monthly payment on the two mortgages?
 \begin{solution}[1.5in]
-INSERT SOLUTION
+The borrower must pay \$1,518.32 per month with the 15-year mortgage compared to \$1,120.46 with the 30-year mortgage, a difference of \$397.86 per month. This may be difficult if the borrower’s income level is not very high.
 \end{solution}
 
 \end{parts}
-
 
 \question[4]
 You plan to purchase a \$100,000 house using a 30-year mortgage obtained from your local credit union. The mortgage rate offered to you is 8.25 percent. You will make a down payment of 20 percent of the purchase price. (LG 7-4) (LG 7-3) [Saunders \& Cornett, p237 Problem 1]
@@ -132,24 +127,27 @@ You plan to purchase a \$100,000 house using a 30-year mortgage obtained from yo
 \part[2]
 Calculate your monthly payments on this mortgage.
 \begin{solution}[1.5in]
-INSERT SOLUTION
+You will make a down payment of 20 percent of the purchase price, or you will make a down payment of \$20,000 (0.20 x \$100,000) at closing and borrow \$80,000 through the mortgage. 
+
+For your mortgage: \newline
+   \$80,000 = PMT{[1 - (1/(1 + 0.0825/12)30(12))]/(0.0825/12)} \newline
+   PMT = \$80,000/{[1 - (1/(1 + 0.0825/12)30(12))]/(0.0825/12)} \newline
+   PMT = \$80,000/133.1085 = \$601.01 \newline
+
+Thus, your monthly payment is \$601.01.
 \end{solution}
 \part[2]
 Calculate the amount of interest and, separately, principal paid in the 225th payment.
 \begin{solution}[1.5in]
-INSERT SOLUTION
+The 225th payment of \$601.01 is split as follows: \$364.32 to interest and \$236.69 to principal.
 \end{solution}
 \part[2]
 Calculate the amount of interest paid over the life of this mortgage.
 \begin{solution}[1.5in]
-INSERT SOLUTION
+The total payments over the life of the mortgage amount to payments of \$216,363.60 (\$601.01 x 30 x 12): \$80,000 to the repayment of principal and \$136,363.60 to the payment of interest.
 \end{solution}
 
 \end{parts}
-
-
-
-
 
 
 \question[1]
@@ -168,9 +166,27 @@ Originally created in 1938, the Federal National Mortgage Association (FNMA or F
 
 
 
-\end{questions}
-
 \newpage
+
+
+
+\question[2]
+Assume that the outstanding loan is \$100,000, the scheduled principal and interest payments are \$500 and \$10,000. If the actual payments in the first month are \$12,000
+\begin{parts}
+\part[1]
+What is the Single Month Mortality (SMM).
+\begin{solution}[1.5in]
+SMM = (12,000 - 10,000 - 500)/(100,000 - 500) = 1.51\%
+This means that 1.51\% of the month's scheduled principal balance has been prepaid.
+\end{solution}
+\part[1]
+What is the Conditional Prepayment Rate (CPR)?
+\begin{solution}[1.5in]
+$CPR = 1 - (1 - SMM)^{12}$
+\end{solution}
+\end{parts}
+
+\end{questions}
 
 
 

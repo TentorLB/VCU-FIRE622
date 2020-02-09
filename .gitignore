@@ -2,7 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-.log
+*.log
 # pdf files
 coursematerial/*.pdf
 # html output
@@ -16,7 +16,16 @@ lesson03/*/*.gz
 lesson03/*/*.toc
 lesson03/*/*.vrb
 lesson03/*/*.nav
+lesson03/*/*.log
 lesson04/*/*.html
+lesson05/*/*.tex
+lesson05/*/*.nav
+lesson05/*/*.snm
+lesson05/*/*.gz
+lesson05/*/*.toc
+lesson05/*/*.vrb
+lesson05/*/*.nav
+lesson05/*/*.log
 # datasets
 lesson01/data/MORTGAGE15US.csv
 # Assignment Solutions
