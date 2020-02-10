@@ -214,8 +214,265 @@ of the face value of the bond, or \$10,697.38 per \$10,000 face value bond.
 
 
 
+
+
+\question[1]
+A municipal bond you are considering as an investment currently pays a yield of 6.75 percent. (LG 6-2) [Saunders \& Cornett, p206 Problem 9]
+\begin{parts}
+\part[2]
+Calculate the tax equivalent yield if your marginal tax rate is 28 percent.
+\begin{solution}[1.5in]
+If your marginal tax rate is 28 percent, the after-tax or equivalent tax exempt yield on the taxable bond is
+6.75\%/(1 - .28) = 9.375\%
+\end{solution}
+\part[2]
+Calculate the tax equivalent yield if your marginal tax rate is 21 percent.
+\begin{solution}[1.5in]
+If your marginal tax rate is 21 percent, the after-tax or equivalent tax exempt yield on the taxable bond is
+6.75\%/(1 - .21) = 8.544\%
+\end{solution}
+
+\end{parts}
+
+
+\question[1]
+A \$1,000 face value corporate bond with a 6.5 percent coupon (paid semiannually) has 15 years left to maturity. It has had a credit rating of BBB and a yield to maturity of 7.2 percent. The firm has recently gotten into some trouble and the rating agency is downgrading the bonds to BB. The new appropriate discount rate will be 8.5 percent. What will be the change in the bond’s price in dollars and percentage terms? (LG 6-2) [Saunders \& Cornett, p206 Problem 15]
+\begin{solution}[1.5in]
+Before the rating change:
+	Vb = (\$1,000(6.5\%)/2) {[1-(1/(1 + 0.072/2)2(15))]/0.072/2} + 1,000/(1 + 0.072/2)2(15)  
+        Solving for Vb, we get \$936.4268335.
+On a financial calculator: PMT = 32.50, FV = 1,000, I = 7.20/2 = 3.60, N = 15(2) = 30=> PV = -936.4268335
+
+After the rating change:
+	Vb = (\$1,000(6.5\%)/2) {[1-(1/(1 + 0.085/2)2(15))]/0.085/2} + 1,000/(1 + 0.085/2)2(15)  
+        Solving for Vb, we get \$832.2098283.
+On a financial calculator: PMT = 32.50, FV = 1,000, I = 8.5/2 = 4.25, N = 15(2) = 30=> PV = -832.2098283
+
+change in Vb = \$832.2098283 - \$936.4268335 = -\$104.2170052
+change in Vb = (\$832.2098283 - \$936.4268335)/\$936.4268335 = -\$104.2170052/\$936.4268335 = -11.129\%
+
+\end{solution}
+
+
+
+\question[1]
+Describe the T-bill auction process. (LG 5-3) [Saunders \& Cornett, p166 Question 5]
+\begin{solution}[1.5in]
+The U.S. Treasury has a formal process by which it sells new issues of Treasury bills through its regular Treasury bill auctions. Every week (usually on a Thursday) the amount of new T-bills the Treasury will offer for sale is announced. Bids may be submitted by government securities dealers, financial and nonfinancial corporations, and individuals and must be received by a Federal Reserve Bank by 1 pm on the Monday following the auction announcement. Allocations and prices are announced the following morning (Tuesday). 
+\end{solution}
+
+\question[1]
+Why can discount yields not generally be compared to yields on other (nondiscount) securities? (LG 5-1) [Saunders \& Cornett, p166 Question 3]
+\begin{solution}[1.5in]
+There are several features of a discount yield that prohibit it from being compared to yields on other (nondiscount) securities. Specifically, the discount yield uses the terminal price (or face value) as the base price in calculating an annualized interest rate. Typically, nondiscount yields are based on the purchase price of a security. Further, discount yields use a 360-day rather than a 365-day year. An appropriate comparison of nominal interest rates on discount securities versus nondiscount securities would require that the discount yield be converted to a bond equivalent yield in the following manner:
+
+ibe = id (Pf/Po)(365/360)
+
+Finally, neither of these yields considers the compounding of interest rates during the (less than one year) investment horizon. The EAR on a discount security would be calculated by applying the bond equivalent yield for the discount security to the EAR equation. 
+
+\end{solution}
+
+
+\question[1]
+What are the three characteristics common to money market securities? (LG 5-1) [Saunders \& Cornett, p166 Question 1]
+\begin{solution}[1.5in]
+First, money market instruments are generally sold in large denominations (often in units of \$1 million to \$10 million). Most money market participants want or need to borrow large amounts of cash, so that transactions costs are low relative to the interest paid. The size of these initial transactions prohibits most individual investors from investing directly in money market securities. Rather, individuals generally invest in money market securities indirectly, with the help of financial institutions such as money market mutual funds.
+
+Second, money market securities have low default risk; the risk of late or nonpayment of principal and/or interest is generally small. Since cash lent in the money markets must be available for a quick return to the lender, money market instruments can generally be issued only by high-quality borrowers with little risk of default.
+
+Finally, money market securities must have an original maturity of one year or less. Recall from Chapter 3 that the longer the maturity of a debt security, the greater is its interest rate risk and the higher its required rate of return (the higher its liquidity risk premium). Given that adverse price movements resulting from interest rate changes are smaller for short term securities, the short term maturity of money market instruments helps lower the risk that interest rate changes will significantly affect the security’s market value and price.
+
+\end{solution}
+
+
+\question[1]
+What is the difference between a competitive bid and a noncompetitive bid in a T-bill auction? (LG 5-3) [Saunders \& Cornett, p166 Question 6]
+\begin{solution}[1.5in]
+Submitted bids can be either competitive bids or noncompetitive bids. Competitive bids specify the amount of par value of bills desired (the minimum is \$100) and the discount yield (in increments of 0.005\%), rather than the price. The amount of noncompetitive bids is subtracted from the total face value of the auctioned bills, with the remainder to be allocated to competitive bidders. Competitive bids are then ranked from the lowest discount yield (highest price) to the highest yield (lowest price). The cut-off yield (the yield of the last accepted bid) is the highest accepted discount yield; it is known as the stop-out yield or stop-out rate of the auction. It determines the price per \$100 that every successful bidder pays. All bids with yields above the stop-out yields are rejected. If the amount of competitive bids at the stop-out yield exceeds the amount of bills remaining to be allocated after the superior bids have been allocated, the bids at the stop-out rate are distributed on a pro-rata basis. For example, if the bids at the stop-out yield total \$5 billion of par value, but there is only \$3 billion of par value remaining after satisfying noncompetitive bids and competitive bids with lower yields (higher prices), then the bidders whose yield turned out to be the stop-out yield will receive 60 percent of their desired allocations (\$3 billion/\$5 billion). This proportion is reported as “allotted at high” in the U.S. Treasury auction result announcements. Bidders cannot submit negative yields in T-bill auctions, but may submit a yield of zero, which means that they are willing to pay face value and earn no income from the bills. Competitive bids are generally used by large investors and government securities dealers, and make up the majority of the auction market.
+
+Noncompetitive bids are limited to \$5 million; they specify only the desired amount of the face value of the bills. Noncompetitive bids usually represent a small portion of total Treasury bills auctioned. If the amount of noncompetitive bids exceeds the amount of bills auctioned, all noncompetitive bids would be satisfied on a pro-rata basis, all competitive bids would be rejected, and the price of the bills would be set at par, reflecting a yield of zero.
+Noncompetitive bids allow small investors to participate in the T-bill auction market without incurring large risks. That is, small investors who are unfamiliar with money market interest rate movements can use a noncompetitive bid to avoid bidding a price too low to receive any of the T-bills or bidding too high and paying more than the “fair” market price.
+
+
+\end{solution}
+
+
+
+\question[1]
+Suppose you purchase a T-bill that is 125 days from maturity for \$9,765. The T-bill has a face value of \$10,000. (LG 5-2) [Saunders \& Cornett, p166 Problem 6]
+\begin{parts}
+\part[2]
+Calculate the T-bill’s quoted discount yield.
+\begin{solution}[1.5in]
+The T-bill’s quoted yield is calculated as
+
+$i_{d T-bill} = (10,000 - 9,765)/10,000 x 360/125 = 6.768\%$
+
+\end{solution}
+\part[2]
+Calculate the T-bill’s bond equivalent yield.
+\begin{solution}[1.5in]
+The T-bill’s bond equivalent yield is calculated as
+
+$i_{be T-bill} =  (10,000 - 9,765)9,765 x 36/125 = 7.027\%$
+
+\end{solution}
+
+\end{parts}
+
+\question[1]
+You can buy commercial paper of a major U.S. corporation for $498,000. The paper has a face value of $500,000 and is 45 days from maturity. Calculate the discount yield and bond equivalent yield on the commercial paper. (LG 5-2) [Saunders \& Cornett, p167 Question 16]
+\begin{solution}[1.5in]
+The discount yield on the commercial paper is calculated as
+
+$i_{d, cp} =  (500000 - 498000)/500000  x 360/45 = 3.20\%$      
+
+$i_{be, cp} =  (500,000 - 498,000)/498.000  x 365/45 = 3.2575\%$
+
+\end{solution}
+
+
+\question[1]
+A T-bill that is 225 days from maturity is selling for \$98,850. The T-bill has a face value of \$100,000. (LG 5-2) [Saunders \& Cornett, p166 Problem 10]
+\begin{parts}
+\part[2]
+Calculate the T-bill’s discount yield
+\begin{solution}[1.5in]
+The T-bill’s quoted yield is calculated as
+
+$i_{d T-bill} = (100,000 - 98,850)/100,000 x 360/225 = 6.640\%$
+
+\end{solution}
+\part[2]
+Calculate the T-bill’s bond equivalent yield.
+\begin{solution}[1.5in]
+The T-bill’s bond equivalent yield is calculated as
+
+$i_{be T-bill} =  (100,000 - 98,850)/98,850 x 360/225 = 7.024\%$
+
+\end{solution}
+
+\part[2]
+Calculate the T-bill’s EAR.
+\begin{solution}[1.5in]
+The T-bill’s EAR
+
+$EAR = [1 + (0.07024/(365/225))]*365/225  - 1 = 7.118\%$
+\end{solution}
+
+\end{parts}
+
+
+
+\question[1]
+Describe the functions performed by Federal Reserve Banks. (LG 4-1) [Saunders \& Cornett, p130 Question 1]
+\begin{solution}[1.5in]
+As part of the Federal Reserve System, Federal Reserve Banks perform multiple functions. These include assistance in the conduct of monetary policy, supervision and regulation of member banks and other large financial institutions, consumer protection, and the provision of services, such as new currency issue, check clearing, wire transfer services, and research services to either the federal government, member banks, or the general public. We summarize each function as follows.
+
+Assistance in the Conduct of Monetary Policy:  Federal Reserve Bank (FRB) presidents serve on the Federal Open Market Committee (FOMC). FRBs set and change discount rates.
+
+Supervision and Regulation:  FRBs have supervisory and regulatory authority over the activities of banks and other large financial institutions located in their district.
+
+Consumer Protection and Community Affairs:  FRBs write regulations to implement many of the major consumer protection laws and establish programs to promote community development and fair and impartial access to credit.
+
+Government Services:  FRBs serve as the commercial bank for the U.S. Treasury.
+
+New Currency Issue:  FRBs are responsible for the collection and replacement of damaged currency from circulation.
+
+Check Clearing:  FRBs process, route, and transfer funds from one bank to another as checks clear through the Federal Reserve System.
+
+Wire Transfer Services:  FRBs and their member banks are linked electronically through the Federal Reserve Communications System.
+
+Research Services:  Each FRB has a staff of professional economists who gather, analyze, and interpret economic data and developments in the banking sector in their district and economywide.
+
+
+\end{solution}
+
+
+
+\question[1]
+Explain how a decrease in the discount rate affects credit availability and the money supply. (LG 4-3) [Saunders \& Cornett, p130 Question 11]
+\begin{solution}[1.5in]
+Changing the discount rate signals to the market and the economy that the Federal Reserve would like to see higher or lower rates in the economy. Thus, the discount rate is like a signal of the FOMC’s intention regarding the tenor of monetary policy. For example, raising the discount rate signals that the Fed would like to see a tightening of monetary conditions and higher interest rates in general (and a relatively lower amount of borrowing). Lowering the discount rate signals a desire to see more expansionary monetary conditions and lower interest rates in general. 
+\end{solution}
+
+
+\question[1]
+What is the difference between a zero-coupon bond and a coupon bond? (LG 3-2) [Saunders \& Cornett, p89 Question 3]
+\begin{solution}[1.5in]
+Most bonds pay a stated coupon rate of interest to the holders of the bonds. These bonds are called coupon bonds. The interest, or coupon, payments per year are generally constant (fixed) over the life of the bond. Thus, the fixed interest payment is essentially an annuity paid to the bond holder periodically (normally semiannually) over the life of the bond. Bonds that do not pay coupon interest are called zero-coupon bonds. For these bonds interest payments are zero. 
+\end{solution}
+
+
+\question[1]
+All else equal, which bond’s price is more affected by a change in interest rates, a bond with a large coupon or a small coupon? Why? (LG 3-5) [Saunders \& Cornett, p89 Question 8]
+\begin{solution}[1.5in]
+The price of the bond with the small coupon will be impacted more by a change in interest rates than the price of the large coupon bond. For a small coupon bond, the cash flows are weighted much more toward the maturity date because of the small interest payments. The large coupon bond has high interest payments, many of which occur soon. These higher cash flows made earlier dampen the impact of interest rate changes because those changes in the discount rate impact the earlier cash flows to a lesser degree than the later cash flows. Price sensitivity on a bond is negatively related to the level of the coupon rate on a bond.
+\end{solution}
+
+
+
+
+
+\question[1]
+What is the relation between the coupon rate on a bond and its duration? (LG 3-7) [Saunders \& Cornett, p89 Question 10]
+\begin{solution}[1.5in]
+The higher the coupon or promised interest payment on the bond, the shorter its duration. This is due to the fact that the larger the coupon or promised interest payment, the more quickly investors receive cash flows on a bond and the higher are the present value weights of those cash flows in the duration calculation. On a time value of money basis, the investor recoups his or her initial investment faster when coupon payments are higher.
+\end{solution}
+
+
+\question[1]
+Johnson Motors’s bonds have 10 years remaining to maturity. Interest is paid annually, the bonds have a \$1,000 par value, and the coupon rate is 8 percent. The bonds have a yield to maturity of 9 percent. What is the current market price of these bonds? (LG 3-2)
+ [Saunders \& Cornett, p89 Problem 3]
+\begin{solution}[1.5in]
+Vb = 1,000(0.08) {[1 - (1/(1 + 0.09)10)]/0.09} + 1,000(1 + 0.09)10 = \$935.82
+
+	Or, on a financial calculator: N = 10, I = 9, PMT = 80, FV = 1,000, => PV = \$935.82
+	
+\end{solution}
+
+
+
+\question[1]
+What types of risks do FIs face? (LG 1-7) [Saunders \& Cornett, p25 Question 17]
+\begin{solution}[1.5in]
+All FIs hold some assets that are potentially subject to default or credit risk (such as loans, stocks, and bonds). As FIs expand their services to non-U.S. customers or even domestic customers with business outside the United States, they are exposed to both foreign exchange risk and country or sovereign risk, as well. Further, FIs tend to mismatch the maturities of their balance sheet assets and liabilities to a greater or lesser extent and are thus exposed to interest rate risk. If FIs actively trade these assets and liabilities rather than hold them for longer-term investments, they are further exposed to market risk or asset price risk. Increasingly, FIs hold contingent assets and liabilities off the balance sheet, which presents an additional risk called off-balance-sheet risk. Moreover, all FIs are exposed to some degree of liability withdrawal or liquidity risk, depending on the type of claims they have sold to liability holders. All FIs are exposed to technology risk and operational risk because the production of financial services requires the use of real resources and back-office support systems (labor and technology combined to provide services). Finally, the risk that an FI may not have enough capital reserves to offset a sudden loss incurred as a result of one or more of the risks it faces creates insolvency risk for the FI.
+\end{solution}
+
+
+\question[1]
+What is meant by denomination intermediation? (LG 1-6) [Saunders \& Cornett, p89 Question 15]
+\begin{solution}[1.5in]
+Because they are sold in very large denominations, many assets are either out of reach to individual savers or would result in savers holding highly undiversified asset portfolios. For example, the minimum size of a negotiable CD is \$100,000; commercial paper (short term corporate debt) is often sold in minimum packages of \$250,000 or more. Individual savers may be unable to purchase such instruments directly. However, by pooling the funds of small savers (e.g., buying shares in a mutual fund with other small investors), household savers overcome the constraints to buying assets imposed by large minimum denomination sizes. Such indirect access to these markets may also allow small savers to generate higher returns (and lower risks) on their portfolios.
+\end{solution}
+
+
+\question[1]
+A two-year Treasury security currently earns 1.94 percent. Over the next two years, the real risk-free rate is expected to be 1.00 percent per year and the inflation premium is expected to be 0.50 percent per year. Calculate the maturity risk premium on the two-year Treasury security. (LG 2-6)  [Saunders \& Cornett, p55 Question 4]
+\begin{solution}[1.5in]
+   1.94\% = 0.50\% + 1.00\% + 0.00\% + 0.00\% + MP 
+       => MP = 1.94\% - (0.50\% + 1.00\% + 0.00\% + 0.00\%) = 0.44\%
+
+\end{solution}
+
+
+\question[1]
+If you deposit \$500 in a bank account that earns 6 percent per year, how much total interest will you have earned after the third year? (LG 2-9) [Saunders \& Cornett, p56 Problem 28]
+\begin{solution}[1.5in]
+FV = \$500 (1.06)3 = \$595.51. So, the interest portion is \$95.51 = \$595.51 − \$500. 
+\end{solution}
+
+
 \newpage
 
+
+
+\question[1]
+
+ [Saunders \& Cornett, p89 Question 8]
+\begin{solution}[1.5in]
+
+\end{solution}
 
 
 \question[2]
