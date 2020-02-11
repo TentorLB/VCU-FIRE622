@@ -12,10 +12,9 @@
 
 \begin{document}
 \SweaveOpts{concordance=TRUE}
-<<setup, results=hide>>= 
+<<setupknitr, results=hide>>= 
 knitr::knit_hooks$set(document=function(x){sub('\\usepackage{framed}', '', x, fixed=TRUE)}) 
 @
-
 
 
 \begin{center}
@@ -43,23 +42,6 @@ suppressPackageStartupMessages(library(tidyverse))
 \end{solution}
 
 \begin{questions}
-\question[1]
-As an investor in a mortgage backed pool, once you own the pool, does more rapid (than prior expected) prepayment help you earn a better return? 
-\begin{solution}[1in]
-Not typically, it is an option given to the morgagee that allows them to repay.  This is of value to the morgagee when rates drop they may refinance at a lower rate.
-\end{solution}
-
-\question[1]
-Conforming loans are packaged primarily by individual commercial banks (private-label) into MBS? TRUE or FALSE 
-\begin{solution}[1.5in]
-FALSE, Conforming loans are packaged by Fannie Mae and Freddie Mac.
-\end{solution}
-
-\question[1]
-Why is the term pass-through used with Mortgage Backed Securities?
-\begin{solution}[1.5in]
-It is referencing to the fact that the cash flows pass from the mortgage borrowers through the servicer to the investor in the securities.
-\end{solution}
 
 \question[3]
 You plan to purchase an \$80,000 house using a 15-year mortgage obtained from your local bank. The mortgage rate offered to you is 8.00 percent. You will make a down payment of 20 percent of the purchase price. (LG 7-4) [Saunders \& Cornett, p237 Problem 3]
@@ -68,9 +50,16 @@ You plan to purchase an \$80,000 house using a 15-year mortgage obtained from yo
 Calculate your monthly payments on this mortgage.
 \begin{solution}[1.5in]
 You will make a down payment of 20 percent of the purchase price, or you will make a down payment of \$16,000 (0.20 x \$80,000) at closing and borrow \$64,000 through the mortgage. 
-\$64,000 = PMT{[1 - (1/(1 + 0.08/12)15(12))]/(0.08/12)}
-or			PMT = \$64,000/{[1 - (1/(1 + 0.08/12)15(12))]/(0.08/12)}
-therefore		PMT = \$64,000/104.6406 = \$611.617
+
+<<>>=
+purchase  <- 80000
+r         <- 0.08
+downpay   <- purchase * 0.20
+principle <- purchase - downpay
+term      <- 15
+PMT       <- round(principle/((1 - (1/(1 + r/12)^(term*(12))))/(r/12)),2)
+PMT
+@
 
 Thus, your monthly payment is \$611.62.
 
@@ -83,22 +72,14 @@ The 127th payment of \$611.62 is split as follows: \$184.39 to interest and \$42
 \part[1]
 Calculate the amount of interest paid over the life of this mortgage.
 \begin{solution}[1.5in]
+<<>>=
+totalPay       <- PMT * term * 12
+totalInterest  <- totalPay - principle
+c(totalPay, principle, totalInterest)
+@
 The total payments over the life of the mortgage amount to payments of \$110,091.60 (\$611.62 x 15 x 12): \$64,000 to the repayment of principal and \$46,091.60 to the payment of interest.
 \end{solution}
-
 \end{parts}
-
-
-
-
-
-
-\question[1]
-Explain the difference between a fixed-rate mortgage and an adjustable-rate mortgage. Include a discussion of mortgage borrowers’ versus mortgage lenders’ preferences for each. (LG 7-3) [Saunders \& Cornett, p237 Question 5]
-\begin{solution}[1.5in]
-A fixed rate mortgage locks in the borrower’s interest rate and thus required monthly payments over the life of the mortgage, regardless of how market rates change. In contrast, the interest rate on an adjustable-rate mortgage (ARM) is tied to some market interest rate or interest rate index. Thus, the required monthly payments can change over the life of the mortgage. ARMs generally limit the change in the interest rate allowed each year and during the life of the mortgage.
-\end{solution}
-
 
 \question[1]
 What is the Federal National Mortgage Association? How does this organization play a role in secondary mortgage markets? (LG 7-7)
@@ -108,84 +89,48 @@ Originally created in 1938, the Federal National Mortgage Association (FNMA or F
 \end{solution}
 
 
-\question[1]
-What are the differences among T-bills, T-notes, and T-bonds? (LG 6-2) [Saunders \& Cornett, p204 Question 2]
-\begin{solution}[1.5in]
-T-bills have an original maturity of less than one year. Treasury notes have original maturities from over 1 to 10 years, while T-bonds have original maturities from over 10 years. Further, in contrast to T-bills which are sold on a discount basis from face value, T-notes and T-bonds pay coupon interest (semiannually). T-notes and bonds are not completely risk free, as their longer maturities result in wider price fluctuations than money market instruments as interest rates change (and thus are subject to interest rate risk).
-\end{solution}
-
-
-
-\question[1]
-All else equal, which bond’s price is more affected by a change in interest rates, a short-term bond or a longer-term bond? Why? (LG 6-2) [Saunders \& Cornett, p204 Question 18]
-\begin{solution}[1.5in]
-All else equal, a long-term bond experiences larger price changes when interest rates change than a short-term bond. A bond’s price is the present value of all its cash flows. Changes in the discount rate (the interest rate) impact present values more for cash flows that are further out in time. 
-\end{solution}
-
-
-\question[1]
-What are sovereign bonds? (LG 6-4) [Saunders \& Cornett, p205 Question 23]
-\begin{solution}[1.5in]
-Sovereign bonds are government-issued debt. Sovereign bonds have historically been issued in foreign currencies, in either U.S. dollars or euros. Lesser developed country (LDC) sovereign debt tends to have lower credit rating than other sovereign debt because of the increased economic and political risks. Where most developed countries are either AAA or AA-rated, most LDC issuance is rated below investment grade, though a few countries that have seen significant  improvements have been upgraded to BBB or A ratings, and a handful of lower income countries have reached ratings levels equivalent to more developed countries. Accordingly, sovereign bonds require higher interest spreads. For example, sovereign bonds are uncollateralized and their price or value reflects the credit risk rating of the country issuing the bonds. The \$2.8 billion June 1997 issue by Brazil of 30-year dollar-denominated bonds (rated BB grade by Standard \& Poor’s) was sold at a yield spread of nearly 4 percent over U.S. Treasuries at the time of issue. 
-\end{solution}
-
-
-
-
-\question[4]
-You plan to purchase a \$100,000 house using a 30-year mortgage obtained from your local credit union. The mortgage rate offered to you is 8.25 percent. You will make a down payment of 20 percent of the purchase price. (LG 7-4) (LG 7-3) [Saunders \& Cornett, p237 Problem 1]
-\begin{parts}
-\part[2]
-Calculate your monthly payments on this mortgage.
-\begin{solution}[1.5in]
-You will make a down payment of 20 percent of the purchase price, or you will make a down payment of \$20,000 (0.20 x \$100,000) at closing and borrow \$80,000 through the mortgage. 
-
-For your mortgage: \newline
-   \$80,000 = PMT{[1 - (1/(1 + 0.0825/12)30(12))]/(0.0825/12)} \newline
-   PMT = \$80,000/{[1 - (1/(1 + 0.0825/12)30(12))]/(0.0825/12)} \newline
-   PMT = \$80,000/133.1085 = \$601.01 \newline
-
-Thus, your monthly payment is \$601.01.
-\end{solution}
-\part[2]
-Calculate the amount of interest and, separately, principal paid in the 225th payment.
-\begin{solution}[1.5in]
-The 225th payment of \$601.01 is split as follows: \$364.32 to interest and \$236.69 to principal.
-\end{solution}
-\part[2]
-Calculate the amount of interest paid over the life of this mortgage.
-\begin{solution}[1.5in]
-The total payments over the life of the mortgage amount to payments of \$216,363.60 (\$601.01 x 30 x 12): \$80,000 to the repayment of principal and \$136,363.60 to the payment of interest.
-\end{solution}
-
-\end{parts}
-
-
 \question[4]
 You plan to purchase a \$240,000 house using either a 30-year mortgage obtained from your local bank with a rate of 5.75 percent, or a 15-year mortgage with a rate of 5.00 percent. You will make a down payment of 20 percent of the purchase price. (LG 7-3) [Saunders \& Cornett, p237 Problem 9]
 \begin{parts}
 \part[2]
 Calculate the amount of interest and, separately, principal paid on each mortgage. What is the difference in interest paid?
 \begin{solution}[1.5in]
+
+<<>>=
+purchase         <- 240000
+downpay          <- purchase * 0.20
+principle        <- purchase - downpay
+
+# For the thirty year mortgage
+r30              <- 0.0575
+term30           <- 30
+PMT30            <- round(principle/((1 - (1/(1 + r30/12)^(term30*(12))))/(r30/12)),2)
+totalPay30       <- PMT30 * term30 * 12
+totalInterest30  <- totalPay30 - principle
+c(PMT30,totalPay30,totalInterest30)
+
+# For the fifteen year mortgage
+r15              <- 0.05
+term15           <- 15
+PMT15            <- round(principle/((1 - (1/(1 + r15/12)^(term15*(12))))/(r15/12)),2)
+totalPay15       <- PMT15 * term15 * 12
+totalInterest15  <- totalPay15 - principle
+c(PMT15,totalPay15,totalInterest15)
+
+totalInterest30 - totalInterest15
+@
+
 For the either mortgage, you will make a down payment of 20 percent of the \$240,000 purchase price of a new home, or a down payment of \$48,000 (0.20 x \$240,000) at closing and borrow \$192,000 through the mortgage. 
 
-First calculate the monthly payments for each
-
-For the 30-year mortgage:	 \newline
-   \$192,000 = PMT{[1 - (1/(1 + 0.0575/12)30(12))]/(0.0575/12)} \newline
-   PMT = \$192,000/{[1 - (1/(1 + 0.0575/12)30(12))]/(0.0575/12)} \newline
-   PMT = \$192,000/171.3582 = \$1,120.46 \newline
-
-For the 15-year mortgage:		\newline
-   \$192,000 = PMT{[1 - (1/(1 + 0.0500/12)15(12))]/(0.0500/12)} \newline
-   PMT = \$192,000/{[1 - (1/(1 + 0.0500/12)15(12))]/(0.0500/12)} \newline
-   PMT = \$192,000/114.7964 = \$1,518.32 \newline
-   
 Total payments on the 15-year mortgage are \$273,297.60, of which \$81,279.60 is interest. This compares to interest of \$211,365.60 on the 30-year mortgage (a difference of \$130,068.00, disregarding time value of money). The mortgage borrower’s interest payments are reduced significantly with the 15-year mortgage relative to the 30-year mortgage.   
 \end{solution}
 \part[2]
 Calculate your monthly payments on the two mortgages. What is the difference in the monthly payment on the two mortgages?
 \begin{solution}[1.5in]
+<<>>=
+# Payment Difference
+PMT15 - PMT30
+@
 The borrower must pay \$1,518.32 per month with the 15-year mortgage compared to \$1,120.46 with the 30-year mortgage, a difference of \$397.86 per month. This may be difficult if the borrower’s income level is not very high.
 \end{solution}
 \end{parts}
@@ -197,23 +142,27 @@ On October 5, 2019, you purchase a \$10,000 T-note that matures on August 15, 20
 \part[2]
 Calculate the accrued interest due to the seller from the buyer at settlement.
 \begin{solution}[1.5in]
+<<>>=
+# Accured Interest
+rateCoupon      <- 0.04375
+days            <- 145
+daysCoupon      <- 144 + 40
+interestAccured <- (rateCoupon/2)*days/(daysCoupon)
+interestAccured
+@
 Accrued interest over the 145 days is calculated as:
                 (4.375\%/2) x 145/184 = 1.723845\%
 of the face value of the bond, or \$172.38 per \$10,000 face value bond.
-
 \end{solution}
 \part[2]
 Calculate the dirty price of this transaction.
 \begin{solution}[1.5in]
 Clean price  + Accrued interest = Dirty price
-                105.25\% +       1.723845\%      = 106.973845\%
+    105.25\% + 1.723845\%       = 106.973845 \%
 of the face value of the bond, or \$10,697.38 per \$10,000 face value bond.
 \end{solution}
 
 \end{parts}
-
-
-
 
 
 \question[1]
@@ -238,38 +187,44 @@ If your marginal tax rate is 21 percent, the after-tax or equivalent tax exempt 
 \question[1]
 A \$1,000 face value corporate bond with a 6.5 percent coupon (paid semiannually) has 15 years left to maturity. It has had a credit rating of BBB and a yield to maturity of 7.2 percent. The firm has recently gotten into some trouble and the rating agency is downgrading the bonds to BB. The new appropriate discount rate will be 8.5 percent. What will be the change in the bond’s price in dollars and percentage terms? (LG 6-2) [Saunders \& Cornett, p206 Problem 15]
 \begin{solution}[1.5in]
-Before the rating change:
-	Vb = (\$1,000(6.5\%)/2) {[1-(1/(1 + 0.072/2)2(15))]/0.072/2} + 1,000/(1 + 0.072/2)2(15)  
-        Solving for Vb, we get \$936.4268335.
-On a financial calculator: PMT = 32.50, FV = 1,000, I = 7.20/2 = 3.60, N = 15(2) = 30=> PV = -936.4268335
+<<>>=
+# Before Change
+faceValue       <- 1000
+rateCoupon      <- 0.065
+rateYTM         <- 0.072
+term            <- 15
+VbBefore        <- (faceValue*rateCoupon/2) * 
+                   (( 1 - (1/((1 + rateYTM/2)^(2*term))))/(rateYTM/2)) + 
+                   faceValue/(1 + rateYTM/2)^(2*term)
+VbBefore
+@
+Solving for Vb, we get \$936.43.
 
-After the rating change:
-	Vb = (\$1,000(6.5\%)/2) {[1-(1/(1 + 0.085/2)2(15))]/0.085/2} + 1,000/(1 + 0.085/2)2(15)  
-        Solving for Vb, we get \$832.2098283.
-On a financial calculator: PMT = 32.50, FV = 1,000, I = 8.5/2 = 4.25, N = 15(2) = 30=> PV = -832.2098283
+<<>>=
+# After Change
+rateYTM         <- 0.085
+VbAfter         <- (faceValue*rateCoupon/2) * 
+                   (( 1 - (1/((1 + rateYTM/2)^(2*term))))/(rateYTM/2)) + 
+                   faceValue/(1 + rateYTM/2)^(2*term)
+VbAfter
+
+VbAfter-VbBefore
+
+(VbAfter-VbBefore)/VbBefore
+
+@
+
+Solving for Vb, we get \$832.21.
 
 change in Vb = \$832.2098283 - \$936.4268335 = -\$104.2170052
 change in Vb = (\$832.2098283 - \$936.4268335)/\$936.4268335 = -\$104.2170052/\$936.4268335 = -11.129\%
 
 \end{solution}
 
-
-
 \question[1]
 Describe the T-bill auction process. (LG 5-3) [Saunders \& Cornett, p166 Question 5]
 \begin{solution}[1.5in]
 The U.S. Treasury has a formal process by which it sells new issues of Treasury bills through its regular Treasury bill auctions. Every week (usually on a Thursday) the amount of new T-bills the Treasury will offer for sale is announced. Bids may be submitted by government securities dealers, financial and nonfinancial corporations, and individuals and must be received by a Federal Reserve Bank by 1 pm on the Monday following the auction announcement. Allocations and prices are announced the following morning (Tuesday). 
-\end{solution}
-
-\question[1]
-Why can discount yields not generally be compared to yields on other (nondiscount) securities? (LG 5-1) [Saunders \& Cornett, p166 Question 3]
-\begin{solution}[1.5in]
-There are several features of a discount yield that prohibit it from being compared to yields on other (nondiscount) securities. Specifically, the discount yield uses the terminal price (or face value) as the base price in calculating an annualized interest rate. Typically, nondiscount yields are based on the purchase price of a security. Further, discount yields use a 360-day rather than a 365-day year. An appropriate comparison of nominal interest rates on discount securities versus nondiscount securities would require that the discount yield be converted to a bond equivalent yield in the following manner:
-
-ibe = id (Pf/Po)(365/360)
-
-Finally, neither of these yields considers the compounding of interest rates during the (less than one year) investment horizon. The EAR on a discount security would be calculated by applying the bond equivalent yield for the discount security to the EAR equation. 
-
 \end{solution}
 
 
@@ -463,6 +418,75 @@ FV = \$500 (1.06)3 = \$595.51. So, the interest portion is \$95.51 = \$595.51 �
 \end{solution}
 
 
+\question[1]
+What are the differences among T-bills, T-notes, and T-bonds? (LG 6-2) [Saunders \& Cornett, p204 Question 2]
+\begin{solution}[1.5in]
+T-bills have an original maturity of less than one year. Treasury notes have original maturities from over 1 to 10 years, while T-bonds have original maturities from over 10 years. Further, in contrast to T-bills which are sold on a discount basis from face value, T-notes and T-bonds pay coupon interest (semiannually). T-notes and bonds are not completely risk free, as their longer maturities result in wider price fluctuations than money market instruments as interest rates change (and thus are subject to interest rate risk).
+\end{solution}
+
+\question[1]
+Explain the difference between a fixed-rate mortgage and an adjustable-rate mortgage. Include a discussion of mortgage borrowers’ versus mortgage lenders’ preferences for each. (LG 7-3) [Saunders \& Cornett, p237 Question 5]
+\begin{solution}[1.5in]
+A fixed rate mortgage locks in the borrower’s interest rate and thus required monthly payments over the life of the mortgage, regardless of how market rates change. In contrast, the interest rate on an adjustable-rate mortgage (ARM) is tied to some market interest rate or interest rate index. Thus, the required monthly payments can change over the life of the mortgage. ARMs generally limit the change in the interest rate allowed each year and during the life of the mortgage.
+\end{solution}
+
+
+\question[1]
+All else equal, which bond’s price is more affected by a change in interest rates, a short-term bond or a longer-term bond? Why? (LG 6-2) [Saunders \& Cornett, p204 Question 18]
+\begin{solution}[1.5in]
+All else equal, a long-term bond experiences larger price changes when interest rates change than a short-term bond. A bond’s price is the present value of all its cash flows. Changes in the discount rate (the interest rate) impact present values more for cash flows that are further out in time. 
+\end{solution}
+
+
+
+\question[4]
+You plan to purchase a \$100,000 house using a 30-year mortgage obtained from your local credit union. The mortgage rate offered to you is 8.25 percent. You will make a down payment of 20 percent of the purchase price. (LG 7-4) (LG 7-3) [Saunders \& Cornett, p237 Problem 1]
+\begin{parts}
+\part[2]
+Calculate your monthly payments on this mortgage.
+\begin{solution}[1.5in]
+You will make a down payment of 20 percent of the purchase price, or you will make a down payment of \$20,000 (0.20 x \$100,000) at closing and borrow \$80,000 through the mortgage. 
+
+For your mortgage: \newline
+   \$80,000 = PMT{[1 - (1/(1 + 0.0825/12)30(12))]/(0.0825/12)} \newline
+   PMT = \$80,000/{[1 - (1/(1 + 0.0825/12)30(12))]/(0.0825/12)} \newline
+   PMT = \$80,000/133.1085 = \$601.01 \newline
+
+Thus, your monthly payment is \$601.01.
+\end{solution}
+\part[2]
+Calculate the amount of interest and, separately, principal paid in the 225th payment.
+\begin{solution}[1.5in]
+The 225th payment of \$601.01 is split as follows: \$364.32 to interest and \$236.69 to principal.
+\end{solution}
+\part[2]
+Calculate the amount of interest paid over the life of this mortgage.
+\begin{solution}[1.5in]
+The total payments over the life of the mortgage amount to payments of \$216,363.60 (\$601.01 x 30 x 12): \$80,000 to the repayment of principal and \$136,363.60 to the payment of interest.
+\end{solution}
+
+\end{parts}
+
+\question[1]
+What are sovereign bonds? (LG 6-4) [Saunders \& Cornett, p205 Question 23]
+\begin{solution}[1.5in]
+Sovereign bonds are government-issued debt. Sovereign bonds have historically been issued in foreign currencies, in either U.S. dollars or euros. Lesser developed country (LDC) sovereign debt tends to have lower credit rating than other sovereign debt because of the increased economic and political risks. Where most developed countries are either AAA or AA-rated, most LDC issuance is rated below investment grade, though a few countries that have seen significant  improvements have been upgraded to BBB or A ratings, and a handful of lower income countries have reached ratings levels equivalent to more developed countries. Accordingly, sovereign bonds require higher interest spreads. For example, sovereign bonds are uncollateralized and their price or value reflects the credit risk rating of the country issuing the bonds. The \$2.8 billion June 1997 issue by Brazil of 30-year dollar-denominated bonds (rated BB grade by Standard \& Poor’s) was sold at a yield spread of nearly 4 percent over U.S. Treasuries at the time of issue. 
+\end{solution}
+
+
+\question[1]
+Why can discount yields not generally be compared to yields on other (nondiscount) securities? (LG 5-1) [Saunders \& Cornett, p166 Question 3]
+\begin{solution}[1.5in]
+There are several features of a discount yield that prohibit it from being compared to yields on other (nondiscount) securities. Specifically, the discount yield uses the terminal price (or face value) as the base price in calculating an annualized interest rate. Typically, nondiscount yields are based on the purchase price of a security. Further, discount yields use a 360-day rather than a 365-day year. An appropriate comparison of nominal interest rates on discount securities versus nondiscount securities would require that the discount yield be converted to a bond equivalent yield in the following manner:
+
+ibe = id (Pf/Po)(365/360)
+
+Finally, neither of these yields considers the compounding of interest rates during the (less than one year) investment horizon. The EAR on a discount security would be calculated by applying the bond equivalent yield for the discount security to the EAR equation. 
+
+\end{solution}
+
+
+
 \newpage
 
 
@@ -490,6 +514,24 @@ What is the Conditional Prepayment Rate (CPR)?
 $CPR = 1 - (1 - SMM)^{12}$
 \end{solution}
 \end{parts}
+
+\question[1]
+As an investor in a mortgage backed pool, once you own the pool, does more rapid (than prior expected) prepayment help you earn a better return? 
+\begin{solution}[1in]
+Not typically, it is an option given to the morgagee that allows them to repay.  This is of value to the morgagee when rates drop they may refinance at a lower rate.
+\end{solution}
+
+\question[1]
+Conforming loans are packaged primarily by individual commercial banks (private-label) into MBS? TRUE or FALSE 
+\begin{solution}[1.5in]
+FALSE, Conforming loans are packaged by Fannie Mae and Freddie Mac.
+\end{solution}
+
+\question[1]
+Why is the term pass-through used with Mortgage Backed Securities?
+\begin{solution}[1.5in]
+It is referencing to the fact that the cash flows pass from the mortgage borrowers through the servicer to the investor in the securities.
+\end{solution}
 
 \end{questions}
 
