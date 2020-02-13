@@ -41,6 +41,8 @@ A 10-year maturity zero coupon bond will have lower price volatility than a 10-y
 
 Answer- False
 
+What is the princple behind this?
+
 ---
 
 ## T-bill Auction
@@ -59,3 +61,100 @@ Answer- maximum price; given quantity
 
 ---
 
+# Class Problems
+
+---
+
+## Problem A: House Purchase
+
+You plan to purchase a $130,000 house using a 30-year mortgage obtained from your local credit union.  The mortgage rate offered is 4.125%. You plan to make a 20% down payment. 
+
+---
+
+## Problem A: House Purchase
+
+You plan to purchase a $130,000 house using a 30-year mortgage obtained from your local credit union.  The mortgage rate offered is 4.125%. You plan to make a 20% down payment. 
+
+
+```{r A, echo=TRUE}
+purchase    <- 130000
+term        <- 30                   # Annual term
+termM       <- term*12              # Monthly term
+rate        <- 0.04125              # Annual rate
+rateM       <- rate/12              # Monthly rate
+downpayment <- 0.20 * purchase
+principle   <- purchase - downpayment
+pmt         <- principle/((1- (1/((1+rateM)^(termM)))) /rateM)
+c(principle, pmt)
+
+```
+
+---
+
+## Problem B: House Refinace
+
+Five years ago you purchased a $360,000 house.  You paid 20% down to avoid PMI fees.  At this time, you paid 5% on a 30-year mortgage.
+
+You believe that it may be a good time to refinance with current rates running at 4% for a 30 year mortgage.  It will cost around $2500 in fees to refinance.  How many months would it take to recoup these fees? 
+
+--
+
+What steps are necessary?
+
+--
+
+a. Principle remaining on first loan?
+$principle_n = (1-\frac{1}{(1+r)^{term*12-n}})/r/((1-(1+r)^{term*12})/r)*principle_0$
+
+---
+
+## Problem B: House Refinace- Step 1
+
+Five years ago you purchased a $360,000 house.  You paid 20% down to avoid PMI fees.  At this time, you paid 5% on a 30-year mortgage.
+
+You believe that it may be a good time to refinance with current rates running at 4% for a 30 year mortgage.  It will cost around $2500 in fees to refinance.  How many months would it take to recoup these fees? 
+
+
+```{r B-1, echo=TRUE}
+purchase    <- 360000
+term        <- 30                   # Annual term
+termM       <- term*12              # Monthly term
+rate        <- 0.05                 # Annual rate
+rateM       <- rate/12              # Monthly rate
+downpayment <- 0.20 * purchase
+principle   <- purchase - downpayment
+pmt         <- principle/((1- (1/((1+rateM)^(termM)))) /rateM)
+principle_60 <- ((1 - (1/((1+rateM)^(termM-60))))/rateM) /
+                ((1 - (1/((1+rateM)^(termM   ))))/rateM) * principle
+c(principle, pmt, principle_60)
+
+```
+
+---
+
+## Problem B: House Refinace- Step 2
+
+Five years ago you purchased a $360,000 house.  You paid 20% down to avoid PMI fees.  At this time, you paid 5% on a 30-year mortgage.
+
+You believe that it may be a good time to refinance with current rates running at 4% for a 30 year mortgage.  It will cost around $2500 in fees to refinance.  How many months would it take to recoup these fees? 
+
+```{r B-2, echo=TRUE}
+term2       <- 30                   # Annual term
+term2M      <- term*12              # Monthly term
+rate2       <- 0.04                 # Annual rate
+rate2M      <- rate/12              # Monthly rate
+pmt2         <- principle_60/((1- (1/((1+rate2M)^(term2M)))) /rate2M)
+savingM    <- pmt - pmt2
+nBreakeven  <- ceiling(2500/savingM)
+
+c(pmt, pmt2, savingM, nBreakeven)
+
+```
+
+---
+
+## Mortgage Closing Statement
+
+Let's walk through a mortgage closing statement as a valuable consumer finance lesson!
+
+https://www.consumerfinance.gov/owning-a-home/closing-disclosure/
