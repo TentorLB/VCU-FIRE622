@@ -1,5 +1,5 @@
 ---
-title: "Exercise 05-A: Federal Reserve Mortgage Market Data"
+title: "Exercise 05-B: Plot Federal Reserve Mortgage Market Data"
 author: "(Insert your name here)"
 date: "`r (Sys.Date())`"
 output:
@@ -57,17 +57,18 @@ fredr_set_key(GetYourOwnFredKey)
 ### Residential Debt
 
 Instructions
-  1. Replace the series_id with the residential mortgages id (see below for suggested citation)
+  1. Call `fredr` function and return the series_id with the residential mortgages id (see below for suggested citation)
   2. Select a label name and replace ___
   
   Suggested Citation:
 Board of Governors of the Federal Reserve System (US), Mortgage Debt Outstanding by Type of Property: One- to Four-Family Residences [MDOTP1T4FR], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MDOTP1T4FR, February 8, 2020.  
 
 ```{r mortgageDebtResidential}
-mortgageDebtResidential      <- fredr(series_id = "___")
-mortgageDebtResidential$name <- "___"
+mortgageDebtResidential      <- ___
+mortgageDebtResidential$name <- ___
 head(mortgageDebtResidential)
 ```
+
 
 
 ```{r mortgageDebtResidentialPlot}
@@ -81,41 +82,34 @@ ggplot(mortgageDebtResidential, aes(date, value)) +
 ### Farm Debt
 
 Instructions
-  1. Replace the series_id with the residential mortgages id (see below for suggested citation)
+  1. Call `fredr` function and return the series_id with the farm mortgages id (see below for suggested citation)
   2. Select a label name and replace ___
   
   Suggested Citation:
 Board of Governors of the Federal Reserve System (US), Mortgage Debt Outstanding by Type of Property: Farm [MDOTPFP], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MDOTPFP, February 13, 2020.
   
 ```{r mortgageDebtFarm}
-mortgageDebtFarm      <- fredr(series_id = "___")
-mortgageDebtFarm$name <- "___"
+mortgageDebtFarm      <- ___
+mortgageDebtFarm$name <- ___
 tail(mortgageDebtFarm)
 ```
 
-Plot the `mortgageDebtFarm` series to confirm.
-
 ```{r mortgageDebtFarmPlot}
-
 ggplot(___, aes(date, value)) + 
   geom_line() + 
   xlab("Date") + 
   ylab("Mortgage Debt [million $]") + 
   ggtitle("History of Mortgage Debt")
-
 ```
 
 ### MultiFamily Debt
 
-
 Instructions
-  1. Go to the FRED website. and search "Mortgage Debt Outstanding by Type of Property:"
-  2. Locate the multi-family series and use it
-  Replace the series_id with the multi-family mortgages id (see below for suggested citation)
+  1. Call `fredr` function and return the series_id with the multifamily mortgages id (see below for suggested citation)
   2. Select a label name and replace ___
-  3. Copy the suggested citation below.
   
-  <<<SUGGESTED CITATION>>>
+Suggested Citation:
+Board of Governors of the Federal Reserve System (US), Mortgage Debt Outstanding by Type of Property: Multifamily Residences [MDOTPMFR], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MDOTPMFR, February 13, 2020.
 
 
 ```{r mortgageMultiFamily}
@@ -124,29 +118,25 @@ mortgageDebtMultiFamily$name <- ___
 tail(mortgageDebtMultiFamily)
 ```
 
-Plot the `mortgageDebtMultiFamily` series to confirm.
 
 ```{r mortgageMultiFamilyPlot}
-
-ggplot(___, aes(___, ___)) + 
+ggplot(mortgageDebtMultiFamily, aes(date, value)) + 
   geom_line() + 
   xlab("Date") + 
   ylab("Mortgage Debt [million $]") + 
   ggtitle("History of Mortgage Debt")
-
 ```
 
-### Commercial Debt
+### Commericial Debt
 
 
 Instructions
-  1. Go to the FRED website. and search "Mortgage Debt Outstanding by Type of Property:"
-  2. Locate the nonfarm and nonresidential series and use it for the series_id with the multi-family mortgages id (see below for suggested citation)
+  1. Replace the series_id with the commericial mortgages id (see below for suggested citation)
   2. Select a label name and replace ___
-  3. Copy the suggested citation below.
   
-  <<<SUGGESTED CITATION>>>
-  
+Suggested Citation:
+Board of Governors of the Federal Reserve System (US), Mortgage Debt Outstanding by Type of Property: Nonfarm and Nonresidential [MDOTPNNRP], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MDOTPNNRP, February 13, 2020.
+
 
 ```{r mortgageCommerical}
 mortgageDebtCommercial      <- ___
@@ -180,16 +170,50 @@ head(mortgageStack %>% filter(date == '1995-10-01'))
 ```
 ### Graph 1995 & 2016
 
-Filter for the correct years.
 
-How well do these numbers tie to Figure 7-1 in the text book?
+How well do these number tie to Figure 7-1 in the text book?
 
 <<INSERT COMMENT HERE>>
 
 ```{r}
 
-mortgage19952016 <- mortgageStack %>% filter(date=='___-10-01' | date=='___-10-01')
+mortgage19952016 <- mortgageStack %>% filter(date=='1995-10-01' | date=='2016-10-01')
 mortgage19952016
+
+```
+
+Bar Plot
+
+Lets plot the data.  Compare the figure 7-1 in the text.
+
+```{r}
+
+barPlot   <- ggplot(mortgage19952016, aes(x="", y=value, fill=name))+
+               geom_bar(width = 1, stat = "identity") +
+               facet_wrap( ~ date )
+barPlot
+
+```
+
+Pie Chart
+
+Does the pie chart match the book?
+
+<<Insert Comment Here>>
+
+Does the pie chart or bar chart better communicate the information?
+
+<<Insert Comment Here>>
+
+
+```{r}
+
+pieChart  <- ggplot(mortgage19952016, aes(x="", y=value, fill=name))+
+               geom_bar(width = 1, stat = "identity", position = position_fill()) +
+               coord_polar("y", start=0) +
+               facet_wrap( ~ date )
+               
+pieChart
 
 ```
 
