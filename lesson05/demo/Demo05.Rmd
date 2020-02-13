@@ -218,7 +218,7 @@ Pie Chart
 ```{r}
 
 pieChart  <- ggplot(mortgage19952016, aes(x="", y=value, fill=name))+
-               geom_bar(width = 1, stat = "identity") +
+               geom_bar(width = 1, stat = "identity", position = position_fill()) +
                coord_polar("y", start=0) +
                facet_wrap( ~ date )
                
