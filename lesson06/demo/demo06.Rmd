@@ -1,0 +1,83 @@
+---
+title: "Fannie Mae Single Family Aquisition Data"
+author: "Larry Tentor"
+date: "`r (Sys.Date())`"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    urlcolor: blue
+  pdf_document:
+    toc: yes
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=TRUE}
+# List selected libraries
+suppressWarnings(library(tidyverse))
+suppressWarnings(library(fredr))
+```
+
+# Fannie Mae Single Family Data
+
+## Acquisition Data [One Quarter]
+
+```{r}
+
+fileData               <- '../data/Acquisition_2018Q4.txt'
+Acquisitions_Variables <- c("LoanId", "ChannelOrigin", "Seller", "RateOrigin", "AmountOrigin", "Term", "DateOrigin"
+                           ,"DateFirst", "LoanToValueOrigin", "LoanToValueCombinedOrigin", "NUM_BO", "DTI", "CSCORE_B", "FTHB_FLG", "PURPOSE", "PROP_TYP"
+                           ,"NUM_UNIT", "OCC_STAT", "STATE", "ZIP_3", "MI_PCT", "Product.Type", "CSCORE_C", "MI_TYPE", "RELOCATION_FLG")
+
+Acquisition_ColClasses <- c("character", "character", "character", "numeric", "numeric", "integer", "character", "character", "numeric"
+                           ,"numeric", "character", "numeric", "numeric", "character", "character", "character", "character", "character"
+                           ,"character", "character", "numeric", "character", "numeric", "numeric", "character")
+
+Acquisition_ColClasses <- c("character", "factor", "factor", "numeric", "numeric", "integer", "character", "character", "numeric"
+                           ,"numeric", "factor", "numeric", "numeric", "factor", "factor", "factor", "factor", "factor"
+                           ,"factor", "character", "numeric", "factor", "numeric", "numeric", "factor")
+
+acquisition            <- read.csv(fileData, header = FALSE, col.names = Acquisitions_Variables, sep = "|", colClasses = Acquisition_ColClasses)
+
+object.size(acquisition)        # 95,481,680 bytes with all strings
+# ChannelOrigin changed to factor 94,014,104 bytes
+# Seller changed to factor        92,546,632 bytes
+# A number of items               79,338,808 bytes
+
+summary(acquisition)
+```
+
+## Performance Data [One Quarter]
+
+```{r}
+
+fileData               <- '../data/Acquisition_2018Q4.txt'
+Acquisitions_Variables <- c("LoanId", "ChannelOrigin", "Seller", "RateOrigin", "AmountOrigin", "Term", "DateOrigin"
+                           ,"DateFirst", "LoanToValueOrigin", "LoanToValueCombinedOrigin", "NUM_BO", "DTI", "CSCORE_B", "FTHB_FLG", "PURPOSE", "PROP_TYP"
+                           ,"NUM_UNIT", "OCC_STAT", "STATE", "ZIP_3", "MI_PCT", "Product.Type", "CSCORE_C", "MI_TYPE", "RELOCATION_FLG")
+
+Acquisition_ColClasses <- c("character", "character", "character", "numeric", "numeric", "integer", "character", "character", "numeric"
+                           ,"numeric", "character", "numeric", "numeric", "character", "character", "character", "character", "character"
+                           ,"character", "character", "numeric", "character", "numeric", "numeric", "character")
+
+Acquisition_ColClasses <- c("character", "factor", "factor", "numeric", "numeric", "integer", "character", "character", "numeric"
+                           ,"numeric", "factor", "numeric", "numeric", "factor", "factor", "factor", "factor", "factor"
+                           ,"factor", "character", "numeric", "factor", "numeric", "numeric", "factor")
+
+acquisition            <- read.csv(fileData, header = FALSE, col.names = Acquisitions_Variables, sep = "|", colClasses = Acquisition_ColClasses)
+
+object.size(acquisition)        # 95,481,680 bytes with all strings
+# ChannelOrigin changed to factor 94,014,104 bytes
+# Seller changed to factor        92,546,632 bytes
+# A number of items               79,338,808 bytes
+
+summary(acquisition)
+```
+
