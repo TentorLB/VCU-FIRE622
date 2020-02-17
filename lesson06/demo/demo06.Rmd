@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r setup, include=TRUE}
 # List selected libraries
 suppressWarnings(library(tidyverse))
-suppressWarnings(library(fredr)) 
+suppressWarnings(library(fredr))
 ```
 
 # Fannie Mae Single Family Data
