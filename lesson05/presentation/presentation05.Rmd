@@ -140,10 +140,17 @@ You believe that it may be a good time to refinance with current rates running a
 
 ```{r B-2, echo=TRUE}
 term2       <- 30                   # Annual term
+<<<<<<< HEAD
 term2M      <- term2*12             # Monthly term
 rate2       <- 0.04                 # Annual rate
 rate2M      <- rate/12              # Monthly rate
 pmt2        <- principle_60/((1- (1/((1+rate2M)^(term2M)))) /rate2M)
+=======
+term2M      <- term*12              # Monthly term
+rate2       <- 0.04                 # Annual rate
+rate2M      <- rate/12              # Monthly rate
+pmt2         <- principle_60/((1- (1/((1+rate2M)^(term2M)))) /rate2M)
+>>>>>>> 5e171c4603c962687d680a0c481fd94911bf16af
 savingM    <- pmt - pmt2
 nBreakeven  <- ceiling(2500/savingM)
 
