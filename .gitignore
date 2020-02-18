@@ -18,6 +18,7 @@ lesson03/*/*.vrb
 lesson03/*/*.nav
 lesson03/*/*.log
 lesson04/*/*.html
+lesson04/demo/Demo04.html
 lesson05/*/*.html
 lesson05/*/*.tex
 lesson05/*/*.nav
@@ -37,4 +38,5 @@ lesson02/assignment/assignment02_sol.Rmd
 lesson03/assignment/assignment03_sol.Rmd
 lesson04/assignment/assignment04_sol.Rmd
 lesson04/assignment/project04_sol.Rmd
+lesson06/assignment/project06_sol.Rmd
 FRED.key
