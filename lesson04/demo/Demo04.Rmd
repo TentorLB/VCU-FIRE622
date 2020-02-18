@@ -20,7 +20,7 @@ library(readxl)
 
 We will return to continued ETF analysis from last lesson.  
 
-Recall that diagram depicts the workflow we are trying yo implement as we do analysis.
+Recall that diagram depicts the workflow we are trying to implement as we do analysis.
 
 ![](../image/data-science.png){width=550px}
 

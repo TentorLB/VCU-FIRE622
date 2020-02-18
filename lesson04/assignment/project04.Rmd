@@ -181,6 +181,7 @@ ___
 
 ### Plot Poland Fixed Security
 
+Plot the above Poland Fixed Income Securities with their maturity on the x-axis and the Duration on the y-axis.  Use the LocationFactor to color.
 ```{r Plot02}
 ggplot(___, aes(x=Maturity, y=Duration, color=___)) +
   geom_point()

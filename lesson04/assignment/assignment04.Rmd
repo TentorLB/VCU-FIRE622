@@ -1,5 +1,5 @@
 ---
-title: "Money Market Calculations (Assignment 04) Solution"
+title: "Money Market Calculations (Assignment 04)"
 author: "(fill in your name)"
 output:
   html_document:
