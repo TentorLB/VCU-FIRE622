@@ -27,17 +27,21 @@ suppressWarnings(library(fredr))
 
 # Fannie Mae Single Family Data
 
+Recall that diagram depicts the workflow we are trying yo implement as we do analysis.
+
+![](../image/data-science.png){width=550px}
+
 ## Acquisition Data [One Quarter]
 
 ```{r}
 
-fileData              <- '../data/Acquisition_2018Q4.txt'
+fileData              <- '../data/Acquisition_2000Q1.txt'
 AcquisitionsVariables <- 
-  c( "LoanId", "ChannelOrigin", "Seller",    "RateOrigin",        "AmountOrigin"
-   , "Term",   "DateOrigin",    "DateFirst", "LoanToValueOrigin", "LoanToValueCombinedOrigin"
-   , "NUM_BO", "DTI",           "Cscore_B",  "FTHBFlag",          "Purpose"
-   , "Type",   "Unit",          "Occupancy", "State",              "Zip3"
-   , "MI_PCT", "ProductType",   "Cscore_C",  "MI_TYPE",            "RELOCATION_FLG")
+  c( "LoanId",     "ChannelOrigin", "Seller",    "RateOrigin",        "AmountOrigin"
+   , "Term",       "DateOrigin",    "DateFirst", "LoanToValueOrigin", "LoanToValueCombinedOrigin"
+   , "NBorrowers", "DTI",           "CScore",    "FTHBFlag",          "Purpose"
+   , "Type",       "Unit",          "Occupancy", "State",             "Zip3"
+   , "MI_PCT",     "ProductType",   "Cscore2",   "MI_TYPE",           "RelocationFlag")
 
 AcquisitionColClasses <- 
   c( "character", "factor",    "factor",    "numeric", "numeric"
@@ -60,41 +64,21 @@ summary(acquisition)
 ```{r}
 acquisition %>%
   group_by(Seller) %>%
-  summarize(AmountSum=sum(AmountOrigin)/1000000) %>%
+  summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
    arrange(desc(AmountSum))
 ```
 
-## Performance Data [One Quarter]
-
 ```{r}
-
-fileData               <- '../data/Performance_2018Q4.txt'
-
-# Define Performance variables and classes, and read the files into R.
-performanceVariables <- 
-  c( "LoanId", "Monthly.Rpt.Prd", "Servicer", "RateLast", "LAST_UPB"
-   , "AgeLoan", "MaturityMonth", "MaturityAdjMonth", "DateMaturity", "MSA"
-   , "Delq.Status", "MOD_FLAG", "Zero.Bal.Code", "ZB_DTE", "LPI_DTE"
-   , "FCC_DTE","DISP_DT", "FCC_COST", "PP_COST", "AR_COST"
-   , "IE_COST", "TAX_COST", "NS_PROCS", "CE_PROCS", "RMW_PROCS"
-   , "O_PROCS", "NON_INT_UPB", "PRIN_FORG_UPB_FHFA", "REPCH_FLAG", "PRIN_FORG_UPB_OTH"
-   , "TRANSFER_FLG")
-
-performanceColClasses <- 
-  c( "character", "character", "factor",    "numeric",   "numeric"
-   , "integer",   "integer",   "integer",   "character", "character"
-   , "character", "factor",    "character", "character", "character"
-   , "character", "character", "numeric",   "numeric",   "numeric"
-   , "numeric",   "numeric",   "numeric",   "numeric",   "numeric"
-   , "numeric",   "numeric",   "numeric",   "character", "numeric"
-   , "character")
-
-performance            <- read.csv(fileData, header = FALSE, col.names = performanceVariables, sep = "|", colClasses = performanceColClasses)
-
-object.size(performance)        # 998,463,064 bytes with all strings
-# 2 factors                       967,014,544
-
-summary(performance)
-# View(performance)
+acquisition %>%
+  group_by(State) %>%
+  summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+   arrange(desc(AmountSum))
 ```
+```{r}
+acquisition %>%
+  group_by(ChannelOrigin) %>%
+  summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+   arrange(desc(AmountSum))
+```
+
 
