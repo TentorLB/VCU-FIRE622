@@ -24,12 +24,35 @@ knitr::opts_chunk$set(echo = TRUE)
 suppressWarnings(library(tidyverse))
 suppressWarnings(library(fredr))
 ```
-
-# Fannie Mae Single Family Data
+# Analysis Workflow
 
 Recall that diagram depicts the workflow we are trying yo implement as we do analysis.
 
 ![](../image/data-science.png){width=550px}
+
+# Dataset Background
+
+[Fannie Mae](https://www.fanniemae.com/portal/about-fm/what-we-do.html) is a leading source of financing for mortgages in the United States.  They assist banks buy transfering ownership of individual mortgages in order to securitize them to other investors.  After the financial crisis that impacted mortgage lending, they have selected to create additional transparency by releasing their single family historic loan performance dataset. 
+
+We are interesting in profiling this data as a starting point.  We will need to become familiar with how Fannie Mae has choosen to to assemble the dataset.  Fannie Mae has a collection of educational materials at [Fannie Mae Single Family Historical Loan Performance Dataset](ttps://www.fanniemae.com/portal/funding-the-market/data/loan-performance-data.html).
+
+- [Tutorial Overview](https://fanniemae.articulate-online.com/p/7778726526/story_html5.html)
+- [Tutorial 101](https://fanniemae.articulate-online.com/p/7778704184/presentation_html5.html)
+- [Tutorial 102](https://fanniemae.articulate-online.com/p/7778736213/presentation_html5.html) (More advanced than our work)
+
+# Analysis Objective
+
+We will be examining the Fannie Mae Single Family home data set.  The dataset we will focus on in this analysis is the acquisition file.  This consists of one entry for each loan that was transfered to Fannie Mae during that period.
+
+We seek to understand the following questions for the loans acquired during the first quarter of 2000.
+
+1. What banks were the largest sellers to Fannie Mae?
+2. What states were these mortgages from?
+    a. Per capita calculations
+3. What was the breakdown by distribution channel?
+
+
+# Fannie Mae Single Family Data
 
 ## Acquisition Data [One Quarter]
 
@@ -61,6 +84,8 @@ object.size(acquisition)        # 95,481,680 bytes with all strings
 summary(acquisition)
 ```
 
+## Seller Analysis
+
 ```{r}
 acquisition %>%
   group_by(Seller) %>%
@@ -68,12 +93,17 @@ acquisition %>%
    arrange(desc(AmountSum))
 ```
 
+## State Analysis
+
 ```{r}
 acquisition %>%
   group_by(State) %>%
   summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
    arrange(desc(AmountSum))
 ```
+
+## Channel Origin Analysis
+
 ```{r}
 acquisition %>%
   group_by(ChannelOrigin) %>%
