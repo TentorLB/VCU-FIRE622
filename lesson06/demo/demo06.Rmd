@@ -48,9 +48,11 @@ We seek to understand the following questions for the loans acquired during the 
 
 1. What banks were the largest sellers to Fannie Mae?
 2. What states were these mortgages from?
-    a. Per capita calculations
+    a. Per capita calculations (?)
 3. What was the breakdown by distribution channel?
-
+4. What is the credit score breakdown.  
+    - Determine what buckets to divide the credit score report
+    - Determine how to use the borrower and coborrower credit score.
 
 # Fannie Mae Single Family Data
 
