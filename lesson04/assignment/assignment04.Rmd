@@ -36,6 +36,8 @@ Calculate the initial price of the commercial paper and find the bond equivalent
 
 ibe_cp <- 0
 
+print(ibe_cp*100)
+
 ```
 ### CD Calculations
 
@@ -45,6 +47,7 @@ convert the given single payment yield into a bond equivalent.
 
 ibe_cd <- 0
 
+print(ibe_cd*100)
 ```
 
 ### Comparison
@@ -98,7 +101,7 @@ print(ibe*100)
 
 ear <- 0
   
-print(ear)
+print(ear*100)
 ```
 
 
@@ -142,7 +145,7 @@ Provide all necessary for the effective annual return calculation and print the 
 ```{r EAR03C}
 ear <- 0
   
-print(ear)
+print(ear*100)
 
 ```
 
