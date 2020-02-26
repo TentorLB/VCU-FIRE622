@@ -1,4 +1,4 @@
-\documentclass[noanswers]{exam}
+\documentclass[answers]{exam}
 
 \usepackage{tabularx}
 \usepackage{csquotes}
