@@ -1,0 +1,159 @@
+---
+title: "Fannie Mae Single Family Acquisition Data"
+author: "(Insert Your Name)"
+date: "`r (Sys.Date())`"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    urlcolor: blue
+  pdf_document:
+    toc: yes
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=TRUE}
+# List selected libraries
+suppressWarnings(library(tidyverse))
+suppressWarnings(library(fredr))
+library(usmap)
+```
+# Analysis Workflow
+
+Recall that diagram depicts the workflow we are trying to implement as we do analysis.
+
+![](../image/data-science.png){width=550px}
+
+# Dataset Background
+
+[Fannie Mae](https://www.fanniemae.com/portal/about-fm/what-we-do.html) is a leading source of financing for mortgages in the United States.  They assist banks by transferring ownership of individual mortgages in order to securitize them to other investors.  After the financial crisis that impacted mortgage lending, they have selected to create additional transparency by releasing their single family historic loan performance dataset. 
+
+We are interesting in profiling this data as a starting point.  We will need to become familiar with how Fannie Mae has chosen to to assemble the dataset.  Fannie Mae has a collection of educational materials at [Fannie Mae Single Family Historical Loan Performance Dataset](https://www.fanniemae.com/portal/funding-the-market/data/loan-performance-data.html).
+
+- [Tutorial Overview](https://fanniemae.articulate-online.com/p/7778726526/story_html5.html)
+- [Tutorial 101](https://fanniemae.articulate-online.com/p/7778704184/presentation_html5.html)
+- [Tutorial 102](https://fanniemae.articulate-online.com/p/7778736213/presentation_html5.html) (More advanced than our work)
+
+# Analysis Objective
+
+We will be examining the Fannie Mae Single Family Loan data set.  The dataset we will focus on in this analysis is the acquisition file.  This consists of one entry for each loan that was transferred to Fannie Mae during that period.  The published files are a sample of the loans, not all inclusive.
+
+We seek to understand the following questions for the loans acquired during the first quarter of 2000.
+
+1. Confirm that all the origination dates are prior to the quarter.
+    a. Provide a table of origination dates with the aggregated original amount and the number of loans.
+    b. Plot a bar chart of origin months by count of loans.
+    c. Are you comfortable with the results.
+2. What banks were the largest sellers to Fannie Mae?
+    a. Create a table of sellers with the aggregated original amount and the number of loans.
+    b. Plot a bar chart of sellers by original amount.
+3. What states were these mortgages from?
+    a. Create a table of states with the aggregated original amount and the number of loans.
+    b. Display the US Map with color representing number of loans.
+4. What was the breakdown by distribution channel?
+    a. Create a table of distribution channel with the aggregated original amount and the number of loans.
+5. What is the credit score breakdown.  
+    a. Determine how to integrate the borrower and co-borrower credit score.
+    b. Determine what buckets to divide the credit score report.
+    c. Create a table of credit score buckets with the aggregated original amount and the number of loans.
+6. Determine if there is a linear relationship between the integrated credit score and the interest rate.
+    a. Determine the linear model.
+    b. graph the input data and modeled relationship.
+    c. Graph the residuals of the model.
+    d. Comment on the model results.
+
+# Fannie Mae Single Family Data
+
+## Import: Acquisition Data [One Quarter]
+
+```{r}
+
+```
+
+## Tidy
+
+Clean up the fields as you deem necessary for the following analysis.  You may used additional chunks as necessary so you can confirm items step by step.
+
+```{r}
+
+```
+
+## Analysis
+
+### Origin Date Check
+
+Origin Date Table
+
+```{r}
+
+
+```
+
+Origin Date Bar Chart
+
+```{r}
+
+```
+
+[Comments on Origin Date Analysis]
+
+### Seller Analysis
+
+Seller analysis table
+
+```{r}
+
+```
+
+[Comments on Seller Analysis]
+
+### State Analysis
+
+State Analysis Table 
+
+```{r}
+
+```
+
+State Analysis Map
+
+```{r}
+
+```
+
+[Comments on state analysis]
+
+### Channel Origin
+
+Channel Origin Table
+```{r}
+
+```
+
+[Comments on channel of origin analysis]
+
+### Credit score profile
+
+```{r}
+
+```
+
+[Comments on Credit score profile]
+
+
+### Linear Model: Credit score and interest rates
+
+```{r}
+
+
+```
+
+[Comments on linear model]
+
