@@ -40,7 +40,7 @@ Insolvency risk at a financial intermediary (FI) is the risk
 
 --
 
-Answer- E
+Answer- **E**
 
 ---
 
@@ -53,7 +53,7 @@ A zero coupon bond has a duration equal to its maturity and a convexity equal to
 
 --
 
-Answer- True
+Answer- **True**
 
 ---
 
@@ -67,7 +67,7 @@ A 10-year maturity zero coupon bond will have lower price volatility than a 10-y
 
 --
 
-Answer- False
+Answer- **False**
 
 ---
 
@@ -84,7 +84,7 @@ A corporate bond has a coupon rate of 10 percent and a required return of 10 per
 
 --
 
-Answer- B
+Answer- **B**
 
 ---
 
@@ -100,7 +100,7 @@ The major monetary policy-making arm of the Federal Reserve is the
 
 --
 
-Answer- E. The Federal Open Market Committee is the correct answer.
+Answer- **E.** The **Federal Open Market Committee** is the correct answer.
 
 ---
 
@@ -117,7 +117,7 @@ A T-bond with a $1,000 par is quoted at a bid of 105.21875 and an ask of 105.281
 
 --
 
-Answer- B. You will sell it at the bid value of 105.21875. The dollar value will be $1052.19.
+Answer- **B.** You will sell it at the bid value of 105.21875. The dollar value will be $1052.19.
 
 ---
 
@@ -126,20 +126,20 @@ Answer- B. You will sell it at the bid value of 105.21875. The dollar value will
 
 ---
 
-## Savings Institutions (SIs)
+## **Savings Institutions** (SIs)
 
-  - Comprise two groups of Depository Institutions (DIs): 
+  - Comprise two groups of **Depository Institutions** (DIs): 
       * savings associations 
-          - Savings associations were historically referred to as Savings and Loans (S&Ls) associations.
+          - Savings associations were historically referred to as **Savings and Loans** (S&Ls) associations.
       * savings banks.
   - Specialize in long-term residential mortgages, which are usually financed with short-term deposits of small savers.
-  - Faced a major crisis during the 1982-1992 period resulting in the failure of half of SIs.
+  - Faced a major crisis during the 1982-1992 period resulting in the _failure of half of SIs._
 
 ---
 
 ## Savings and Loan Crisis 1982-1992
 
-  - At the end of 2004, the direct cost of the S&L crisis to taxpayers was $124 billion,
+  - At the end of 2004, the direct cost of the S&L crisis to taxpayers was $124 billion.
       - Alarming number (1,248) of savings institution failures occurred in the 1982-1992 period, peaking at 316 in 1989.
       - Rapid decline in asset growth of the industry.
   - The Federal Reserve radically changed its monetary policy during October 1979 to October 1982.
@@ -160,15 +160,15 @@ Answer- B. You will sell it at the bid value of 105.21875. The dollar value will
 
 ## Credit Union
 
-  - Credit unions (CUs) are nonprofit depository institutions mutually organized and owned by their members (depositors).
-  - First established in the early 1900s as self-help organizations.
-  - Members deposit savings and the funds are lent to other members.
+  - **Credit unions** (CUs) are nonprofit depository institutions mutually organized and owned by their members (depositors).
+      - First established in the early 1900s as self-help organizations.
+      - Members deposit savings and the funds are lent to other members.
   - CUs are prohibited from serving the general public
       - members are required to have a common bond of occupation, association, etc.
       - E.g., university-affiliated CUs, police CUs, etc.
-  - Because C U s are nonprofit organizations, their earnings are not taxed.
-  - May offer higher interest rates than commercial banks on deposits.
-  - May charge lower interest rates than commercial banks on loans.
+  - Because CUs are nonprofit organizations, their earnings are not taxed.
+      - May offer higher interest rates than commercial banks on deposits.
+      - May charge lower interest rates than commercial banks on loans.
 
 ---
 
@@ -176,8 +176,8 @@ Answer- B. You will sell it at the bid value of 105.21875. The dollar value will
 
   - Most numerous of all depository institutions.
       - 6,105 CUs in 2016.
-      - 107.6 million members.
-  - Less affected by the crisis of the 1980s that hit SIs and CBs.
+      - 107.6 million members. (WOW 1/3 of US!)
+  - Less affected by the crisis of the 1980s that hit Saving Instituions (SIs) and Commercial Banks (CBs).
   - Traditionally make small (< $10,000) consumer loans.
   - Loans are funded with member deposits.
   - Small amounts of residential mortgages.
@@ -189,107 +189,160 @@ Answer- B. You will sell it at the bid value of 105.21875. The dollar value will
 ## Credit Union - 3
 
   - National credit union system consists of three tiers.
-  - *U.S. Central Credit Union* is the top tier.
+  - **U.S. Central Credit Union** is the top tier.
       - Provides investment and liquidity services to Corporate C u s.
-  - 12 *corporate credit unions* comprise the middle tier at the state or regional level.
-Cooperatively owned by their member C u s.
-Serve members by investing and lending excess funds that member C U s place with them.
-Provide automated settlement, securities safekeeping, data processing, accounting, and payment services.
-Individual credit unions make up the bottom tier.
+  - 12 **corporate credit unions** comprise the middle tier at the state or regional level.
+      - Cooperatively owned by their member CUs.
+      - Serve members by investing and lending excess funds that member CUs place with them.
+      - Provide automated settlement, securities safekeeping, data processing, accounting, and payment services.
+  - Individual **credit unions** make up the bottom tier.
 
 ---
 
 ## Credit Union Trends
 
-Recently, C U s have expanded their services to compete with C Bs and Sis.
-Many have converted to a common charter.
-Now offer mortgages, credit lines, and mobile banking.
-Some offer business and commercial loans to their employer groups.
-Banking industry challenged C U expansion in 19  97.
-Feb 19 98 - Supreme Court sided with the banking industry.
-Later that year, Congress quickly passed a bill that sided with C u s.
-Membership increased from 77.5 million to 107.6 million from 1999 to 2016.
-
+  - Recently, CUs have expanded their services to compete with Commercial Banks (CBs) and Savings Institutions (SIs).
+      - Many have converted to a common charter.
+      - Now offer mortgages, credit lines, and mobile banking.
+      - Some offer business and commercial loans to their employer groups.
+  - Banking industry challenged CU expansion in 1997.
+      - Feb 1998 - Supreme Court sided with the banking industry.
+      - Later that year, Congress quickly passed a bill that sided with CUs.
+  - **Membership increased** from 77.5 million to **107.6** million from 1999 to **2016.**
 
 ---
 
 ## Finance Companies (FC)
 
-There are three major types of finance companies (F Cs).
-Sales finance institutions specialize in loans to customers of a particular retailer or manufacturer.
-Personal credit institutions specialize in installment and other loans to consumers.
-Business credit institutions specialize in business loans, especially through equipment leasing and factoring.
-Factoring is the process of purchasing accounts receivable from corporations, usually with no recourse to the seller should the receivables go bad.
-
+  - There are three major types of **Finance Companies** (FCs).
+  - _Sales finance institutions_ specialize in loans to customers of a particular retailer or manufacturer.
+  - _Personal credit institutions_ specialize in installment and other loans to consumers.
+  - _Business credit institutions_ specialize in business loans, especially through equipment leasing and factoring.
+      - Factoring is the process of purchasing accounts receivable from corporations, usually with no recourse to the seller should the receivables go bad.
 
 ---
 
-## Finance Companoies (FC) - 2
+## Finance Companies (FC) - 2
 
-Industry assets were $1,820.6 billion in 2016.
-FC industry is highly concentrated.
-The 20 largest FCs account for more than 65% of industry assets.
-Many of the largest F Cs tend to wholly owned or captive subsidiaries of major manufacturing companies.
-E.g., Ford Motor Credit is a subsidiary of Ford Motor.
+  - Industry assets were $1,820.6 billion in 2016.
+  - FC industry is highly concentrated.
+  - The 20 largest FCs account for more than 65% of industry assets.
+  - Many of the largest FCs tend to wholly owned or captive subsidiaries of major manufacturing companies.
+      - E.g., Ford Motor Credit is a subsidiary of Ford Motor.
 
---
+---
 
 ## FC Balance Sheets
 
-Some finance companies make loans to riskier customers at higher interest rates than C Bs.
-Subprime lenders are F Cs that lend to high-risk customers.
-Loan sharks are subprime lenders that charge unfairly exorbitant rates to desperate, subprime borrowers.
-Payday lenders provide short-term cash advances that are often due when borrowers receive their next paycheck.
-An estimated 12 million Americans used payday loans in 2016 .
+  - Some finance companies make loans to riskier customers at higher interest rates than CBs.
+  - Sub-prime lenders are FCs that lend to high-risk customers.
+  - Loan sharks are sub-prime lenders that charge unfairly exorbitant rates to desperate, sub-prime borrowers.
+  - Payday lenders provide short-term cash advances that are often due when borrowers receive their next paycheck.
+      - An estimated 12 million Americans used payday loans in 2016.
 
 ---
 
 ## FC Balance Sheets - 2
 
-F Cs often have advantages over C Bs with respect to business loans because F Cs:
-Are not subject to regulations that restrict the type of products and services they can offer.
-Do not accept deposits—accordingly, bank-type regulators do not monitor their behavior.
-Often have substantial industry and product expertise.
-Are more willing to accept risky customers.
-Generally have lower overhead than C Bs.
+ - FCs often have advantages over CBs with respect to business loans because FCs:
+     - Are not subject to regulations that restrict the type of products and services they can offer.
+     - Do not accept deposits—accordingly, bank-type regulators do not monitor their behavior.
+     - Often have substantial industry and product expertise.
+     - Are more willing to accept risky customers.
+     - Generally have lower overhead than CBs.
 
 ---
 
-## FC Balanace Sheets - 3
+## FC Balance Sheets - 3
 
-Real estate loans.
-Second mortgages are in the form of home equity loans, i.e., loans that let customers borrow on a line of credit secured with a second mortgage on their home.
-Securitized mortgage assets are mortgages purchased and used as assets backing secondary market securities.
-Mortgage servicing is a fee-related activity whereby the flow of mortgage repayments is collected and passed on to investors in whole mortgage loan packages or securitization vehicles.
+  - Real estate loans.
+  - Second mortgages are in the form of home equity loans, i.e., loans that let customers borrow on a line of credit secured with a second mortgage on their home.
+  - Securitized mortgage assets are mortgages purchased and used as assets backing secondary market securities.
+  - Mortgage servicing is a fee-related activity whereby the flow of mortgage repayments is collected and passed on to investors in whole mortgage loan packages or securitization vehicles.
 
 ---
 
 ## FC Performance
 
-Problems arose in the F C industry in the mid- and late-2000s with the crash of the market for subprime mortgage loans.
-Many F Cs saw sharply lower equity values.
-
-F Cs are subject to state-imposed usury ceilings and additional restrictions have been imposed on payday loans in many states.
-Because F Cs do not accept deposits, they are not subject to the extensive oversight common among C Bs, S I s, and C U s .
-F C industry improved in the mid-200s and early 2010s.
-In the mid-2010s, industry median R O E rose to 9.33%, up from 6.61% during the height of the crisis, for business credit institutions.
-During the mid-2010s, industry median R O E rose to 13.73%, up from 5.31% during the height of the crisis, for personal credit institutions.
+  - Problems arose in the FC industry in the mid- and late-2000s with the crash of the market for sub-prime mortgage loans.
+  - Many FCs saw sharply lower equity values.
+  - FCs are subject to state-imposed **usury** ceilings and additional restrictions have been imposed on payday loans in many states.
+  - Because FCs do not accept deposits, they are not subject to the extensive oversight common among CBs, SIs, and CUs.
+  - FC industry improved in the mid-2000s and early 2010s.
+  - In the mid-2010s, industry median ROE rose to 9.33%, up from 6.61% during the height of the crisis, for business credit institutions.
+  - During the mid-2010s, industry median ROE rose to 13.73%, up from 5.31% during the height of the crisis, for personal credit institutions.
 
 ---
 
-## FC Performanace 
+## FC Performance 
 
-Between 2005 and 2007, home prices began to fall and borrowers faced rising interest rates, resulting in more people defaulting on their mortgages.
-Mortgage loan delinquencies and small business loan failure rates peaked in 2008 and 2009, hurting overall profitability.
-Crash in the subprime mortgage market led to serious problems for the U.S. and worldwide economies as a whole.
-Countrywide Financial failed, G MAC Financial Services was forced to convert to a bank holding company to prevent failure, and C I T Group also failed.
+  - Between 2005 and 2007, home prices began to fall and borrowers faced rising interest rates, resulting in more people defaulting on their mortgages.
+  - Mortgage loan delinquencies and small business loan failure rates peaked in 2008 and 2009, hurting overall profitability.
+  - Crash in the sub-prime mortgage market led to serious problems for the U.S. and worldwide economies as a whole.
+  - Countrywide Financial failed, GMAC Financial Services was forced to convert to a bank holding company to prevent failure, and CIT Group also failed.
+  - Financial crisis issues remained even into 2016.
+      - Industry receivables stood at \$1.42 trillion in the mid-2010s, down from \$1.93 trillion during the crisis, while industry employment was 562,400 in the mid-2010s, down from 715,900 as the crisis began.
 
-Financial crisis issues remained even into 2016.
-Industry receivables stood at \$1.42 trillion in the mid-2010s, down from \$1.93 trillion during the crisis, while industry employment was 562,400 in the mid-2010s, down from 715,900 as the crisis began.
+---
+
+## **Peer to Peer** (P2P) Lending
+
+  - Introduction to P2P Lending 
+  - P2P Lender Profiles
+     - Prosper
+     - Lending Club
+  - Prosper vs. Lending Club
+  - Five Key Takeaways
 
 
-## Peer to Peer Lending
 
 
+---
 
+## P2P Lending Industry Overview
 
+Online peer-to-peer (P2P) lending websites, often referred to as “Shadow Lenders”, have gained significant traction since the credit crunch resulting from the 2008 financial crisis. The purpose of these rapidly-growing websites is to facilitate loans of under $35,000 between borrowers and investors. The result is a transparent loan platform where individual investors can determine a borrower’s credit worthiness and partially or fully fund a loan at an attractive interest rate. 
+Investors and borrowers alike have found significant value in these online platforms, as they allow them to bypass banks when conducting business. Top P2P lending platforms have been valued at over $1 billion and continue to grow.* Collectively, the top two firms originated $871 million in loans last year.
+Let’s take a closer look at the borrower experience, by examining the enrollment and loan processes.
+
+.footnote[[*] Source: [Dugan, Ianthe. "Consumers Find Investors Eager to Make 'Peer-to-Peer' Loans - WSJ.com." The Wall Street Journal - Breaking News, Business, Financial and Economic News, World News & Video - Wall Street Journal - Wsj.com. N.p., n.d. Web. 6 Aug. 2013.](http://online.wsj.com/article/SB100014241278873237408045786017737)]
+
+---
+
+## Borrower Enrollment Process
+
+The borrower enrollment experience on a P2P lending site is straightforward but firms perform their due diligence
+
+* Borrower signs up for the service by providing basic information
+* P2P lending platform runs credit check to ensure borrower meets basic borrowing requirements
+* Borrower is granted access to create a loan profile on P2P website
+* Website verifies borrower’s identity by requesting the borrower to mail copies of Social Security card, W-2 form, and other forms of identification 
+
+---
+
+## Borrow Loan Process
+
+Once enrolled, borrowers may publish a loan to the firms’ online platforms
+
+  * Borrower’s loan profile is published on the website for investors to crowdfund, often in small increments
+  * Once fully funded, a third party bank issues the loan to the borrower and creates sliced securities for each investor to collect returns from the borrower
+  * Borrower makes payments back to P2P lending platform, which re-issues funds to security holders 
+
+---
+
+## Market Participants
+
+  * Prosper
+  * Lending Tree
+  * Lending Club
+  
+---
+  
+## Key Take Aways
+  
+   1. Lending Club and Prosper offer a viable option for qualified borrowers to receive a personal loan away from the traditional brick-and-mortar institutions. 
+   2. Shadow lending websites provide a one-stop-shop for borrowers to receive their loan, while providing the tools necessary to manage that loan. 
+   3. From a borrower’s perspective, it’s very difficult to be approved to join either website. Lending Club, for example, only accepts roughly 10% of all applicants. While this is beneficial for investors and those who qualify for these loans, by no means will these websites replace ‘pay-day loan’ boutiques. 
+   4. It seems unlikely for shadow lenders to move beyond loans over $35,000 without becoming heavily regulated. With an influx of investors joining because of the high ROI, P2P Lenders must ensure that borrower requirements do not dip to meet the demand. 
+   5. As many critics cite, the growth of these websites will help to alleviate any predatory loan practices by offering fair rates and not imposing substantial fees. 
+   
