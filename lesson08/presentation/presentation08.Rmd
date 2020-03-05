@@ -1,0 +1,295 @@
+---
+title:  "Other Lending Institutions"
+author: "Larry Tentor"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "presentation.css"
+    nature:
+      highlightLines: true
+      highlightStyle: solarized-dark
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+#output: ioslides_presentation
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+class: center, middle
+
+# Attribution
+
+McGraw Hill has provided power point slides that were substantially used to construct this R Markdown deck.
+
+---
+
+# Exam Items
+
+---
+
+## Insolvency
+
+Insolvency risk at a financial intermediary (FI) is the risk
+
+* A. that promised cash flows from loans and securities held by FIs may not be paid in full.
+* B. incurred by an FI when the maturities of its assets and liabilities do not match.
+* C. that a sudden surge in liability withdrawals may require an FI to liquidate assets quickly at fire sale prices.
+* D. incurred by an FI when its investments in technology do not result in cost savings or revenue growth.
+* E. risk that an FI may not have enough capital to offset a sudden decline in the value of its assets.
+
+--
+
+Answer- E
+
+---
+
+## Zero Coupon Bonds
+
+A zero coupon bond has a duration equal to its maturity and a convexity equal to zero.
+
+- True
+- False
+
+--
+
+Answer- True
+
+---
+
+## Zero Coupon Volatility
+
+
+A 10-year maturity zero coupon bond will have lower price volatility than a 10-year bond with a 10 percent coupon.
+
+- True
+- False
+
+--
+
+Answer- False
+
+---
+
+
+## Corporate Bond
+
+A corporate bond has a coupon rate of 10 percent and a required return of 10 percent. This bond's price is
+
+* A. $924.18
+* B. $1,000.00
+* C. $879.68
+* D. $1,124.83
+* E. not possible to determine from the information given
+
+--
+
+Answer- B
+
+---
+
+## Federal Reserve
+
+The major monetary policy-making arm of the Federal Reserve is the
+
+* A. Board of Governors.
+* B. Council of Federal Reserve Bank presidents.
+* C. Office of the Comptroller of the Currency.
+* D. Federal Reserve Bank of New York.
+* E. None of these choices are correct.
+
+--
+
+Answer- E. The Federal Open Market Committee is the correct answer.
+
+---
+
+## T-Bond
+
+A T-bond with a $1,000 par is quoted at a bid of 105.21875 and an ask of 105.28125. If you sell the bond, you will receive
+
+
+* A. $1,052.81.
+* B. $1,052.19.
+* C. $1,057.22.
+* D. $1,059.22.
+* E. None of these choices are correct.
+
+--
+
+Answer- B. You will sell it at the bid value of 105.21875. The dollar value will be $1052.19.
+
+---
+
+
+## Other Lending Institutions
+
+---
+
+## Savings Institutions (SIs)
+
+  - Comprise two groups of Depository Institutions (DIs): 
+      * savings associations 
+          - Savings associations were historically referred to as Savings and Loans (S&Ls) associations.
+      * savings banks.
+  - Specialize in long-term residential mortgages, which are usually financed with short-term deposits of small savers.
+  - Faced a major crisis during the 1982-1992 period resulting in the failure of half of SIs.
+
+---
+
+## Savings and Loan Crisis 1982-1992
+
+  - At the end of 2004, the direct cost of the S&L crisis to taxpayers was $124 billion,
+      - Alarming number (1,248) of savings institution failures occurred in the 1982-1992 period, peaking at 316 in 1989.
+      - Rapid decline in asset growth of the industry.
+  - The Federal Reserve radically changed its monetary policy during October 1979 to October 1982.
+      - Targeted reserves rather than interest rates.
+      - Led to sudden surge in interest rates.
+      - Many SIs faced negative net interest margins.
+  - [Savings and Loan Crisis](https://www.econlib.org/library/Enc/SavingsandLoanCrisis.html)
+
+---
+
+## Savings and Loan Crisis 1982-1992
+
+  - Real estate and land prices collapsed in many areas of the U.S. in the mid-1980s.
+      - Many mortgages defaulted as a result.
+  - The Federal Savings and Loan Insurance Corporation (FSLIC) had a policy of regulatory forbearance.
+      - policy was to not close economically insolvent FIs, allowing them to continue to operate.
+---
+
+## Credit Union
+
+  - Credit unions (CUs) are nonprofit depository institutions mutually organized and owned by their members (depositors).
+  - First established in the early 1900s as self-help organizations.
+  - Members deposit savings and the funds are lent to other members.
+  - CUs are prohibited from serving the general public
+      - members are required to have a common bond of occupation, association, etc.
+      - E.g., university-affiliated CUs, police CUs, etc.
+  - Because C U s are nonprofit organizations, their earnings are not taxed.
+  - May offer higher interest rates than commercial banks on deposits.
+  - May charge lower interest rates than commercial banks on loans.
+
+---
+
+## Credit Union - 2
+
+  - Most numerous of all depository institutions.
+      - 6,105 CUs in 2016.
+      - 107.6 million members.
+  - Less affected by the crisis of the 1980s that hit SIs and CBs.
+  - Traditionally make small (< $10,000) consumer loans.
+  - Loans are funded with member deposits.
+  - Small amounts of residential mortgages.
+  - Tend to hold large amounts of safe, liquid government securities as assets.
+      - E.g., 14.7% of assets in 2016.
+
+---
+
+## Credit Union - 3
+
+  - National credit union system consists of three tiers.
+  - *U.S. Central Credit Union* is the top tier.
+      - Provides investment and liquidity services to Corporate C u s.
+  - 12 *corporate credit unions* comprise the middle tier at the state or regional level.
+Cooperatively owned by their member C u s.
+Serve members by investing and lending excess funds that member C U s place with them.
+Provide automated settlement, securities safekeeping, data processing, accounting, and payment services.
+Individual credit unions make up the bottom tier.
+
+---
+
+## Credit Union Trends
+
+Recently, C U s have expanded their services to compete with C Bs and Sis.
+Many have converted to a common charter.
+Now offer mortgages, credit lines, and mobile banking.
+Some offer business and commercial loans to their employer groups.
+Banking industry challenged C U expansion in 19  97.
+Feb 19 98 - Supreme Court sided with the banking industry.
+Later that year, Congress quickly passed a bill that sided with C u s.
+Membership increased from 77.5 million to 107.6 million from 1999 to 2016.
+
+
+---
+
+## Finance Companies (FC)
+
+There are three major types of finance companies (F Cs).
+Sales finance institutions specialize in loans to customers of a particular retailer or manufacturer.
+Personal credit institutions specialize in installment and other loans to consumers.
+Business credit institutions specialize in business loans, especially through equipment leasing and factoring.
+Factoring is the process of purchasing accounts receivable from corporations, usually with no recourse to the seller should the receivables go bad.
+
+
+---
+
+## Finance Companoies (FC) - 2
+
+Industry assets were $1,820.6 billion in 2016.
+FC industry is highly concentrated.
+The 20 largest FCs account for more than 65% of industry assets.
+Many of the largest F Cs tend to wholly owned or captive subsidiaries of major manufacturing companies.
+E.g., Ford Motor Credit is a subsidiary of Ford Motor.
+
+--
+
+## FC Balance Sheets
+
+Some finance companies make loans to riskier customers at higher interest rates than C Bs.
+Subprime lenders are F Cs that lend to high-risk customers.
+Loan sharks are subprime lenders that charge unfairly exorbitant rates to desperate, subprime borrowers.
+Payday lenders provide short-term cash advances that are often due when borrowers receive their next paycheck.
+An estimated 12 million Americans used payday loans in 2016 .
+
+---
+
+## FC Balance Sheets - 2
+
+F Cs often have advantages over C Bs with respect to business loans because F Cs:
+Are not subject to regulations that restrict the type of products and services they can offer.
+Do not accept deposits—accordingly, bank-type regulators do not monitor their behavior.
+Often have substantial industry and product expertise.
+Are more willing to accept risky customers.
+Generally have lower overhead than C Bs.
+
+---
+
+## FC Balanace Sheets - 3
+
+Real estate loans.
+Second mortgages are in the form of home equity loans, i.e., loans that let customers borrow on a line of credit secured with a second mortgage on their home.
+Securitized mortgage assets are mortgages purchased and used as assets backing secondary market securities.
+Mortgage servicing is a fee-related activity whereby the flow of mortgage repayments is collected and passed on to investors in whole mortgage loan packages or securitization vehicles.
+
+---
+
+## FC Performance
+
+Problems arose in the F C industry in the mid- and late-2000s with the crash of the market for subprime mortgage loans.
+Many F Cs saw sharply lower equity values.
+
+F Cs are subject to state-imposed usury ceilings and additional restrictions have been imposed on payday loans in many states.
+Because F Cs do not accept deposits, they are not subject to the extensive oversight common among C Bs, S I s, and C U s .
+F C industry improved in the mid-200s and early 2010s.
+In the mid-2010s, industry median R O E rose to 9.33%, up from 6.61% during the height of the crisis, for business credit institutions.
+During the mid-2010s, industry median R O E rose to 13.73%, up from 5.31% during the height of the crisis, for personal credit institutions.
+
+---
+
+## FC Performanace 
+
+Between 2005 and 2007, home prices began to fall and borrowers faced rising interest rates, resulting in more people defaulting on their mortgages.
+Mortgage loan delinquencies and small business loan failure rates peaked in 2008 and 2009, hurting overall profitability.
+Crash in the subprime mortgage market led to serious problems for the U.S. and worldwide economies as a whole.
+Countrywide Financial failed, G MAC Financial Services was forced to convert to a bank holding company to prevent failure, and C I T Group also failed.
+
+Financial crisis issues remained even into 2016.
+Industry receivables stood at \$1.42 trillion in the mid-2010s, down from \$1.93 trillion during the crisis, while industry employment was 562,400 in the mid-2010s, down from 715,900 as the crisis began.
+
+
+## Peer to Peer Lending
+
+
+
+

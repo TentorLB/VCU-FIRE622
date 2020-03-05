@@ -42,6 +42,23 @@ textSample <-
  11/2018,30.1
  12/2019,31.5"
 dataframeSample <- read.csv(text = textSample)
+
+textSample <- 
+"Month,Spend,Sales
+1,1000,9914
+2,4000,40487
+3,5000,54324
+4,4500,50044
+5,3000,34719
+6,4000,42551
+7,9000,94871
+8,11000,118914
+9,15000,158484
+10,12000,131348
+11,7000,78504
+12,3000,36284"
+
+
 ```
 
 # Tidy
@@ -145,16 +162,60 @@ head(statepop)
 
 ```{r USPopulationMap}
 
-plot_usmap(data = statepop, values = "pop_2015", color = "red") + 
+plot_usmap(data = statepop, values = "pop_2015", color = "beige") + 
   scale_fill_continuous(name = "Population (2015)", label = scales::comma) + 
-  theme(legend.position = "right")
+  theme(legend.position = "right") + 
+  labs(title = "Population by State in United States")
 ```
+### Western population
 
 ```{r USPopulationMap2}
 
 plot_usmap(include = c("CA", "ID", "NV", "OR", "WA"), 
   data = statepop, values = "pop_2015", color = "red") + 
   scale_fill_continuous(name = "Population (2015)", label = scales::comma) + 
-  theme(legend.position = "right")
+  theme(legend.position = "right") + 
+  labs(title = "Population by State in Western United States")
+```
+## Linear Curve Fit: Marketing Example
+
+```{r markertingData}
+textSample <- 
+"Month,Spend,Sales
+1,1000,9914
+2,4000,40487
+3,5000,54324
+4,4500,50044
+5,3000,34719
+6,4000,42551
+7,9000,94871
+8,11000,118914
+9,15000,158484
+10,12000,131348
+11,7000,78504
+12,3000,36284"
+
+marketing <- read.csv(text = textSample, header=T,
+                      colClasses = c("numeric", "numeric", "numeric"))
 ```
 
+```{r}
+
+simple.fit         <- lm(Sales~Spend, data=marketing)
+marketing$SalesFit <- simple.fit$fitted.values
+summary(simple.fit)
+
+```
+
+```{r}
+p <- ggplot() + 
+     geom_point(data = marketing, aes(x = Spend, y = Sales), color = "blue") +
+     geom_line(data = marketing, aes(x = Spend, y = SalesFit), color = "red") +
+     xlab('Spend') +
+     ylab('Sales') +
+     ggtitle("Monthly Sales by Spend") 
+
+print(p)
+
+
+```
