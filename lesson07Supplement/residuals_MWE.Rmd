@@ -1,0 +1,110 @@
+
+---
+title: "Cuts Minimal Working Example (MWE)"
+author: "Larry Tentor"
+date: "`r (Sys.Date())`"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    urlcolor: blue
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Motivation
+
+We have a range of values and we wish to assign a text string based on a specified range of values.
+
+## Data
+
+```{r DataSample}
+## 
+dataSample <- read.csv(text= "
+Name,Score,C
+Larry,3,4
+Bert,7,9
+William,5,4
+Sri,5,6
+Meredith,6,6
+Evan,8,12",stringsAsFactor=FALSE)
+
+```
+
+
+## Two Bucket Array Example
+
+This section uses the `ifelse` function, whcih evaluates a relationship and sets a value in the TRUE case and the FALSE case.
+
+```{r TwoBucketArray}
+
+dataSample$Bucket2Array <- ifelse(dataSample$Score>5,"High","Low")
+
+dataSample
+
+```
+
+## Three Bucket Array Example
+
+This section uses multiple levels of `ifelse` to create three buckets.  If additional buckets are necessary continue nesting `ifelse`.
+```{r ThreeBucketArray}
+
+dataSample$Bucket3Array <- ifelse(dataSample$Score>5,ifelse(dataSample$Score>7,"Ultra","High"),"Low")
+
+dataSample
+
+```
+
+## The Cuts Function
+
+The cuts function offers a more robust implmentation to divide a numeric dataset into different regions.  
+
+```{r cuts}
+
+## This determine regions within the cut algorithm, based on the three desired cuts
+dataSample$BucketCut <- cut(dataSample$Score,breaks=3,labels=c("Low","Medium","High"))
+
+## Here we specify the breaks
+# You will want to check if the value on the edge is assigned to the higher category or the lower category.
+dataSample$Bucket2Cut <- cut(dataSample$Score,breaks=c(0,4,6,8),labels=c("Low","Medium","High"))
+
+dataSample
+
+```
+
+
+# Appendix
+
+R, like Excel, has many ways to accomplish different tasks.  Here are others, we have not had extensive conversations on looping in class.
+
+## Two Bucket Looping Example
+
+```{r TwoBucketLoop}
+for (i in (1:nrow(dataSample)))
+{
+dataSample$Bucket2Loop[i] <- ifelse(dataSample[i,2]>5,"High","Low")
+}
+
+dataSample
+
+```
+
+## Three Bucket Looping Example
+
+```{r ThreeBucketLoop}
+for (i in (1:nrow(dataSample)))
+{
+dataSample$Bucket3Loop[i] <- ifelse(dataSample[i,2]>5,ifelse(dataSample[i,2]>7,"Ultra","High"),"Low")
+}
+
+dataSample
+
+```
