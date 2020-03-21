@@ -32,6 +32,7 @@ lesson05/*/*.pdf
 lesson05/*/libs
 lesson06/*/*.html
 lesson07/*/*.html
+lesson07Supplement/*.html
 # datasets
 lesson01/data/MORTGAGE15US.csv
 lesson06/data/Performance_2018Q4.txt
