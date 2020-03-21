@@ -1,6 +1,6 @@
 
 ---
-title: "Cuts Minimal Working Example (MWE)"
+title: "Residual Minimal Working Example (MWE)"
 author: "Larry Tentor"
 date: "`r (Sys.Date())`"
 output:
@@ -18,93 +18,86 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
 ```
 
 # Motivation
 
-We have a range of values and we wish to assign a text string based on a specified range of values.
+We have selected to model a linear relationship and we wish to examine the residuals.
 
 ## Data
 
 ```{r DataSample}
 ## 
 dataSample <- read.csv(text= "
-Name,Score,C
-Larry,3,4
-Bert,7,9
-William,5,4
-Sri,5,6
-Meredith,6,6
-Evan,8,12",stringsAsFactor=FALSE)
+Name,Score,Dependent
+Larry,3,8
+Bert,7,50
+William,5,25
+Sri,5,26
+Meredith,6,33
+Evan,8,60
+Rich,4,15
+Arundel,7,46
+Theo,2,5",stringsAsFactor=FALSE)
 
 ```
 
 
-## Two Bucket Array Example
+## Exploratory Graph 
 
-This section uses the `ifelse` function, whcih evaluates a relationship and sets a value in the TRUE case and the FALSE case.
+```{r ExploratoryGraph}
+p <- ggplot() + 
+     geom_point(data = dataSample, aes(x = Score, y = Dependent), color = "blue") +
+     xlab("Score") +
+     ylab("Dependent") +
+     ggtitle("Sample Graph") 
 
-```{r TwoBucketArray}
-
-dataSample$Bucket2Array <- ifelse(dataSample$Score>5,"High","Low")
-
-dataSample
-
-```
-
-## Three Bucket Array Example
-
-This section uses multiple levels of `ifelse` to create three buckets.  If additional buckets are necessary continue nesting `ifelse`.
-```{r ThreeBucketArray}
-
-dataSample$Bucket3Array <- ifelse(dataSample$Score>5,ifelse(dataSample$Score>7,"Ultra","High"),"Low")
-
-dataSample
+print(p)
 
 ```
 
-## The Cuts Function
+## Estimate Linear Model
 
-The cuts function offers a more robust implmentation to divide a numeric dataset into different regions.  
+```{r Estimate}
 
-```{r cuts}
+simple.fit          <- lm(Dependent~Score, data=dataSample)
 
-## This determine regions within the cut algorithm, based on the three desired cuts
-dataSample$BucketCut <- cut(dataSample$Score,breaks=3,labels=c("Low","Medium","High"))
+class(simple.fit)
+simple.fit
+dataSample$residuals <- simple.fit$residuals
+dataSample$fit       <- simple.fit$fitted.values
+```
 
-## Here we specify the breaks
-# You will want to check if the value on the edge is assigned to the higher category or the lower category.
-dataSample$Bucket2Cut <- cut(dataSample$Score,breaks=c(0,4,6,8),labels=c("Low","Medium","High"))
+## Examine Curve Fit
 
-dataSample
+
+```{r}
+p <- ggplot() + 
+     geom_point(data = dataSample, aes(x = Score, y = Dependent), color = "blue") +
+     geom_line(data = dataSample, aes(x = Score, y = fit), color = "red") +
+     xlab('Score') +
+     ylab('Dependent') +
+     ggtitle("Curve Fit") 
+
+print(p)
 
 ```
 
+## Examine Residuals
 
-# Appendix
+Do these residuals appear to be random?
 
-R, like Excel, has many ways to accomplish different tasks.  Here are others, we have not had extensive conversations on looping in class.
+If they are not random noise, then maybe we missed a modeling term...
 
-## Two Bucket Looping Example
+```{r}
+p <- ggplot() + 
+     geom_point(data = dataSample, aes(x = Score, y = residuals), color = "green") +
+     xlab('Score') +
+     ylab('Dependent') +
+     ggtitle("Curve Fit") 
 
-```{r TwoBucketLoop}
-for (i in (1:nrow(dataSample)))
-{
-dataSample$Bucket2Loop[i] <- ifelse(dataSample[i,2]>5,"High","Low")
-}
-
-dataSample
-
-```
-
-## Three Bucket Looping Example
-
-```{r ThreeBucketLoop}
-for (i in (1:nrow(dataSample)))
-{
-dataSample$Bucket3Loop[i] <- ifelse(dataSample[i,2]>5,ifelse(dataSample[i,2]>7,"Ultra","High"),"Low")
-}
-
-dataSample
+print(p)
 
 ```
+
