@@ -28,6 +28,7 @@ lesson05/*/*.toc
 lesson05/*/*.vrb
 lesson05/*/*.nav
 lesson05/*/*.log
+lesson05/*/*.pdf
 lesson05/*/libs
 lesson06/*/*.html
 # datasets

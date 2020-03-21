@@ -1,0 +1,72 @@
+---
+title:  "Mortgage Back Security Data"
+author: "Larry Tentor"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "presentation.css"
+    nature:
+      highlightLines: true
+      highlightStyle: solarized-dark
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+#output: ioslides_presentation
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+class: center, middle
+
+# Attribution
+
+McGraw Hill has provided power point slides that were substantially used to construct this R Markdown deck.
+
+---
+
+# Quiz Items
+
+---
+
+## Different Yields
+
+The discount yield on a T-bill differs from the T-bill's bond equivalent yield (BEY) because
+
+1. the discount yield is the return per dollar of face value and the BEY is a return per dollar originally invested.
+2. a 360-day year is used on the discount yield and the BEY uses 365 days.
+3. the discount yield is calculated without compounding, and the BEY is calculated with compounding.
+
+- 1 only
+- 2 only
+- 1 and 2 only
+- 2 and 3 only
+- 1, 2, and 3
+
+--
+
+Answer- 1 and 2 only
+
+---
+
+## Sovereign Bonds
+
+Sovereign bonds are long-term debt issued by governments of foreign countries.
+
+- True
+- False
+
+--
+
+Answer- True
+
+---
+
+# Mortgage Back Securities Data Presentation
+
+Fannie Mae has a collection of educational materials at [Fannie Mae Single Family Historical Loan Performance Dataset](https://www.fanniemae.com/portal/funding-the-market/data/loan-performance-data.html).
+
+- [Tutorial Overview](https://fanniemae.articulate-online.com/p/7778726526/story_html5.html)
+- [Tutorial 101](https://fanniemae.articulate-online.com/p/7778704184/presentation_html5.html)
+- [Tutorial 102](https://fanniemae.articulate-online.com/p/7778736213/presentation_html5.html) (More advanced than our class work)
+- [Glossary](https://loanperformancedata.fanniemae.com/lppub-docs/FNMA_SF_Loan_Performance_Glossary.pdf)
+
