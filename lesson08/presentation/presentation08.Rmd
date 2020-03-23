@@ -301,9 +301,8 @@ Answer- **B.** You will sell it at the bid value of 105.21875. The dollar value 
 
 ## P2P Lending Industry Overview
 
-Online peer-to-peer (P2P) lending websites, often referred to as “Shadow Lenders”, have gained significant traction since the credit crunch resulting from the 2008 financial crisis. The purpose of these rapidly-growing websites is to facilitate loans of under $35,000 between borrowers and investors. The result is a transparent loan platform where individual investors can determine a borrower’s credit worthiness and partially or fully fund a loan at an attractive interest rate. 
+Online peer-to-peer (P2P) lending websites, often referred to as “Shadow Lenders”, have gained significant traction since the credit crunch resulting from the 2008 financial crisis. The purpose of these rapidly-growing websites is to facilitate loans of under $40,000 between borrowers and investors. The result is a transparent loan platform where individual investors can determine a borrower’s credit worthiness and partially or fully fund a loan at an attractive interest rate. 
 Investors and borrowers alike have found significant value in these online platforms, as they allow them to bypass banks when conducting business. Top P2P lending platforms have been valued at over $1 billion and continue to grow.* Collectively, the top two firms originated $871 million in loans last year.
-Let’s take a closer look at the borrower experience, by examining the enrollment and loan processes.
 
 .footnote[[*] Source: [Dugan, Ianthe. "Consumers Find Investors Eager to Make 'Peer-to-Peer' Loans - WSJ.com." The Wall Street Journal - Breaking News, Business, Financial and Economic News, World News & Video - Wall Street Journal - Wsj.com. N.p., n.d. Web. 6 Aug. 2013.](http://online.wsj.com/article/SB100014241278873237408045786017737)]
 
@@ -311,7 +310,7 @@ Let’s take a closer look at the borrower experience, by examining the enrollme
 
 ## Borrower Enrollment Process
 
-The borrower enrollment experience on a P2P lending site is straightforward but firms perform their due diligence
+The borrower enrollment experience on a P2P lending site is straightforward with firms performing their due diligence through gathering readily availalble data.
 
 * Borrower signs up for the service by providing basic information
 * P2P lending platform runs credit check to ensure borrower meets basic borrowing requirements
@@ -327,22 +326,39 @@ Once enrolled, borrowers may publish a loan to the firms’ online platforms
   * Borrower’s loan profile is published on the website for investors to crowdfund, often in small increments
   * Once fully funded, a third party bank issues the loan to the borrower and creates sliced securities for each investor to collect returns from the borrower
   * Borrower makes payments back to P2P lending platform, which re-issues funds to security holders 
+  * [Prospect Prospectus SEC](https://www.prosper.com/prospectus)
 
 ---
 
 ## Market Participants
 
   * Prosper
-  * Lending Tree
   * Lending Club
+  * [Best Peer to Peer Lending 2020](https://www.thebalance.com/best-peer-to-peer-lending-companies-4580285)
   
 ---
   
 ## Key Take Aways
   
-   1. Lending Club and Prosper offer a viable option for qualified borrowers to receive a personal loan away from the traditional brick-and-mortar institutions. 
-   2. Shadow lending websites provide a one-stop-shop for borrowers to receive their loan, while providing the tools necessary to manage that loan. 
-   3. From a borrower’s perspective, it’s very difficult to be approved to join either website. Lending Club, for example, only accepts roughly 10% of all applicants. While this is beneficial for investors and those who qualify for these loans, by no means will these websites replace ‘pay-day loan’ boutiques. 
-   4. It seems unlikely for shadow lenders to move beyond loans over $35,000 without becoming heavily regulated. With an influx of investors joining because of the high ROI, P2P Lenders must ensure that borrower requirements do not dip to meet the demand. 
-   5. As many critics cite, the growth of these websites will help to alleviate any predatory loan practices by offering fair rates and not imposing substantial fees. 
+   * Lending Club and Prosper offer a viable option for qualified borrowers to receive a personal loan away from the traditional brick-and-mortar institutions. 
+   * Shadow lending websites provide a one-stop-shop for borrowers to receive their loan, while providing the tools necessary to manage that loan. 
+   * From a borrower’s perspective, it’s very difficult to be approved to join either website. Lending Club, for example, only accepts roughly 10% of all applicants. While this is beneficial for investors and those who qualify for these loans, by no means will these websites replace ‘pay-day loan’ boutiques. 
+
+---
+  
+## Key Take Aways - 2
+  
+   * It seems unlikely for shadow lenders to move beyond loans over $40,000 without becoming heavily regulated. With an influx of investors joining because of the high ROI, P2P Lenders must ensure that borrower requirements do not dip to meet the demand. 
+   * As many critics cite, the growth of these websites will help to alleviate any predatory loan practices by offering fair rates and not imposing substantial fees. 
    
+---
+
+## Two Things
+
+On a sheet of paper write down two things that you learned this week.
+
+--
+
+Place your name at the top and hand it in during break.
+
+---
