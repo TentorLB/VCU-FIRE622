@@ -1,0 +1,244 @@
+---
+title: "Join Examples and Conronovirus Data"
+author: "Larry Tentor"
+date: "`r (Sys.Date())`"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    urlcolor: blue
+  pdf_document:
+    toc: yes
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=TRUE}
+# List selected libraries
+library(tidyverse)
+library(usmap)
+```
+
+# Focus
+
+The focus of this demo is on how to merge two datasets through operations termed **joins**. These are used for doing lookup tables, in Excel sometimes done using **vlookup/hlookup**.
+
+A simple example would be for state names from state abbreviations.
+
+**Data Table**
+
+| State Code | Electoral Seats |
+|------------|-----------------|
+| AL         |               9 |
+| AK         |               3 |
+| AZ         |              11 |
+| AR         |               6 |
+| CA         |              55 |
+
+**Lookup Table**
+
+| State      | State Code |
+|------------|----|
+| Alabama    | AL |
+| Alaska     | AK |
+| Arizona    | AZ |
+| Arkansas   | AR |
+| California | CA |
+
+We wish to start with the Data Table and get the full state names so these can be displayed in a table for reporting.
+
+# Import
+
+```{r SimpleLoad}
+
+electoralCollege <- read.csv(text="StateCode,Seats
+AL,9
+AK,3
+AZ,11
+AR,6
+CA,55
+CO,9",stringsAsFactors=FALSE)
+
+stateCodeLookup <- read.csv(text="State, StateCode
+Alabama,AL
+Alaska,AK
+Arizona,AZ
+Arkansas,AR
+California,CA
+Delaware,DE",stringsAsFactors=FALSE)
+
+```
+
+# Join Examples
+
+## Inner Join
+
+```{r}
+electoralCollege
+```
+
+```{r}
+stateCodeLookup
+```
+
+```{r InnerJoin}
+electoralCollegeExtended <- inner_join(electoralCollege, stateCodeLookup)
+
+electoralCollegeExtended
+```
+
+```{r InnerJoinwithBy}
+electoralCollegeExtended <- inner_join(electoralCollege, stateCodeLookup, by = "StateCode")
+
+electoralCollegeExtended
+```
+
+## Row counts?
+- How many rows started in electoral college data set?
+- How may rows ended in electoral college extended data set?
+ 
+## Left Join
+
+```{r LeftJoin}
+electoralCollegeExtended <- left_join(electoralCollege, stateCodeLookup)
+
+electoralCollegeExtended
+```
+## Left Join Review
+
+- What changed compared to inner join
+
+## Right Join
+
+```{r RightJoin}
+electoralCollegeExtended <- right_join(electoralCollege, stateCodeLookup)
+
+electoralCollegeExtended
+```
+## Right Join Review
+
+- Is it what you expected?
+
+# Import - Second Case
+
+In this portion we select to load [US population data](https://www.census.gov/data/tables/time-series/demo/popest/2010s-state-total.html) as well as cronovirus reporting data from [Johns Hopkins University Center for Systems Science and Engineering](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).  
+
+```{r PopulationLoad}
+dataFile <- '../data/nst-est2019-popchg2010_2019.csv'
+population <- read.csv(file=dataFile,stringsAsFactors = FALSE)
+```
+
+```{r coronavirusLoad}
+# Loop over a number of days and consoldate Corona Virus Data
+
+# This is the base URL for load from the web.
+urlBase      <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/"
+
+# Dates selected to load, careful format may change over time
+dateSelected <- c(as.Date("2020-03-22"),as.Date("2020-03-23"),as.Date("2020-03-24"))
+
+# Initize empty data
+dataStack = c()
+
+# Loops for repeating tasks
+for (i in 1:length(dateSelected)) 
+  {
+    dateSpecified <- dateSelected[i]
+    print(paste0("Loading ",format(dateSpecified)))
+    
+    # Load specified datas file from GitHub web
+    dataSpecified <- read.csv(url(paste0(urlBase,format(dateSpecified, "%m-%d-%Y"),".csv")),stringsAsFactors = FALSE)
+    dataSpecified$dateFile <- dateSpecified
+
+    # Adjust column name that does not line up with prior files.
+    if (colnames(dataSpecified)[1] == "ï..FIPS"){
+      colnames(dataSpecified)[1] <- "FIPS"
+    }
+    if (length(dataStack) == 0)
+    {
+    dataStack <- dataSpecified
+    } else {
+    dataStack <- rbind(dataStack,dataSpecified)
+    }
+  }  
+```
+
+# Tidy
+
+## Population Dataset
+
+Simplify dataset to most recent population estimate by State.
+
+```{r}
+populationState <-
+  population[,c("SUMLEV","STATE","NAME","POPESTIMATE2019")] %>%
+  filter(SUMLEV==40)
+
+head(populationState,20)
+```
+
+# Analysis
+
+## Daily committed
+
+```{r coronavirusProfile}
+ dailyAnalysis <-
+  dataStack %>%
+    group_by(dateFile) %>%
+    summarize(Confirmed=sum(Confirmed)) %>%
+    arrange(desc(dateFile))
+dailyAnalysis
+```
+
+## Coronavirus Profile
+
+
+```{r}
+dataStackUS <-
+  dataStack %>%
+  filter(Country_Region=="US")
+
+head(dataStackUS)  
+```
+## US Summary
+
+```{r}
+
+SummaryUS <-
+  dataStackUS %>%
+  group_by(dateFile, Country_Region) %>%
+  summarise(Confirmed=sum(Confirmed), Deaths=sum(Deaths), Recovered=sum(Recovered), Active=sum(Active))
+
+SummaryUS
+```
+
+## US State Summary
+
+```{r}
+SummaryState <-
+  dataStackUS %>%
+  group_by(dateFile, Country_Region, Province_State) %>%
+  summarise(Confirmed=sum(Confirmed), Deaths=sum(Deaths), Recovered=sum(Recovered), Active=sum(Active))
+
+head(SummaryState,10)
+```
+
+## US State Per Capita
+
+```{r}
+SummaryStatePer <-
+  inner_join(SummaryState,populationState,by= c("Province_State" = "NAME")) %>%
+  mutate(ConfirmedPerCapita=Confirmed/POPESTIMATE2019, ConfirmedOneIn = 1/ConfirmedPerCapita) %>%
+  filter(dateFile == "2020-03-24") %>%
+  arrange(desc(ConfirmedPerCapita), dateFile)
+
+head(SummaryStatePer,10)
+```
+
+
