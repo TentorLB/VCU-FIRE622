@@ -98,6 +98,19 @@ electoralCollegeExtended <- inner_join(electoralCollege, stateCodeLookup, by = "
 
 electoralCollegeExtended
 ```
+## Inner Join with Different column names
+
+```{r InnerJoinwithDifferentNames}
+electoralCollege2 <- electoralCollege
+colnames(electoralCollege2)[1] <- "StateId"
+electoralCollege2
+
+electoralCollegeExtended2 <- inner_join(electoralCollege2, stateCodeLookup, by = c("StateId" = "StateCode"))
+
+class(c("StateId" = "StateCode"))
+electoralCollegeExtended2
+```
+
 
 ## Row counts?
 - How many rows started in electoral college data set?

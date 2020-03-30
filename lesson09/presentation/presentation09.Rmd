@@ -77,9 +77,75 @@ ggplot(grades, aes(x=Grade)) +
 Exam has a distribution as expected from my experience.  The good news is that this exam only accounts for 15% of the grade.  The class as originally designed has a larger weight to projects. Those that would like to discuss their grades and concerns should schedule a one-on-one meeting time.
 
 ---
+class: inverse, mline, center, middle
+# Federal Reserve Activity
 
-## Stock Markets
+???
+There has been tremendous activity at the Federal Reserve Bank during March to have an economic response to the onset of COVID-19 pandemic.
 
+---
+# Federal Reserve Activity March 2020 .font50[1]
+
+[Press Releases (suggested filter for ☑ Monetary Policy) ](https://www.federalreserve.gov/newsevents/pressreleases.htm)
+- [Federal Reserve Action, March 3](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200303a1.htm "1/2% cut")
+    - The Federal Open Market Committee decided today to lower the target range for the **federal funds rate** by 1/2 percentage point, to 1 to 1‑1/4 percent.
+--
+- [Federal Reserve Action, March 15](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm "1% Cut + $700B Quantitative Easing")
+    - The Committee decided to lower the target range for the **federal funds rate** to 0 to 1/4 percent.
+    - To support the smooth functioning of markets for Treasury securities and agency mortgage-backed securities that are central to the flow of credit to households and businesses, over coming months the Committee will increase its holdings of **Treasury securities by at least $500 billion** and its holdings of **agency mortgage-backed securities by at least $200 billion**. The Committee will also reinvest all principal payments from the Federal Reserve's holdings of agency debt and agency mortgage-backed securities in agency mortgage-backed securities. In addition, the Open Market Desk has recently expanded its overnight and term repurchase agreement operations.
+
+---
+# Federal Reserve Activity March 2020 .font50[2]
+
+- [Federal Reserve Action, March 15 Continued](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm "1% Cut + $700B Quantitative Easing")
+    - In a related set of actions to support the credit needs of households and businesses, the Federal Reserve announced measures related to the **discount window, intraday credit, bank capital and liquidity buffers, reserve requirements, and—in coordination with other central banks—the U.S. dollar liquidity swap line arrangements**.
+--
+- [Federal Reserve Action, March 17](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200317a.htm "Establish Commericial Paper Funding Facility")
+    - The [**Commercial Paper Funding Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200317a1.pdf) (CPFF) will provide a liquidity backstop to U.S. issuers of commercial paper through a special purpose vehicle (SPV) that will purchase **unsecured and asset-backed commercial paper** rated A1/P1 (as of March 17, 2020) directly from eligible companies.
+    
+---
+# Federal Reserve Activity March 2020 .font50[3]
+- [Federal Reserve Action, March 17](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200317b.htm "Establish Primary Deal Credit Facility")
+    - The [**Primary Dealer Credit Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200317b1.pdf) (PDCF) will offer overnight and term funding with maturities up to 90 days. It will be in place for at least six months and may be extended as conditions warrant.
+
+???
+The Primary Dealer Credit Facility  is a specialized facility just for primary dealers.
+--
+
+- [Federal Reserve Action, March 18](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200318a.htm "Establish Money Market Mutual Fund Liquidity Facility")
+    - The [**Money Market Mutual Fund Liquidity Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200318a1.pdf) (MMLF) will now be able to make loans available to eligible financial institutions secured by certain high-quality assets purchased from single state and other tax-exempt municipal money market mutual funds.
+
+???
+Money Market 
+--
+
+- [Federal Reserve Action, March 23](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200323a.htm "Unlimited Quantitative Easing + Commercial MBS")
+    - The Federal Reserve will continue to **purchase Treasury securities and agency mortgage-backed securities in the amounts needed to support smooth market functioning** and effective transmission of monetary policy to broader financial conditions. The Committee will include purchases of **agency commercial mortgage-backed securities** in its agency mortgage-backed security purchases.
+
+???
+Commericial MBS!
+---
+# Federal Reserve Activity March 2020 .font50[4]
+
+- [Federal Reserve Action, March 23](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200323b.htm "PMCCF, SMCCF, TALF, extra")
+    - [**Primary Market Corporate Credit Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200323b1.pdf) (PMCCF) will buy newly issued corporate bonds, typically from large employers.
+--
+    - [**Secondary Market Corporate Credit Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200323b2.pdf) (SMCCF) will buy existing corporate bonds to give people confidence that this remains a “liquid” market and thus they don’t need to panic sell corporate debt they already own, or fear buying new debt from creditworthy companies.
+--
+    - [**Term Asset-Backed Securities Loan Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200323b3.pdf) will buy asset-backed securities (basically packages of loans) composed of student loans, auto loans, credit card loans, and other forms of consumer debt plus some Small Business Administration loans. 
+--
+
+**Anticipated**
+- The establishment of a **Main Street Business Lending Program** to support lending to eligible small-and-medium sized businesses, complementing efforts by the Small Business Administration (SBA)
+
+
+☒ Federal Reserve Activity Snapshot on 23 March 2020
+---
+class: inverse
+# Zoom Poll Federal Reserve
+
+---
+# Stock Markets
 
 .pull-left[
 - Stock Market Overview
@@ -104,7 +170,7 @@ Exam has a distribution as expected from my experience.  The good news is that t
 
 --
 
-- Analytic Topic: Capital Asset Pricing Model
+- Capital Asset Pricing Model
     
 ???
 
@@ -134,7 +200,7 @@ class: inverse, mline, center, middle
 
 - **Common stock** is the fundamental ownership claim in a public or private corporation
 - **Dividends** are discretionary, and are thus not guaranteed
-- Common stockholders have the lowest priority claim in the event of bankruptcy (That is a residual claim)
+- Common stockholders have the lowest priority claim in the event of bankruptcy, also refered to as a residual claim.
 - **Limited liability** implies that common stockholders can lose no more than their original investment
 - Common stockholders control the firm’s activities indirectly by exercising their **voting rights** in the election of the board of directors
 
@@ -142,14 +208,25 @@ class: inverse, mline, center, middle
 # Common Stock Voting Rights
 
 - **Dual-class firms** have two classes of common shares outstanding, with different voting rights assigned to each class.
+    - [Ford](https://www.thebalance.com/examples-of-dual-class-structures-358090)
+    - [Berkshire Hathaway](https://www.berkshirehathaway.com/compab.pdf)
+    - [Google](https://www.investopedia.com/ask/answers/052615/whats-difference-between-googles-goog-and-googl-stock-tickers.asp)
 - With **cumulative voting**, the number of votes assigned to each stockholder equals the number of shares held multiplied by the number of directors to be elected.
     - The number of shares needed to elect $p$ directors, $N_p$, is:
     - $N_p$ = [( $p$ x # of votes available) / (# of directors to be elected + 1)] +1
     - A proxy vote allows stockholders to vote by absentee ballot (Example: by internet or by mail).
 
 ---
+class: inverse
+# Zoom Poll Dual-Class
+
+---
+class: inverse
+# Zoom Poll Proxy-Voting
+
+---
 # Stock Returns
-- The return on a stock over one period (Rt) can be divided into capital gains and dividend returns:
+- The return on a stock over one period ( $r_t$ ) can be divided into capital gains and dividend returns:
 
 .font150[.center[
 $r_t = \frac{P_t-P_{t-1}}{P_{t-1}}+\frac{D_t}{P_{t-1}}$
@@ -171,9 +248,36 @@ $r_{HoldingPeriod}=\frac{65.30-55.10}{55.10}+\frac{0.30}{55.10}=2.18\%+0.54\%=2.
 
 If dividend income is taxed at a 28% rate and capital gains are taxed at 20%, what was the investor’s after-tax holding period return?
 
-
 $r_{AfterTax}=[r_{CapitalGains}*(1-20\%)]+[r_{Dividend}*(1-28\%)]$
 $r_{AfterTax}=[2.18\%*(1-20\%)]+[0.54\%*(1-28\%)] = 2.13\%$
+
+---
+# Zoom Breakout Room
+
+- I am about to assign a problem for you.
+- I will send you to breakout rooms for five minutes.
+- **You might need to reference the presention in your own session**.
+- You should do problem individually.
+- Then you may discuss and compare answer.
+- I will stop in a couple of breakout rooms.
+
+---
+class: inverse
+# Problem A
+
+You buy a stock for $50 per share and sell it for $53 after holding it for slightly over a year and collecting a $2.00 per share dividend. Your ordinary income tax rate is 28 percent and your capital gains tax rate is 20 percent. Your after-tax rate of return is ___________________.
+
+---
+class: inverse
+# Answer A
+
+.font150[.center[
+$r_t = \frac{P_t-P_{t-1}}{P_{t-1}}×(1-T_{cg})+\frac{D_t}{P_{t-1}}×(1-T_{div})$
+]]
+
+$r_t = \frac{53-50}{50}×(1-0.20)+\frac{2.00}{50}×(1-0.28)$
+$r_t = 0.048 + 0.0288$
+$r_t = 0.0768 = 7.68\%$
 
 ---
 # Preferred Stock
@@ -195,7 +299,7 @@ class: inverse, mline, center, middle
 # Primary and Secondary Markets
 
 ---
-# Primary Markets
+# Primary Markets .font50[1]
 
 **Primary markets** are markets in which corporations raise funds through new issues of securities, most of the time through **investment banks**.
 Example: Morgan Stanley or Bank of America Merrill Lynch.
@@ -206,7 +310,7 @@ Example: Morgan Stanley or Bank of America Merrill Lynch.
 - A **syndicate** is a group of investment banks working in concert to issue stock; the lead underwriter is the **originating house**.
 
 ---
-# Primary Markets 2
+# Primary Markets .font50[2]
 
 - An **initial public offering (IPO)** is the first public issue of financial instruments by a firm.
 - A **seasoned offering** is the sale of additional securities by a firm whose securities are already publicly traded.
@@ -246,8 +350,18 @@ Other global exchanges
 - **Circuit breakers** give investors time to make informed choices during periods of high market volatility.
 
 ---
-# Circuit breakers
+# Circuit Breakers
 
+.center[
+![Circuit Breakers](.\image\CircuitBreakerLevels.jpg)
+]
+
+???
+- In the event of a 7% decline in the S&P before 3:25 p.m. there is a 15-minute halt. 
+- After 3:25 p.m. there is no halt. 
+- In the event of a 13% decline in the S&P before 3:25 p.m. there is a 15-minute halt. 
+- After 3:25 p.m. there is no halt.
+- 
 ---
 # Purchase of Stock on NYSE
 
@@ -256,8 +370,81 @@ Other global exchanges
 ![Stock Purchase](.\image\StockPurchaseNYSE.png)
 ]
 
+The investor submits a buy order for shares using cash through the broker (Wells Fargo), who gives cash to the commission or floor broker, who then exchanges with the market maker or other floor broker. The shares flow back through to the investor.
+
+---
+class: inverse
+# Problem B
+
+Suppose you own 20,000 shares of common stock in a firm with 2.5 million total shares outstanding. The firm announces a plan to sell an additional 0.5 million shares through a rights offering. The market value of the stock is $45 before the rights offering and the new shares are being offered to existing shareholders at a $5 discount.
+ 
+- a. If you exercise your preemptive rights, how many of the new shares can you purchase?
+- b. What is the market value of the stock before the rights offering?
+- c. What is the market value of the stock after the rights offering?
+
+---
+class: inverse
+# Answer B
+
+Suppose you own 20,000 shares of common stock in a firm with 2.5 million total shares outstanding. The firm announces a plan to sell an additional 0.5 million shares through a rights offering. The market value of the stock is $45 before the rights offering and the new shares are being offered to existing shareholders at a $5 discount.
+ 
+- a. If you exercise your preemptive rights, how many of the new shares can you purchase?
+
+**Answer**
+- a. 0.5 million new shares from 2.5 million original shares => 1 new share for every 5 original shares. So we may purchase 4,000 new shares. Your current ownership interest is 0.8 percent (20,000/2.5 million) prior to the rights offering and you receive 4,000 rights (20,000 × 0.2) allowing you to purchase 4,000 of the new shares. If you exercise your rights (buying the 4,000 shares) your ownership interest in the firm after the rights offering is still 0.8 percent ((20,000 + 4,000)/(2.5 million + 0.5 million)).
+
+---
+class: inverse
+# Answer B
+
+Suppose you own 20,000 shares of common stock in a firm with 2.5 million total shares outstanding. The firm announces a plan to sell an additional 0.5 million shares through a rights offering. The market value of the stock is $45 before the rights offering and the new shares are being offered to existing shareholders at a $5 discount.
+
+- b. What is the market value of the stock before the rights offering?
+
+**Answer**
+- b. The market value of the common stock is $45 before the rights offering, or the total market value of the firm is $112.5 million ($45 × 2.5 million)
+
+---
+class: inverse
+# Answer B
+
+Suppose you own 20,000 shares of common stock in a firm with 2.5 million total shares outstanding. The firm announces a plan to sell an additional 0.5 million shares through a rights offering. The market value of the stock is $45 before the rights offering and the new shares are being offered to existing shareholders at a $5 discount.
+
+- c. What is the market value of the stock after the rights offering?
+
+**Answer**
+- c. The 0.5 million new shares are offered to current stockholders at a $5 discount, or for $40 per share. The firm receives $20 million. The market value of the firm after the rights offering is $132.5 million (the original $112.5 million plus the $20 million from the new shares), or $44.167 per share ($132.5 million/3 million).
+ 
+---
+# Exchange Traded Funds
+
+- Pioneered by the former AMEX (now NYSE/AMEX).
+- ETFs are index funds that are listed on an exchange and can be traded intraday and shorted.
+    - Prices may not exactly match an index.
+
+
 ---
 # Stock Market Indicies
+
+A stock market index is the composite value of a group of secondary market-traded stocks.
+- Price-weighted index.
+    - The Dow Jones Industrial Average (DJIA), composed of 30 large companies, is the most widely reported stock market index.
+- Value-weighted indexes.
+    - NYSE Composite
+    - Standard & Poor’s 500
+    - NASDAQ Composite
+    - Wilshire 5000
+    - MSCI ACWI
+    
+---
+# Stock Market Indicies, Global
+
+- [MSCI World Index, USD](https://www.msci.com/documents/10199/149ed7bc-316e-4b4c-8ea4-43fcb5bd6523)
+- [MSCI Emerging Markets Index, USD](https://www.msci.com/documents/10199/c0db0a48-01f2-4ba9-ad01-226fd5678111)
+
+.center[
+![Stock Purchase](.\image\MSCI ACWI Index Market Allocation Table.jpg)
+]
 
 ---
 class: inverse, mline, center, middle
@@ -265,29 +452,89 @@ class: inverse, mline, center, middle
 
 ---
 # Stock Market Participants
+
+Table 8-4: Holders of Corporate Stock (in billons of dollars)
+.center[
+![Stock Purchase](.\image\HoldersofCorporateStock.jpg)
+]
+ *As of the end of the third quarter. 
+ †As of the end of the first quarter.
  
+Sources: Federal Reserve Board website, various issues. www.federalreserve.gov
+
 ---
 class: inverse, mline, center, middle
 # Stock Markets Other Issues
 
 ---
 # Economic Indiciators
+
+- Economic indicators
+    - Stock market indexes might be used to forecast future economic activity.
+    - An increase (decrease) in stock market indexes today potentially signals the market’s expectation of higher (lower) corporate dividends and profits and, in turn, higher (lower) economic growth.
+    - Stock prices are one of the 10 variables included in the index of leading economic indicators used by the Federal Reserve as it formulates economic policy.
+
+
 ---
-# Market Efficiency
+# Market Efficiency .font50[1]
+
+- **Market efficiency** refers to the speed with which financial security prices reflect unexpected news events.
+    - (1) Weak form market efficiency
+        - Concludes that investors cannot make more than the fair (required) return using information based on historical price movements.
+        - Empirical research suggests that markets are weak form efficient.
+    - (2) Semistrong form market efficiency
+        - According to semistrong form market efficiency, investors cannot make more than the fair (required) return by trading on public news releases.
+        - Note that if semistrong form market efficiency holds, weak form market efficiency must hold as well.
 ---
-# Stock Market Regulation
+# Market Efficiency .font50[2]
+
+- **Market efficiency** refers to the speed with which financial security prices reflect unexpected news events.
+    - (3) Strong form market efficiency
+        - States that stock prices fully reflect all information about the firm, both public and private.
+        - According to strong form efficiency, even learning private information about the firm is of not help in earning more than the required rate of return.
+        - Limited empirical testing, but studies do suggest that corporate insiders earn abnormal returns from trading and the more informed the insider, the more often abnormal returns are earned.
+        - For this reason, laws prohibit investors from trading on the basis of private information.
+
 ---
 class: inverse, mline, center, middle
 # International Stock Markets
 
 ---
 # International Stock Markets
+- U.S. stock markets are the world’s largest.
+- European markets have increased their share of the global market with the advent of a common currency, the Euro, but hurt by the Euro area crisis.
+- Growth has strengthened China and Pacific Basin countries.
+- International stock markets allow investors to diversify by holding stocks issued by corporations in foreign countries.
+- International diversification can increase risk due to incomplete information about foreign stocks as well as foreign exchange and political risk.
+
+---
+# American Depository Receipts (ADRs)
+
+An ADR is a certificate that represents ownership of a foreign stock.
+- Created by a U.S. bank, after acquiring stock in foreign corporations in their domestic currencies.
+- The bank then issues dollar ADRs backed by the shares of the foreign stock, investors earn returns in U.S. dollars.
+
+There are currently over 3,600 ADRs of foreign corporations available to U.S. investors representing asset values of over $3.1 trillion in 2015.
+
+There are 3 types of ADRs:
+- **Level 1 ADRs** trade OTC and are not required to meet U.S. GAAP nor issue annual reports.
+- **Level 2 ADRs** trade on the exchanges and must meet exchange requirements and adhere to U.S. reporting standards.
+- **Level 3 ADRs** meet the same reporting standards as Level 2 and must register with the SEC and file the equivalent of 10K forms. These firms are allowed to raise public capital in the U.S.
 
 ---
 class: inverse, mline, center, middle
 # Capital Asset Pricing Model
 
 ---
+# Capital Asset Pricing Model (CAPM)
+
+- A model that predicts the relationship between the risk and equilibrium required returns on risky assets.
+- Built on the theory that the appropriate risk premium on an asset will be determined by its contribution to the risk of an investor’s overall portfolio.
+
+---
+
+---
+
 
 ## Two Things
 
@@ -295,6 +542,6 @@ On a sheet of paper write down two things that you learned this week.
 
 --
 
-Place your name at the top and hand it in during break.
+Breakout Room and share.
 
 ---
