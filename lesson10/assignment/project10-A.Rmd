@@ -1,0 +1,177 @@
+---
+title: "Prosper Peer-to-Peer Lending Data"
+author: "(Insert Your Name)"
+date: "`r (Sys.Date())`"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    urlcolor: blue
+  pdf_document:
+    toc: yes
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=FALSE}
+# List selected libraries
+library(tidyverse)
+library(lubridate)
+```
+# Analysis Workflow
+
+Recall that diagram depicts the workflow we are trying to implement as we do analysis.
+
+![](../image/data-science.png){width=550px}
+
+# Dataset Background
+
+[Prosper](https://www.prosper.com/invest) is a leading platform in peer-to-peer lending in the United States.  They streamline the borrowing process and assist matching investors with borrowers.  In order to attract investors they have provide a sample dataset of their loans.
+
+We are interesting in profiling this data as a starting point.  We will need to become familiar with how Prosper has chosen to to assemble the dataset.  
+
+# Analysis Objective
+
+We will be examining the Prosper Loan Peer-to-Peer data set.  
+
+We seek to understand the following questions for the loans.
+
+1. Uniqueness of listing keys
+    - Frequently computer systems create key records, in their base table these key records would not be duplicated.  As an example in the borrowers table their would be a unique BorrowerKey to identify a specific Borrower throughout the system.  A borrower could then create listings and listings may become funded loans.
+    - You will need to examine any duplicate ListingKeys to see if any additional information is available and useful.
+    - Then select how to deal with these duplicate records
+  
+2. Available DATE Fields.
+    - What date fields are available to use in any analysis.
+    - Are date fields always filled out?
+    - Sequence the fields based on when they occur for the individual loan process.
+        - Is the Credit Score always pulled after the Listing Date?
+
+3. Amount originated by year
+    - Table with the count, total loan amount and average loan size. 
+    - Plot a bar graph of the number of loans per year. 
+    - **New** Plot a box and whisker chart of the loan amount by origination year, explain how to interpret.
+
+4. Amount of loans in different loan status
+    - Table with the count, total loan amount and average loan size. 
+    - Discuss, determine and select a way to reduce the number of categories for loan status to 3-4 groupings.  The guidng question is how to best group the existing status so that the following analysis can yield reasonable insights.
+    - Table with the count, total loan amount and average loan size with the new loan status grouping. 
+    
+5. Amount of loans in different loan status groups and by year
+    - Create a pivot table showing "Year" by "Loan Status Grouping"
+    - **New** Look up function **spread**
+    - Calculate the default rate by origination year.
+
+6. Select an aspect of the dataset to explore.
+    - A more detailed analysis will generate more points.
+
+
+# Prosper Peer-to-Peer Data
+
+## Import: Loan Data
+
+```{r Import}
+
+```
+
+## Tidy
+
+Clean up the fields as you deem necessary for the following analysis.  You may used additional chunks as necessary so you can confirm items step by step.
+
+```{r Tidy}
+
+```
+
+## Analysis
+
+### Listing Key Exploration
+
+Check listing key for duplicates and select how to handle.
+
+```{r ListingKeyExploration}
+
+```
+
+
+### Available Date fields
+
+Here are the available date fields within the dataset, and sample data.
+
+```{r AvailableDateFields}
+
+```
+
+### Date Field Exploration
+
+Confirm date fields and sequencing.  This section should check the number of fields that actually are not N/A (is.na() and !is.na()).  Make certain you understand the data within these fields and any relationships, for instance is the listing always before the origination? 
+
+```{r DateCheck}
+
+```
+
+[Comments on Dates available for analysis]
+
+### Loan Origination Analysis
+
+Let's examine the loans by origination year. Examine the count, total loan amount and average loan size. And plot a bar graph of the number of loans. 
+
+```{r LoansbyYear}
+
+```
+
+**Loan Origination Comments**
+
+Bar chart of loans by year
+
+```{r LoansbyYearChart}
+
+```
+Box and whisker chart
+
+```{r LoansbyYearWhisker}
+
+```
+
+
+[Comments on Origination Date Graphics, including details on the box and whisker charts and how to understand]
+
+### Loan Status Analysis
+
+Aggregate by Loan Status.
+
+```{r AggregateLoanStatus}
+
+```
+
+Create simplified loan status group and aggregate.
+
+```{r AggregateLoanStatusGroup}
+
+```
+
+### Examine the loan status groups by year
+
+```{r LoanStatusGroupYear}
+
+```
+
+Pivot the values LoanOriginationYear on the row and LoanStatusGroup on the columns.
+
+```{r Pivot}
+
+```
+
+[Comments on the default rate by orgination year]
+### Selected Analysis
+
+```{r SelectedAnalysis}
+
+```
+
+**Commentaty on Selected Analysis**
