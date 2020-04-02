@@ -1,7 +1,7 @@
 ---
-title: "Join Examples and Conronovirus Data"
+title:  "SEC Edgar Data"
 author: "Larry Tentor"
-date: "`r (Sys.Date())`"
+date:   "`r (Sys.Date())`"
 output:
   html_document:
     df_print: kable
@@ -19,239 +19,124 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r setup, include=TRUE}
+```{r setup, include=FALSE}
 # List selected libraries
 library(tidyverse)
-library(usmap)
+library(edgar)
+library(XBRL)
+# Setting stringsAsFactors = FALSE is recommended to avoid data frames creating factors from character vectors.
+options(stringsAsFactors = FALSE)
 ```
 
 # Focus
 
-The focus of this demo is on how to merge two datasets through operations termed **joins**. These are used for doing lookup tables, in Excel sometimes done using **vlookup/hlookup**.
+The focus of this demo is accessing the data on the SEC EDGAR system.
 
-A simple example would be for state names from state abbreviations.
+# CIK Reference
 
-**Data Table**
+| CIK        | Entity              |
+|------------|---------------------|
+| 0001652044 | Alphabet, Inc.      |
+|      38079 | Sabine Oil Gas Corp |
+|    1067701 | United Rentals Inc  |
+| 0000854157 | STATE OF WISCONSIN INVESTMENT BOARD |
+| 0000919079 | CALIFORNIA PUBLIC EMPLOYEES RETIREMENT SYSTEM |
 
-| State Code | Electoral Seats |
-|------------|-----------------|
-| AL         |               9 |
-| AK         |               3 |
-| AZ         |              11 |
-| AR         |               6 |
-| CA         |              55 |
+A company's CIK can be located on the [SEC website](https://www.edgarcompany.sec.gov/servlet/CompanyDBSearch?page=main)
 
-**Lookup Table**
+# Entity Filings
 
-| State      | State Code |
-|------------|----|
-| Alabama    | AL |
-| Alaska     | AK |
-| Arizona    | AZ |
-| Arkansas   | AR |
-| California | CA |
+Once we have identified an entity we can look over all the filings that they have made for a particular period.
 
-We wish to start with the Data Table and get the full state names so these can be displayed in a table for reporting.
 
-# Import
+## getFilingInfo
 
-```{r SimpleLoad}
+This looks at the filings of a corporate entity.
 
-electoralCollege <- read.csv(text="StateCode,Seats
-AL,9
-AK,3
-AZ,11
-AR,6
-CA,55
-CO,9",stringsAsFactors=FALSE)
-
-stateCodeLookup <- read.csv(text="State, StateCode
-Alabama,AL
-Alaska,AK
-Arizona,AZ
-Arkansas,AR
-California,CA
-Delaware,DE",stringsAsFactors=FALSE)
-
-```
-
-# Join Examples
-
-## Inner Join
-
-```{r}
-electoralCollege
+```{r, echo=TRUE, results='hide'}
+filingUnitedRental <- getFilingInfo(1067701, 2006) 
 ```
 
 ```{r}
-stateCodeLookup
+head(filingUnitedRental)
 ```
 
-```{r InnerJoin}
-electoralCollegeExtended <- inner_join(electoralCollege, stateCodeLookup)
+This examines the filings of a pension system.
 
-electoralCollegeExtended
+```{r, echo=TRUE, results='hide'}
+filingSWIB <- getFilingInfo(0000854157, c(2016,2017)) 
+
 ```
-
-```{r InnerJoinwithBy}
-electoralCollegeExtended <- inner_join(electoralCollege, stateCodeLookup, by = "StateCode")
-
-electoralCollegeExtended
-```
-## Inner Join with Different column names
-
-```{r InnerJoinwithDifferentNames}
-electoralCollege2 <- electoralCollege
-colnames(electoralCollege2)[1] <- "StateId"
-electoralCollege2
-
-electoralCollegeExtended2 <- inner_join(electoralCollege2, stateCodeLookup, by = c("StateId" = "StateCode"))
-
-class(c("StateId" = "StateCode"))
-electoralCollegeExtended2
-```
-
-
-## Row counts?
-- How many rows started in electoral college data set?
-- How may rows ended in electoral college extended data set?
- 
-## Left Join
-
-```{r LeftJoin}
-electoralCollegeExtended <- left_join(electoralCollege, stateCodeLookup)
-
-electoralCollegeExtended
-```
-## Left Join Review
-
-- What changed compared to inner join
-
-## Right Join
-
-```{r RightJoin}
-electoralCollegeExtended <- right_join(electoralCollege, stateCodeLookup)
-
-electoralCollegeExtended
-```
-## Right Join Review
-
-- Is it what you expected?
-
-# Import - Second Case
-
-In this portion we select to load [US population data](https://www.census.gov/data/tables/time-series/demo/popest/2010s-state-total.html) as well as cronovirus reporting data from [Johns Hopkins University Center for Systems Science and Engineering](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).  
-
-```{r PopulationLoad}
-dataFile <- '../data/nst-est2019-popchg2010_2019.csv'
-population <- read.csv(file=dataFile,stringsAsFactors = FALSE)
-```
-
-```{r coronavirusLoad}
-# Loop over a number of days and consoldate Corona Virus Data
-
-# This is the base URL for load from the web.
-urlBase      <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/"
-
-# Dates selected to load, careful format may change over time
-dateSelected <- c(as.Date("2020-03-22"),as.Date("2020-03-23"),as.Date("2020-03-24"))
-
-# Initize empty data
-dataStack = c()
-
-# Loops for repeating tasks
-for (i in 1:length(dateSelected)) 
-  {
-    dateSpecified <- dateSelected[i]
-    print(paste0("Loading ",format(dateSpecified)))
-    
-    # Load specified datas file from GitHub web
-    dataSpecified <- read.csv(url(paste0(urlBase,format(dateSpecified, "%m-%d-%Y"),".csv")),stringsAsFactors = FALSE)
-    dataSpecified$dateFile <- dateSpecified
-
-    # Adjust column name that does not line up with prior files.
-    if (colnames(dataSpecified)[1] == "ï..FIPS"){
-      colnames(dataSpecified)[1] <- "FIPS"
-    }
-    if (length(dataStack) == 0)
-    {
-    dataStack <- dataSpecified
-    } else {
-    dataStack <- rbind(dataStack,dataSpecified)
-    }
-  }  
-```
-
-# Tidy
-
-## Population Dataset
-
-Simplify dataset to most recent population estimate by State.
 
 ```{r}
-populationState <-
-  population[,c("SUMLEV","STATE","NAME","POPESTIMATE2019")] %>%
-  filter(SUMLEV==40)
-
-head(populationState,20)
+head(filingSWIB)
 ```
 
-# Analysis
+## getFilings
 
-## Daily committed
+This feature downloads the actual entity filings to a local directory.
 
-```{r coronavirusProfile}
- dailyAnalysis <-
-  dataStack %>%
-    group_by(dateFile) %>%
-    summarize(Confirmed=sum(Confirmed)) %>%
-    arrange(desc(dateFile))
-dailyAnalysis
-```
-
-## Coronavirus Profile
-
+(.\\Edgar filings_full text\\Form 13F-HR\\854157)
 
 ```{r}
-dataStackUS <-
-  dataStack %>%
-  filter(Country_Region=="US")
-
-head(dataStackUS)  
+SWIB13F <- getFilings(cik.no = 0000854157, c('13F-HR'), c(2016,2017))
 ```
-## US Summary
+
+
+# Current Report, 8-K
+
+## [8-K Information](https://www.sec.gov/fast-answers/answersform8khtm.html)
+
+This allows us to download the 8-K reports that a company has filed.
+
+In addition to filing annual reports on Form 10-K and quarterly reports on Form 10-Q, public companies must report certain material corporate events on a more current basis. Form 8-K is the “current report” companies must file with the SEC to announce major events that shareholders should know about.
+The instructions for Form 8-K describe the types of events that trigger a public company's obligation to file a current report.
+
+
+```{r 8k-1, echo=TRUE, results='hide'}
+# Alphabet Inc. , CIK 0001652044
+# Forest Oil Corp, CIK 38079
+#output <- get8KItems(cik.no = 38079, filing.year = 2005) ## Returns 8-K events information for CIK '38079' filed in year 2005.
+#output <- get8KItems(cik.no = c(1000180,38079), filing.year = c(2005, 2006))
+Filing8K <- get8KItems(cik.no = 38079, filing.year = 2015) 
+```
+
+```{r 8k-2}
+head(Filing8K)
+```
+
+# Sentimate Analysis
+
+One area of high research interest is that of text analysis of SEC filings.  This package is also able to examine a basic sentimate analysis.
+
+```{r, echo=TRUE, results='hide'}
+
+senti.df <- getSentiment(cik.no = c('1000180', '38079'), 
+                         form.type = '10-K', filing.year = 2006) 
+```
+
+```{r}
+senti.df
+```
+
+# XBRL parsing
+
+```{r, echo=TRUE, results='hide'}
+## XBRL instance file to be analyzed, accessed
+## directly from SEC website:
+inst <- "https://www.sec.gov/Archives/edgar/data/21344/000002134413000050/ko-20130927.xml"
+#inst <- "https://www.sec.gov/Archives/edgar/data/854157/000109724120000002/swb13f4q2019.xml"
+
+## Level 1: Function that does all work and returns
+## a list of data frames with extracted information:
+xbrl.vars <- xbrlDoAll(inst, verbose=TRUE)
+
+```
 
 ```{r}
 
-SummaryUS <-
-  dataStackUS %>%
-  group_by(dateFile, Country_Region) %>%
-  summarise(Confirmed=sum(Confirmed), Deaths=sum(Deaths), Recovered=sum(Recovered), Active=sum(Active))
+head(xbrl.vars$fact)
+#head(xbrl.vars$context)
 
-SummaryUS
 ```
-
-## US State Summary
-
-```{r}
-SummaryState <-
-  dataStackUS %>%
-  group_by(dateFile, Country_Region, Province_State) %>%
-  summarise(Confirmed=sum(Confirmed), Deaths=sum(Deaths), Recovered=sum(Recovered), Active=sum(Active))
-
-head(SummaryState,10)
-```
-
-## US State Per Capita
-
-```{r}
-SummaryStatePer <-
-  inner_join(SummaryState,populationState,by= c("Province_State" = "NAME")) %>%
-  mutate(ConfirmedPerCapita=Confirmed/POPESTIMATE2019, ConfirmedOneIn = 1/ConfirmedPerCapita) %>%
-  filter(dateFile == "2020-03-24") %>%
-  arrange(desc(ConfirmedPerCapita), dateFile)
-
-head(SummaryStatePer,10)
-```
-
 

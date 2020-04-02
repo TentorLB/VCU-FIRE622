@@ -1,5 +1,5 @@
 ---
-title:  "Equity Stock Markets"
+title:  "Security Exchange Commission"
 author: "Larry Tentor"
 output:
   xaringan::moon_reader:
@@ -27,229 +27,220 @@ McGraw Hill has provided power point slides that were substantially used to cons
 
 ---
 
-# Exam Results
-
-- Grades entered into blackboard
-
-.center[
-
-```{r}
-grades <- read.csv(text="
-Grade, Id
-101,Q
-94,L
-136,M
-131,X
-124,J
-130,S
-141,O
-116,Z
-114,T
-125,K
-128,1
-116,V
-99,P
-100,W
-125,R
-133,U
-125,A
-142,I
-114,H
-147,G
-112,F
-131.5,Y
-94,C
-118,B
-102,N",stringsAsFactors=FALSE)
-
-# Basic histogram
-ggplot(grades, aes(x=Grade)) + 
-  geom_histogram(bins=5) +
-  xlab("Grade Bucket") +
-  ylab("Student Count") +
-  ggtitle("Mid-Term Exam Histogram") +
-  scale_y_continuous(breaks = c(2,4,6,8,10))
-```
-]
-
-???
-
-Exam has a distribution as expected from my experience.  The good news is that this exam only accounts for 15% of the grade.  The class as originally designed has a larger weight to projects. Those that would like to discuss their grades and concerns should schedule a one-on-one meeting time.
-
----
 class: inverse, mline, center, middle
-# Federal Reserve Activity
+# Federal Reserve Activity Update
 
 ???
-There has been tremendous activity at the Federal Reserve Bank during March to have an economic response to the onset of COVID-19 pandemic.
+There has been tremendous activity at the Federal Reserve Bank during March to have an economic response to the onset of COVID-19 pandemic.  This is an update from last week.
 
 ---
-# Federal Reserve Activity March 2020 .font50[1]
+# Federal Reserve Update March 2020 .font50[1]
 
 [Press Releases (suggested filter for ☑ Monetary Policy) ](https://www.federalreserve.gov/newsevents/pressreleases.htm)
-- [Federal Reserve Action, March 3](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200303a1.htm "1/2% cut")
-    - The Federal Open Market Committee decided today to lower the target range for the **federal funds rate** by 1/2 percentage point, to 1 to 1‑1/4 percent.
---
-- [Federal Reserve Action, March 15](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm "1% Cut + $700B Quantitative Easing")
-    - The Committee decided to lower the target range for the **federal funds rate** to 0 to 1/4 percent.
-    - To support the smooth functioning of markets for Treasury securities and agency mortgage-backed securities that are central to the flow of credit to households and businesses, over coming months the Committee will increase its holdings of **Treasury securities by at least $500 billion** and its holdings of **agency mortgage-backed securities by at least $200 billion**. The Committee will also reinvest all principal payments from the Federal Reserve's holdings of agency debt and agency mortgage-backed securities in agency mortgage-backed securities. In addition, the Open Market Desk has recently expanded its overnight and term repurchase agreement operations.
+- [Federal Reserve Action, March 31](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200331a.htm "FIMA Repo")
+    - The Federal Reserve on Tuesday announced the establishment of a temporary **repurchase agreement facility for foreign and international monetary authorities (FIMA Repo Facility)** to help support the smooth functioning of financial markets, including the U.S. Treasury market, and thus maintain the supply of credit to U.S. households and businesses. The FIMA Repo Facility will allow FIMA account holders, which consist of central banks and other international monetary authorities with accounts at the Federal Reserve Bank of New York, to enter into repurchase agreements with the Federal Reserve. In these transactions, FIMA account holders temporarily exchange their U.S. Treasury securities held with the Federal Reserve for U.S. dollars, which can then be made available to institutions in their jurisdictions. This facility should help support the smooth functioning of the U.S. Treasury market by **providing an alternative temporary source of U.S. dollars other than sales of securities** in the open market. It should also serve, along with the U.S. dollar liquidity swap lines the Federal Reserve has established with other central banks, to help ease strains in global U.S. dollar funding markets.
+
+☒ Federal Reserve Activity Update on 31 March 2020
 
 ---
-# Federal Reserve Activity March 2020 .font50[2]
-
-- [Federal Reserve Action, March 15 Continued](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm "1% Cut + $700B Quantitative Easing")
-    - In a related set of actions to support the credit needs of households and businesses, the Federal Reserve announced measures related to the **discount window, intraday credit, bank capital and liquidity buffers, reserve requirements, and—in coordination with other central banks—the U.S. dollar liquidity swap line arrangements**.
---
-- [Federal Reserve Action, March 17](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200317a.htm "Establish Commericial Paper Funding Facility")
-    - The [**Commercial Paper Funding Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200317a1.pdf) (CPFF) will provide a liquidity backstop to U.S. issuers of commercial paper through a special purpose vehicle (SPV) that will purchase **unsecured and asset-backed commercial paper** rated A1/P1 (as of March 17, 2020) directly from eligible companies.
-    
----
-# Federal Reserve Activity March 2020 .font50[3]
-- [Federal Reserve Action, March 17](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200317b.htm "Establish Primary Deal Credit Facility")
-    - The [**Primary Dealer Credit Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200317b1.pdf) (PDCF) will offer overnight and term funding with maturities up to 90 days. It will be in place for at least six months and may be extended as conditions warrant.
-
-???
-The Primary Dealer Credit Facility  is a specialized facility just for primary dealers.
---
-
-- [Federal Reserve Action, March 18](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200318a.htm "Establish Money Market Mutual Fund Liquidity Facility")
-    - The [**Money Market Mutual Fund Liquidity Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200318a1.pdf) (MMLF) will now be able to make loans available to eligible financial institutions secured by certain high-quality assets purchased from single state and other tax-exempt municipal money market mutual funds.
-
-???
-Money Market 
---
-
-- [Federal Reserve Action, March 23](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200323a.htm "Unlimited Quantitative Easing + Commercial MBS")
-    - The Federal Reserve will continue to **purchase Treasury securities and agency mortgage-backed securities in the amounts needed to support smooth market functioning** and effective transmission of monetary policy to broader financial conditions. The Committee will include purchases of **agency commercial mortgage-backed securities** in its agency mortgage-backed security purchases.
-
-???
-Commericial MBS!
----
-# Federal Reserve Activity March 2020 .font50[4]
-
-- [Federal Reserve Action, March 23](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200323b.htm "PMCCF, SMCCF, TALF, extra")
-    - [**Primary Market Corporate Credit Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200323b1.pdf) (PMCCF) will buy newly issued corporate bonds, typically from large employers.
---
-    - [**Secondary Market Corporate Credit Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200323b2.pdf) (SMCCF) will buy existing corporate bonds to give people confidence that this remains a “liquid” market and thus they don’t need to panic sell corporate debt they already own, or fear buying new debt from creditworthy companies.
---
-    - [**Term Asset-Backed Securities Loan Facility**](https://www.federalreserve.gov/newsevents/pressreleases/files/monetary20200323b3.pdf) will buy asset-backed securities (basically packages of loans) composed of student loans, auto loans, credit card loans, and other forms of consumer debt plus some Small Business Administration loans. 
---
-
-**Anticipated**
-- The establishment of a **Main Street Business Lending Program** to support lending to eligible small-and-medium sized businesses, complementing efforts by the Small Business Administration (SBA)
-
-
-☒ Federal Reserve Activity Snapshot on 23 March 2020
----
-class: inverse
-# Zoom Poll Federal Reserve
-
----
-# Stock Markets
+# Security Exchange Commission
 
 .pull-left[
-- Stock Market Overview
-- Stock Market Securities
-    - Common Stock
-    - Preferred Stock
-- Primary and Secondary Markets
-    - Primary Markets
-    - Secondary Markets
-    - Stock Market Indicies
+- Introduction
+- Creation of SEC
+- Organization of SEC
+- Laws the Govern the Industry
+- Data of the SEC
 ]
 
+---
+class: inverse, mline, center, middle
+# SEC Introduction
 
-.pull-right[
-- Stock Market Participants
-- Stock Markets Other Issues
-    - Economic Indiciators
-    - Market Efficiency
-    - Stock Market Regulation
-- International Stock Markets
-]
+---
+# SEC Introduction
 
---
+## Mission and Vision
+Source: [SEC What We Do](https://www.sec.gov/Article/whatwedo.html)
 
-- Capital Asset Pricing Model
+- **Mission** of the U.S. Securities and Exchange Commission is to 
+    - **protect investors**, 
+    - **maintain fair, orderly, and efficient markets**, and
+    - **facilitate capital formation**.
+- As our nation's securities exchanges mature into global for-profit competitors, there is even greater need for **sound market regulation**.
+- And the common interest of all Americans in a
+    - growing economy that produces jobs,
+    - improves our standard of living, and 
+    - protects the value of our savings 
+    - means that all of the SEC's actions must be taken with an eye toward promoting the capital formation that is necessary to sustain economic growth.
+
+---
+# SEC Introduction
+
+- The laws and rules that govern the securities industry in the United States derive from a **simple and straightforward concept**: all investors, whether large institutions or private individuals, should have access to certain basic facts about an investment prior to buying it, and so long as they hold it. To achieve this, the SEC requires public companies to **disclose meaningful financial and other information to the public.** 
+- This provides a common pool of knowledge for all investors to use to judge for themselves whether to buy, sell, or hold a particular security. Only through the **steady flow of timely, comprehensive, and accurate information can people make sound investment decisions**.
+- The result of this information flow is a **far more active, efficient, and transparent capital market that facilitates the capital formation** so important to our nation's economy.
+- The SEC oversees the key participants in the securities world, including 
+    - **securities exchanges**, 
+    - **securities brokers and dealers**,
+    - **investment advisors**, and 
+    - **mutual funds**. 
+    - Here the SEC is concerned primarily with promoting the disclosure of important market-related information, maintaining fair dealing, and protecting against fraud.
+
+---
+# SEC Introduction
+
+- One of the major sources of information on which the SEC relies to bring enforcement action is investors themselves — another reason that educated and careful investors are so critical to the functioning of efficient markets. To help support investor education, the SEC offers the public a wealth of educational information on this Internet website, which also includes the **EDGAR database of disclosure documents that public companies are required to file** with the Commission.
+- Though it is the primary overseer and regulator of the U.S. securities markets, the SEC works closely with many other institutions, including 
+    - Congress, 
+    - other federal departments and agencies,
+    - the self-regulatory organizations (e.g. the stock exchanges),
+    - state securities regulators, and 
+    - various private sector organizations.
+
+---
+class: inverse
+# Zoom Poll: SEC Mission
+
+---
+class: inverse, mline, center, middle
+# SEC Creation
+
+---
+# SEC Creation
+
+- **Setting**: After the Great Crash of 1929, public confidence in the markets plummeted, a consensus that for the economy to recover, the public's faith in the capital markets needed to be restored. Congress held hearings to identify the problems and search for solutions.
+- **Result**: After these hearding, the Security Act of 1933 was passed and the followed year saw the Security Exchange Act of 1934, which created the SEC.
+- **Goal**: Designed to restore investor confidence in our capital markets by providing investors and the markets with more **reliable information** and **clear rules of honest dealing**. The main purposes of these laws can be reduced to two common-sense notions:
+    - Companies publicly offering securities for investment dollars **must tell the public the truth** about their businesses, the securities they are selling, and the risks involved in investing.
+    - People who sell and trade securities – brokers, dealers, and exchanges – must treat investors **fairly and honestly, putting investors' interests** first.
+
+---
+class: inverse
+# Zoom Poll: SEC Creation
+
+---
+class: inverse, mline, center, middle
+# SEC Organization
+
+---
+# SEC Organization
+
+- **Five (5) presidentially-appointed Commissioners**, with staggered five-year terms, see [SEC Organization Chart](https://www.sec.gov/about/secorg.pdf).  By law, no more than three of the Commissioners may belong to the same political party, ensuring non-partisanship. 
+- The agency's functional responsibilities are organized into five Divisions and 24 Offices, each of which is headquartered in Washington, DC. The Commission's approximately 4,600 staff are located in Washington and in 11 Regional Offices throughout the country.
+- Responsibility of the Commission to:
+    - **interpret** and **enforce** federal securities laws;
+    - **issue** new rules and **amend** existing rules;
+    - oversee the **inspection** of securities firms, brokers, investment advisers, and ratings agencies;
+    - **oversee** private regulatory organizations in the securities, accounting, and auditing fields; and
+    - **coordinate** U.S. securities regulation with federal, state, and foreign authorities.
+
+---
+# SEC Organization
+
+## Divisions
+- Division of Corporation Finance
+    - Oversee corporate disclosure of important information to the investing public.
+- Division of Trading and Markets
+    - Maintaining fair, orderly, and efficient markets.
+- Division of Investment Management
+    - Promotes investor protection and for promoting capital formation
+- Division of Enforcement
+    - Executing its law enforcement function
+- Division of Economic and Risk Analysis
+    - Executing its mission to protect investors, maintain fair, orderly, and efficient markets, and facilitate capital formation by integrating robust economic analysis and rigorous data analytics
+- Offices
+
+---
+# SEC Organization
+
+## Division of Corporation Finance
+- Oversee corporate disclosure of important information to the investing public.
+- Reviews filings by publicly-held companies
+    - registration statements for newly-offered securities;
+    - annual and quarterly filings (Forms 10-K and 10-Q);
+    - proxy materials sent to shareholders before an annual meeting;
+    - annual reports to shareholders;
+    - documents concerning tender offers (a tender offer is an offer to buy a large number of shares of a corporation, usually at a premium above the current market price); and
+    - filings related to mergers and acquisitions.
+- Works closly with Financial Accounting Standards Board (FASB), that result in the formulation of generally accepted accounting principles (GAAP)
+- Rule Making (e.g. Prosper)
+    - Concept Release
+    - Rule Proposal
+    - Rule Adoption
     
+---
+# SEC Organization
+
+## Division of Trading and Markets
+- Maintaining fair, orderly, and efficient markets.
+- carrying out the Commission's financial integrity program for broker-dealers;
+reviewing (and in some cases approving, under authority delegated from the Commission) proposed new rules and proposed changes to existing rules filed by the SROs;
+assisting the Commission in establishing rules and issuing interpretations on matters affecting the operation of the securities markets; and
+surveilling the markets.
+
+---
+# SEC Organization
+
+## Division of Investment Management
+- Promotes investor protection and for promoting capital formation
+- ensuring that disclosures about these investments are useful to retail customers, and that the regulatory costs which consumers must bear are not excessive.
+- assisting the Commission in interpreting laws and regulations for the public and SEC inspection and enforcement staff;
+- responding to no-action requests and requests for exemptive relief;
+reviewing investment company and investment adviser filings;
+- assisting the Commission in enforcement matters involving investment companies and advisers; and
+- advising the Commission on adapting SEC rules to new circumstances.
+
+---
+# SEC Organization
+
+## Division of Enforcement
+- Recommending the commencement of investigations of securities law violations, by recommending that the Commission bring 
+- civil actions in federal court or as administrative proceedings before an administrative law judge, and by
+- prosecuting these cases on behalf of the Commission. 
+- As an adjunct to the SEC's civil enforcement authority, the Division works closely with law enforcement agencies in the U.S. and around the world to bring criminal cases when appropriate.
+
 ???
 
-This module covers a number of different aspects of stock markets.
+Civil Actions: US District Court
+Administrative Action
 
 ---
-class: inverse, mline, center, middle
-# Stock Market Overview
+# SEC Organization
+
+## Division of Economic and Risk Analysis
+- Executing its mission to protect investors, maintain fair, orderly, and efficient markets, and facilitate capital formation by integrating robust economic analysis and rigorous data analytics
+- Analyzing the potential economic effects of Commission rulemakings or other Commission actions. In this role, offices within DERA works closely with the other Divisions and Offices to help examine the need for regulatory action, analyze the potential economic effects of rules and other Commission actions, develop data-driven analyses of market activity, and assist in evaluating public comments and studies.
+- Providing quantitative and qualitative research and support related to risk assessment. DERA staff help the Commission to anticipate, identify, and manage risks, focusing on early identification of potential fraud and illegal or questionable activities. Staff collects, analyzes, and disseminates information to the Commission and its Staff about regulated entities and market activity.
+- Assisting the Division of Enforcement by, for example, providing economic and quantitative analysis and support in enforcement proceedings and settlement negotiations.
 
 ---
-# Stock Market Overview
+# SEC Organization
 
-- Primary stock markets allow suppliers of funds to raise equity capital.
-- Secondary stock markets are the most closely watched and reported of all financial markets.
-- Stockholders are the legal owners of a corporation.
-    - Have a right to share in the firm’s profits (Example: through dividends).
-    - Are residual claimants.
-    - Have limited liability.
-    - Have voting rights (Example: to elect board of directors).
-
+## Offices
+- Office of the General Counsel
+- Office of the Chief Accountant
+- Office of Compliance Inspections and Examinations
+- Office of Credit Ratings (Created by Dodd-Frank Act, July 2010)
+- Office of International Affairs
+- Office of Investor Education and Advocacy
+- Office of Municipal Securities
+- Office of Ethics Counsel
+- Office of the Investor Advocate
+- Office of Women and Minority Inclusion
+- Office of the Chief Operating Officer
+    - EDGAR Business Office
+- Office of Legislative and Intergovernmental Affairs
+- Office of Public Affairs
+- Office of the Secretary
 ---
-class: inverse, mline, center, middle
-# Stock Market Securities
+# SEC Organization
 
----
-# Common Stock
-
-- **Common stock** is the fundamental ownership claim in a public or private corporation
-- **Dividends** are discretionary, and are thus not guaranteed
-- Common stockholders have the lowest priority claim in the event of bankruptcy, also refered to as a residual claim.
-- **Limited liability** implies that common stockholders can lose no more than their original investment
-- Common stockholders control the firm’s activities indirectly by exercising their **voting rights** in the election of the board of directors
-
----
-# Common Stock Voting Rights
-
-- **Dual-class firms** have two classes of common shares outstanding, with different voting rights assigned to each class.
-    - [Ford](https://www.thebalance.com/examples-of-dual-class-structures-358090)
-    - [Berkshire Hathaway](https://www.berkshirehathaway.com/compab.pdf)
-    - [Google](https://www.investopedia.com/ask/answers/052615/whats-difference-between-googles-goog-and-googl-stock-tickers.asp)
-- With **cumulative voting**, the number of votes assigned to each stockholder equals the number of shares held multiplied by the number of directors to be elected.
-    - The number of shares needed to elect $p$ directors, $N_p$, is:
-    - $N_p$ = [( $p$ x # of votes available) / (# of directors to be elected + 1)] +1
-    - A proxy vote allows stockholders to vote by absentee ballot (Example: by internet or by mail).
-
----
-class: inverse
-# Zoom Poll Dual-Class
-
----
-class: inverse
-# Zoom Poll Proxy-Voting
-
----
-# Stock Returns
-- The return on a stock over one period ( $r_t$ ) can be divided into capital gains and dividend returns:
-
-.font150[.center[
-$r_t = \frac{P_t-P_{t-1}}{P_{t-1}}+\frac{D_t}{P_{t-1}}$
-]]
-
-| Expression                    | Meaning |
-|-------------------------------|---------|
-| $P_t$                         | Stock **P**rice at time $t$|
-| $D_t$                         | **D**ividends paid over time $t–1$ to $t$|
-| $\frac{P_t-P_{t-1}}{P_{t-1}}$ | Return from Capital Gain over time $t–1$ to $t$|
-| $\frac{D_t}{P_{t-1}}$         | Return from Dividends over time $t–1$ to $t$|
-
----
-# Stock Return Example
-
-Suppose an investor buys 10 shares of stock priced at &dollar;55.10 and sells the stock one year later for &dollar;56.30 after collecting a &dollar;0.30 dividend per share. What was the investor’s pre-tax holding period return?
-
-$r_{HoldingPeriod}=\frac{65.30-55.10}{55.10}+\frac{0.30}{55.10}=2.18\%+0.54\%=2.72\%$
-
-If dividend income is taxed at a 28% rate and capital gains are taxed at 20%, what was the investor’s after-tax holding period return?
-
-$r_{AfterTax}=[r_{CapitalGains}*(1-20\%)]+[r_{Dividend}*(1-28\%)]$
-$r_{AfterTax}=[2.18\%*(1-20\%)]+[0.54\%*(1-28\%)] = 2.13\%$
+## Offices, continued
+- Office of Equal Employment Opportunity
+- Office of the Inspector General
+- Office of Administrative Law Judges
+- Office of the Advocate for Small Business Capital Formation
 
 ---
 # Zoom Breakout Room
@@ -280,261 +271,6 @@ $r_t = 0.048 + 0.0288$
 $r_t = 0.0768 = 7.68\%$
 
 ---
-# Preferred Stock
-
-**Preferred stock** is a hybrid security that has characteristics of both bonds and common stock.
-- Similar to common stock in that it represents an ownership interest in the issuing firm, but like a bond it pays a fixed periodic (dividend) payment.
-- Generally has **fixed dividends** that are paid quarterly.
-- Generally **does not have voting rights** unless dividend payments are missed.
-- **Nonparticipating** versus **participating**.
-- **Cumulative** versus **noncumulative**.
-
-???
-**Nonparticipating** versus **participating**
-
-**Cumulative** versus **noncumulative**
-
----
-class: inverse, mline, center, middle
-# Primary and Secondary Markets
-
----
-# Primary Markets .font50[1]
-
-**Primary markets** are markets in which corporations raise funds through new issues of securities, most of the time through **investment banks**.
-Example: Morgan Stanley or Bank of America Merrill Lynch.
-
-- Investment banks act as distribution agents in **best efforts underwriting**.
-- Investment banks act as principals in **firm commitment underwriting**.
-    gross proceeds − net proceeds = underwriter’s spread
-- A **syndicate** is a group of investment banks working in concert to issue stock; the lead underwriter is the **originating house**.
-
----
-# Primary Markets .font50[2]
-
-- An **initial public offering (IPO)** is the first public issue of financial instruments by a firm.
-- A **seasoned offering** is the sale of additional securities by a firm whose securities are already publicly traded.
-- **Preemptive rights** give existing stockholders the ability to maintain their proportional ownership.
-- **Shelf registration** allows firms to offer multiple issues of stock over a two-year period with only one registration statement.
-
-???
-A red herring prospectus is a preliminary version of the prospectus that describes a new security issue.
-
----
-# Secondary Markets
-
-**Secondary stock markets** are the markets in which stocks, once issued, are traded among investors.
-The U.S. has several major stock markets.
-- **New York Stock Exchange Euronext (NYSE/Euronext)**.
-    - The NYSE/Euronext Exchange was purchased by ICE in 2013.
-- **National Association of Securities Dealers Automated Quotation (NASDAQ)**
-- **Bats/Direct Edge (former ECNs)**
-
-???
-
-Larry Check on Bats/Direct
-Other global exchanges
-
----
-
-# NYSE Euronext
-
-- Each stock has a special market maker called a specialist or Designated Market Maker (DMM) that maintains liquidity for the stock at all times.
-- Trading occurs at a specific place on the floor of the exchange called a trading post.
-    - Three types of transactions occur at trading posts.
-        - A **market order** is an order to transact at the best price available when the order reaches the trading post.
-        - A **limit order** is an order to transact at a specified price.
-        - Specialists transact for their own account.
-
-- **Program trading** is the simultaneous buying and selling of a portfolio of at least 15 different stocks valued at more than $1 million using computer programs to initiate the trades.
-- **Circuit breakers** give investors time to make informed choices during periods of high market volatility.
-
----
-# Circuit Breakers
-
-.center[
-![Circuit Breakers](.\image\CircuitBreakerLevels.jpg)
-]
-
-???
-- In the event of a 7% decline in the S&P before 3:25 p.m. there is a 15-minute halt. 
-- After 3:25 p.m. there is no halt. 
-- In the event of a 13% decline in the S&P before 3:25 p.m. there is a 15-minute halt. 
-- After 3:25 p.m. there is no halt.
-- 
----
-# Purchase of Stock on NYSE
-
-
-.center[
-![Stock Purchase](.\image\StockPurchaseNYSE.png)
-]
-
-The investor submits a buy order for shares using cash through the broker (Wells Fargo), who gives cash to the commission or floor broker, who then exchanges with the market maker or other floor broker. The shares flow back through to the investor.
-
----
-class: inverse
-# Problem B
-
-Suppose you own 20,000 shares of common stock in a firm with 2.5 million total shares outstanding. The firm announces a plan to sell an additional 0.5 million shares through a rights offering. The market value of the stock is $45 before the rights offering and the new shares are being offered to existing shareholders at a $5 discount.
- 
-- a. If you exercise your preemptive rights, how many of the new shares can you purchase?
-- b. What is the market value of the stock before the rights offering?
-- c. What is the market value of the stock after the rights offering?
-
----
-class: inverse
-# Answer B
-
-Suppose you own 20,000 shares of common stock in a firm with 2.5 million total shares outstanding. The firm announces a plan to sell an additional 0.5 million shares through a rights offering. The market value of the stock is $45 before the rights offering and the new shares are being offered to existing shareholders at a $5 discount.
- 
-- a. If you exercise your preemptive rights, how many of the new shares can you purchase?
-
-**Answer**
-- a. 0.5 million new shares from 2.5 million original shares => 1 new share for every 5 original shares. So we may purchase 4,000 new shares. Your current ownership interest is 0.8 percent (20,000/2.5 million) prior to the rights offering and you receive 4,000 rights (20,000 × 0.2) allowing you to purchase 4,000 of the new shares. If you exercise your rights (buying the 4,000 shares) your ownership interest in the firm after the rights offering is still 0.8 percent ((20,000 + 4,000)/(2.5 million + 0.5 million)).
-
----
-class: inverse
-# Answer B
-
-Suppose you own 20,000 shares of common stock in a firm with 2.5 million total shares outstanding. The firm announces a plan to sell an additional 0.5 million shares through a rights offering. The market value of the stock is $45 before the rights offering and the new shares are being offered to existing shareholders at a $5 discount.
-
-- b. What is the market value of the stock before the rights offering?
-
-**Answer**
-- b. The market value of the common stock is $45 before the rights offering, or the total market value of the firm is $112.5 million ($45 × 2.5 million)
-
----
-class: inverse
-# Answer B
-
-Suppose you own 20,000 shares of common stock in a firm with 2.5 million total shares outstanding. The firm announces a plan to sell an additional 0.5 million shares through a rights offering. The market value of the stock is $45 before the rights offering and the new shares are being offered to existing shareholders at a $5 discount.
-
-- c. What is the market value of the stock after the rights offering?
-
-**Answer**
-- c. The 0.5 million new shares are offered to current stockholders at a $5 discount, or for $40 per share. The firm receives $20 million. The market value of the firm after the rights offering is $132.5 million (the original $112.5 million plus the $20 million from the new shares), or $44.167 per share ($132.5 million/3 million).
- 
----
-# Exchange Traded Funds
-
-- Pioneered by the former AMEX (now NYSE/AMEX).
-- ETFs are index funds that are listed on an exchange and can be traded intraday and shorted.
-    - Prices may not exactly match an index.
-
-
----
-# Stock Market Indicies
-
-A stock market index is the composite value of a group of secondary market-traded stocks.
-- Price-weighted index.
-    - The Dow Jones Industrial Average (DJIA), composed of 30 large companies, is the most widely reported stock market index.
-- Value-weighted indexes.
-    - NYSE Composite
-    - Standard & Poor’s 500
-    - NASDAQ Composite
-    - Wilshire 5000
-    - MSCI ACWI
-    
----
-# Stock Market Indicies, Global
-
-- [MSCI World Index, USD](https://www.msci.com/documents/10199/149ed7bc-316e-4b4c-8ea4-43fcb5bd6523)
-- [MSCI Emerging Markets Index, USD](https://www.msci.com/documents/10199/c0db0a48-01f2-4ba9-ad01-226fd5678111)
-
-.center[
-![Stock Purchase](.\image\MSCI ACWI Index Market Allocation Table.jpg)
-]
-
----
-class: inverse, mline, center, middle
-# Stock Market Participants
-
----
-# Stock Market Participants
-
-Table 8-4: Holders of Corporate Stock (in billons of dollars)
-.center[
-![Stock Purchase](.\image\HoldersofCorporateStock.jpg)
-]
- *As of the end of the third quarter. 
- †As of the end of the first quarter.
- 
-Sources: Federal Reserve Board website, various issues. www.federalreserve.gov
-
----
-class: inverse, mline, center, middle
-# Stock Markets Other Issues
-
----
-# Economic Indiciators
-
-- Economic indicators
-    - Stock market indexes might be used to forecast future economic activity.
-    - An increase (decrease) in stock market indexes today potentially signals the market’s expectation of higher (lower) corporate dividends and profits and, in turn, higher (lower) economic growth.
-    - Stock prices are one of the 10 variables included in the index of leading economic indicators used by the Federal Reserve as it formulates economic policy.
-
-
----
-# Market Efficiency .font50[1]
-
-- **Market efficiency** refers to the speed with which financial security prices reflect unexpected news events.
-    - (1) Weak form market efficiency
-        - Concludes that investors cannot make more than the fair (required) return using information based on historical price movements.
-        - Empirical research suggests that markets are weak form efficient.
-    - (2) Semistrong form market efficiency
-        - According to semistrong form market efficiency, investors cannot make more than the fair (required) return by trading on public news releases.
-        - Note that if semistrong form market efficiency holds, weak form market efficiency must hold as well.
----
-# Market Efficiency .font50[2]
-
-- **Market efficiency** refers to the speed with which financial security prices reflect unexpected news events.
-    - (3) Strong form market efficiency
-        - States that stock prices fully reflect all information about the firm, both public and private.
-        - According to strong form efficiency, even learning private information about the firm is of not help in earning more than the required rate of return.
-        - Limited empirical testing, but studies do suggest that corporate insiders earn abnormal returns from trading and the more informed the insider, the more often abnormal returns are earned.
-        - For this reason, laws prohibit investors from trading on the basis of private information.
-
----
-class: inverse, mline, center, middle
-# International Stock Markets
-
----
-# International Stock Markets
-- U.S. stock markets are the world’s largest.
-- European markets have increased their share of the global market with the advent of a common currency, the Euro, but hurt by the Euro area crisis.
-- Growth has strengthened China and Pacific Basin countries.
-- International stock markets allow investors to diversify by holding stocks issued by corporations in foreign countries.
-- International diversification can increase risk due to incomplete information about foreign stocks as well as foreign exchange and political risk.
-
----
-# American Depository Receipts (ADRs)
-
-An ADR is a certificate that represents ownership of a foreign stock.
-- Created by a U.S. bank, after acquiring stock in foreign corporations in their domestic currencies.
-- The bank then issues dollar ADRs backed by the shares of the foreign stock, investors earn returns in U.S. dollars.
-
-There are currently over 3,600 ADRs of foreign corporations available to U.S. investors representing asset values of over $3.1 trillion in 2015.
-
-There are 3 types of ADRs:
-- **Level 1 ADRs** trade OTC and are not required to meet U.S. GAAP nor issue annual reports.
-- **Level 2 ADRs** trade on the exchanges and must meet exchange requirements and adhere to U.S. reporting standards.
-- **Level 3 ADRs** meet the same reporting standards as Level 2 and must register with the SEC and file the equivalent of 10K forms. These firms are allowed to raise public capital in the U.S.
-
----
-class: inverse, mline, center, middle
-# Capital Asset Pricing Model
-
----
-# Capital Asset Pricing Model (CAPM)
-
-- A model that predicts the relationship between the risk and equilibrium required returns on risky assets.
-- Built on the theory that the appropriate risk premium on an asset will be determined by its contribution to the risk of an investor’s overall portfolio.
-
----
-
----
-
 
 ## Two Things
 
