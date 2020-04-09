@@ -1,0 +1,57 @@
+---
+title:  "Minimum Working Example - 10A"
+author: "Larry Tentor"
+date:   "4/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question
+
+```{r Question, eval = FALSE}
+ProsperData$LoanStatus_Cat[ProsperData$LoanStatus == c("Completed")] <- “Completed"
+
+ProsperData$LoanStatus_Cat[ProsperData$LoanStatus == c("Cancelled", "Defaulted", "Past Due (>120 days)", "Past Due (1-15 days)", "Past Due (16-30 days)",
+                                               "Past Due (31-60 days)", "Past Due (61-90 days)", "Past Due (91-120 days)", "Chargedoff","FinalPaymentInProgress")] <- "Not Paid”
+
+ProsperData$LoanStatus_Cat[ProsperData$LoanStatus == c("Current")] <- “Current"
+```
+
+
+## Minimum Working Example 
+
+```{r Dataset}
+example <- read.csv(stringsAsFactors = FALSE, text="Status,Value, StatusGroup
+Completed, 10, 
+Cancelled, 15, 
+Defaulted, 25, 
+ChargedOff, 12, 
+Current, 100, 
+Defaulted, 12, 
+Current, 17, ")
+
+example
+```
+
+This worked as expected...
+
+```{r}
+example$StatusGroup[example$Status == c("Completed")] <- "Completed"
+example
+```
+
+
+```{r}
+
+# This is not doing as you expect... it is reusing vector and comparing 
+# is the first one Cancelled, is the second one Defaulted ... as so on. 
+testCase      <- (example$Status == c("Cancelled", "Defaulted"))
+
+proposedLogic <- (example$Status %in% c("Cancelled", "Defaulted")) #< The %in% is the key...
+
+example$StatusGroup[proposedLogic] <- "Not Paid"
+example
+```
