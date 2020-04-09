@@ -1,0 +1,132 @@
+---
+title:  "Investment Companies -- Answers"
+author: "Larry Tentor"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, metropolis, metropolis-fonts]
+#    css: ["metropolis"]
+#    css: "presentation.css"
+    nature:
+      highlightLines: true
+      highlightStyle: solarized-dark
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+#output: ioslides_presentation
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+class: inverse, mline, center, middle
+# Investment Companies - Answers
+
+---
+# Answer Breakout A (17-Q2)
+
+17-Q2.  Investing in mutual funds allows an investor to achieve a greater level of **diversification** than could likely be achieved by investing in individual stock on one's own account. A single share of a mutual fund could represent ownership in over a thousand different companies. Whereas the investment in the mutual fund might **cost** one hundred dollars, buying over a thousand individual shares of stock could cost over one hundred thousand dollars. Further, since mutual funds can buy and sell securities in large blocks, its **trading cost are much lower** than those of the individual investor buying a few shares at a time.
+
+---
+# Answer Breakout A (17-Q9)
+
+17-Q9.  Mutual funds are **open ended in that the number of shares outstanding fluctuates daily** with the amount of share redemptions and new purchases. Shares are redeemable (meaning that investors buy and sell shares from and to the mutual fund company at their approximate net asset value (NAV, see below) that is set once a day, after markets close). Thus, the **demand for shares determines the number of shares outstanding.** Open-end mutual funds can be compared with regular corporations traded on stock exchanges and to **closed-end investment companies, both of which have a fixed number of shares outstanding** at any given time. Closed-end funds generally do not continuously offer their shares for sale. Rather, they sell a fixed number of shares at one time (in an initial public offering), after which the shares typically trade on a secondary market. For example, real estate investment trusts (REITs) are closed-end investment companies that specialize in investing in real estate company shares and/or in buying mortgages. 
+
+---
+# Answer Breakout A (17-Q9 Continued)
+
+17-Q9. For most **closed-end company funds**, investors generally buy and sell the company’s **shares that trade continuously during the day** on a stock exchange as they do for corporate stocks. Since the number of shares available for purchase, at any moment in time, is fixed, the **NAV of the fund’s shares is determined by the value of the underlying shares as well as by the demand for the investment company’s shares themselves.** When demand for the investment company’s shares is high (as was the case in the mid- and late 1990s when stock markets boomed), because the supply of shares in the fund is fixed the shares can trade for more than the NAV of the securities held in the fund’s asset portfolio. In this case, the fund is said to be trading at a premium (i.e., more than the fair market value of the securities held). When demand for the shares is low (as was the case in 2001 and 2008–2009 when stock market values fell), the value of the closed-end fund’s shares can fall to less than the NAV of its assets. In this case, its shares are said to be trading at a discount (i.e., less than the fair market value of the securities held). In 2016, $266 billion was invested in 545 closed-end funds, compared to $16,350 billion invested in 8,105 open-end mutual funds.
+
+---
+# Answer Breakout B (17-P2)
+a.
+
+$$NAV_{open-end} = \frac{(165 \times \$35 + 30 \times \$75)}{1,000} = \$8.025.$$
+
+$$NAV_{closed-end} = \frac{(75 \times \$35 + 72 \times \$75)}{1,000} = \$8.025.$$
+
+---
+# Answer Breakout B (17-P2 Continued)
+b.
+
+$$NAV_{open-end} = \frac{(165 \times \$36.25 + 30 \times \$72.292)}{1,000} = \$8.15$$
+
+$$ \% \Delta NAV = \frac{(\$8.15 - \$8.025)}{\$8.025}= 1.56\%$$
+
+$$NAV_{closed-end} = \frac{(75 \times \$36.25 + 72 \times \$72.292)}{1,000} = \$7.92377.$$
+
+$$ \% \Delta NAV = \frac{(\$7.92377 - \$8.025)}{\$8.025}= -1.26\%$$
+
+Thus, the changes in prices lead to different effects. Fund A saw its NAV increase while Fund B saw its decline. The reason for this is because Fund B had more shares that experienced a price decline than a price increase.
+
+---
+# Answer Breakout B (17-P2 Continued)
+c.
+  
+$$NAV_{open-end} = \frac{((165 + 155) \times \$35 + 30 \times \$75)}{1,000+676} = \$8.025$$
+
+$$ \% \Delta NAV = \frac{(\$8.025 - \$8.025)}{\$8.025}= 0.00\%$$
+
+---
+# Answer Breakout C (17-Q12)
+
+17-12.  The investor receives 
+
+- the **income and dividends** paid by the companies,
+- **capital gains** from the sale of securities by the mutual fund at more than their purchase price, and 
+- the sale of additional mutual fund shares and the profitable investment made with the funds from these shares can produce a **capital appreciation** that adds to the value of all shares in the mutual fund.
+
+???
+
+Larry check the third one out?
+
+---
+# Answer Breakout C (17-Q14)
+
+17-14.  It is quite likely that people in the **early years of investing**, 20 and 30 years old, would prefer a **fairly aggressive**, high growth type of fund. As these people mature into their forties and fifties and retirement becomes a bit more imminent, they **may switch to a fund with more of a balance between income and growth.** In their later years, investors may try to **protect their saving by switching to higher yield stock and bond funds.** 
+
+---
+# Answer Breakout C (17-Q21)
+
+17-21. Hedge funds are investment pools that invest funds for (wealthy) individuals and other investors (e.g., commercial banks). They are similar to mutual funds in that they are pooled investment vehicles that accept investors’ money and generally invest it on a collective basis. Hedge funds, however, are **not subject to the numerous regulations that apply to mutual funds** for the protection of individuals, such as regulations requiring a certain degree of liquidity, regulations requiring that mutual fund shares be redeemable at any time, regulations protecting against conflicts of interest, regulations to ensure fairness in the pricing of funds shares, disclosure regulations, and regulations limiting the use of leverage. Further, hedge funds do not have to disclose their activities to third parties. Thus, they offer a high degree of privacy for their investors. Until 2010, hedge funds were not required to register with the SEC. Thus, they were subject to virtually no regulatory oversight (e.g., by the SEC under the Securities Act and Investment Advisers Act) and generally took significant risk. Even after 2010, hedge funds offered in the United States avoid regulations by limiting the asset size of the fund.
+
+---
+# Answer Breakout C (17-Q21 Continued)
+
+Historically, hedge funds avoided regulations by **limiting the number of investors to less than 100 individuals** (below that required for SEC registration), who must be deemed **accredited investors.** To be accredited, an investor must have a net worth of over $1 million or have an annual income of at least $200,000 ($300,000 if married). Institutional investors can be qualified as accredited investors if total assets exceed $5 million. These stiff financial requirements allowed hedge funds to avoid regulation under the theory that individuals with such wealth should be able to evaluate the risk and return on their investments. According to the SEC, these types of investors should be expected to make more informed decisions and take on higher levels of risk.
+
+Because hedge funds have been exempt from many of the rules and regulations governing mutual funds, they can use aggressive strategies that are unavailable to mutual funds, including **short selling, leveraging, arbitrage,**. Further, since hedge funds that do not exceed $100 million in assets under management do not register with the SEC, their actual data cannot be independently tracked. Therefore, much hedge fund data are self-reported.  It is estimated that in 2016 there were over 10,000 hedge funds in the world, with managed assets estimated at $2.98 trillion. 
+
+---
+# Answer Breakout D (17-P7)
+Initial Investment
+
+|  |  |  |
+|--|--|--|
+|Initial investment in the fund	|=| $10,000 |
+|     Front-end load of 4.00% 	|=|   -$400 |
+|    Total investable funds		  |=|  $9,600 |
+
+Value at end of year one
+
+|  |  |  |  |  |
+|--|--|--|--|--|
+|Investment value at end of year one	   |=| $9,600 x 1.0500  |=| $10,080.00 |
+|Operating expenses based on average NAV |=| $9,840 x 0.0085	|=| -$83.64 |
+|Net investable funds for year two			 |=|                  |=| $9,996.36 |
+
+---
+# Answer Breakout D (17-P7 Continued)
+Value at end of year two
+
+|  |  |  |  |  |
+|--|--|--|--|--|
+|Investment value at end of year two	   |=| $9,996.36 x 1.0500  |=| $10,496.18 |
+|Operating expenses based on average NAV |=| $10,246.27 x .0085	|=| -$87.09 |
+|Net investment at end of year two			 |=|                  |=| $10,409.09 |
+
+Average annual compound return:
+
+	$10,409.09 = $10,000 (1 + g)^2  => g = 2.025%
+
+---
