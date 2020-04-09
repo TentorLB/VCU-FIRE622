@@ -41,6 +41,9 @@ There has been tremendous activity at the Federal Reserve Bank during March to h
     - The Federal Reserve on Tuesday announced the establishment of a temporary **repurchase agreement facility for foreign and international monetary authorities (FIMA Repo Facility)** to help support the smooth functioning of financial markets, including the U.S. Treasury market, and thus maintain the supply of credit to U.S. households and businesses. The FIMA Repo Facility will allow FIMA account holders, which consist of central banks and other international monetary authorities with accounts at the Federal Reserve Bank of New York, to enter into repurchase agreements with the Federal Reserve. In these transactions, FIMA account holders temporarily exchange their U.S. Treasury securities held with the Federal Reserve for U.S. dollars, which can then be made available to institutions in their jurisdictions. This facility should help support the smooth functioning of the U.S. Treasury market by **providing an alternative temporary source of U.S. dollars other than sales of securities** in the open market. It should also serve, along with the U.S. dollar liquidity swap lines the Federal Reserve has established with other central banks, to help ease strains in global U.S. dollar funding markets.
 
 ☒ Federal Reserve Activity Update on 31 March 2020
+---
+class: inverse, mline, center, middle
+# Security Exchange Commission
 
 ---
 # Security Exchange Commission
@@ -175,9 +178,9 @@ class: inverse, mline, center, middle
 ## Division of Trading and Markets
 - Maintaining fair, orderly, and efficient markets.
 - carrying out the Commission's financial integrity program for broker-dealers;
-reviewing (and in some cases approving, under authority delegated from the Commission) proposed new rules and proposed changes to existing rules filed by the SROs;
-assisting the Commission in establishing rules and issuing interpretations on matters affecting the operation of the securities markets; and
-surveilling the markets.
+- reviewing (and in some cases approving, under authority delegated from the Commission) proposed new rules and proposed changes to existing rules filed by the SROs;
+- assisting the Commission in establishing rules and issuing interpretations on matters affecting the operation of the securities markets; and
+- surveilling the markets.
 
 ---
 # SEC Organization
@@ -243,6 +246,10 @@ Administrative Action
 - Office of the Advocate for Small Business Capital Formation
 
 ---
+class: inverse
+# Zoom Poll: SEC Organization
+
+---
 # Zoom Breakout Room
 
 - I am about to assign a problem for you.
@@ -254,21 +261,18 @@ Administrative Action
 
 ---
 class: inverse
-# Problem A
+# Problem 10-A
 
-You buy a stock for $50 per share and sell it for $53 after holding it for slightly over a year and collecting a $2.00 per share dividend. Your ordinary income tax rate is 28 percent and your capital gains tax rate is 20 percent. Your after-tax rate of return is ___________________.
+.font150[.center[An investment bank pays $23.50 per share for 3,000,000 shares of the KDO company.  It then sells these shares to the public for $25.  How much money does KDO recieve? What is the invesment banker's profit? What is the stock price of KDO?]]
 
 ---
 class: inverse
-# Answer A
+# Answer 10-A
 
 .font150[.center[
-$r_t = \frac{P_t-P_{t-1}}{P_{t-1}}×(1-T_{cg})+\frac{D_t}{P_{t-1}}×(1-T_{div})$
+KDO pays $70,500,000 ($23.50 x 3,000,000) for the shares and receives $75,000,000 ($25 x 3,000,000) on the sale. The investment bank’s profit is $4,500,000, and the stock price is $25 since that is what the public pays. From the perspective of KDO, the $4,500,000 represents the commission that it must pay to issue the stock.
 ]]
 
-$r_t = \frac{53-50}{50}×(1-0.20)+\frac{2.00}{50}×(1-0.28)$
-$r_t = 0.048 + 0.0288$
-$r_t = 0.0768 = 7.68\%$
 
 ---
 
