@@ -1,0 +1,473 @@
+---
+title:  "Foreign Exchange"
+author: "Larry Tentor"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, metropolis, metropolis-fonts]
+#    css: ["metropolis"]
+#    css: "presentation.css"
+    nature:
+      highlightLines: true
+      highlightStyle: solarized-dark
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+#output: ioslides_presentation
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+class: inverse, mline, center, middle
+
+# Attribution
+
+McGraw Hill has provided power point slides that were substantially used to construct this R Markdown deck.
+
+---
+class: inverse, mline, center, middle
+# Foreign Exchange
+
+---
+# Foreign Exchange
+
+- Overview of Foreign Exchange
+- Quote Conventions
+- Foreign Exchange History
+- FX Theory
+    - Purchasing Power Parity
+    - Interest Rate Parity
+- Equity Index Exposure
+
+
+---
+class: inverse, mline, center, middle
+# Overview of Foreign Exchange
+
+---
+# Overview of Foreign Exchange
+Today’s companies compete and operate globally.
+Events and movements in foreign financial markets can affect the profitability and performance of U.S. firms.
+- Firms with only U.S. operations still face foreign competition.
+    - For example, a U.S. resort competes with European resorts even though the U.S. firm has no foreign operations.
+    - If the dollar strengthens against the euro, the cost to come to the U.S. resort increases for Europeans and can reduce the number of foreign visitors at the U.S. resort.
+
+---
+# Overview of Foreign Exchange - 2
+
+Foreign trade is possible because of the ease with which foreign currencies can be exchanged,
+- U.S. imported $3.7 trillion worth of goods in 2015.
+- U.S. exported $3.3 trillion worth of goods in 2015.
+
+If a country imports more than they export, the supply of that country’s currency in the foreign exchange markets will exceed demand for the country’s currency and the value of the currency will tend to fall, all else equal.
+
+---
+# Overview of Foreign Exchange - 3
+
+Internationally active firms often seek to hedge their foreign currency exposure
+- By using derivatives such as swaps and futures.
+- By borrowing money in the same currency in which they are earning revenues.
+- By locating production facilities (and incurring local currency costs) where they are earning revenues.
+
+---
+# Foreign Exchange Markets
+A weakening dollar can generate inflation in the U.S.
+Toyota sells Camrys in the U.S. for $23,000 when the exchange rate is 90¥ per dollar. Toyota receives ¥2,070,000 in revenue per car sold.
+
+- If the dollar weakens and is worth only 80¥ per dollar, how many yen will Toyota receive per car sold?
+- What price would Toyota have to charge to receive the same amount of yen as before?
+
+--
+
+80 ¥/$ * 23,000 $ = 1,840,000 ¥
+
+2,070,000 ¥ / 80 ¥/$ = 25,875 $
+
+(25,875 $ - 23,000 $) / (23,000 $) = 12.5% price increase 
+
+---
+# Foreign Exchange
+
+**Foreign exchange markets** are markets in which one currency is exchanged for another
+- **Spot** foreign exchange transactions involve the immediate exchange of currencies at current exchange rates, typically 1-2 day settlement.
+- **Forward** foreign exchange transactions involve the exchange of currencies at a specified exchange rate at a specific date in the future.
+
+Foreign exchange markets facilitate:
+- Foreign trade.
+- Raising capital in foreign markets.
+- The transfer of risk between market participants.
+- Speculation in currency values.
+
+A **foreign exchange rate** is the price at which one currency can be exchanged for another currency.
+
+
+
+---
+# Foreign Exchange Risk
+
+**Foreign exchange risk** is the risk that cash flows will vary as the actual amount of U.S. dollars received on a foreign investment changes due to a change in foreign exchange rates.
+
+**Currency depreciation** occurs when a country’s currency falls in value relative to other currencies.
+- Domestic goods become cheaper for foreign buyers.
+- Foreign goods become more expensive for foreign sellers.
+
+**Currency appreciation** occurs when a country’s currency rises in value relative to other currencies.
+
+---
+class: inverse, mline, center, middle
+# Quote Conventions
+
+---
+# Direct Quotes
+
+- Foreign exchange quote expressed as 1 unit of foreign currency for a variable amount of domestic currency.  This varies based on home country.
+  - In the U.S. a direct quote of US dollars to Canadian dollars: 
+      - U.S. $0.79394 = C $1
+  - In Canada the direct quote of Canadian dollars to US dollars: 
+
+--
+      - C $1.25953 = U.S. $1
+  - Also known as `price quotation`
+
+---
+# Indirect Quotes
+
+- Foreign exchange quote expressed as 1 unit of domestic currency for a variable amount of foreign currency.  Again this varies based on the home country.
+  - In the U.S. an indirect quote of US dollars to Canadian dollars: 
+      - C $1.25953 = U.S. $1
+  - In Canada an indirect quote of Canadian dollars to US dollars: 
+
+--
+      - U.S. $0.79394 = C $1
+  - An indirect quote is the recipical of the direct quote.
+  - Also known as `quantity quotation`
+
+---
+# Quote Check
+For a U.S. domestic investor are these quotes direct or indirect?
+
+.pull-left[
+- [1.2617 USD/GBP](https://fred.stlouisfed.org/series/DEXUSUK)
+- [1.3967 CAD/USD](https://fred.stlouisfed.org/series/DEXCAUS)
+- [108.97 JPY/USD](https://fred.stlouisfed.org/series/DEXJPUS)
+- [1.0971 USD/EUR](https://fred.stlouisfed.org/series/DEXUSEU)
+]
+--
+
+.pull-right[
+- Direct
+- Indirect
+- Indirect
+- Direct
+]
+
+- If corporation A requires 10,000 GBP how many USD will need to be converted?
+
+--
+
+10,000 GBP * 1.2617 USD/GBP = 12,617 USD
+
+- If coporation B requires 250,000 CAD to filfill a contract, how many USD?
+
+--
+
+250,000 CAD / (1.3967 CAD/USD) = 178,993.34 USD
+
+---
+
+[Federal Reserve Bank Currency Quotes](https://fred.stlouisfed.org/categories/94)
+
+A company based in Switzerland is manufacuring in Denmark a product for sale in the United States.  The US sales for 2018-Q1 is 1,300,000 USD for the quarter and has transportation costs of 175,000 USD and a tariff of 35,000 USD.  To fund the plant operations in Denmark, 1,200,000 DNK must be transfered back.  Corporate spent 125,000 CHF in local expenses, how much cash flow comes back to the corporation in CHF?
+
+--
+
+What date should we use?
+
+--
+
+End of Quarter: March 31, 2018
+
+(1,300,000 USD - 175,000 USD - 35,000 USD) = 1,090,000 USD
+
+--
+
+1,200,000 DNK / (6.067 DNK/USD) = 197,791.33 USD
+
+--
+
+(1,090,000 USD - 197,791.33 USD) * (0.9532 CHF/USD) = 850,453.30 CHF - 125,000 CHF = 725,453.30 CHF
+
+---
+class: inverse, mline, center, middle
+# Foreign Exchange History
+
+---
+# Foreign Exchange History
+
+Foreign exchange markets operated under the gold standard through most of the 1800s.
+U.K. was the dominant international trading country until WWII forced it to deplete its gold reserves to purchase arms and munitions from the U.S.
+
+- 1944: **Bretton Woods Agreement** fixed exchange rates within 1% bands.
+- 1971: **Smithsonian Agreement** increased bands to 2 ¼%.
+- 1973: **Smithsonian Agreement II** introduced “managed” free float.
+
+[Bank of International Settlement](https://www.bis.org/statistics/rpfx19.htm)
+-  Highlights from the 2019 Triennial Survey 
+
+---
+# The European Currency (€)
+
+The European Community (EC) was formed in 1967 by consolidating three smaller communities
+- European Coal and Steel Community.
+- European Economic Market.
+- European Atomic Energy Community.
+
+The **Maastricht Treaty** of 1993 set the stage for the eventual creation of the Euro
+
+The Euro (€), the currency of the European Union (EU), began trading on January 1, 1999 when twelve European countries fixed their currencies’ exchange ratios
+Euro notes and coins began circulating on January 1, 2002
+
+The U.S. dollar depreciated against the euro in the mid-2000s, but generally strengthened during the European sovereign debt crisis.
+Interest rate differentials play a large role in euro/$ exchange rate movements, except during European sovereign debt crisis.
+
+The Central Bank of Russia has replaced some of its U.S. dollar reserves with euros, as has the Chinese Central Bank.
+In 2016, 43.8% of foreign exchange transactions were denominated in dollars, compared to 15.6% denominated in euros.
+
+--- 
+# The Yuan
+
+In the early 2000s, the international community pressured China to allow its currency (the yuan) to float freely instead of pegging it to the U.S. dollar:
+- Chinese exports were relatively cheap, which hurt domestic manufacturing in other countries, especially the U.S.
+- The yuan was mostly pegged to either the euro or the dollar from 2009 to 2005, and during the crisis from 2008 to 2010.
+- 2009 – Hong Kong was allowed to begin trading the yuan offshore.
+- January 2011 – Chinese based companies were allowed to use the yuan off the mainland and America was allowed to begin yuan trading.
+- October 2011 – foreign companies can settle direct investment accounts on the mainland in yuan.
+- February 2013 - the CME Group initiated trading in yuan (or renminbi) futures.
+- November 2015 – the IMF designated the Chinese yuan an IMF-accepted reserve currency, along with the US dollar, Japanese Yen, British Pound Sterling, and euro in the Special Drawing Right (SDR) basket.
+
+---
+class: inverse, mline, center, middle
+# FX Theory
+
+---
+# Purchasing Power Parity (PPP) 1
+
+**Purchasing power parity** (PPP) is the theory explaining the change in foreign currency exchange rates as inflation rates in the countries change.
+
+$$
+\begin{align}
+i_{US}    &= \text{Interest rate in the United States} \\
+i_{for}   &= \text{Interest rate in foreign country} \\
+IP_{US}   &= \text{Inflation rate in the United States} \\
+IP_{for}  &= \text{Inflation rate in foreign country} \\
+RFR_{US}  &= \text{Real risk-free rate in the United States} \\
+RFR_{for} &= \text{Real risk-free rate in foreign country} \\
+\\
+i_{US} &\stackrel{\mathrm{def}}{=} IP_{US} + RFR_{US} \\
+i_{for} &\stackrel{\mathrm{def}}{=} IP_{for} + RFR_{for} \\
+\\
+RFR_{US} &= RFR_{for} \text{, assumed real rate equivalent worldwide} \\ 
+\\
+\therefore i_{US} − i_{for} &= IP_{US} − IP_{for} \\
+\\
+\end{align}
+$$
+---
+# Purchasing Power Parity (PPP) 2
+
+
+The PPP theorem says the change in the exchange rate between two countries' currencies is proportional to the difference in the inflation rates in the two countries:
+
+$IP_{US}-IP_{for}=\frac{\Delta S_{\frac{US}{for}}}{S_{\frac{US}{for}}}$
+
+- Law of One Price
+- Big Mac Index
+
+---
+# Interest Rate Parity
+
+---
+class: inverse, mline, center, middle
+# Equity Index FX Exposure
+
+---
+# .font50[Equity Developed Markets by Index Provider - Pacific]
+
+Region   | Country     | ISO Country-3 | Currency | FTSE | MSCI | S&P  | STOXX 
+---------|-------------|---------------|----------|------|------|------|-------
+Pacific  | Australia   | AUS           | AUD      |✔|✔|✔|✔
+Pacific  | Hong Kong   | HKG           | HKD      |✔|✔|✔|✔
+Pacific  | Japan       | JPN           | JPY      |✔|✔|✔|✔  
+Pacific  | New Zealand | NZL           | NZD      |✔|✔|✔|✔  
+Pacific  | Singapore   | SGP           | SGD      |✔|✔|✔|✔  
+Pacific  | South Korea | KOR           | KRW      |✔|✘|✔|✘
+
+---
+# .font50[Equity Developed Markets by Index Provider - Middle East]
+
+Region      | Country   | ISO Country-3 | Currency | FTSE | MSCI | S&P  | STOXX 
+------------|-----------|---------------|----------|------|------|------|-------
+Middle East | Israel    | ISR           | ILS      |✔|✔|✔|✔  
+
+---
+# .font50[Equity Developed Markets by Index Provider - EMEA - 1]
+
+Region   | Country   | ISO Country-3 | Currency | FTSE | MSCI | S&P  | STOXX 
+---------|-----------|---------------|----------|------|------|------|-------
+Europe   | Austria	 | AUT           | EUR      |✔|✔|✔|✔
+Europe   | Belgium   | BEL           | EUR      |✔|✔|✔|✔
+Europe   | Denmark   | DNK           | DKK      |✔|✔|✔|✔  
+Europe   | Finland	 | FIN           | EUR      |✔|✔|✔|✔  
+Europe   | France	   | FRA           | EUR      |✔|✔|✔|✔  
+Europe   | Germany	 | DEU           | EUR      |✔|✔|✔|✔  
+Europe   | Ireland	 | IRL           | EUR      |✔|✔|✔|✔  
+Europe   | Italy     | ITA           | EUR      |✔|✔|✔|✔  
+
+---
+# .font50[Equity Developed Markets by Index Provider - EMEA - 2]
+
+Region   | Country   | ISO Country-3 | Currency | FTSE | MSCI | S&P  | STOXX 
+---------|-----------|---------------|----------|------|------|------|-------
+Europe   | Luxembourg     | LUX      | EUR      |✔|✔|✔|✔  
+Europe   | Netherlands    | NLD      | EUR      |✔|✔|✔|✔  
+Europe   | Norway	        | NOR      | NOK      |✔|✔|✔|✔  
+Europe   | Poland	        | POL      | PLN      |✔|✘|✘|✔
+Europe   | Portugal	      | PRT      | EUR      |✔|✔|✔|✔  
+Europe   | Spain          | ESP      | EUR      |✔|✔|✔|✔  
+Europe   | Sweden         | SWE      | SEK      |✔|✔|✔|✔  
+Europe   | Switzerland    | CHE      | CHF      |✔|✔|✔|✔  
+Europe   | United Kingdom	| GBR      | GBP      |✔|✔|✔|✔  
+
+
+---
+# .font50[Equity Developed Markets by Index Provider - Americas]
+
+Region   | Country   | ISO Country-3 | Currency | FTSE | MSCI | S&P  | STOXX 
+---------|-----------|---------------|----------|------|------|------|-------
+Americas | Canada    | CAN          | CAD 	  |✔|✔|✔|✔ 
+Americas | United States | USA      | USD     |✔|✔|✔|✔ 
+
+---
+# MSCI World ETF
+
+- [MSCI World ETF](https://www.ishares.com/us/literature/fact-sheet/urth-ishares-msci-world-etf-fund-fact-sheet-en-us.pdf)
+
+---
+class: inverse
+# Problem A
+
+9-P4. Bank USA recently purchased $10 million worth of euro-denominated one-year CDs that pay 10 percent interest annually. The current spot rate of U.S. dollars for euros is $1.104/€1.
+
+- Is Bank USA exposed to an appreciation or depreciation of the dollar relative to the euro?
+- What will be the return on the one-year CD if the dollar appreciates relative to the euro such that the spot rate of U.S. dollars for euros at the end of the year is $1.004/€1?
+- What will be the return on the one-year CD if the dollar depreciates relative to the euro such that the spot rate of U.S. dollars for euros at the end of the year is $1.204/€1?
+
+---
+
+# Answer A
+
+9-P4.
+
+- Bank USA is exposed to an appreciation of the dollar relative to the euro.
+- Bank USA converts the $10 million to euros as follows:
+      
+    $10m/1.104 = €9,057,971 </br>
+    At the end of the year Bank USA gets back principal and interest on €9,057,971 CDs and converts them to dollars as follows: </br>
+    €9,057,971 x (1.1) x 1.004 = $10,003,623 </br>
+    The resulting return is ($10,003,623 - $10,000,000)/$10,000,000 = 0.036% </br>
+      
+- Bank USA converts the $10 million to euros as follows:
+    $10m/1.104 = €9,057,971  </br>
+    At the end of the year Bank USA gets back principal and interest on €9,057,971 CDs and converts them to dollars as follows:  </br>
+    €9,057,971 x (1.1) x 1.204 = $11,996,377  </br>
+    The resulting return is ($11,996,377 - $10,000,000)/$10,000,000 = 19.964%  </br>
+
+---
+class: inverse
+# Problem Breakout B
+
+If the interest rate in the United Kingdom is 8 percent, the interest rate in the United States is 10 percent, the spot exchange rate is $1.35/£1, and interest rate parity holds, what must be the one-year forward exchange rate? 
+
+Suppose all of the above conditions hold except that the forward rate of exchange is also $1.35/£1. How could an investor take advantage of this situation?
+
+???
+
+Since direct exchange rates are being used, (1+rUS) = 1/S x (1+rUK) x F
+
+1.10 = 1/1.35 x 1.08 x F
+
+F = 1.10 / (1/1.35 x 1.08) = 1.10 x 1.35 / 1.08 = $1.375/£1
+
+---
+# Answer B - 1
+
+$$
+\begin{align}
+V_{0,USD} &= 1000 \text{ USD} \\
+V_{1,USD} &= 1000 \text{ USD} \times (1 + 0.10) \\
+          &= 1100 USD  \\
+\\
+V_{0,GBP} &= 1000 \text{ USD} \times \frac{1 \text{ GBP}}{1.35 \text{ USD}}  \\
+          &= 740.74 \text{ GBP} \\
+V_{1,GBP} &= 740.74 \text{ GBP} \times (1 + 0.08) \\
+          &= 800 \text{ GBP} \\
+\\
+\text{indifferent forward rate}\\
+f         &= 1100 \text{ USD} / 800 \text{ GBP} \\
+          &= 1.375 \frac{\text{USD}}{\text{GBP}} \\
+\\
+\end{align}
+$$
+---
+# Answer B - 2a
+
+Suppose all of the above conditions hold except that the forward rate of exchange is also $1.35/£1. How could an investor take advantage of this situation?
+
+In this case, interest rates in the U.S. are "too high" relative to the U.K. An investor could take advantage of this by borrowing pounds, converting to dollars in the spot market while simultaneously selling dollars in the forward market. In one year, the investor could deliver the dollars for pounds, pay off the loan, and have extra pounds left over.
+
+---
+# Answer B - 2b
+
+Step 1: Borrow GBP
+
+$$
+\begin{align}
+V_{0,GBP} &= -740.74 \text{ GBP} \\
+V_{1,GBP} &= -740.74 \text{ GBP} \times (1 + 0.08) \\
+          &= -800 \text{ GBP} \\
+\end{align}
+$$
+
+Step 2: Convert to USD
+$$
+\begin{align}
+V_{0,USD} &= 740.74 \div \frac{1 \text{ GBP}}{1.35 \text{ USD}} \\
+          &= 1000 \text{ USD} \\
+V_{1,USD} &= 1000 \times (1 + 0.10) \\
+          &= 1100 USD  \\
+\end{align}
+$$
+---
+# Answer B - 2c
+
+Step 3: Convert t=1 USD back at initial time
+
+$$
+\begin{align}
+f         &= 1.3 \frac{\text{USD}}{\text{GBP}} \\
+\tilde{V}_{1,GBP} &= 1100 \text{ USD} \div \frac{1 \text{ GBP}}{1.3 \text{ USD}} \\
+          &= 846.15 \text{ GBP} \\
+\\
+\end{align}
+$$
+Step 4: Calculate profit at t=1
+
+$$
+\begin{align}
+\tilde{V}_{1,GBP} + V_{1,GBP} &= -800 \text{ GBP} + 846.15 \text{ GBP} \\
+          &= 46.15 \text{ GBP}\\
+\\
+\end{align}
+$$
+Note all these transactions happen at t=0 so this is a true risk-less arbitrage that can not persist in the market.

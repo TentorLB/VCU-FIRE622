@@ -1,0 +1,63 @@
+---
+title:  "Minimum Working Example - 10B"
+author: "Larry Tentor"
+date:   "4/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Sample Data - DateTime
+
+```{r sampleData}
+sampleDateTime <- read.csv(stringsAsFactors = FALSE, text = 'DateTime
+2007-08-26 19:09:29.263000000
+2014-02-27 08:28:07.900000000
+2007-01-05 15:00:47.090000000
+2012-10-22 11:02:35.010000000
+2013-09-14 18:38:39.097000000')
+
+sampleDateTime
+```
+
+
+## Date Time Example {.tabset .tabset-pills}
+
+### Date Only - Purge Time
+
+If you can accept the date only losing the time you may use this.
+
+```{r ConvertDate}
+
+DateSet <- as.Date(sampleDateTime$DateTime)
+DateSet
+
+class(DateSet)
+```
+
+### Date Time in base R
+
+If you require the full date time you may use a different conversion function; yet this leaves it in character type.
+
+```{r ConvertDateTime}
+DateTimeSet <- strftime(sampleDateTime$DateTime)
+DateTimeSet
+
+class(DateTimeSet)
+```
+
+### Date Time extra package
+
+I'd suggest another package that deals with just this type of datetime more extensively if necessary for properly dealing with datetime values.
+
+```{r LubridatePackage}
+#install.packages("lubridate")
+library(lubridate)
+DateTimeSet2 <- parse_date_time(sampleDateTime$DateTime, orders = c("ymd HMS"))
+DateTimeSet2
+
+class(DateTimeSet2)
+```
+

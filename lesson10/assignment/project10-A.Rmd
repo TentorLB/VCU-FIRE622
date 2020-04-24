@@ -67,6 +67,14 @@ We seek to understand the following questions for the loans.
     - Create a pivot table showing "Year" by "Loan Status Grouping"
     - **New** Look up function **spread**
     - Calculate the default rate by origination year.
+    
+    year amount status
+    record 1
+    record 2
+    
+    year current defaulted closed
+    2005   20      40         60
+    2006   10      20         40
 
 6. Select an aspect of the dataset to explore.
     - A more detailed analysis will generate more points.
