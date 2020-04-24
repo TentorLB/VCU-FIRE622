@@ -1,0 +1,64 @@
+---
+title:  "Minimum Working Example - 10C"
+author: "Larry Tentor"
+date:   "4/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+# Convert Stacked data to wide/pivot format
+
+## Sample Data - Stacked
+
+```{r sampleData}
+sampleData <- read.csv(stringsAsFactors = FALSE, text = '
+Category1, Category2, Value1, Value2
+A, X, 20, 22
+A, Y, 17, 14
+A, Z, 13, 6
+B, X, 12, 22
+B, Y, 15, 18
+B, Z, 13, 21')
+
+sampleData
+
+stocks <- data.frame(
+  time = as.Date('2009-01-01') + 0:9,
+  X = rnorm(10, 0, 1),
+  Y = rnorm(10, 0, 2),
+  Z = rnorm(10, 0, 4)
+)
+stocks
+```
+
+
+## Convert Data to wide format {.tabset .tabset-pills}
+
+### spread()
+
+Make certain to reduce dataset to only fields of interest so results are as desired.  Also data must be grouped up prior to sending to spread.
+
+```{r spread}
+
+WideSet <- sampleData %>%
+  select(c("Category1","Category2","Value1")) %>%
+  spread(Category2, Value1)
+
+WideSet
+```
+
+### pivot_wider()
+
+
+```{r pivot_wider}
+
+WideSet <- sampleData %>%
+  select(c("Category1","Category2","Value1")) %>%
+  pivot_wider(names_from = Category2, values_from = Value1)
+
+WideSet
+```

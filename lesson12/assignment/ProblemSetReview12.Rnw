@@ -1,0 +1,232 @@
+\documentclass[answers]{exam}
+
+\usepackage{tabularx}
+\usepackage{csquotes}
+
+\pagestyle{headandfoot}
+\headrule
+\firstpageheader{FIRE 622}{Problem Set Review}{\today}
+\runningheader{FIRE 622}{Problem Set Review, Page \thepage\ of \numpages}{\today}
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\begin{solution}
+<<setupknitr, results=hide>>= 
+knitr::knit_hooks$set(document=function(x){sub('\\usepackage{framed}', '', x, fixed=TRUE)}) 
+@
+\end{solution}
+
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+Answer the questions in the spaces provided on the
+question sheets. If you run out of room for an answer,
+continue on the back of the page or staple additional sheets.}}}
+\end{center}
+\vspace{0.1in}
+Grading grid.
+
+1. \_\_\_\_\_/2  \quad \quad  5. \_\_\_\_\_/4 
+
+2. \_\_\_\_\_/4  \quad \quad  6. \_\_\_\_\_/2
+
+3. \_\_\_\_\_/2  \quad \quad  7. \_\_\_\_\_/2
+
+4. \_\_\_\_\_/4  \quad \quad  8. \_\_\_\_\_/2
+
+\vspace{0.1in}
+\makebox[\textwidth]{Name and section:\enspace\hrulefill}
+\vspace{0.3in}
+
+\begin{solution}
+These are packages that must be loaded for the calculation of the answers.
+<<setup, echo=TRUE,tidy=FALSE,warning=FALSE,results=tex>>=
+# R Package Dependancies
+suppressPackageStartupMessages(library(quantmod))
+suppressPackageStartupMessages(library(Quandl))
+suppressPackageStartupMessages(library(FinCal))
+suppressPackageStartupMessages(library(xtable))
+suppressPackageStartupMessages(library(tidyverse))
+@
+\end{solution}
+
+
+\begin{questions}
+
+\question[2]
+[8-P7] At the beginning of the year, you purchased a share of stock for \$35. Over the year the dividends paid on the stock were \$2.75 per share. 
+
+[Saunders \& Cornett, p280 Problem 7]
+\begin{parts}
+\part[1]
+Calculate the return if the price of the stock at the end of the year is \$30.
+\begin{solution}[1.5in]
+Return = \$2.75/\$35.00 + (\$30.00 - \$35.00)/\$35.00) = -6.43\%
+\end{solution}
+\part[1]
+Calculate the return if the price of the stock at the end of the year is \$40.
+\begin{solution}[1.5in]
+Return = \$2.75/\$35.00 + (\$40.00 - \$35.00)/\$35.00) = 22.14\%
+\end{solution}
+\end{parts}
+
+\newpage
+
+\question[4]
+[8-P4] Suppose you own 100,000 shares of common stock in a firm with 12.5 million total shares outstanding. The firm announces a plan to sell an additional 2.5 million shares through a rights offering. The market value of the stock is \$22.50 before the rights offering and the new shares are being offered to existing shareholders at a \$2.40 discount.
+\begin{parts}
+\part[1]
+If you exercise your preemptive rights, how many of the new shares can you purchase?
+\begin{solution}[1.5in]
+You own 100,000 shares of common stock in a firm with 12.5 million total shares outstanding. The firm announces its plan to sell an additional 2.5 million shares through a rights offering. Thus, each shareholder will be sent 0.2 rights for each share of stock owned. One right can then be exchanged for one share of common stock in the new issue.
+
+Your current ownership interest is 0.80 percent (100,000/12.5 million) prior to the rights offering and you receive 20,000 rights (100,000 x 0.2) allowing you to purchase 20,000 of the new shares. If you exercise your rights (buying the 20,000 shares) your ownership interest in the firm after the rights offering is still 0.80 percent ((100,000 + 20,000)/(12.5 million + 2.5 million)).
+\end{solution}
+\part[1]
+What is the market value of the stock after the rights offering?
+\begin{solution}[1.5in]
+The market value of the common stock is \$22.50 before the rights offering, or the total market value of the firm is \$281.25 million (\$22.50 x 12.5 million), and the 2.5 million new shares are offered to current stockholders at a \$2.40 discount, or for \$20.10 per share. The firm receives \$50.25 million. The market value of the firm after the rights offering is \$331.50 million (the original \$281.25 million plus the \$50.25 million from the new shares), or \$22.10 per share (\$331.50 million / 15 million).
+\end{solution}
+\part[1]
+What is your total investment in the firm after the rights offering? How is your investment split between original shares and new shares?
+\begin{solution}[1.5in]
+Your 100,000 shares are worth \$2.25 million (\$22.50 x 100,000) before the rights offering, and you can purchase 20,000 additional shares for \$402,000 (\$20.10 x 20,000). Thus, your total investment in the firm after the rights offering is \$2.652 million, or \$22.10 per share (\$2.652 million / 120,000).
+\end{solution}
+\part[1]
+If you decide not to exercise your preemptive rights, what is your investment in the firm after the rights offering? How is this split between old shares and rights
+\begin{solution}[1.5in]
+Your 100,000 shares are worth \$2.25 million (\$22.50 x 100,000) before the rights offering. Since each right allows a stockholder to buy a new share for \$20.10 per share when the shares are worth \$22.10, the value of one right should be \$2.00. Should you sell your rights rather than exercise them, you maintain your original 100,000 shares of stock. These have a value after the rights offering of \$2.210 million (100,000 x 22.10). You also sell your rights for \$0.04 million (20,000 x \$2.00). You have a total of \$2.25 million, or have lost no wealth.
+\end{solution}
+\end{parts}
+
+\newpage
+
+\question[2]
+[14-Q9] How and why is credit union membership limited? (LG 14-5)
+
+\begin{solution}[1.5in]
+Credit unions (CUs) are nonprofit depository institutions mutually organized and owned by their members (depositors). They were established in the United States in the early 1900s as self-help organizations. The first credit unions were organized in the Northeast, initially in Massachusetts. Members paid an entrance fee and put up funds to purchase at least one deposit share. Members were expected to deposit their savings in the CU, and these funds were lent only to other members. This limit in the customer base of CUs continues today as, unlike commercial banks and savings institutions, CUs are prohibited from serving the general public. Rather, in organizing a credit union, members are required to have a common bond of occupation (e.g., police CUs), association (e.g., university-affiliated CUs), or cover a well-defined neighborhood, community, or rural district. CUs may, however, have multiple groups with more than one type of membership. Each credit union decides the common bond requirements
+(i.e., which groups it will serve) with the approval of the appropriate regulator. To join a credit union an individual must then be a member of the approved group(s).
+\end{solution}
+
+\newpage
+
+\question[4]
+[16-P5] The MEP company has issued 5,000,000 new shares. Its investment bank agrees to underwrite these shares on a best efforts basis. The investment bank is able to sell 4,200,000 shares for \$54 per share.   
+\begin{parts}
+\part[1]
+It charges MEP \$1.25 per share sold. How much money does MEP receive?
+\begin{solution}[1.5in]
+MEP receives \$221,550,000 (= (\$54 - \$1.25) x 4,200,000)
+\end{solution}
+\part[1]
+What is the investment bank’s profit?
+\begin{solution}[1.5in]
+The investment bank’s profit is \$5,250,000
+\end{solution}
+\part[1]
+What is the stock price of MEP? 
+\begin{solution}[1.5in]
+The stock price is \$54 per share since that is what the public pays. \end{solution}
+\end{parts}
+
+\newpage
+
+\question[4]
+Describe three of the five divisions of the Securities and Exchange Commission.   
+\begin{parts}
+\part[1]
+Division 1:
+\begin{solution}[1.5in]
+\textbf{Division of Corporation Finance}
+
+The Division of Corporation Finance seeks to ensure that investors are provided with material information in order to make informed investment decisions, both when a company initially offers its securities to the public and on an ongoing basis as it continues to give information to the marketplace. The Division also provides interpretive assistance to companies with respect to SEC rules and forms and makes recommendations to the Commission regarding new rules and revisions to existing rules.
+\end{solution}
+\part[1]
+Division 2:
+\begin{solution}[1.5in]
+\textbf{Division of Investment Management}
+
+The work of the Division of Investment Management touches the lives of Main Street investors. We oversee mutual funds and other investment products and services that investors may use to help them buy a home, send kids to college, or prepare for retirement. 
+The Division has primary responsibility for administering the Investment Company Act of 1940 and Investment Advisers Act of 1940, which includes developing regulatory policy for investment companies ( e.g., mutual funds, including money market funds, closed-end funds, business development companies, unit investment trusts, variable insurance products, and exchange-traded funds) and for investment advisers.
+
+\textbf{Division of Enforcement}
+
+The Division of Enforcement was created in August 1972 to consolidate enforcement activities that previously had been handled by the various operating divisions at the Commission's headquarters in Washington. The Commission's enforcement staff conducts investigations into possible violations of the federal securities laws, and prosecutes the Commission's civil suits in the federal courts as well as its administrative proceedings.
+\end{solution}
+\part[1]
+Division 3:
+\begin{solution}[1.5in]
+\textbf{Division of Economic and Risk Analysis}
+
+The Division of Economic and Risk Analysis (DERA) was created in September 2009 to integrate financial economics and rigorous data analytics into the core mission of the SEC. The Division is involved across the entire range of SEC activities, including policy-making, rule-making, enforcement, and examination.
+
+\textbf{Division of Trading and Markets}
+
+The Division of Trading and Markets establishes and maintains standards for fair, orderly, and efficient markets. The Division regulates the major securities market participants, including broker-dealers, self-regulatory organizations (such as stock exchanges, FINRA, and clearing agencies), and transfer agents. For further information, click here.
+\end{solution}
+\end{parts}
+
+\newpage
+
+\question[2]
+Here is a graph shown in the book, can you explain what is being graphed and provide a paragraph for context and analysis?
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{CreditUnionRates.png}
+  \caption{Interest Rates for Banks and Credit Unions.}
+  \label{fig:CUInterest}
+\end{figure}
+
+\begin{solution}[1.5in]
+This graph depicts the interest rate that both Banks and Credit Unions provide for their deposits and charge for their auto loans across time.  What is clear is that credit unions offer both higher depositary rates and lower loan rates to members.  This is driven by the credit union mission to serve members and the fact that they are non-profit and untaxed.
+\end{solution}
+
+\newpage
+
+\question[2]
+Here is a table shown in the ICI Factbook, can you explain what is being displayed and provide a paragraph for context and analysis?
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{Investment Companies.png}
+  \caption{Investment Companies.}
+  \label{fig:InvestmentComp}
+\end{figure}
+
+\begin{solution}[1.5in]
+This number of different types of investment companies are displayed across time.  It demonstrates how ETFs have had strong growth across this period.  While UITs have fallen in favor over this period.  Suprisingly the overall Investment company count has decreased from 1999-2005, and remained fairly stable since that period.  
+\end{solution}
+
+\newpage
+
+\question[2]
+[18-P3] An employee with 25 years of service at a company is considering retirement at some time in the next 10 years. The employer uses a final pay benefit formula by which the employee receives an annual benefit payment of 3.5 percent of her average salary during her last five years of service times her total years employed. The employee’s average salary over the last 5 years of service is as follows:
+
+Average Salary during Last
+Five Years of Service
+
+\begin{tabular}{ll}
+Decision Point      &  Years Worked \\
+Retire now          & \$125,000     \\
+Retire in 5 years   & \$135,000     \\
+Retire in 10 years  & \$140,000     \\
+\end{tabular}
+
+\begin{solution}[1.5in]
+For retirement now, in 5 years, and in 10 years, the employee’s (estimated) annual retirement benefit payment is:
+
+\begin{tabular}{lllll}
+                   & Years Worked & Average Salary during   & Annual Benefit \\
+                   &              & Last Five Service Years &                \\
+Retire now         & 25           & \$125,000               & \$125,000 x 0.035 x 25 = \$109,375 \\
+Retire in 5 years  & 30           & \$135,000               & \$135,000 x 0.035 x 30 = \$141,750 \\
+Retire in 10 years & 35           & \$140,000               & \$140,000 x 0.035 x 35 = \$171,500 \\
+\end{tabular}
+
+
+\end{solution}
+
+
+
+\end{questions}
+\end{document}
