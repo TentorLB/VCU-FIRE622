@@ -1,0 +1,113 @@
+---
+title: "Fannie Mae Single Family Aquisition Data"
+author: "Larry Tentor"
+date: "`r (Sys.Date())`"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    urlcolor: blue
+  pdf_document:
+    toc: yes
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=TRUE}
+# List selected libraries
+suppressWarnings(library(tidyverse))
+suppressWarnings(library(fredr))
+```
+
+# Fannie Mae Single Family Data
+
+## Acquisition Data [One Quarter]
+
+```{r}
+
+fileData              <- '../data/Acquisition_2000Q1.txt'
+AcquisitionsVariables <- 
+  c( "LoanId",     "ChannelOrigin", "Seller",    "RateOrigin",        "AmountOrigin"
+   , "Term",       "DateOrigin",    "DateFirst", "LoanToValueOrigin", "LoanToValueCombinedOrigin"
+   , "NBorrowers", "DTI",           "CScore",    "FTHBFlag",          "Purpose"
+   , "Type",       "Unit",          "Occupancy", "State",             "Zip3"
+   , "MI_PCT",     "ProductType",   "Cscore2",   "MI_TYPE",           "RelocationFlag")
+
+AcquisitionColClasses <- 
+  c( "character", "factor",    "factor",    "numeric", "numeric"
+   , "integer",   "character", "character", "integer", "integer"
+   , "integer",   "numeric",   "integer",   "factor",  "factor"
+   , "factor",    "factor",    "factor",    "factor",  "character"
+   , "numeric",   "factor",    "integer",   "numeric", "factor")
+
+acquisition            <- read.csv(fileData, header = FALSE
+    , col.names = AcquisitionsVariables, sep = "|", colClasses = AcquisitionColClasses)
+
+object.size(acquisition)        # 95,481,680 bytes with all strings
+# ChannelOrigin changed to factor 94,014,104 bytes
+# Seller changed to factor        92,546,632 bytes
+# A number of items               79,338,808 bytes
+
+summary(acquisition)
+```
+
+```{r}
+acquisition %>%
+  group_by(Seller) %>%
+  summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+   arrange(desc(AmountSum))
+```
+
+```{r}
+acquisition %>%
+  group_by(State) %>%
+  summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+   arrange(desc(AmountSum))
+```
+```{r}
+acquisition %>%
+  group_by(ChannelOrigin) %>%
+  summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+   arrange(desc(AmountSum))
+```
+
+## Performance Data [One Quarter]
+
+```{r}
+
+fileData               <- '../data/Performance_2018Q3.txt'
+
+# Define Performance variables and classes, and read the files into R.
+performanceVariables <- 
+  c( "LoanId", "Monthly.Rpt.Prd", "Servicer", "RateLast", "LAST_UPB"
+   , "AgeLoan", "MaturityMonth", "MaturityAdjMonth", "DateMaturity", "MSA"
+   , "Delq.Status", "MOD_FLAG", "Zero.Bal.Code", "ZB_DTE", "LPI_DTE"
+   , "FCC_DTE","DISP_DT", "FCC_COST", "PP_COST", "AR_COST"
+   , "IE_COST", "TAX_COST", "NS_PROCS", "CE_PROCS", "RMW_PROCS"
+   , "O_PROCS", "NON_INT_UPB", "PRIN_FORG_UPB_FHFA", "REPCH_FLAG", "PRIN_FORG_UPB_OTH"
+   , "TRANSFER_FLG")
+
+performanceColClasses <- 
+  c( "character", "character", "factor",    "numeric",   "numeric"
+   , "integer",   "integer",   "integer",   "character", "character"
+   , "character", "factor",    "character", "character", "character"
+   , "character", "character", "numeric",   "numeric",   "numeric"
+   , "numeric",   "numeric",   "numeric",   "numeric",   "numeric"
+   , "numeric",   "numeric",   "numeric",   "character", "numeric"
+   , "character")
+
+performance            <- read.csv(fileData, header = FALSE, col.names = performanceVariables, sep = "|", colClasses = performanceColClasses)
+
+object.size(performance)        # 998,463,064 bytes with all strings
+# 2 factors                       967,014,544
+
+summary(performance)
+# View(performance)
+```
+

@@ -1,0 +1,326 @@
+---
+title: "Fannie Mae Single Family Acquisition Data"
+author: "(Insert Your Name)"
+date: "`r (Sys.Date())`"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    urlcolor: blue
+  pdf_document:
+    toc: yes
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=TRUE}
+# List selected libraries
+suppressWarnings(library(tidyverse))
+suppressWarnings(library(fredr))
+library(usmap)
+```
+# Analysis Workflow
+
+Recall that diagram depicts the workflow we are trying to implement as we do analysis.
+
+![](../image/data-science.png){width=550px}
+
+# Dataset Background
+
+[Fannie Mae](https://www.fanniemae.com/portal/about-fm/what-we-do.html) is a leading source of financing for mortgages in the United States.  They assist banks by transferring ownership of individual mortgages in order to securitize them to other investors.  After the financial crisis that impacted mortgage lending, they have selected to create additional transparency by releasing their single family historic loan performance dataset. 
+
+We are interesting in profiling this data as a starting point.  We will need to become familiar with how Fannie Mae has chosen to to assemble the dataset.  Fannie Mae has a collection of educational materials at [Fannie Mae Single Family Historical Loan Performance Dataset](https://www.fanniemae.com/portal/funding-the-market/data/loan-performance-data.html).
+
+- [Tutorial Overview](https://fanniemae.articulate-online.com/p/7778726526/story_html5.html)
+- [Tutorial 101](https://fanniemae.articulate-online.com/p/7778704184/presentation_html5.html)
+- [Tutorial 102](https://fanniemae.articulate-online.com/p/7778736213/presentation_html5.html) (More advanced than our work)
+
+# Analysis Objective
+
+We will be examining the Fannie Mae Single Family Loan data set.  The dataset we will focus on in this analysis is the acquisition file.  This consists of one entry for each loan that was transferred to Fannie Mae during that period.  The published files are a sample of the loans, not all inclusive.
+
+We seek to understand the following questions for the loans acquired during the first quarter of 2000.
+
+1. Confirm that all the origination dates are prior to the quarter.
+    a. Provide a table of origination dates with the aggregated original amount and the number of loans.
+    b. Plot a bar chart of origin months by count of loans.
+    c. Are you comfortable with the results.
+2. What banks were the largest sellers to Fannie Mae?
+    a. Create a table of sellers with the aggregated original amount and the number of loans.
+    b. Plot a bar chart of sellers by original amount.
+3. What states were these mortgages from?
+    a. Create a table of states with the aggregated original amount and the number of loans.
+    b. Display the US Map with color representing number of loans.
+4. What was the breakdown by distribution channel?
+    a. Create a table of distribution channel with the aggregated original amount and the number of loans.
+5. What is the credit score breakdown.  
+    a. Determine how to integrate the borrower and co-borrower credit score.
+    b. Determine what buckets to divide the credit score report.
+    c. Create a table of credit score buckets with the aggregated original amount and the number of loans.
+6. Determine if there is a linear relationship between the integrated credit score and the interest rate.
+    a. Determine the linear model.
+    b. graph the input data and modeled relationship.
+    c. Graph the residuals of the model.
+    d. Comment on the model results.
+
+# Fannie Mae Single Family Data
+
+## Import: Acquisition Data [One Quarter]
+
+```{r}
+
+fileData              <- '../data/Acquisition_2000Q1.txt'
+AcquisitionsVariables <- 
+  c( "LoanId",     "ChannelOrigin", "Seller",    "RateOrigin",        "AmountOrigin"
+   , "Term",       "DateOrigin",    "DateFirst", "LoanToValueOrigin", "LoanToValueCombinedOrigin"
+   , "NBorrowers", "DTI",           "CScore",    "FTHBFlag",          "Purpose"
+   , "Type",       "Unit",          "Occupancy", "State",             "Zip3"
+   , "MI_PCT",     "ProductType",   "CScore2",   "MI_TYPE",           "RelocationFlag")
+
+AcquisitionColClasses <- 
+  c( "character", "factor",    "factor",    "numeric", "numeric"
+   , "integer",   "character", "character", "integer", "integer"
+   , "integer",   "numeric",   "integer",   "factor",  "factor"
+   , "factor",    "factor",    "factor",    "factor",  "character"
+   , "numeric",   "factor",    "integer",   "numeric", "factor")
+
+acquisition            <- read.csv(fileData, header = FALSE
+    , col.names = AcquisitionsVariables, sep = "|", colClasses = AcquisitionColClasses)
+
+object.size(acquisition)        # 95,481,680 bytes with all strings
+# ChannelOrigin changed to factor 94,014,104 bytes
+# Seller changed to factor        92,546,632 bytes
+# A number of items               79,338,808 bytes
+nrow(acquisition)
+summary(acquisition)
+```
+## Tidy
+
+Clean up the fields as you deem necessary for the following analysis.  You may used additional chunks as necessary so you can confirm items step by step.
+
+```{r}
+
+acquisition$DateOrigin2 <- as.Date(paste0('01/',acquisition$DateOrigin),'%d/%m/%Y')
+
+```
+
+## Analysis
+
+### Origin Date Check
+
+```{r}
+originDateCheck <-
+   acquisition %>%
+    group_by(DateOrigin2) %>%
+    summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+    arrange(DateOrigin2)
+originDateCheck
+```
+```{r}
+p  <- ggplot(originDateCheck, aes(x=DateOrigin2, y=Loans)) +
+        geom_bar(stat="identity") +
+        xlab("Origin Month") + ylab("Loans Reported") +
+        ggtitle("Number of Loans Reported by Origin Month")
+p
+```
+
+[Comments on Origin Date Analysis]
+
+### Seller Analysis
+
+```{r}
+sellerAnalysis <-
+  acquisition %>%
+    group_by(Seller) %>%
+    summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+    arrange(desc(AmountSum))
+sellerAnalysis
+```
+
+[Comments on Seller Analysis]
+
+### State Analysis
+
+```{r}
+stateAnalysis <-
+  acquisition %>%
+    group_by(State) %>%
+    summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+    arrange(desc(AmountSum))
+stateAnalysis
+
+stateAnalysis2 <-
+  acquisition %>%
+    filter(State %in% c('FL','CA','TX','NY','MI')) %>%
+    group_by() %>%
+    summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+    arrange(desc(AmountSum))
+stateAnalysis2
+
+stateAnalysis3<-
+  acquisition %>%
+    group_by() %>%
+    summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+    arrange(desc(AmountSum))
+stateAnalysis3
+
+stateAnalysis2$Loans/stateAnalysis3$Loans
+
+pop <- (39512223 + 21477737 + 9986857 + 19453561 + 28995881) / 328239523 # CA + FL + MI + NY + TX # https://www.citypopulation.de/en/usa/states/admin/
+pop
+
+
+stateAnalysis4 <-
+  acquisition %>%
+    filter(State %in% c('SD','VT','WY','AK','ND')) %>%
+    group_by() %>%
+    summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+    arrange(desc(AmountSum))
+stateAnalysis4
+
+low5 <- stateAnalysis4$Loans/stateAnalysis3$Loans
+paste0(c('Low5: ',low5))
+
+poplow <- (578759 + 623989 + 884659 + 762062 + 3017804)/ 328239523 # WY + VT + SD + ND + AK
+paste0(c('popLow5: ',poplow))
+```
+
+California, Florida, Texas, New York and Michigan represent the top five states that had mortgages bundled during the first quarter of 2000.  These five states represent 34% of those bundled loans, this is reasonable in line with their portion of the population (36%) (https://www.citypopulation.de/en/usa/states/admin/).  The bottom five states South Dakota, Vermont, Wyoming, Arkansas and North Dakota (SD, VT, WY, AK, ND, VI (territory excluded)) represent 0.8% of the loans acquired, which in population represent 1.7%.
+
+```{r}
+
+
+statePlot <- as.data.frame(stateAnalysis)
+colnames(statePlot)[1] <- "state"
+plot_usmap(data = statePlot, values = "Loans", color = "beige") + 
+  scale_fill_continuous(name = "Loans (2000Q1)", label = scales::comma) + 
+  theme(legend.position = "right")
+```
+
+[Comments on state analysis]
+
+### Channel Origin
+
+```{r}
+acquisition %>%
+  group_by(ChannelOrigin) %>%
+  summarize(AmountSum=sum(AmountOrigin)/1000000,Loans=n()) %>%
+   arrange(desc(AmountSum))
+```
+
+[Comments on channel of origin analysis]
+
+### Credit score profile
+
+```{r}
+# Check for grading 
+
+filterCheck <- acquisition %>% filter(is.na(CScore))
+nrow(filterCheck)
+onlyCoBScore <- filterCheck %>% filter(is.finite(CScore2))
+nrow(onlyCoBScore)
+
+```
+
+
+```{r}
+acquisition <- acquisition %>% mutate(CScoreCombined = pmin(CScore, CScore2,na.rm = TRUE))
+acquisition$BucketRisk <- 
+               cut(acquisition$CScoreCombined,breaks=c(0,400,500,600,700,800,900),labels=c("Low","Risky","SubPrime","Prime","High","Super"))
+
+
+RiskGroup <- 
+  acquisition %>%
+  group_by(BucketRisk) %>%
+  summarize(n())
+
+RiskGroup
+
+counts      <- c(nrow(acquisition),sum(is.finite(acquisition$CScore)),sum(is.finite(acquisition$CScore2)),sum(is.finite(acquisition$CScoreCombined)))
+counts
+
+p           <- ggplot(acquisition, aes(x=CScore)) + geom_histogram()
+p 
+
+p2          <- ggplot(acquisition, aes(x=CScore2)) + geom_histogram()
+p2 
+
+
+```
+
+[Comments on Credit score profile]
+
+
+### Linear Model: Credit score and interest rates
+
+```{r}
+acquisitionfilterCScore <-
+  acquisition %>%
+  filter(is.finite(CScore))
+
+acquisitionfilterRateOrigin <-
+  acquisition %>%
+  filter(is.finite(RateOrigin))
+
+nrow(acquisition)
+nrow(acquisitionfilterCScore)
+nrow(acquisitionfilterRateOrigin)
+
+simple.fit          <- lm(RateOrigin~CScore, data=acquisitionfilterCScore)
+if (NROW(acquisitionfilterCScore$RateOrigin)==NROW(simple.fit$fitted.values)) {
+  print('Row number counts match between original data and fit')
+} else {
+  print("Error: Row Number counts do not match")}
+
+acquisitionfilterCScore$RateFit <- simple.fit$fitted.values
+summary(simple.fit)
+
+# Alternative processing for Credit Scores
+
+acquisition <- acquisition %>% mutate(CScoreCombined = pmin(CScore, CScore2,na.rm = TRUE))
+#acquisition[1:10,c('CScore','CScore2','CScoreCombined')]
+
+acquisitionfilterCScoreCombined <-
+  acquisition %>%
+  filter(is.finite(CScoreCombined))
+
+fit.Combined          <- lm(RateOrigin~CScoreCombined, data=acquisitionfilterCScoreCombined)
+acquisitionfilterCScoreCombined$RateFit <- fit.Combined$fitted.values
+acquisitionfilterCScoreCombined$Residuals <- fit.Combined$residuals
+
+
+```
+
+```{r}
+
+#acquisitionPlot <- acquisitionfilterCScoreCombined
+acquisitionPlot <- acquisitionfilterCScoreCombined[1:100,]
+
+p <- ggplot() + 
+     geom_point(data = acquisitionPlot, aes(x = CScoreCombined, y = RateOrigin), color = "blue") +
+     geom_line(data = acquisitionPlot, aes(x = CScoreCombined, y = RateFit), color = "red") +
+     xlab('Credit Score') +
+     ylab('Rate') +
+     ggtitle("Rate Dependency on Credit Score") 
+
+print(p)
+
+```
+[Comments on linear model]
+
+```{r}
+p <- ggplot() + 
+     geom_point(data = acquisitionPlot, aes(x = CScoreCombined, y = Residuals), color = "green") +
+     xlab('Credit Score') +
+     ylab('Residual') +
+     ggtitle("Residuals: Rate Dependency on Credit Score") 
+
+print(p)
+
+```
