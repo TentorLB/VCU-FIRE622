@@ -1,0 +1,67 @@
+---
+title: "Federal Reserve System: Exercise A"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+## Load Federal Funds Data
+```{r FederalFunds}
+# In R you may write anything after a hashmark!
+# 
+# Create a directory "C:\FIRE622", this will be a folder to copy examples too, my code will work best if copied into this directory.
+#
+# You have to remember where you downloaded the text file.
+# If necessary you will need to locate the downloaded file in the explorer/finder.
+# Also please use the slash (/) between directories 
+# the backslash \ has special meaning.
+fileName      <- 'C:/FIRE622/External/FEDFUNDS.csv'
+yourDataFrame <- read.csv(fileName,colClasses = c("Date","numeric"))
+```
+
+## Examine Federal Funds (head)
+
+Let's look at the contents of the loaded dataframe.
+
+The <code>head</code> function allows review of the first few elements.
+
+```{r DataFrameHead}
+head(yourDataFrame)
+```
+
+## Examine Federal Funds (tail)
+
+The  <code>tail</code> function displays the last few elements of the dataset, opposite to the <code>head</code> function.
+
+Your turn.  Replace <code>head</code> with <code>tail</code> in *DataFrameTail*.  Then click the **Knit** button.
+
+```{r DataFrameTail}
+head(yourDataFrame)
+```
+
+
+## Examine Federal Funds (summary)
+
+The <code>summary</code> function displays information on each field in the dataset.
+
+Your turn.  Replace <code>head</code> with <code>summary</code> in *DataFrameSummary*. Then click the **Knit** button.
+
+```{r DataFrameSummary}
+head(yourDataFrame)
+```
+
+
+## Exercise A Complete
+
+Great job.  You have loaded the federal reserve funds rate into R; and examined its contents as the first step.
+
+
