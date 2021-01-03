@@ -1,0 +1,45 @@
+---
+title: "Federal Reserve System: ExerciseC"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+## Load Federal Funds Data
+```{r FederalFunds}
+# In R you may write anything after a hashmark!
+# You have to remember where you downloaded the text file.
+# If necessary you will need to locate the downloaded file in the explorer/finder.
+# Also please use the slash (/) between directories 
+# the backslash \ has special meaning.
+yourDataFrame <- read.csv('C:/Users/Larry/Dropbox/Family/LBTentor/Professional/Teaching/Finance Class/Financial Institutions/Lessons/Lesson_FederalReserveBank/External/FEDFUNDS.csv')
+```
+
+## Plot Federal Funds 1
+
+You can also embed plots, for example:
+
+```{r Plot01, echo=FALSE}
+plot(yourDataFrame)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Plot Federal Funds 2
+
+This is alternative method of plotting that we will see again.
+
+```{r Plot02, echo=FALSE}
+ggplot(yourDataFrame, aes(x = DATE, y = FEDFUNDS)) +
+    geom_point()
+
+```
