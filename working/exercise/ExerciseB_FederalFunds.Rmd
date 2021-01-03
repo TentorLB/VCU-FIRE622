@@ -1,0 +1,104 @@
+---
+title: "Federal Reserve System: Exercise B"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+## Load Federal Funds Data
+
+You will need to copy the file name from exercise A.
+
+```{r FederalFunds}
+# In R you may write anything after a hashmark!
+# You have to remember where you downloaded the text file.
+# If necessary you will need to locate the downloaded file in the explorer/finder.
+# Also please use the slash (/) between directories 
+# the backslash \ has special meaning.
+fileName      <- 'C:/FIRE622/External/FEDFUNDS.csv'
+yourDataFrame <- read.csv(fileName,colClasses = c("Date","numeric"))
+```
+
+
+## First Date of Federal Funds 
+
+Let's determine the first date of the dataset.
+
+```{r DataFrameFirstDate}
+# The syntax used is dataframe[row numbers, column numbers]
+yourDataFrame[1,1:2]   # This will echo the first row and include the first two columns
+```
+
+```{r DataFrameFirstDate02}
+yourDataFrame[1,1]     # This will echo the first row, first column.
+```
+
+```{r DataFrameFirstDate03}
+yourDataFrame[1,]$DATE # An alternative naming the column.
+```
+## Twenty-first Date of Federal Funds 
+
+Your turn. Adjust the element returned to the twenty-first in the dataframe.
+
+Your turn.  Replace <code>1</code> with <code>21</code> in *DataFrameTail*.  Then click the **Knit** button.
+
+
+```{r DataFrameTwentyFirstDate}
+# The syntax used is dataframe[row numbers, column numbers]
+yourDataFrame[1,1:2]   # This will echo the first row and include the first two columns
+```
+
+```{r DataFrameTwentyFirstDate02}
+yourDataFrame[1,1]     # This will echo the first row, first column.
+```
+
+```{r DataFrameTwentyFirstDate03}
+yourDataFrame[1,]$DATE # An alternative naming the column.
+```
+
+## Last Date of Federal Funds 
+
+Let's determine the dataset's last date.
+
+```{r DataFrameLastDate}
+# The syntax used is dataframe[row numbers, column numbers]
+yourDataFrame[nrow(yourDataFrame),1:2]   # This will echo the last row and include the first two columns
+```
+
+```{r DataFrameLastDate02}
+yourDataFrame[nrow(yourDataFrame),1]     # This will echo the last row, first column.
+```
+
+```{r DataFrameLastDate03}
+yourDataFrame[nrow(yourDataFrame),]$DATE # An alternative naming the column.
+```
+## Number of rows in Federal Funds 
+
+Let's determine the dataset's number of rows.
+
+This was done above as an intermediant calculation, what command needs to go in the next block?
+
+Your turn.  Replace <code>head</code> with <code>your selected command</code> in *DataFrameRows*. Then click the **Knit** button.
+
+
+```{r DataFrameRows}
+head(yourDataFrame)
+```
+
+
+
+
+## Exercise B Complete
+
+Great job.  You have loaded the federal reserve funds rate into R; and looked at its contents in more detail.
+
+
