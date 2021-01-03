@@ -1,0 +1,465 @@
+FEDERAL RESERVE statistical release
+
+H.4.1
+
+Factors Affecting Reserve Balances of Depository Institutions and     
+Condition Statement of Federal Reserve Banks                                                  January 2, 2020
+
+
+1. Factors Affecting Reserve Balances of Depository Institutions
+Millions of dollars
+Reserve Bank credit, related items, and                          Averages of daily figures         Wednesday  
+reserve balances of depository institutions at             Week ended    Change from week ended   Jan 1, 2020 
+Federal Reserve Banks                                      Jan 1, 2020 Dec 25, 2019  Jan 2, 2019              
+
+Reserve Bank credit                                         4,121,396   +    1,034   +   92,386    4,134,215  
+  Securities held outright (1)                              3,739,935   -    4,974   -  132,537    3,739,957  
+    U.S. Treasury securities                                2,328,911   +    7,235   +   95,971    2,328,933  
+      Bills (2)                                               169,525   +    5,358   +  169,525      169,525  
+      Notes and bonds, nominal (2)                          2,007,558   +    1,397   -   86,434    2,006,550  
+      Notes and bonds, inflation-indexed (2)                  126,376   +      403   +    9,831      127,384  
+      Inflation compensation (3)                               25,452   +       76   +    3,049       25,474  
+    Federal agency debt securities (2)                          2,347            0   -       62        2,347  
+    Mortgage-backed securities (4)                          1,408,677   -   12,209   -  228,446    1,408,677  
+  Unamortized premiums on securities held outright (5)        124,625   -      545   -   15,481      124,577  
+  Unamortized discounts on securities held outright (5)       -13,283   +       33   +      147      -13,284  
+  Repurchase agreements (6)                                   242,326   +    7,114   +  242,326      255,619  
+  Loans                                                            26   +       12   -       38           42  
+    Primary credit                                                 15   +       13   +        1           32  
+    Secondary credit                                                0            0            0            0  
+    Seasonal credit                                                11            0   -       39           10  
+    Other credit extensions                                         0            0            0            0  
+  Net portfolio holdings of Maiden Lane LLC (7)                     0            0            0            0  
+  Float                                                          -470   -      360   +      133         -643  
+  Central bank liquidity swaps (8)                              3,729            0   -      478        3,728  
+  Other Federal Reserve assets (9)                             24,508   -      245   -    1,685       24,219  
+Foreign currency denominated assets (10)                       20,701   +      126   -      246       20,792  
+Gold stock                                                     11,041            0            0       11,041  
+Special drawing rights certificate account                      5,200            0            0        5,200  
+Treasury currency outstanding (11)                             50,138   +       14   +      376       50,138  
+                                                                                                              
+Total factors supplying reserve funds                       4,208,477   +    1,175   +   92,517    4,221,387  
+
+Note: Components may not sum to totals because of rounding. Footnotes appear at the end of the table.
+
+
+
+
+
+1. Factors Affecting Reserve Balances of Depository Institutions (continued)
+Millions of dollars
+Reserve Bank credit, related items, and                          Averages of daily figures         Wednesday  
+reserve balances of depository institutions at             Week ended    Change from week ended   Jan 1, 2020 
+Federal Reserve Banks                                      Jan 1, 2020 Dec 25, 2019  Jan 2, 2019              
+
+Currency in circulation (11)                                 1,805,947   +    6,784   +   86,908    1,807,740 
+Reverse repurchase agreements (12)                             285,809   +   27,086   +   19,189      336,649 
+  Foreign official and international accounts                  265,756   +   16,259   +   15,695      272,562 
+  Others                                                        20,052   +   10,825   +    3,494       64,087 
+Treasury cash holdings                                             171            0   -       43          171 
+Deposits with F.R. Banks, other than reserve balances          455,803   +    3,182   -    7,373      483,110 
+  Term deposits held by depository institutions                      0            0            0            0 
+  U.S. Treasury, General Account                               382,553   +   14,733   +    2,651      403,853 
+  Foreign official                                               5,182            0   -       62        5,182 
+  Other (13)                                                    68,068   -   11,551   -    9,963       74,075 
+Other liabilities and capital (14)                              44,901   +      205   -      154       44,867 
+                                                                                                              
+Total factors, other than reserve balances,               
+    absorbing reserve funds                                  2,592,631   +   37,256   +   98,527    2,672,537 
+                                                                                                              
+Reserve balances with Federal Reserve Banks                  1,615,846   -   36,081   -    6,010    1,548,849 
+
+Note: Components may not sum to totals because of rounding.
+
+
+1.  Includes securities lent to dealers under the overnight securities lending facility; refer to table     
+    1A.                                                                                                 
+2.  Face value of the securities.                                                                           
+3.  Compensation that adjusts for the effect of inflation on the original face value of                     
+    inflation-indexed securities.                                                                       
+4.  Guaranteed by Fannie Mae, Freddie Mac, and Ginnie Mae. The current face value shown is the              
+    remaining principal balance of the securities.                                                      
+5.  Reflects the premium or discount, which is the difference between the purchase price and the face       
+    value of the securities that has not been amortized. For U.S. Treasury securities, Federal agency debt
+    securities, and mortgage-backed securities, amortization is on an effective-interest basis.         
+6.  Cash value of agreements.                                                                               
+7.  Refer to the note on consolidation accompanying table 5.                                                
+8.  Dollar value of foreign currency held under these agreements valued at the exchange rate to be used     
+    when the foreign currency is returned to the foreign central bank. This exchange rate equals the    
+    market exchange rate used when the foreign currency was acquired from the foreign central bank.     
+9.  Includes accrued interest, which represents the daily accumulation of interest earned, and other        
+    accounts receivable. Also, includes Reserve Bank premises and equipment net of allowances for       
+    depreciation.                                                                                       
+10. Revalued daily at current foreign currency exchange rates.                                              
+11. Estimated.                                                                                              
+12. Cash value of agreements, which are collateralized by U.S. Treasury securities, federal agency debt     
+    securities, and mortgage-backed securities.                                                         
+13. Includes deposits held at the Reserve Banks by international and multilateral organizations,            
+    government-sponsored enterprises, designated financial market utilities, and deposits held by depository
+    institutions in joint accounts in connection with their participation in certain private-sector payment
+    arrangements. Also includes certain deposit accounts other than the U.S. Treasury, General Account, 
+    for services provided by the Reserve Banks as fiscal agents of the United States.                   
+14. Includes the liability for earnings remittances due to the U.S. Treasury.                               
+                                                                                                            
+
+
+
+Sources: Federal Reserve Banks and the U.S. Department of the Treasury.
+
+
+
+
+
+1A. Memorandum Items
+Millions of dollars
+Memorandum item                                                  Averages of daily figures         Wednesday  
+                                                           Week ended    Change from week ended   Jan 1, 2020 
+                                                           Jan 1, 2020 Dec 25, 2019  Jan 2, 2019              
+
+Securities held in custody for foreign official and       
+     international accounts                                  3,398,201   -   11,000   +    9,220    3,398,249 
+  Marketable U.S. Treasury securities (1)                    2,956,682   -    7,362   -   59,098    2,956,741 
+  Federal agency debt and mortgage-backed securities (2)       358,904   -    3,145   +   51,778      358,916 
+  Other securities (3)                                          82,615   -      494   +   16,540       82,591 
+Securities lent to dealers                                      34,992   +    1,941   +   10,487       41,450 
+  Overnight facility (4)                                        34,992   +    1,941   +   10,487       41,450 
+    U.S. Treasury securities                                    34,992   +    1,941   +   10,487       41,450 
+    Federal agency debt securities                                   0            0            0            0 
+
+Note: Components may not sum to totals because of rounding.
+
+
+1.  Includes securities and U.S. Treasury STRIPS at face value, and inflation compensation on TIPS.         
+    Does not include securities pledged as collateral to foreign official and international account holders
+    against reverse repurchase agreements with the Federal Reserve presented in tables 1, 4, and 5.     
+2.  Face value of federal agency securities and current face value of mortgage-backed securities, which     
+    is the remaining principal balance of the securities.                                               
+3.  Includes non-marketable U.S. Treasury securities, supranationals, corporate bonds, asset-backed         
+    securities, and commercial paper at face value.                                                     
+4.  Face value. Fully collateralized by U.S. Treasury securities.                                           
+
+
+
+
+
+
+2. Maturity Distribution of Securities, Loans, and Selected Other Assets and Liabilities, January 1, 2020     
+
+Millions of dollars
+Remaining Maturity                     Within 15     16 days to    91 days to   Over 1 year   Over 5 year     Over 10         All      
+                                          days        90 days        1 year      to 5 years   to 10 years      years                   
+
+Loans                                           42             0             0             0             0           ...            42 
+U.S. Treasury securities (1)                                                                                                           
+  Holdings                                   8,260       115,689       341,875       900,972       321,591       640,547     2,328,933 
+  Weekly changes                        -   10,111    +    1,316    -    3,249    +   12,708    -      617    +       25    +       71 
+Federal agency debt securities (2)                                                                                                     
+  Holdings                                       0             0             0             0           486         1,861         2,347 
+  Weekly changes                                 0             0             0             0             0             0             0 
+Mortgage-backed securities (3)                                                                                                         
+  Holdings                                       0             0            12         1,135        73,528     1,334,002     1,408,677 
+  Weekly changes                                 0    -        1    -        2    -       40    -    1,634    -    9,627    -   11,303 
+Repurchase agreements (4)                  205,619        50,000           ...           ...           ...           ...       255,619 
+Central bank liquidity swaps (5)             3,728             0             0             0             0             0         3,728 
+                                                                                                                                       
+Reverse repurchase agreements (4)          336,649             0           ...           ...           ...           ...       336,649 
+Term deposits                                    0             0             0           ...           ...           ...             0 
+
+Note: Components may not sum to totals because of rounding.
+...Not applicable.
+
+
+1.  Face value. For inflation-indexed securities, includes the original face value and compensation         
+    that adjusts for the effect of inflation on the original face value of such securities.             
+2.  Face value.                                                                                             
+3.  Guaranteed by Fannie Mae, Freddie Mac, and Ginnie Mae. The current face value shown is the              
+    remaining principal balance of the securities.                                                      
+4.  Cash value of agreements.                                                                               
+5.  Dollar value of foreign currency held under these agreements valued at the exchange rate to be used     
+    when the foreign currency is returned to the foreign central bank. This exchange rate equals the    
+    market exchange rate used when the foreign currency was acquired from the foreign central bank.     
+                                                                                                            
+
+
+
+
+
+
+3. Supplemental Information on Mortgage-Backed Securities
+Millions of dollars
+Account name                                                                                                            Wednesday   
+                                                                                                                       Jan 1, 2020  
+
+Mortgage-backed securities held outright (1)                                                                             1,408,677  
+                                                                                                                                    
+Commitments to buy mortgage-backed securities (2)                                                                            4,129  
+Commitments to sell mortgage-backed securities (2)                                                                               0  
+                                                                                                                                    
+Cash and cash equivalents (3)                                                                                                    0  
+
+
+
+1.  Guaranteed by Fannie Mae, Freddie Mac, and Ginnie Mae. The current face value shown is the              
+    remaining principal balance of the securities.                                                      
+2.  Current face value. Generally settle within 180 days and include commitments associated with            
+    outright transactions, dollar rolls, and coupon swaps.                                              
+3.  This amount is included in other Federal Reserve assets in table 1 and in other assets in table 4       
+    and table 5.                                                                                        
+
+
+
+
+
+
+
+4. Consolidated Statement of Condition of All Federal Reserve Banks
+Millions of dollars
+Assets, liabilities, and capital                         Eliminations     Wednesday         Change since       
+                                                             from        Jan 1, 2020   Wednesday    Wednesday  
+                                                        consolidation                Dec 25, 2019  Jan 2, 2019 
+
+Assets                                                                                                         
+  Gold certificate account                                                   11,037            0            0  
+  Special drawing rights certificate account                                  5,200            0            0  
+  Coin                                                                        1,657   -        4   -       65  
+  Securities, unamortized premiums and discounts,     
+     repurchase agreements, and loans                                     4,106,911   +    8,975   +  118,266  
+    Securities held outright (1)                                          3,739,957   -   11,232   -  122,092  
+      U.S. Treasury securities                                            2,328,933   +       71   +  106,416  
+        Bills (2)                                                           169,525            0   +  169,525  
+        Notes and bonds, nominal (2)                                      2,006,550   -    1,411   -   77,036  
+        Notes and bonds, inflation-indexed (2)                              127,384   +    1,411   +   10,839  
+        Inflation compensation (3)                                           25,474   +       71   +    3,088  
+      Federal agency debt securities (2)                                      2,347            0   -       62  
+      Mortgage-backed securities (4)                                      1,408,677   -   11,303   -  228,446  
+    Unamortized premiums on securities held outright  
+    (5)                                                                     124,577   -      503   -   15,431  
+    Unamortized discounts on securities held outright 
+    (5)                                                                     -13,284   +       32   +      134  
+    Repurchase agreements (6)                                               255,619   +   20,650   +  255,619  
+    Loans                                                                        42   +       29   +       36  
+  Net portfolio holdings of Maiden Lane LLC (7)                                   0            0            0  
+  Items in process of collection                                   (0)           82   -       21   -      127  
+  Bank premises                                                               2,211   +        4   +        9  
+  Central bank liquidity swaps (8)                                            3,728   -        1   -      479  
+  Foreign currency denominated assets (9)                                    20,792   +      221   -      207  
+  Other assets (10)                                                          22,007   -    1,139   -    2,151  
+                                                                                                               
+Total assets                                                       (0)    4,173,626   +    8,035   +  115,248  
+
+Note: Components may not sum to totals because of rounding. Footnotes appear at the end of the table.
+
+
+
+
+
+4. Consolidated Statement of Condition of All Federal Reserve Banks (continued)
+Millions of dollars
+Assets, liabilities, and capital                         Eliminations     Wednesday         Change since       
+                                                             from        Jan 1, 2020   Wednesday    Wednesday  
+                                                        consolidation                Dec 25, 2019  Jan 2, 2019 
+
+Liabilities                                                                                                    
+  Federal Reserve notes, net of F.R. Bank holdings                         1,759,427   +    5,361   +   87,318 
+  Reverse repurchase agreements (11)                                         336,649   +   83,159   +   60,255 
+  Deposits                                                          (0)    2,031,959   -   80,621   -   33,958 
+    Term deposits held by depository institutions                                  0            0            0 
+    Other deposits held by depository institutions                         1,548,849   -   99,389   -   58,487 
+    U.S. Treasury, General Account                                           403,853   +   51,919   +   21,237 
+    Foreign official                                                           5,182            0   -       62 
+    Other (12)                                                      (0)       74,075   -   33,151   +    3,355 
+  Deferred availability cash items                                  (0)          725   +      558   +      376 
+  Other liabilities and accrued dividends (13)                                 6,344   -      421   +    1,867 
+                                                                                                               
+Total liabilities                                                   (0)    4,135,103   +    8,034   +  115,858 
+                                                                                                               
+Capital accounts                                                                                               
+  Capital paid in                                                             31,698   +        1   -      610 
+  Surplus                                                                      6,825            0            0 
+  Other capital accounts                                                           0            0            0 
+                                                                                                               
+Total capital                                                                 38,523   +        1   -      610 
+
+Note: Components may not sum to totals because of rounding.
+
+
+1.  Includes securities lent to dealers under the overnight securities lending facility; refer to table     
+    1A.                                                                                                 
+2.  Face value of the securities.                                                                           
+3.  Compensation that adjusts for the effect of inflation on the original face value of                     
+    inflation-indexed securities.                                                                       
+4.  Guaranteed by Fannie Mae, Freddie Mac, and Ginnie Mae. The current face value shown is the              
+    remaining principal balance of the securities.                                                      
+5.  Reflects the premium or discount, which is the difference between the purchase price and the face       
+    value of the securities that has not been amortized. For U.S. Treasury securities, Federal agency debt
+    securities, and mortgage-backed securities, amortization is on an effective-interest basis.         
+6.  Cash value of agreements, which are collateralized by U.S. Treasury and federal agency securities.      
+7.  Refer to the note on consolidation accompanying table 5.                                                
+8.  Dollar value of foreign currency held under these agreements valued at the exchange rate to be used     
+    when the foreign currency is returned to the foreign central bank. This exchange rate equals the    
+    market exchange rate used when the foreign currency was acquired from the foreign central bank.     
+9.  Revalued daily at current foreign currency exchange rates.                                              
+10. Includes accrued interest, which represents the daily accumulation of interest earned, and other        
+    accounts receivable.                                                                                
+11. Cash value of agreements, which are collateralized by U.S. Treasury securities, federal agency debt     
+    securities, and mortgage-backed securities.                                                         
+12. Includes deposits held at the Reserve Banks by international and multilateral organizations,            
+    government-sponsored enterprises, designated financial market utilities, and deposits held by depository
+    institutions in joint accounts in connection with their participation in certain private-sector payment
+    arrangements. Also includes certain deposit accounts other than the U.S. Treasury, General Account, 
+    for services provided by the Reserve Banks as fiscal agents of the United States.                   
+13. Includes the liability for earnings remittances due to the U.S. Treasury.                               
+
+ 
+
+
+
+5. Statement of Condition of Each Federal Reserve Bank, January 1, 2020
+Millions of dollars
+Assets, liabilities, and capital               Total       Boston     New York  Philadelphia  Cleveland    Richmond    Atlanta     Chicago    St. Louis  Minneapolis    Kansas      Dallas       San     
+                                                                                                                                                                         City                 Francisco  
+
+Assets                                                                                                                                                                                                   
+  Gold certificate account                        11,037         351       3,707          327         531         754       1,560         711         328         186         292         890       1,400
+  Special drawing rights certificate acct.         5,200         196       1,818          210         237         412         654         424         150          90         153         282         574
+  Coin                                             1,657          40          41          146         100         220         169         276          31          48         113         192         282
+  Securities, unamortized premiums and      
+     discounts, repurchase agreements,      
+     and loans                                 4,106,911      85,202   2,240,597       99,454     120,157     251,326     280,800     215,594      59,027      35,547      60,899     178,325     479,982
+    Securities held outright (1)               3,739,957      77,590   2,040,411       90,569     109,422     228,872     255,712     196,315      53,753      32,363      55,457     162,393     437,099
+      U.S. Treasury securities                 2,328,933      48,316   1,270,598       56,399      68,139     142,522     159,236     122,249      33,473      20,153      34,534     101,125     272,189
+        Bills (2)                                169,525       3,517      92,488        4,105       4,960      10,374      11,591       8,899       2,437       1,467       2,514       7,361      19,813
+        Notes and bonds (3)                    2,159,408      44,799   1,178,110       52,294      63,179     132,148     147,645     113,350      31,036      18,686      32,021      93,764     252,376
+      Federal agency debt securities (2)           2,347          49       1,280           57          69         144         160         123          34          20          35         102         274
+      Mortgage-backed securities (4)           1,408,677      29,225     768,533       34,113      41,214      86,206      96,316      73,943      20,246      12,190      20,888      61,166     164,636
+    Unamortized premiums on securities held 
+      outright (5)                               124,577       2,584      67,965        3,017       3,645       7,624       8,518       6,539       1,790       1,078       1,847       5,409      14,560
+    Unamortized discounts on securities     
+      held outright (5)                          -13,284        -276      -7,248         -322        -389        -813        -908        -697        -191        -115        -197        -577      -1,553
+    Repurchase agreements (6)                    255,619       5,303     139,458        6,190       7,479      15,643      17,477      13,418       3,674       2,212       3,790      11,099      29,875
+    Loans                                             42           0          10            0           0           0           1          19           1           9           1           0           1
+  Net portfolio holdings of Maiden                                                                                                                                                                       
+     Lane LLC (7)                                      0           0           0            0           0           0           0           0           0           0           0           0           0
+  Items in process of collection                      82           0           0            1           0           0          81           0           0           0           0           0           0
+  Bank premises                                    2,211         105         463           92         119         193         203         194         102          93         228         224         196
+  Central bank liquidity swaps (8)                 3,728         161       1,183          215         298         795         217         156          57          18          36          46         547
+  Foreign currency denominated                                                                                                                                                                           
+     assets (9)                                   20,792         895       6,607        1,200       1,659       4,430       1,208         867         317          99         201         257       3,050
+  Other assets (10)                               22,007         473      11,596          529         658       1,575       1,494       1,131         398         245         405         953       2,548
+  Interdistrict settlement account                     0  +   22,360  -  164,247   -   16,517  +   17,906  +   18,119  +   30,900  +   32,973  +   10,242  +    5,657  +   12,323  +   23,773  +    6,512
+                                                                                                                                                                                                         
+Total assets                                   4,173,626     109,783   2,101,766       85,660     141,664     277,824     317,286     252,325      70,652      41,982      74,650     204,943     495,092
+
+Note: Components may not sum to totals because of rounding. Footnotes appear at the end of the table.
+
+
+
+
+
+5. Statement of Condition of Each Federal Reserve Bank, January 1, 2020 (continued)
+Millions of dollars
+Assets, liabilities, and capital               Total       Boston     New York  Philadelphia Cleveland    Richmond    Atlanta     Chicago    St. Louis  Minneapolis    Kansas      Dallas       San     
+                                                                                                                                                                        City                 Francisco  
+
+Liabilities                                                                                                                                                                                             
+  Federal Reserve notes outstanding            1,955,848      60,894     639,366      57,674      94,151     134,122     272,995     126,718      59,595      31,976      54,173     164,224     259,960
+    Less: Notes held by F.R. Banks               196,421       5,475      51,623       7,978       8,280      15,317      29,567      11,593       4,775       2,837       6,680      18,681      33,616
+      Federal Reserve notes, net               1,759,427      55,419     587,743      49,696      85,871     118,805     243,428     115,124      54,821      29,139      47,493     145,543     226,344
+  Reverse repurchase agreements (11)             336,649       6,984     183,666       8,152       9,849      20,602      23,018      17,671       4,839       2,913       4,992      14,618      39,345
+  Deposits                                     2,031,959      45,380   1,314,711      26,042      42,435     129,639      48,343     117,645      10,203       8,847      21,592      44,009     223,111
+    Term deposits held by depository        
+        institutions                                   0           0           0           0           0           0           0           0           0           0           0           0           0
+    Other deposits held by depository       
+        institutions                           1,548,849      45,313     884,120      26,040      42,395     129,285      47,428      69,052      10,200       8,744      19,336      43,935     223,003
+    U.S. Treasury, General Account               403,853           0     403,853           0           0           0           0           0           0           0           0           0           0
+    Foreign official                               5,182           2       5,154           2           3           9           2           2           1           0           0           0           6
+    Other (12)                                    74,075          65      21,584           0          37         346         913      48,592           3         103       2,256          74         102
+  Deferred availability cash items                   725           0           0           0           0           0          67           0           0         646          12           0           0
+  Earnings remittances due to the U.S.      
+     Treasury (13)                                 2,120          41       1,129          65          70         139         186          75          35          19          25          97         240
+  Other liabilities and accrued             
+     dividends                                     4,224         160       1,698         169         185         494         274         294         130         138         135         216         330
+                                                                                                                                                                                                        
+Total liabilities                              4,135,103     107,984   2,088,947      84,125     138,411     269,679     315,317     250,810      70,028      41,701      74,249     204,483     489,370
+                                                                                                                                                                                                        
+Capital                                                                                                                                                                                                 
+  Capital paid in                                 31,698       1,505      10,653       1,141       2,709       6,690       1,572       1,231         520         248         334         376       4,720
+  Surplus                                          6,825         294       2,166         394         545       1,455         397         285         104          32          66          84       1,002
+  Other capital                                        0           0           0           0           0           0           0           0           0           0           0           0           0
+                                                                                                                                                                                                        
+Total liabilities and capital                  4,173,626     109,783   2,101,766      85,660     141,664     277,824     317,286     252,325      70,652      41,982      74,650     204,943     495,092
+
+Note: Components may not sum to totals because of rounding. Footnotes appear at the end of the table.
+
+
+
+
+
+5. Statement of Condition of Each Federal Reserve Bank, January 1, 2020 (continued)
+
+
+1.  Includes securities lent to dealers under the overnight securities lending facility; refer to table 1A.                                                                                                 
+2.  Face value of the securities.                                                                                                                                                                           
+3.  Includes the original face value of inflation-indexed securities and compensation that adjusts for the effect of inflation on the original face value of such securities.                               
+4.  Guaranteed by Fannie Mae, Freddie Mac, and Ginnie Mae. The current face value shown is the remaining principal balance of the securities.                                                               
+5.  Reflects the premium or discount, which is the difference between the purchase price and the face value of the securities that has not been amortized. For U.S. Treasury securities, Federal agency     
+    debt securities, and mortgage-backed securities, amortization is on an effective-interest basis.                                                                                                    
+6.  Cash value of agreements, which are collateralized by U.S. Treasury and federal agency securities.                                                                                                      
+7.  Refer to the note on consolidation below.                                                                                                                                                               
+8.  Dollar value of foreign currency held under these agreements valued at the exchange rate to be used when the foreign currency is returned to the foreign central bank. This exchange rate equals        
+    the market exchange rate used when the foreign currency was acquired from the foreign central bank.                                                                                                 
+9.  Revalued daily at current foreign currency exchange rates.                                                                                                                                              
+10. Includes accrued interest, which represents the daily accumulation of interest earned, and other accounts receivable.                                                                                   
+11. Cash value of agreements, which are collateralized by U.S. Treasury securities, federal agency debt securities, and mortgage-backed securities.                                                         
+12. Includes deposits held at the Reserve Banks by international and multilateral organizations, government-sponsored enterprises, designated financial market utilities, and deposits held by              
+    depository institutions in joint accounts in connection with their participation in certain private-sector payment arrangements. Also includes certain deposit accounts other than the U.S. Treasury, General
+    Account, for services provided by the Reserve Banks as fiscal agents of the United States.                                                                                                          
+13. Represents the estimated weekly remittances due to U.S. Treasury. The amounts on this line represent the residual net earnings that the Federal Reserve Banks remit to the U.S. Treasury after          
+    providing for the costs of operations, payment of dividends, and the amount necessary to maintain a $6.825 billion surplus.                                                                         
+                                                                                                                                                                                                            
+
+
+Note on consolidation:
+
+
+On June 26, 2008, the Federal Reserve Bank of New York (FRBNY) extended a loan to Maiden Lane LLC (ML) under the authority of section 13(3) of the Federal Reserve Act. ML was formed to
+acquire certain assets of Bear Stearns and to manage those assets through time to maximize repayment of the credit extended and minimize disruption to financial markets. On June 14, 2012, the
+remaining outstanding balance of the senior loan from FRBNY to ML was repaid in full, with interest. On November 15, 2012, the remaining outstanding balance of the subordinated loan from JPMorgan
+Chase & Co. to ML was repaid in full, with interest. FRBNY was the primary beneficiary of ML because it received any residual returns and could have absorbed any residual losses should they
+have occurred. Consistent with generally accepted accounting principles, the assets and liabilities of ML were consolidated with the assets and liabilities of FRBNY in the preparation of the
+statements of condition shown on this release. As a consequence of the consolidation, the extension of credit from FRBNY to ML was eliminated, the net assets of ML appeared as assets on the
+previous page (and in table 1 and table 4), and the liabilities of ML to entities other than FRBNY, including those with recourse only to the ML portfolio holdings, were included in other
+liabilities in this table (and table 1 and table 4).
+                                                                                                                                        
+
+
+
+6. Collateral Held against Federal Reserve Notes: Federal Reserve Agents' Accounts
+Millions of dollars
+Federal Reserve notes and collateral                                                        Wednesday   
+                                                                                           Jan 1, 2020  
+
+Federal Reserve notes outstanding                                                            1,955,848  
+  Less: Notes held by F.R. Banks not subject to collateralization                              196,421  
+    Federal Reserve notes to be collateralized                                               1,759,427  
+Collateral held against Federal Reserve notes                                                1,759,427  
+  Gold certificate account                                                                      11,037  
+  Special drawing rights certificate account                                                     5,200  
+  U.S. Treasury, agency debt, and mortgage-backed securities pledged (1,2)                   1,743,190  
+  Other assets pledged                                                                               0  
+Memo:                                                                                                   
+Total U.S. Treasury, agency debt, and mortgage-backed securities (1,2)                       3,995,576  
+  Less: Face value of securities under reverse repurchase agreements                           325,629  
+    U.S. Treasury, agency debt, and mortgage-backed securities eligible to be pledged        3,669,947  
+
+Note: Components may not sum to totals because of rounding.
+
+
+1.  Includes face value of U.S. Treasury, agency debt, and mortgage-backed securities held outright,        
+    compensation to adjust for the effect of inflation on the original face value of inflation-indexed  
+    securities, and cash value of repurchase agreements.                                                
+2.  Includes securities lent to dealers under the overnight securities lending facility; refer to table     
+    1A.                                                                                                 
+
+
+
