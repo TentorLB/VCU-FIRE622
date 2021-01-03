@@ -137,14 +137,14 @@ The stock price is \$54 per share since that is what the public pays. \end{solut
 \question[4]
 Describe three of the five divisions of the Securities and Exchange Commission.   
 \begin{parts}
-\part[1]
+\part[1.3]
 Division 1:
 \begin{solution}[1.5in]
 \textbf{Division of Corporation Finance}
 
 The Division of Corporation Finance seeks to ensure that investors are provided with material information in order to make informed investment decisions, both when a company initially offers its securities to the public and on an ongoing basis as it continues to give information to the marketplace. The Division also provides interpretive assistance to companies with respect to SEC rules and forms and makes recommendations to the Commission regarding new rules and revisions to existing rules.
 \end{solution}
-\part[1]
+\part[1.3]
 Division 2:
 \begin{solution}[1.5in]
 \textbf{Division of Investment Management}
@@ -156,7 +156,7 @@ The Division has primary responsibility for administering the Investment Company
 
 The Division of Enforcement was created in August 1972 to consolidate enforcement activities that previously had been handled by the various operating divisions at the Commission's headquarters in Washington. The Commission's enforcement staff conducts investigations into possible violations of the federal securities laws, and prosecutes the Commission's civil suits in the federal courts as well as its administrative proceedings.
 \end{solution}
-\part[1]
+\part[1.4]
 Division 3:
 \begin{solution}[1.5in]
 \textbf{Division of Economic and Risk Analysis}
@@ -181,6 +181,12 @@ Here is a graph shown in the book, can you explain what is being graphed and pro
 
 \begin{solution}[1.5in]
 This graph depicts the interest rate that both Banks and Credit Unions provide for their deposits and charge for their auto loans across time.  What is clear is that credit unions offer both higher depositary rates and lower loan rates to members.  This is driven by the credit union mission to serve members and the fact that they are non-profit and untaxed.
+
+Solution 2
+While the graph shows the generally declining level of interest rates over the time period, the main point of the graph is to demonstrate the advantage of the non-profit structure of credit unions over banks for both their borrowers and lenders.  The interest rate on car loans has been significantly lower if obtained from a credit union than from a bank over the period from 1991 to 2016.  At the same time credit unions have paid their depositers higher rates of interest on CD's than banks have.  Clearly credit unions are able to operate with lower net interest margins than banks.  It is for this reason bank have fought credit unions in court when they have over stepped their traditional boundries.
+
+Solution 3
+This graph is showing the advantages of being a member of a credit union over a traditional bank. The graph is specifically comparing the interest rates credit unions and banks charged members over the years for car loans.It also compares the interest members earned on CDs over the years. Credit unions are non-profit organizations so their earnings are not taxed. This allows them to charge lower loan interest rates compared to banks as well aspay higher ineterest rates on their members deposits.
 \end{solution}
 
 \newpage
@@ -195,12 +201,18 @@ Here is a table shown in the ICI Factbook, can you explain what is being display
 
 \begin{solution}[1.5in]
 This number of different types of investment companies are displayed across time.  It demonstrates how ETFs have had strong growth across this period.  While UITs have fallen in favor over this period.  Suprisingly the overall Investment company count has decreased from 1999-2005, and remained fairly stable since that period.  
+
+Solution 2
+The table from ICI shows the number of various investment vehicles from 1999-2018.  The most striking change has been the explosion in ETF's over the time period.  Investors have embraced the concept of the index fund and the structure of the ETF (with most ETF's positioned as index funds.)  Over the time period Unit Investment Trusts have declined in popularity, likely largely replaced by "target date" mutual funds.  Closed end fund's have remained steady, but are generally a small percentage of investment vehicles by number and assets.  Open end mutual funds have seen some growth in number of funds over the time period, but this is masking a more significant trend in assets, as assets in this segment are becoming more concentrated in the largest funds, many of which are index funds.
+
+Solution 3
+This table is illustrating the number of investment companies - broken out by company type - over the last 20 years. The groupings include mutual funds, closed-end mutual funds (sub-segment of mutual funds),ETFs, and UITs. If you look, mutual funds have been on a steady increase (roughly 20\% ) over the years. This also shows that closed-end funds make up a small amount of the mutual fund market compared to open-end funds, andthat gap is only widening as it looks like closed-end funds are stagnating or even slightly decreasing over the years. ETFs, which are essentially benchmark index funds, have experienced the largest growth (over 60\% ), and UITs, which are hybrid open/closed funds with termination dates tied to them, is really the only fund group experiencing major declines (over 50\% ). Surprisingly, the numbers do not appear to have been impacted much by the financial crisis in 2008. The overall investment company numbers are slightly down(roughly 10\% ), but that is not necessarily a bad thing. The shift has been away from UITs which are more limited in their offerings - limited fund life and smaller number of securities in their funds - to mutual funds and index funds which allow access to a lot more securitiesand have relatively low transaction costs. 
 \end{solution}
 
 \newpage
 
 \question[2]
-[18-P3] An employee with 25 years of service at a company is considering retirement at some time in the next 10 years. The employer uses a final pay benefit formula by which the employee receives an annual benefit payment of 3.5 percent of her average salary during her last five years of service times her total years employed. The employee’s average salary over the last 5 years of service is as follows:
+[18-P3] An employee with 25 years of service at a company is considering retirement at some time in the next 10 years. The employer uses a final pay benefit formula by which the employee receives an annual benefit payment of 3.5 percent of her average salary during her last five years of service times her total years employed. The employee's average salary over the last 5 years of service is as follows:
 
 Average Salary during Last
 Five Years of Service
@@ -213,7 +225,7 @@ Retire in 10 years  & \$140,000     \\
 \end{tabular}
 
 \begin{solution}[1.5in]
-For retirement now, in 5 years, and in 10 years, the employee’s (estimated) annual retirement benefit payment is:
+For retirement now, in 5 years, and in 10 years, the employee's (estimated) annual retirement benefit payment is:
 
 \begin{tabular}{lllll}
                    & Years Worked & Average Salary during   & Annual Benefit \\
