@@ -1,0 +1,347 @@
+---
+title: "Prosper Peer-to-Peer Lending Data"
+author: "(Insert Your Name)"
+date: "`r (Sys.Date())`"
+output:
+  html_document:
+    df_print: kable
+    theme: simplex
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    urlcolor: blue
+  pdf_document:
+    toc: yes
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=FALSE}
+# List selected libraries
+library(tidyverse)
+library(lubridate)
+```
+# Analysis Workflow
+
+Recall that diagram depicts the workflow we are trying to implement as we do analysis.
+
+![](../image/data-science.png){width=550px}
+
+# Dataset Background
+
+[Prosper](https://www.prosper.com/invest) is a leading platform in peer-to-peer lending in the United States.  They streamline the borrowing process and assist matching investors with borrowers.  In order to attract investors they have provide a sample dataset of their loans.
+
+We are interesting in profiling this data as a starting point.  We will need to become familiar with how Prosper has chosen to to assemble the dataset.  
+
+# Analysis Objective
+
+We will be examining the Prosper Loan Peer-to-Peer data set.  
+
+We seek to understand the following questions for the loans.
+
+1. Uniqueness of listing keys
+    - Frequently computer systems create key records, in their base table these key records would not be duplicated.  As an example in the borrowers table their would be a unique BorrowerKey to identify a specific Borrower throughout the system.  A borrower could then create listings and listings may become funded loans.
+    - You will need to examine any duplicate ListingKeys to see if any additional information is available and useful.
+    - Then select how to deal with these duplicate records
+  
+2. Available DATE Fields.
+    - What date fields are available to use in any analysis.
+    - Are date fields always filled out?
+    - Sequence the fields based on when they occur for the individual loan process.
+        - Is the Credit Score always pulled after the Listing Date?
+
+3. Amount originated by year
+    - Table with the count, total loan amount and average loan size. 
+    - Plot a bar graph of the number of loans per year. 
+    - **New** Plot a box and whisker chart of the loan amount by origination year, explain how to interpret.
+
+4. Amount of loans in different loan status
+    - Table with the count, total loan amount and average loan size. 
+    - Discuss, determine and select a way to reduce the number of categories for loan status to 3-4 groupings.  The guidng question is how to best group the existing status so that the following analysis can yield reasonable insights.
+    - Table with the count, total loan amount and average loan size with the new loan status grouping. 
+    
+5. Amount of loans in different loan status groups and by year
+    - Create a pivot table showing "Year" by "Loan Status Grouping"
+    - **New** Look up function **spread**
+    - Calculate the default rate by origination year.
+
+6. Select an aspect of the dataset to explore.
+    - A more detailed analysis will generate more points.
+
+
+# Prosper Peer-to-Peer Data
+
+## Import: Loan Data
+
+```{r Import}
+
+fileData              <- '../data/prosperLoanData.csv'
+
+LoanColClasses <- 
+  c( "character", "integer",   "character", "character", "integer"
+   , "character", "character", "numeric",   "numeric",   "numeric"
+   , "numeric",   "numeric",   "numeric",   "integer",   "character"
+   , "numeric",   "integer",   "character", "character", "character"
+   , "integer",   "character", "character", "character", "character"
+   , "integer",   "integer",   "character", "integer",   "integer"
+   , "integer",   "integer",   "numeric",   "integer",   "numeric"
+   , "integer",   "numeric",   "integer",   "integer",   "integer"
+   , "numeric",   "numeric",   "numeric",   "numeric",   "numeric"
+   , "numeric",   "numeric",   "character", "character", "numeric"
+   , "character", "integer",   "integer",   "integer",   "integer"
+   , "integer",   "numeric",   "numeric",   "integer",   "integer"
+   , "integer",   "integer",   "integer",   "integer",   "character"
+   , "character", "character", "numeric",   "numeric",   "numeric"
+   , "numeric",   "numeric",   "numeric",   "numeric",   "numeric"
+   , "numeric",   "numeric",   "integer",   "integer",   "numeric"
+   , "integer"
+    )
+
+loansInitial    <- read.csv(fileData, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+#loans          <- read.csv(fileData, header = TRUE, sep = ",", colClasses = LoanColClasses)  # Specifing column classes had issues based on file format having all fields quoted.
+
+summary(loansInitial)
+```
+
+## Tidy
+
+Clean up the fields as you deem necessary for the following analysis.  You may used additional chunks as necessary so you can confirm items step by step.
+
+```{r Tidy}
+# Convert dates from character strings
+loansInitial$ListingCreationDate_ <- as.Date(loansInitial$ListingCreationDate)
+loansInitial$ClosedDate_          <- as.Date(loansInitial$ClosedDate)
+loansInitial$DateCreditPulled_    <- as.Date(loansInitial$DateCreditPulled)
+loansInitial$LoanOriginationDate_ <- as.Date(loansInitial$LoanOriginationDate)
+
+# Convert factors from character strings
+loansInitial$CreditGrade         <- as.factor(loansInitial$CreditGrade)
+loansInitial$LoanStatus          <- as.factor(loansInitial$LoanStatus)
+loansInitial$IsBorrowerHomeowner <- as.factor(loansInitial$IsBorrowerHomeowner)
+loansInitial$CurrentlyInGroup    <- as.factor(loansInitial$CurrentlyInGroup)
+
+object.size(loansInitial)        # 104,982,360 bytes with default
+
+nrow(loansInitial)
+
+```
+
+## Analysis
+
+### Listing Key Exploration
+
+Check listing key for duplicates and select how to handle.
+
+```{r ListingKeyExploration}
+
+# Checking some details
+ listingKeyUnique <- 
+  loansInitial[,1:5] %>% 
+  group_by(ListingKey) %>% 
+  summarize(count=n()) %>%
+  arrange(desc(count))
+
+ listingKeyDup    <- 
+   listingKeyUnique %>% 
+   filter(count>1) %>% 
+   arrange(desc(count))
+ 
+ loansDupListingKey <- 
+   loansInitial %>% 
+   filter(ListingKey %in% listingKeyDup$ListingKey) %>%
+   arrange(ListingKey)
+ 
+ loansUniqueListingKey <-
+   loansInitial %>% 
+   filter(!(ListingKey %in% listingKeyDup$ListingKey)) %>%
+   arrange(ListingKey)
+ 
+ if (nrow(loansInitial) == nrow(loansDupListingKey)+nrow(loansUniqueListingKey)) {
+   print ("Duplicates have been removed, count makes sense.")
+ } else {
+   print ("Error in removing duplicate records")
+ }
+
+ loans <- loansUniqueListingKey
+ nrow(loans)
+ 
+```
+
+
+### Available Date fields
+
+Here are the available date fields within the dataset, and sample data.
+
+```{r AvailableDateFields}
+nameVector <- colnames(loans)
+indexDate  <- grepl("Date",colnames(loans))
+
+nameVector[indexDate]
+
+loansUniqueListingKey[1:10,nameVector[indexDate]]
+```
+
+### Date Field Exploration
+
+Confirm date fields and sequencing.  This section should check the number of fields that actually are not N/A (is.na() and !is.na()).  Make certain you understand the data within these fields and any relationships, for instance is the listing always before the origination? 
+
+```{r DateCheck}
+DateCheck   <- loans[,nameVector[indexDate]]
+countRecord <- nrow(DateCheck)
+
+#  Present record counts
+cat("Case Zero Counts \n"
+    , format(countRecord,digits=10,width=10),                                 " : Total records \n"
+    , format(sum(!is.na(DateCheck$ListingCreationDate_)),digits=10,width=10), " : Listing Date Available \n"
+    , format(sum(!is.na(DateCheck$DateCreditPulled_)),digits=10,width=10),    " : Credit Pulled Date Available \n"
+    , format(sum(!is.na(DateCheck$LoanOriginationDate_)),digits=10,width=10), " : Origination Date Available \n"
+    , format(sum(!is.na(DateCheck$ClosedDate_)),digits=10,width=10),          " : Closed Date Available \n"
+     )
+
+# Check if ListingCreationDate is always prior to DateCreditPulled
+Check01 <- (DateCheck$ListingCreationDate_ <= DateCheck$DateCreditPulled_)
+cat("Case One Counts \n"
+    , format(countRecord,digits=10,width=10),     " : Total records \n"
+    , format(sum(Check01),digits=10,width=10),    " : Listing Date         <= Credit Pulled Date \n"
+    , format(sum(!Check01),digits=10,width=10),   " : Credit Pulled Date   <= Listing Date \n" )
+
+# Check if DateCreditPulled is always prior to LoanOriginationDate
+Check02 <- (DateCheck$DateCreditPulled_    <= DateCheck$LoanOriginationDate_)
+cat("Case Two Counts \n"
+    , format(countRecord,digits=10,width=10),     " : Total records \n"
+    , format(sum(Check02),digits=10,width=10),    " : Credit Pulled Date   <= Origination Date \n"
+    , format(sum(!Check02),digits=10,width=10),   " : Origination Date     <= Credit Pulled Date \n" )
+
+# Check if DateCreditPulled is always prior to LoanOriginationDate
+Check03 <- (DateCheck$ListingCreationDate_    <= DateCheck$LoanOriginationDate_)
+cat("Case Three Counts \n"
+    , format(countRecord,digits=10,width=10),     " : Total records \n"
+    , format(sum(Check03),digits=10,width=10),    " : Listing Date         <= Origination Date \n"
+    , format(sum(!Check03),digits=10,width=10),   " : Origination Date     <= Listing Date \n" )
+
+# Check if DateCreditPulled is always prior to LoanOriginationDate
+isAvailableClosedDate <- !is.na(DateCheck$ClosedDate_)
+Check04               <- (DateCheck$LoanOriginationDate_[isAvailableClosedDate] <= DateCheck$ClosedDate_[isAvailableClosedDate])
+cat("Case Four Counts\n"
+    , format(countRecord,digits=10,width=10),     " : Total records \n"
+    , format(length(Check04),digits=10,width=10), " : ClosedDate Available \n"
+    , format(sum(Check04),digits=10,width=10),    " : Origination Date     <= ClosedDate \n"
+    , format(sum(!Check04),digits=10,width=10),   " : Closed Date          <= Origination Date \n" )
+
+```
+
+```{r}
+ProsDate5 <- DateCheck$ClosedDate <= DateCheck$DateCreditPulled
+
+if (sum(ProsDate5 == "FALSE") == 0) {print("Date credit pulled date is always after first recorded credit line")} else {print("Sometimes the credit pulled date is before the first credit line")}
+```
+
+[Comments on Dates available for analysis]
+
+### Loan Origination Analysis
+
+Let's examine the loans by origination year. Examine the count, total loan amount and average loan size. And plot a bar graph of the number of loans. 
+
+```{r LoansbyYear}
+loans$LoanOriginationYear <- year(loans$LoanOriginationDate_)
+
+#loans$LoanOriginationYear[1:10]
+
+loansByYear <-
+  loans %>%
+  group_by(LoanOriginationYear) %>%
+  summarise(count=n(),loanAmount=sum(LoanOriginalAmount), loanAverage=sum(LoanOriginalAmount)/n() )
+loansByYear
+```
+
+**Loan Origination Comments**
+
+Bar chart of loans by year
+
+```{r LoansbyYearChart}
+
+
+p           <- ggplot(data=loansByYear, aes(x=as.character(LoanOriginationYear),y=count)) +
+  geom_bar(stat="identity", width=0.5) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  xlab("Year") +
+  ylab("Loans")
+
+p 
+```
+Box and whisker chart
+
+```{r LoansbyYearWhisker}
+ggplot(loans, aes(as.character(LoanOriginationYear), LoanOriginalAmount, group =LoanOriginationYear )) + 
+  geom_boxplot() +
+  ylab("Loan Amount") +
+  xlab("Year")
+```
+
+
+[Comments on Origination Date Graphics, including details on the box and whisker charts and how to understand]
+
+### Loan Status Analysis
+
+Aggregate by Loan Status.
+
+```{r AggregateLoanStatus}
+loanStatus <-
+  loans %>%
+  group_by(LoanStatus) %>%
+  summarise(count=n(),AvgLoan=mean(LoanOriginalAmount))
+loanStatus
+```
+
+Create simplified loan status group and aggregate.
+
+```{r AggregateLoanStatusGroup}
+loans$LoanStatusGroup <- ifelse(loans$LoanStatus %in% c("Completed","FinalPaymentInProgress"),"Complete"
+                                ,ifelse(loans$LoanStatus %in% c("Chargedoff","Defaulted","Cancelled"),"Default"
+                                ,ifelse(loans$LoanStatus %in% c("Current"),"Current","PastDue")))
+loanStatusGroup <-
+  loans %>%
+  group_by(LoanStatusGroup) %>%
+  summarise(count=n(),AvgLoan=mean(LoanOriginalAmount))
+loanStatusGroup
+
+```
+
+### Examine the loan status groups by year
+
+```{r LoanStatusGroupYear}
+loanStatusGroupYear <-
+  loans %>%
+  group_by(LoanOriginationYear,LoanStatusGroup) %>%
+  summarise(count=n(),AvgLoan=mean(LoanOriginalAmount))
+loanStatusGroupYear
+```
+
+Pivot the values LoanOriginationYear on the row and LoanStatusGroup on the columns.
+
+```{r Pivot}
+
+pivot <- 
+  loanStatusGroupYear[,c("LoanOriginationYear","LoanStatusGroup","count")] %>% 
+  spread(LoanStatusGroup,count) %>%
+  mutate(Current=coalesce(Current, 0L),
+         Default=coalesce(Default, 0L),
+         PastDue=coalesce(PastDue, 0L),
+         DefaultRate=Default/(Complete+Current+Default+PastDue))
+pivot
+
+```
+
+[Comments on the default rate by orgination year]
+
+### Selected Analysis
+
+```{r SelectedAnalysis}
+
+```
+
+**Commentaty on Selected Analysis**
+
