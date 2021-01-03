@@ -1,4 +1,4 @@
-# VCU-FIRE622
+# VCU-FIRE622, Spring 2020
 Virginia Commonwealth University FIRE 622: Financial Markets and Institutions Through Their Data
 
 ## Course description
