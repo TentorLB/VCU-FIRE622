@@ -34,8 +34,17 @@ lesson06/*/*.html
 lesson07/*/*.html
 lesson07Supplement/*.html
 
+lesson08/*/*.html
+lesson09/*/*.html
+lesson09/presentation/libs
 lesson10/*/*.html
+lesson10/presentation/libs
+lesson11/*/*.html
+lesson11/presentation/libs
+lesson12/*/*.html
+lesson12/presentation/libs
 lesson13/*/*.html
+lesson13/presentation/libs
 
 # datasets
 lesson01/data/MORTGAGE15US.csv
@@ -47,4 +56,22 @@ lesson03/assignment/assignment03_sol.Rmd
 lesson04/assignment/assignment04_sol.Rmd
 lesson04/assignment/project04_sol.Rmd
 lesson06/assignment/project06_sol.Rmd
+lesson10/assignment/Project10-A.sol.Rmd
+lesson10/assignment/SubmittedWork/
+
+lesson10/demo/Edgar filings_full text
+lesson10/demo/Edgar filings_HTML view
+lesson10/demo/Master Indexes
+lesson10/demo/xbrl.Cache
+lesson10/demo/XBRLcache
+
+
+
+Master Indexes/
+Business descriptions text/
 FRED.key
+*.tex
+lesson12/assignment/ProblemSetReview12.pdf
+lesson10/exercise/Edgar filings_full text/Form 10-K/320193/320193_10-K_2018-11-05_0000320193-18-000145.txt
+lesson10/exercise/Edgar filings_full text/Form 10-K/320193/320193_10-K_2019-10-31_0000320193-19-000119.txt
+lesson12/assignment/ProblemSetReview12.synctex.gz
