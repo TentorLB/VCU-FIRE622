@@ -1,0 +1,177 @@
+---
+title: "Federal Reserve Balance Sheet"
+author: "Larry Tentor"
+date:   "`r (Sys.Date())`"
+output: html_document
+---
+
+```{r setupExclude, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=TRUE}
+# List selected libraries
+library(ggplot2)
+library(fredr)
+
+# Read Federal Reserve Economic Database (FRED) user key
+# This will need to be configured for each user though an account at https://research.stlouisfed.org/useraccount/apikeys
+# Then placed in the file FRED.key in the same directory as this file.
+fredFile          <- read.csv('FRED.key', header = FALSE, sep = ",", dec = ".", stringsAsFactors = FALSE)
+GetYourOwnFredKey <- fredFile$V1[1]
+fredr_set_key(GetYourOwnFredKey)
+dateStart <- "2000-01-01"
+#dateStart <- "2019-12-01"
+```
+
+## Unemployment Rate
+
+
+```{r unrate}
+unemployment <- fredr(
+  series_id = "UNRATE",
+  observation_start = as.Date(dateStart)
+)
+head(unemployment)
+```
+
+```{r unratePlot}
+#ggplot(data = unemployment) +
+#  geom_smooth(mapping = aes(x = date, y = value))
+
+ggplot(unemployment, aes(date, value)) + 
+  geom_line() + 
+  xlab("Date") + 
+  ylab("Unemployment Rate [%]") + 
+  ylim(0, ceiling(max(unemployment$value)+0.1)) + 
+  ggtitle("History of Unemployment Rate")
+
+#+
+# scale_x_date(format = "%b-%Y") + xlab("") + ylab("Daily Views")
+
+```
+  
+
+
+##  Balance Sheet
+
+
+
+## Balance Sheet 02
+
+
+Assets: Other Factors Supplying Reserve Balances: Reserve Bank Credit: Week Average (WRESCRT)
+Billions of U.S. Dollars,
+Not Seasonally Adjusted
+
+```{r reserveBankCredit}
+# RESH4SC_XAW_N.WW",
+reserveBankCredit <- fredr(
+  series_id = "WRESCRT",
+  observation_start = as.Date(dateStart)
+)
+#head(reserveBankCredit)
+reserveBankCredit
+```
+
+
+
+Assets: Securities Held Outright: Securities Held Outright: Week Average (WSECOUT)
+Billions of U.S. Dollars,
+Not Seasonally Adjusted
+
+```{r securitiesHeldOutright}
+securitiesHeldOutright <- fredr(
+  series_id = "WSECOUT",
+  observation_start = as.Date(dateStart)
+)
+head(securitiesHeldOutright)
+```
+
+Assets: Securities Held Outright: U.S. Treasury Securities: Week Average (WSHOTSA)
+ Millions of U.S. Dollars, Weekly, Not Seasonally Adjusted
+
+```{r treasurySecurities}
+treasurySecurities <- fredr(
+  series_id = "WSHOTSA",
+  observation_start = as.Date(dateStart)
+)
+#head(treasurySecurities)
+treasurySecurities
+
+```
+```{r treasurySecuritiesPlot}
+plot(treasurySecurities$date,treasurySecurities$value)
+
+```
+
+ Assets: Securities Held Outright: U.S. Treasury Securities: Bills: Week Average (WSHOBA)
+ Millions of U.S. Dollars, Not Seasonally Adjusted
+ 
+```{r treasurySecuritiesBills}
+treasurySecuritiesBills <- fredr(
+  series_id = "WSHOBA",
+  observation_start = as.Date(dateStart)
+)
+treasurySecuritiesBills
+```
+
+
+Assets: Securities Held Outright: Mortgage-Backed Securities: Week Average (WMBSEC)
+Millions of U.S. Dollars, Not Seasonally Adjusted
+ 
+```{r MBS}
+mbs <- fredr(
+  series_id = "WMBSEC",
+  observation_start = as.Date(dateStart)
+)
+mbs
+```
+
+
+Assets: Other Factors Supplying Reserve Balances: Total Factors Supplying Reserve Funds: Week Average (WTFSRFA)
+
+ 
+```{r TotalAsset}
+totalAsset <- fredr(
+  series_id = "WTFSRFA",
+  observation_start = as.Date(dateStart)
+)
+totalAsset
+```
+
+Assets: Securities Held Outright: Mortgage-Backed Securities: Maturing in Over 10 Years: Wednesday Level (MBS10Y)
+
+```{r MBS10plus}
+mbs10plus <- fredr(
+  series_id = "MBS10Y",
+  observation_start = as.Date(dateStart)
+)
+tail(mbs10plus)
+```
+
+
+On the same figure, graph national saving and investment as fractions of real GDP, using quarterly U.S. data since 1947. (Note that national saving is called gross saving in the FRED database.) How does the behavior of these variables in the past ten years compare to their behavior in earlier periods? How is it possible for investment to exceed national saving, as it does in some periods?
+
+Exercise 1.3 Some US data to download and plot 1. Download the following data from the Federal Reserve Bank of St Louis’ website:
+
+a) Gross Domestic Product (GDP) from https://research.stlouisfed.org/ fred2/series/GDP/downloaddata (choose Frequency: Annual Data)
+
+b) ConsumerPriceIndexforAllUrbanConsumers: AllItems(CPIAUCSL)from https://research.stlouisfed.org/fred2/series/CPIAUCSL/downloaddata (choose Frequency: annual data)
+
+c) Total Population: All Ages including Armed Forces Overseas (POP) from https://research.stlouisfed.org/fred2/series/POP/downloaddata(choose Frequency: annual data)
+
+d) PersonalConsumptionExpenditures(PCE)fromhttps://research.stlouisfed. org/fred2/series/PCE/downloaddata (choose Frequency: annual data)
+
+2. If your father’s ﬁrst monthly wage was $1000 in 1985, how much is it in today’s dollars?
+
+3. Plot for the longest possible period, for example putting all of this data on Excel oronGoogleSheets, andtransformingit(using GDPandCPIAUCSLto calculate realGDP,etc.),theannualgrowthrateofRealGDPpercapitausingtwomethods:
+
+• The yt+1−yt yt method.
+
+• The log(yt+1)−log(yt) method.
+
+Provide the plots in your answer sheet.
+
+4. Do the same for the annual growth rate of Real PCE per capita.
+
